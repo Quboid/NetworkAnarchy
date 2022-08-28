@@ -31,6 +31,12 @@ namespace NetworkAnarchy
 
         public static readonly SavedInputKey toggleStraightSlope = new SavedInputKey("toggleStraightSlope", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.S, false, true, false), true);
 
+        public static readonly SavedInputKey toggleAnarchy = new SavedInputKey("toggleAnarchy", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.A, true, false, false), true);
+        public static readonly SavedInputKey toggleBending = new SavedInputKey("toggleBending", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.B, true, false, false), true);
+        public static readonly SavedInputKey toggleSnapping = new SavedInputKey("toggleSnapping", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.S, true, false, false), true);
+        public static readonly SavedInputKey toggleCollision = new SavedInputKey("toggleCollision", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.C, false, false, true), true);
+        public static readonly SavedInputKey toggleGrid = new SavedInputKey("toggleGrid", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.G, false, false, true), true);
+
         private int count = 0;
 
         public static void RegisterUUIHotkeys() {
@@ -46,6 +52,12 @@ namespace NetworkAnarchy
             intoolKeys.Add(modesCycleRight, IsActive);
             intoolKeys.Add(modesCycleLeft, IsActive);
             intoolKeys.Add(toggleStraightSlope, IsActive);
+            intoolKeys.Add(toggleAnarchy, IsActive);
+            intoolKeys.Add(toggleBending, IsActive);
+            intoolKeys.Add(toggleSnapping, IsActive);
+            intoolKeys.Add(toggleCollision, IsActive);
+            intoolKeys.Add(toggleGrid, IsActive);
+
             UUIHelpers.RegisterHotkeys(null, activeKeys: intoolKeys);
         }
 
@@ -59,6 +71,11 @@ namespace NetworkAnarchy
             AddKeymapping("Cycle Modes Right", modesCycleRight);
             AddKeymapping("Cycle Modes Left", modesCycleLeft);
             AddKeymapping("Toggle Straight Slope", toggleStraightSlope);
+            AddKeymapping("Toggle Anarchy", toggleAnarchy);
+            AddKeymapping("Toggle Bending", toggleBending);
+            AddKeymapping("Toggle Snapping", toggleSnapping);
+            AddKeymapping("Toggle Collision", toggleCollision);
+            AddKeymapping("Toggle Editor Grid", toggleGrid);
         }
 
         private void AddKeymapping(string label, SavedInputKey savedInputKey)

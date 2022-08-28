@@ -68,17 +68,17 @@ namespace NetworkAnarchy.Redirection
             // R11 is volatile.
             unsafe
             {
-                byte* sitePtr = (byte*) site.ToPointer();
+                byte* sitePtr = (byte*)site.ToPointer();
                 state.a = *sitePtr;
                 state.b = *(sitePtr + 1);
                 state.c = *(sitePtr + 10);
                 state.d = *(sitePtr + 11);
                 state.e = *(sitePtr + 12);
-                state.f = *((ulong*) (sitePtr + 2));
+                state.f = *((ulong*)(sitePtr + 2));
 
                 *sitePtr = 0x49; // mov r11, target
                 *(sitePtr + 1) = 0xBB;
-                *((ulong*) (sitePtr + 2)) = (ulong) target.ToInt64();
+                *((ulong*)(sitePtr + 2)) = (ulong)target.ToInt64();
                 *(sitePtr + 10) = 0x41; // jmp r11
                 *(sitePtr + 11) = 0xFF;
                 *(sitePtr + 12) = 0xE3;
@@ -91,10 +91,10 @@ namespace NetworkAnarchy.Redirection
         {
             unsafe
             {
-                byte* sitePtr = (byte*) site.ToPointer();
+                byte* sitePtr = (byte*)site.ToPointer();
                 *sitePtr = state.a; // mov r11, target
                 *(sitePtr + 1) = state.b;
-                *((ulong*) (sitePtr + 2)) = state.f;
+                *((ulong*)(sitePtr + 2)) = state.f;
                 *(sitePtr + 10) = state.c; // jmp r11
                 *(sitePtr + 11) = state.d;
                 *(sitePtr + 12) = state.e;

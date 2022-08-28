@@ -19,6 +19,12 @@ namespace NetworkAnarchy
 
         private UICheckBox m_straightSlope;
 
+        public UICheckBox m_anarchyBtn;
+        public UICheckBox m_bendingBtn;
+        public UICheckBox m_snappingBtn;
+        public UICheckBox m_collisionBtn;
+        public UICheckBox m_gridBtn;
+
         private UITextureAtlas m_atlas;
 
         private UIComponent m_parent;
@@ -177,7 +183,7 @@ namespace NetworkAnarchy
             m_toolOptionsPanel.name = "NA_ToolOptionsPanel";
             m_toolOptionsPanel.atlas = ResourceLoader.GetAtlas("Ingame");
             m_toolOptionsPanel.backgroundSprite = "SubcategoriesPanel";
-            m_toolOptionsPanel.size = new Vector2(228, 180);
+            m_toolOptionsPanel.size = new Vector2(228, 236);
             m_toolOptionsPanel.absolutePosition = new Vector3(savedWindowX.value, savedWindowY.value);
             m_toolOptionsPanel.clipChildren = true;
 
@@ -305,11 +311,39 @@ namespace NetworkAnarchy
             };
 
             m_normalModeButton.isChecked = true;
+
+            // Anarchy buttons
+            UIPanel anarchyPanel = m_toolOptionsPanel.AddUIComponent<UIPanel>();
+            anarchyPanel.atlas = m_toolOptionsPanel.atlas;
+            anarchyPanel.backgroundSprite = "GenericPanel";
+
+            anarchyPanel.name = "NA_AnarchysPanel";
+            anarchyPanel.color = new Color32(206, 206, 206, 255);
+            anarchyPanel.size = new Vector2(m_toolOptionsPanel.width - 16, 52);
+            anarchyPanel.relativePosition = new Vector2(8, 176);
+
+            anarchyPanel.padding = new RectOffset(8, 8, 8, 8);
+            anarchyPanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
+            anarchyPanel.autoLayoutDirection = LayoutDirection.Horizontal;
+
+            m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", "Toggle road anarchy", NetworkAnarchy.saved_anarchy);
+            m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", "Toggle road bending", NetworkAnarchy.saved_bending);
+            m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", "Toggle node snapping", NetworkAnarchy.saved_nodeSnapping);
+            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", "Toggle road collision", NetworkAnarchy.collision);
+
+            if ((ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None)
+            {
+                m_gridBtn = CreateAnarchyCheckBox(anarchyPanel, "Grid", "Toggle editor grid", true);
+            }
+
+            UpdateAnarchyOptions();
+
+            anarchyPanel.autoLayout = true;
         }
 
         private UICheckBox CreateCheckBox(UIComponent parent)
         {
-            UICheckBox checkBox = (UICheckBox) parent.AddUIComponent<UICheckBox>();
+            UICheckBox checkBox = parent.AddUIComponent<UICheckBox>();
 
             checkBox.width = 300f;
             checkBox.height = 20f;
@@ -391,6 +425,66 @@ namespace NetworkAnarchy
                 NetworkAnarchy.instance.mode = Mode.Tunnel;
         }
 
+        private UICheckBox CreateAnarchyCheckBox(UIComponent parent, string spriteName, string toolTip, bool value)
+        {
+            UICheckBox checkBox = parent.AddUIComponent<UICheckBox>();
+            checkBox.size = new Vector2(36, 36);
+
+            UIButton button = checkBox.AddUIComponent<UIButton>();
+            button.name = "NA_" + spriteName;
+            button.atlas = m_atlas;
+            button.tooltip = toolTip;
+            button.relativePosition = new Vector2(0, 0);
+
+            button.normalBgSprite = "OptionBase";
+            button.hoveredBgSprite = "OptionBaseHovered";
+            button.pressedBgSprite = "OptionBasePressed";
+            button.disabledBgSprite = "OptionBaseDisabled";
+
+            button.normalFgSprite = spriteName;
+            button.hoveredFgSprite = spriteName + "Hovered";
+            button.pressedFgSprite = spriteName + "Pressed";
+            button.disabledFgSprite = spriteName + "Disabled";
+
+            checkBox.isChecked = value;
+            if (value)
+            {
+                button.normalBgSprite = "OptionBaseFocused";
+                button.normalFgSprite = spriteName + "Focused";
+            }
+
+            checkBox.eventCheckChanged += (c, s) =>
+            {
+                if (s)
+                {
+                    button.normalBgSprite = "OptionBaseFocused";
+                    button.normalFgSprite = spriteName + "Focused";
+                }
+                else
+                {
+                    button.normalBgSprite = "OptionBase";
+                    button.normalFgSprite = spriteName;
+                }
+
+                UpdateAnarchyOptions();
+            };
+
+            return checkBox;
+        }
+
+        private void UpdateAnarchyOptions()
+        {
+            NetworkAnarchy.anarchy = m_anarchyBtn.isChecked;
+            NetworkAnarchy.bending = m_bendingBtn.isChecked;
+            NetworkAnarchy.snapping = m_snappingBtn.isChecked;
+            NetworkAnarchy.collision = m_collisionBtn.isChecked;
+
+            if (m_gridBtn != null)
+            {
+                NetworkAnarchy.grid = m_gridBtn.isChecked;
+            }
+        }
+
         private void LoadResources()
         {
             string[] spriteNames = new string[]
@@ -419,7 +513,32 @@ namespace NetworkAnarchy
                 "TunnelModeDisabled",
                 "TunnelModeFocused",
                 "TunnelModeHovered",
-                "TunnelModePressed"
+                "TunnelModePressed",
+                "Anarchy",
+                "AnarchyDisabled",
+                "AnarchyFocused",
+                "AnarchyHovered",
+                "AnarchyPressed",
+                "Bending",
+                "BendingDisabled",
+                "BendingFocused",
+                "BendingHovered",
+                "BendingPressed",
+                "Snapping",
+                "SnappingDisabled",
+                "SnappingFocused",
+                "SnappingHovered",
+                "SnappingPressed",
+                "Collision",
+                "CollisionDisabled",
+                "CollisionFocused",
+                "CollisionHovered",
+                "CollisionPressed",
+                "Grid",
+                "GridDisabled",
+                "GridFocused",
+                "GridHovered",
+                "GridPressed"
             };
 
             m_atlas = ResourceLoader.CreateTextureAtlas("NetworkAnarchy", spriteNames, "NetworkAnarchy.Icons.");

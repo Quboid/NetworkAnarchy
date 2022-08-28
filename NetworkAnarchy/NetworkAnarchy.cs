@@ -1,6 +1,9 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+
 using ICities;
+using NetworkAnarchy.Detours;
+using NetworkAnarchy.Redirection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,34 +14,6 @@ using UnityEngine;
 
 namespace NetworkAnarchy
 {
-    public class NetworkAnarchyLoader : LoadingExtensionBase
-    {
-        public override void OnLevelLoaded(LoadMode mode)
-        {
-            if (NetworkAnarchy.instance == null)
-            {
-                // Creating the instance
-                NetworkAnarchy.instance = new GameObject("NetworkAnarchy").AddComponent<NetworkAnarchy>();
-
-                // Don't destroy it
-                GameObject.DontDestroyOnLoad(NetworkAnarchy.instance);
-            }
-            else
-            {
-                NetworkAnarchy.instance.Start();
-                NetworkAnarchy.instance.enabled = true;
-            }
-        }
-
-        public override void OnLevelUnloading()
-        {
-            if (NetworkAnarchy.instance != null)
-            {
-                NetworkAnarchy.instance.enabled = false;
-            }
-        }
-    }
-
     public class NetworkAnarchy : MonoBehaviour
     {
         public const string settingsFileName = "NetworkAnarchy";
@@ -47,8 +22,11 @@ namespace NetworkAnarchy
 
         public static SavedBool changeMaxTurnAngle = new SavedBool("_changeMaxTurnAngle", settingsFileName, false, true);
         public static SavedFloat maxTurnAngle = new SavedFloat("_maxTurnAngle", settingsFileName, 90, true);
-
         public static SavedBool saved_smoothSlope = new SavedBool("smoothSlope", settingsFileName, false, true);
+        public static SavedBool saved_anarchy = new SavedBool("anarchy", settingsFileName, false, true);
+        public static SavedBool saved_bending = new SavedBool("bending", settingsFileName, true, true);
+        public static SavedBool saved_nodeSnapping = new SavedBool("nodeSnapping", settingsFileName, true, true);
+        public static SavedBool saved_collision = new SavedBool("collision", settingsFileName, true, true);
 
         private int m_elevation = 0;
         private readonly SavedInt m_elevationStep = new SavedInt("elevationStep", settingsFileName, 3, true);
@@ -94,6 +72,12 @@ namespace NetworkAnarchy
 
         private static UIToolOptionsButton m_toolOptionButton;
         private static UIButton m_upgradeButtonTemplate;
+
+        public static FastList<NetInfo> bendingPrefabs = new FastList<NetInfo>();
+
+        public static UIButton chirperButton;
+        public static UITextureAtlas chirperAtlasAnarchy;
+        public static UITextureAtlas chirperAtlasNormal;
 
         public bool singleMode
         {
@@ -204,6 +188,30 @@ namespace NetworkAnarchy
                 return;
             }
 
+            bendingPrefabs.Clear();
+            int count = PrefabCollection<NetInfo>.PrefabCount();
+            for (uint i = 0; i < count; i++)
+            {
+                NetInfo prefab = PrefabCollection<NetInfo>.GetPrefab(i);
+                if (prefab != null)
+                {
+                    if (prefab.m_enableBendingSegments)
+                    {
+                        bendingPrefabs.Add(prefab);
+                    }
+                }
+            }
+
+            Redirector<NetInfoDetour>.Deploy();
+            collision = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) == ItemClass.Availability.None;
+
+            if (chirperAtlasAnarchy == null)
+            {
+                LoadChirperAtlas();
+            }
+
+            chirperButton = UIView.GetAView().FindUIComponent<UIButton>("Zone");
+
             // Getting Upgrade button template
             try
             {
@@ -247,6 +255,12 @@ namespace NetworkAnarchy
 
             // Fix nodes
             FixNodes();
+
+            // Load Anarchy saved settings
+            anarchy = saved_anarchy.value;
+            bending = saved_bending.value;
+            snapping = saved_nodeSnapping.value;
+            collision = saved_collision.value;
 
             OptionsKeymapping.RegisterUUIHotkeys();
 
@@ -1123,6 +1137,278 @@ namespace NetworkAnarchy
                     }
                 }
             }
+        }
+        public void OnDestroy()
+        {
+            Redirector<NetInfoDetour>.Revert();
+            anarchy = false;
+        }
+
+        public static bool anarchy
+        {
+            get
+            {
+                return Redirector<NetToolDetour>.IsDeployed();
+            }
+
+            set
+            {
+                if (anarchy != value)
+                {
+                    if (value)
+                    {
+                        DebugUtils.Log("Enabling anarchy");
+                        Redirector<NetToolDetour>.Deploy();
+                        Redirector<BuildingToolDetour>.Deploy();
+                        Redirector<RoadAIDetour>.Deploy();
+                        Redirector<PedestrianPathAIDetour>.Deploy();
+                        Redirector<TrainTrackAIDetour>.Deploy();
+                        Redirector<NetAIDetour>.Deploy();
+
+                        if (chirperButton != null && chirperAtlasAnarchy != null)
+                        {
+                            chirperAtlasNormal = chirperButton.atlas;
+                            chirperButton.atlas = chirperAtlasAnarchy;
+                        }
+                    }
+                    else
+                    {
+                        DebugUtils.Log("Disabling anarchy");
+                        Redirector<NetToolDetour>.Revert();
+                        Redirector<BuildingToolDetour>.Revert();
+                        Redirector<RoadAIDetour>.Revert();
+                        Redirector<PedestrianPathAIDetour>.Revert();
+                        Redirector<TrainTrackAIDetour>.Revert();
+                        Redirector<NetAIDetour>.Revert();
+
+                        if (chirperButton != null && chirperAtlasNormal != null)
+                        {
+                            chirperButton.atlas = chirperAtlasNormal;
+                        }
+                    }
+
+                    saved_anarchy.value = value;
+                }
+            }
+        }
+
+        public static bool bending
+        {
+            get
+            {
+                return bendingPrefabs.m_size > 0 && bendingPrefabs.m_buffer[0].m_enableBendingSegments;
+            }
+
+            set
+            {
+                if (bending != value)
+                {
+                    for (int i = 0; i < bendingPrefabs.m_size; i++)
+                    {
+                        bendingPrefabs.m_buffer[i].m_enableBendingSegments = value;
+                    }
+
+                    saved_bending.value = value;
+                }
+            }
+        }
+
+        private static bool _snapping = saved_nodeSnapping.value;
+        public static bool snapping
+        {
+            get
+            {
+                return _snapping;
+            }
+
+            set
+            {
+                if (_snapping != value)
+                {
+                    _snapping = value;
+
+                    saved_nodeSnapping.value = value;
+                }
+            }
+        }
+
+        public static bool collision
+        {
+            get
+            {
+                return !Redirector<CollisionNetNodeDetour>.IsDeployed();
+            }
+
+            set
+            {
+                if (value != collision)
+                {
+                    if (value)
+                    {
+                        DebugUtils.Log("Enabling collision");
+                        Redirector<CollisionBuildingManagerDetour>.Revert();
+                        Redirector<CollisionNetManagerDetour>.Revert();
+                        Redirector<CollisionNetNodeDetour>.Revert();
+                        CollisionZoneBlockDetour.Revert();
+                    }
+                    else
+                    {
+                        DebugUtils.Log("Disabling collision");
+                        Redirector<CollisionBuildingManagerDetour>.Deploy();
+                        Redirector<CollisionNetManagerDetour>.Deploy();
+                        Redirector<CollisionNetNodeDetour>.Deploy();
+                        CollisionZoneBlockDetour.Deploy();
+                    }
+
+                    saved_collision.value = value;
+                }
+            }
+        }
+
+        public static bool grid
+        {
+            get
+            {
+                return (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None;
+            }
+
+            set
+            {
+                if (value)
+                {
+                    ToolManager.instance.m_properties.m_mode = ToolManager.instance.m_properties.m_mode | ItemClass.Availability.AssetEditor;
+                }
+                else
+                {
+                    ToolManager.instance.m_properties.m_mode = ToolManager.instance.m_properties.m_mode & ~ItemClass.Availability.AssetEditor;
+                }
+            }
+        }
+
+        private void LoadChirperAtlas()
+        {
+            string[] spriteNames = new string[]
+            {
+                "Chirper",
+                "ChirperChristmas",
+                "ChirperChristmasDisabled",
+                "ChirperChristmasFocused",
+                "ChirperChristmasHovered",
+                "ChirperChristmasPressed",
+                "ChirperConcerts",
+                "ChirperConcertsDisabled",
+                "ChirperConcertsFocused",
+                "ChirperConcertsHovered",
+                "ChirperConcertsPressed",
+                "Chirpercrown",
+                "ChirpercrownDisabled",
+                "ChirpercrownFocused",
+                "ChirpercrownHovered",
+                "ChirpercrownPressed",
+                "ChirperDeluxe",
+                "ChirperDeluxeDisabled",
+                "ChirperDeluxeFocused",
+                "ChirperDeluxeHovered",
+                "ChirperDeluxePressed",
+                "ChirperDisabled",
+                "ChirperDisastersHazmat",
+                "ChirperDisastersHazmatDisabled",
+                "ChirperDisastersHazmatFocused",
+                "ChirperDisastersHazmatHovered",
+                "ChirperDisastersHazmatPressed",
+                "ChirperDisastersPilot",
+                "ChirperDisastersPilotDisabled",
+                "ChirperDisastersPilotFocused",
+                "ChirperDisastersPilotHovered",
+                "ChirperDisastersPilotPressed",
+                "ChirperDisastersWorker",
+                "ChirperDisastersWorkerDisabled",
+                "ChirperDisastersWorkerFocused",
+                "ChirperDisastersWorkerHovered",
+                "ChirperDisastersWorkerPressed",
+                "ChirperFocused",
+                "ChirperFootball",
+                "ChirperFootballDisabled",
+                "ChirperFootballFocused",
+                "ChirperFootballHovered",
+                "ChirperFootballPressed",
+                "ChirperHovered",
+                "ChirperIcon",
+                "ChirperJesterhat",
+                "ChirperJesterhatDisabled",
+                "ChirperJesterhatFocused",
+                "ChirperJesterhatHovered",
+                "ChirperJesterhatPressed",
+                "ChirperLumberjack",
+                "ChirperLumberjackDisabled",
+                "ChirperLumberjackFocused",
+                "ChirperLumberjackHovered",
+                "ChirperLumberjackPressed",
+                "ChirperParkRanger",
+                "ChirperParkRangerDisabled",
+                "ChirperParkRangerFocused",
+                "ChirperParkRangerHovered",
+                "ChirperParkRangerPressed",
+                "ChirperPressed",
+                "ChirperRally",
+                "ChirperRallyDisabled",
+                "ChirperRallyFocused",
+                "ChirperRallyHovered",
+                "ChirperRallyPressed",
+                "ChirperRudolph",
+                "ChirperRudolphDisabled",
+                "ChirperRudolphFocused",
+                "ChirperRudolphHovered",
+                "ChirperRudolphPressed",
+                "ChirperSouvenirGlasses",
+                "ChirperSouvenirGlassesDisabled",
+                "ChirperSouvenirGlassesFocused",
+                "ChirperSouvenirGlassesHovered",
+                "ChirperSouvenirGlassesPressed",
+                "ChirperSurvivingMars",
+                "ChirperSurvivingMarsDisabled",
+                "ChirperSurvivingMarsFocused",
+                "ChirperSurvivingMarsHovered",
+                "ChirperSurvivingMarsPressed",
+                "ChirperTrafficCone",
+                "ChirperTrafficConeDisabled",
+                "ChirperTrafficConeFocused",
+                "ChirperTrafficConeHovered",
+                "ChirperTrafficConePressed",
+                "ChirperTrainConductor",
+                "ChirperTrainConductorDisabled",
+                "ChirperTrainConductorFocused",
+                "ChirperTrainConductorHovered",
+                "ChirperTrainConductorPressed",
+                "ChirperWintercap",
+                "ChirperWintercapDisabled",
+                "ChirperWintercapFocused",
+                "ChirperWintercapHovered",
+                "ChirperWintercapPressed",
+                "ChirperZookeeper",
+                "ChirperZookeeperDisabled",
+                "ChirperZookeeperFocused",
+                "ChirperZookeeperHovered",
+                "ChirperZookeeperPressed",
+                "EmptySprite",
+                "ThumbChirperBeanie",
+                "ThumbChirperBeanieDisabled",
+                "ThumbChirperBeanieFocused",
+                "ThumbChirperBeanieHovered",
+                "ThumbChirperBeaniePressed",
+                "ThumbChirperFlower",
+                "ThumbChirperFlowerDisabled",
+                "ThumbChirperFlowerFocused",
+                "ThumbChirperFlowerHovered",
+                "ThumbChirperFlowerPressed",
+                "ThumbChirperTech",
+                "ThumbChirperTechDisabled",
+                "ThumbChirperTechFocused",
+                "ThumbChirperTechHovered",
+                "ThumbChirperTechPressed"
+            };
+
+            chirperAtlasAnarchy = ResourceLoader.CreateTextureAtlas("ChirperAtlasAnarchy", spriteNames, "NetworkAnarchy.ChirperAtlas.");
         }
     }
 }

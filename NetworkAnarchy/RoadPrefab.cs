@@ -1,14 +1,11 @@
-﻿using UnityEngine;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-
+using UnityEngine;
 using NetworkAnarchy.Redirection;
 
 namespace NetworkAnarchy
 {
-
     public enum Mode
     {
         Normal,

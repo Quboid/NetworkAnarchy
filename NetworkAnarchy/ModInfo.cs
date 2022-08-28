@@ -131,4 +131,73 @@ namespace NetworkAnarchy
             }
         }
     }
+
+    public class NetworkAnarchyLoader : LoadingExtensionBase
+    {
+        public void OnEnabled()
+        {
+            Debug.Log($"OnEnabled");
+            if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
+            {
+                InitializeMod();
+            }
+        }
+
+        public void OnDisabled()
+        {
+            Debug.Log($"OnDisabled");
+            if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
+            {
+                DestroyMod();
+            }
+        }
+
+        public override void OnLevelLoaded(LoadMode mode)
+        {
+            Debug.Log($"OnLevelLoaded");
+            //if (!(mode == LoadMode.LoadGame || mode == LoadMode.NewGame || mode == LoadMode.NewGameFromScenario))
+            //{
+            //    return;
+            //}
+
+            InitializeMod();
+        }
+
+        public override void OnLevelUnloading()
+        {
+            Debug.Log($"OnLevelUnloading");
+            DestroyMod();
+        }
+
+        public void InitializeMod()
+        {
+            Debug.Log($"InitializeMod");
+            if (NetworkAnarchy.instance == null)
+            {
+                Debug.Log($"InitializeMod IsNull");
+                // Creating the instance
+                NetworkAnarchy.instance = new GameObject("NetworkAnarchy").AddComponent<NetworkAnarchy>();
+
+                // Don't destroy it
+                GameObject.DontDestroyOnLoad(NetworkAnarchy.instance);
+            }
+            else
+            {
+                Debug.Log($"InitializeMod NotNull");
+                NetworkAnarchy.instance.Start();
+                NetworkAnarchy.instance.enabled = true;
+            }
+        }
+
+        public void DestroyMod()
+        {
+            Debug.Log($"DestroyMod");
+            if (NetworkAnarchy.instance != null)
+            {
+                Debug.Log($"DestroyMod NotNull");
+                NetworkAnarchy.instance.enabled = false;
+                GameObject.Destroy(NetworkAnarchy.instance);
+            }
+        }
+    }
 }
