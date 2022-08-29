@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B64AC1A3-481B-435D-A48C-650C37F6C485}</ProjectGuid>
+    <ProjectGuid>{291D9EA9-6945-4EA3-8756-37464D40FF00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NetworkAnarchy</RootNamespace>
@@ -12,7 +12,6 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>false</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,34 +24,16 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>
-    </DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManagedDLLPath>../dependencies</ManagedDLLPath>
-    <SteamPath Condition="! Exists ('$(SteamPath)')">S:/Steam</SteamPath>
-    <SteamPath>~/Library/Application Support/Steam/</SteamPath>
-    <SteamPath Condition="! Exists ('$(SteamPath)')">$(ProgramFiles)/Steam</SteamPath>
-    <SteamPath Condition="! Exists ('$(SteamPath)')">$(Registry:HKEY_CURRENT_USER\Software\Valve\Steam@SteamPath)</SteamPath>
-    <CSPath>$(SteamPath)/steamapps/common/Cities_Skylines</CSPath>
-    <ContentPath>$(SteamPath)/steamapps/workshop/content/255710/$(ContentID)</ContentPath>
-    <ManagedDLLPath Condition="!  Exists ('$(ManagedDLLPath)')">$(CSPath)/Cities_Data/Managed</ManagedDLLPath>
-    <AssemblySearchPaths>
-      $(AssemblySearchPaths);
-      $(ManagedDLLPath);
-      $(CitiesSkylinesBinaries);
-      ../libs
-    </AssemblySearchPaths>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\Managed DLLS\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\Managed DLLs\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="CitiesHarmony.API, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -60,27 +41,32 @@
     </Reference>
     <Reference Include="CitiesHarmony.Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CitiesHarmony.Harmony.2.2.0\lib\net35\CitiesHarmony.Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ColossalManaged">
-      <HintPath>..\..\Managed DLLS\ColossalManaged.dll</HintPath>
+      <HintPath>..\..\..\Managed DLLs\ColossalManaged.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ICities">
-      <HintPath>..\..\Managed DLLS\ICities.dll</HintPath>
+      <HintPath>..\..\..\Managed DLLs\ICities.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnifiedUILib, Version=2.2.8.16680, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="UnifiedUILib">
       <HintPath>..\libs\UnifiedUILib.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\Managed DLLS\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\Managed DLLs\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DebugUtils.cs" />
     <Compile Include="Detours\BuildingToolDetour.cs" />
     <Compile Include="Detours\CollisionDetour.cs" />
     <Compile Include="Detours\NetAIDetour.cs" />
@@ -88,12 +74,11 @@
     <Compile Include="Detours\NetToolDetour.cs" />
     <Compile Include="Detours\RoadAIDetour.cs" />
     <Compile Include="ModInfo.cs" />
-    <Compile Include="DebugUtils.cs" />
-    <Compile Include="NetworkAnarchy.cs" />
+    <Compile Include="NA_Fixes.cs" />
+    <Compile Include="NA_GUI.cs" />
     <Compile Include="NetSkins_Support.cs" />
-    <Compile Include="OptionsKeymapping.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="NetworkAnarchy.cs" />
+    <Compile Include="OptionsKeymapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Redirection\RedirectionHelper.cs" />
     <Compile Include="Redirection\RedirectionUtil.cs" />
@@ -106,37 +91,6 @@
     <Compile Include="RoadAIWrapper.cs" />
     <Compile Include="RoadPrefab.cs" />
     <Compile Include="UIToolOptionsButton.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Icons\BridgeMode.png" />
-    <EmbeddedResource Include="Icons\BridgeModeDisabled.png" />
-    <EmbeddedResource Include="Icons\BridgeModeFocused.png" />
-    <EmbeddedResource Include="Icons\BridgeModeHovered.png" />
-    <EmbeddedResource Include="Icons\BridgeModePressed.png" />
-    <EmbeddedResource Include="Icons\ElevatedMode.png" />
-    <EmbeddedResource Include="Icons\ElevatedModeDisabled.png" />
-    <EmbeddedResource Include="Icons\ElevatedModeFocused.png" />
-    <EmbeddedResource Include="Icons\ElevatedModeHovered.png" />
-    <EmbeddedResource Include="Icons\ElevatedModePressed.png" />
-    <EmbeddedResource Include="Icons\GroundMode.png" />
-    <EmbeddedResource Include="Icons\GroundModeDisabled.png" />
-    <EmbeddedResource Include="Icons\GroundModeFocused.png" />
-    <EmbeddedResource Include="Icons\GroundModeHovered.png" />
-    <EmbeddedResource Include="Icons\GroundModePressed.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Icons\NormalMode.png" />
-    <EmbeddedResource Include="Icons\NormalModeDisabled.png" />
-    <EmbeddedResource Include="Icons\NormalModeFocused.png" />
-    <EmbeddedResource Include="Icons\NormalModeHovered.png" />
-    <EmbeddedResource Include="Icons\NormalModePressed.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Icons\TunnelMode.png" />
-    <EmbeddedResource Include="Icons\TunnelModeDisabled.png" />
-    <EmbeddedResource Include="Icons\TunnelModeFocused.png" />
-    <EmbeddedResource Include="Icons\TunnelModeHovered.png" />
-    <EmbeddedResource Include="Icons\TunnelModePressed.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ChirperAtlas\Chirper.png" />
@@ -268,24 +222,52 @@
     <EmbeddedResource Include="Icons\BendingFocused.png" />
     <EmbeddedResource Include="Icons\BendingHovered.png" />
     <EmbeddedResource Include="Icons\BendingPressed.png" />
+    <EmbeddedResource Include="Icons\BridgeMode.png" />
+    <EmbeddedResource Include="Icons\BridgeModeDisabled.png" />
+    <EmbeddedResource Include="Icons\BridgeModeFocused.png" />
+    <EmbeddedResource Include="Icons\BridgeModeHovered.png" />
+    <EmbeddedResource Include="Icons\BridgeModePressed.png" />
     <EmbeddedResource Include="Icons\Collision.png" />
     <EmbeddedResource Include="Icons\CollisionDisabled.png" />
     <EmbeddedResource Include="Icons\CollisionFocused.png" />
     <EmbeddedResource Include="Icons\CollisionHovered.png" />
     <EmbeddedResource Include="Icons\CollisionPressed.png" />
+    <EmbeddedResource Include="Icons\ElevatedMode.png" />
+    <EmbeddedResource Include="Icons\ElevatedModeDisabled.png" />
+    <EmbeddedResource Include="Icons\ElevatedModeFocused.png" />
+    <EmbeddedResource Include="Icons\ElevatedModeHovered.png" />
+    <EmbeddedResource Include="Icons\ElevatedModePressed.png" />
     <EmbeddedResource Include="Icons\Grid.png" />
     <EmbeddedResource Include="Icons\GridDisabled.png" />
     <EmbeddedResource Include="Icons\GridFocused.png" />
     <EmbeddedResource Include="Icons\GridHovered.png" />
     <EmbeddedResource Include="Icons\GridPressed.png" />
+    <EmbeddedResource Include="Icons\GroundMode.png" />
+    <EmbeddedResource Include="Icons\GroundModeDisabled.png" />
+    <EmbeddedResource Include="Icons\GroundModeFocused.png" />
+    <EmbeddedResource Include="Icons\GroundModeHovered.png" />
+    <EmbeddedResource Include="Icons\GroundModePressed.png" />
+    <EmbeddedResource Include="Icons\NormalMode.png" />
+    <EmbeddedResource Include="Icons\NormalModeDisabled.png" />
+    <EmbeddedResource Include="Icons\NormalModeFocused.png" />
+    <EmbeddedResource Include="Icons\NormalModeHovered.png" />
+    <EmbeddedResource Include="Icons\NormalModePressed.png" />
     <EmbeddedResource Include="Icons\Snapping.png" />
     <EmbeddedResource Include="Icons\SnappingDisabled.png" />
     <EmbeddedResource Include="Icons\SnappingFocused.png" />
     <EmbeddedResource Include="Icons\SnappingHovered.png" />
     <EmbeddedResource Include="Icons\SnappingPressed.png" />
+    <EmbeddedResource Include="Icons\TunnelMode.png" />
+    <EmbeddedResource Include="Icons\TunnelModeDisabled.png" />
+    <EmbeddedResource Include="Icons\TunnelModeFocused.png" />
+    <EmbeddedResource Include="Icons\TunnelModeHovered.png" />
+    <EmbeddedResource Include="Icons\TunnelModePressed.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Patches\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -293,17 +275,8 @@
 rmdir /s /q "%25ModDir%25"
 
 mkdir "%25ModDir%25"
-xcopy /y /e "$(TargetDir)*" "%25ModDir%25"</PostBuildEvent>
+xcopy /y /e "$(TargetDir)*" "%25ModDir%25"
+del "%25ModDir%25*.pdb"
+</PostBuildEvent>
   </PropertyGroup>
-  <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
-  </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

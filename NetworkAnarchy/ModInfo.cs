@@ -1,5 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+using CitiesHarmony.API;
+using HarmonyLib;
 using ICities;
 using System;
 using System.Reflection;
@@ -118,7 +120,7 @@ namespace NetworkAnarchy
             get {
                 if (typeof(ModInfo).Assembly.GetName().Version.Minor == 0 && typeof(ModInfo).Assembly.GetName().Version.Build == 0)
                 {
-                    return typeof(ModInfo).Assembly.GetName().Version.Major.ToString();
+                    return typeof(ModInfo).Assembly.GetName().Version.Major.ToString() + ".0";
                 }
                 if (typeof(ModInfo).Assembly.GetName().Version.Build > 0)
                 {
@@ -187,6 +189,8 @@ namespace NetworkAnarchy
                 NetworkAnarchy.instance.Start();
                 NetworkAnarchy.instance.enabled = true;
             }
+
+            HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
         }
 
         public void DestroyMod()
@@ -198,6 +202,35 @@ namespace NetworkAnarchy
                 NetworkAnarchy.instance.enabled = false;
                 GameObject.Destroy(NetworkAnarchy.instance);
             }
+
+            HarmonyHelper.DoOnHarmonyReady(() => Patcher.UnpatchAll());
+        }
+    }
+
+    public static class Patcher
+    {
+        private const string HarmonyId = "quboid.csl_mods.networkanarchy";
+        private static bool patched = false;
+
+        public static void PatchAll()
+        {
+            if (patched) return;
+
+            patched = true;
+            var harmony = new Harmony(HarmonyId);
+#if DEBUG
+            Harmony.DEBUG = true;
+#endif
+            harmony.PatchAll();
+        }
+
+        public static void UnpatchAll()
+        {
+            if (!patched) return;
+
+            var harmony = new Harmony(HarmonyId);
+            harmony.UnpatchAll(HarmonyId);
+            patched = false;
         }
     }
 }

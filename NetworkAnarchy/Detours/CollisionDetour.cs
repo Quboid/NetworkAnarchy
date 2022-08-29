@@ -1,9 +1,8 @@
-﻿using System.Reflection;
-using UnityEngine;
-
-using ColossalFramework.Math;
-
+﻿using ColossalFramework.Math;
+using HarmonyLib;
 using NetworkAnarchy.Redirection;
+using System.Reflection;
+using UnityEngine;
 
 namespace NetworkAnarchy.Detours
 {
@@ -17,23 +16,75 @@ namespace NetworkAnarchy.Detours
         }
     }
 
-    [TargetType(typeof(NetManager))]
-    public class CollisionNetManagerDetour
+    //[HarmonyPatch(typeof(BuildingManager))]
+    //[HarmonyPatch("OverlapQuad")]
+    //[HarmonyPatch(  new[] { typeof(Quad2), typeof(float), typeof(float), typeof(ItemClass.CollisionType), typeof(ItemClass.Layer), typeof(ushort), typeof(ushort), typeof(ushort), typeof(ulong[]) },
+    //                new[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal })]
+    //public class BM_OverlapQuad
+    //{
+    //    public bool Prefix(bool __result)
+    //    {
+    //        if (NetworkAnarchy.collision)
+    //        {
+    //            return true;
+    //        }
+
+    //        __result = false;
+    //        return false;
+    //    }
+    //}
+
+    //[TargetType(typeof(NetManager))]
+    //public class CollisionNetManagerDetour
+    //{
+    //    [RedirectMethod]
+    //    public bool OverlapQuad(Quad2 quad, float minY, float maxY, ItemClass.CollisionType collisionType, ItemClass.Layer requireLayers, ItemClass.Layer forbidLayers, ushort ignoreNode1, ushort ignoreNode2, ushort ignoreSegment, ulong[] segmentMask)
+    //    {
+    //        return false;
+    //    }
+    //}
+
+    [HarmonyPatch(typeof(NetManager))]
+    [HarmonyPatch("OverlapQuad")]
+    [HarmonyPatch(new[] { typeof(Quad2), typeof(float), typeof(float), typeof(ItemClass.CollisionType), typeof(ItemClass.Layer), typeof(ItemClass.Layer), typeof(ushort), typeof(ushort), typeof(ushort), typeof(ulong[]) },
+                    new[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal })]
+    public class NM_OverlapQuad
     {
-        [RedirectMethod]
-        public bool OverlapQuad(Quad2 quad, float minY, float maxY, ItemClass.CollisionType collisionType, ItemClass.Layer requireLayers, ItemClass.Layer forbidLayers, ushort ignoreNode1, ushort ignoreNode2, ushort ignoreSegment, ulong[] segmentMask)
+        public static bool Prefix(bool __result)
         {
+            if (NetworkAnarchy.collision)
+            {
+                return true;
+            }
+
+            __result = false;
             return false;
         }
     }
 
-    [TargetType(typeof(NetNode))]
-    public struct CollisionNetNodeDetour
+    //[TargetType(typeof(NetNode))]
+    //public struct CollisionNetNodeDetour
+    //{
+    //    [RedirectMethod]
+    //    private bool TestNodeBuilding(ushort nodeID, BuildingInfo info, Vector3 position, float angle)
+    //    {
+    //        return true;
+    //    }
+    //}
+
+    [HarmonyPatch(typeof(NetNode))]
+    [HarmonyPatch("TestNodeBuilding")]
+    public class NN_TestNodeBuilding
     {
-        [RedirectMethod]
-        private bool TestNodeBuilding(ushort nodeID, BuildingInfo info, Vector3 position, float angle)
+        public static bool Prefix(bool __result)
         {
-            return true;
+            if (NetworkAnarchy.collision)
+            {
+                return true;
+            }
+
+            __result = true;
+            return false;
         }
     }
 
