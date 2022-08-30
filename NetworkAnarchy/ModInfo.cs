@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace NetworkAnarchy
 {
-    public class ModInfo : IUserMod
+    public class ModInfo : LoadingExtensionBase, IUserMod 
     {
         public ModInfo()
         {
@@ -132,10 +132,7 @@ namespace NetworkAnarchy
                 }
             }
         }
-    }
 
-    public class NetworkAnarchyLoader : LoadingExtensionBase
-    {
         public void OnEnabled()
         {
             Debug.Log($"OnEnabled");
@@ -196,14 +193,15 @@ namespace NetworkAnarchy
         public void DestroyMod()
         {
             Debug.Log($"DestroyMod");
+            HarmonyHelper.DoOnHarmonyReady(() => Patcher.UnpatchAll());
+
             if (NetworkAnarchy.instance != null)
             {
                 Debug.Log($"DestroyMod NotNull");
                 NetworkAnarchy.instance.enabled = false;
                 GameObject.Destroy(NetworkAnarchy.instance);
+                NetworkAnarchy.instance = null;
             }
-
-            HarmonyHelper.DoOnHarmonyReady(() => Patcher.UnpatchAll());
         }
     }
 

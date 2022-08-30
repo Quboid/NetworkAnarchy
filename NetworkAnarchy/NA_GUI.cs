@@ -129,8 +129,28 @@ namespace NetworkAnarchy
                 }
                 else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e))
                 {
-                    straightSlope = !m_straightSlope;
+                    StraightSlope = !StraightSlope;
                     m_toolOptionButton.UpdateInfo();
+                }
+                else if (OptionsKeymapping.toggleAnarchy.IsPressed(e))
+                {
+                    ToggleAnarchy();
+                }
+                else if (OptionsKeymapping.toggleBending.IsPressed(e))
+                {
+                    ToggleBending();
+                }
+                else if (OptionsKeymapping.toggleSnapping.IsPressed(e))
+                {
+                    ToggleSnapping();
+                }
+                else if (OptionsKeymapping.toggleCollision.IsPressed(e))
+                {
+                    ToggleCollision();
+                }
+                else if (OptionsKeymapping.toggleGrid.IsPressed(e))
+                {
+                    ToggleGrid();
                 }
 
                 if (m_mode == Mode.Tunnel && InfoManager.instance.CurrentMode != InfoManager.InfoMode.Traffic)
@@ -152,6 +172,18 @@ namespace NetworkAnarchy
             {
                 DebugUtils.Log("OnGUI failed");
                 DebugUtils.LogException(e);
+            }
+        }
+
+        public void ToggleAnarchy() => m_toolOptionButton.m_anarchyBtn.isChecked = !m_toolOptionButton.m_anarchyBtn.isChecked;
+        public void ToggleBending() => m_toolOptionButton.m_bendingBtn.isChecked = !m_toolOptionButton.m_bendingBtn.isChecked;
+        public void ToggleSnapping() => m_toolOptionButton.m_snappingBtn.isChecked = !m_toolOptionButton.m_snappingBtn.isChecked;
+        public void ToggleCollision() => m_toolOptionButton.m_collisionBtn.isChecked = !m_toolOptionButton.m_collisionBtn.isChecked;
+        public void ToggleGrid()
+        {
+            if (m_toolOptionButton.m_gridBtn != null)
+            {
+                m_toolOptionButton.m_gridBtn.isChecked = !m_toolOptionButton.m_gridBtn.isChecked;
             }
         }
 

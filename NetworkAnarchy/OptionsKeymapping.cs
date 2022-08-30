@@ -39,24 +39,26 @@ namespace NetworkAnarchy
 
         private int count = 0;
 
-        public static void RegisterUUIHotkeys() {
+        public static void RegisterUUIHotkeys()
+        {
             bool IsActive() => NetworkAnarchy.instance.isActive;
-            Dictionary<SavedInputKey, Func<bool>> intoolKeys = new Dictionary<SavedInputKey, Func<bool>>();
-
-            // use UUI to resolve hotkey collisions
-            intoolKeys.Add(elevationUp, IsActive);
-            intoolKeys.Add(elevationDown, IsActive);
-            intoolKeys.Add(elevationReset, IsActive);
-            intoolKeys.Add(elevationStepUp, IsActive);
-            intoolKeys.Add(elevationStepDown, IsActive);
-            intoolKeys.Add(modesCycleRight, IsActive);
-            intoolKeys.Add(modesCycleLeft, IsActive);
-            intoolKeys.Add(toggleStraightSlope, IsActive);
-            intoolKeys.Add(toggleAnarchy, IsActive);
-            intoolKeys.Add(toggleBending, IsActive);
-            intoolKeys.Add(toggleSnapping, IsActive);
-            intoolKeys.Add(toggleCollision, IsActive);
-            intoolKeys.Add(toggleGrid, IsActive);
+            Dictionary<SavedInputKey, Func<bool>> intoolKeys = new Dictionary<SavedInputKey, Func<bool>>
+            {
+                // use UUI to resolve hotkey collisions
+                { elevationUp, IsActive },
+                { elevationDown, IsActive },
+                { elevationReset, IsActive },
+                { elevationStepUp, IsActive },
+                { elevationStepDown, IsActive },
+                { modesCycleRight, IsActive },
+                { modesCycleLeft, IsActive },
+                { toggleStraightSlope, IsActive },
+                { toggleAnarchy, IsActive },
+                { toggleBending, IsActive },
+                { toggleSnapping, IsActive },
+                { toggleCollision, IsActive },
+                { toggleGrid, IsActive }
+            };
 
             UUIHelpers.RegisterHotkeys(null, activeKeys: intoolKeys);
         }

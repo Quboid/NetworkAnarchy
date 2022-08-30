@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using NetworkAnarchy.Redirection;
 
 namespace NetworkAnarchy
 {
@@ -27,11 +26,8 @@ namespace NetworkAnarchy
         private RoadAIWrapper m_roadAI;
         private Mode m_mode;
         private bool m_hasElevation;
-        private bool m_detoured;
 
         private float m_defaultMaxTurnAngle;
-
-        private Dictionary<MethodInfo, RedirectCallsState> m_redirections = new Dictionary<MethodInfo, RedirectCallsState>();
 
         public static Dictionary<NetInfo, RoadPrefab> m_roadPrefabs;
         private static bool m_singleMode;
@@ -49,27 +45,6 @@ namespace NetworkAnarchy
                 m_bridge = m_roadAI.bridge;
                 m_slope = m_roadAI.slope;
                 m_tunnel = m_roadAI.tunnel;
-            }
-
-            HashSet<Type> types = new HashSet<Type>();
-
-            try
-            {
-                if (m_prefab != null) types.Add(m_prefab.m_netAI.GetType().GetMethod("LinearMiddleHeight").DeclaringType);
-                if (m_elevated != null) types.Add(m_elevated.m_netAI.GetType().GetMethod("LinearMiddleHeight").DeclaringType);
-                if (m_bridge != null) types.Add(m_bridge.m_netAI.GetType().GetMethod("LinearMiddleHeight").DeclaringType);
-                if (m_slope != null) types.Add(m_slope.m_netAI.GetType().GetMethod("LinearMiddleHeight").DeclaringType);
-                if (m_tunnel != null) types.Add(m_tunnel.m_netAI.GetType().GetMethod("LinearMiddleHeight").DeclaringType);
-
-                foreach (Type type in types)
-                {
-                    m_redirections[type.GetMethod("LinearMiddleHeight")] = default(RedirectCallsState);
-                }
-            }
-            catch(Exception e)
-            {
-                DebugUtils.Log("Getting RoadPrefab LinearMiddleHeight redirection failed: " + prefab.name);
-                DebugUtils.LogException(e);
             }
         }
 
@@ -153,7 +128,7 @@ namespace NetworkAnarchy
                     if (value)
                     {
                         prefab.mode = Mode.Single;
-                        prefab.Update(prefab.m_detoured);
+                        prefab.Update();
                     }
                     else
                     {
@@ -193,8 +168,8 @@ namespace NetworkAnarchy
 
             foreach (RoadPrefab road in m_roadPrefabs.Values)
             {
-                    road.prefab.m_maxTurnAngle = road.m_defaultMaxTurnAngle;
-                    road.prefab.m_maxTurnAngleCos = Mathf.Cos(Mathf.Deg2Rad * road.m_defaultMaxTurnAngle);
+                road.prefab.m_maxTurnAngle = road.m_defaultMaxTurnAngle;
+                road.prefab.m_maxTurnAngleCos = Mathf.Cos(Mathf.Deg2Rad * road.m_defaultMaxTurnAngle);
             }
         }
 
@@ -206,16 +181,6 @@ namespace NetworkAnarchy
         public void Restore(bool revertDetour)
         {
             if (m_prefab == null) return;
-
-            if (m_detoured && revertDetour)
-            {
-                m_detoured = false;
-
-                foreach (KeyValuePair<MethodInfo, RedirectCallsState> current in m_redirections)
-                {
-                    RedirectionHelper.RevertRedirect(current.Key, current.Value);
-                }
-            }
 
             if (m_singleMode)
             {
@@ -269,22 +234,11 @@ namespace NetworkAnarchy
             return true;
         }
 
-        public void Update(bool straightSlope)
+        public void Update()
         {
             if (m_prefab == null) return;
 
-            Restore(!straightSlope);
-
-            if (straightSlope && !m_detoured)
-            {
-                List<MethodInfo> methods = new List<MethodInfo>(m_redirections.Keys);
-                foreach (MethodInfo from in methods)
-                {
-                    m_redirections[from] = RedirectionHelper.RedirectCalls(from, m_LinearMiddleHeight);
-                }
-
-                m_detoured = true;
-            }
+            Restore(!NetworkAnarchy.instance.StraightSlope);
 
             NetSkins_Support.ForceUpdate();
 

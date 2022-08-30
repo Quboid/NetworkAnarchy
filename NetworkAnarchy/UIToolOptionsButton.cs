@@ -87,9 +87,9 @@ namespace NetworkAnarchy
 
             m_button.text = m_elevationStepLabel.text = NetworkAnarchy.instance.elevationStep + "m\n";
             m_elevationStepSlider.value = NetworkAnarchy.instance.elevationStep;
-            m_straightSlope.isChecked = NetworkAnarchy.instance.straightSlope;
+            m_straightSlope.isChecked = NetworkAnarchy.instance.StraightSlope;
 
-            m_button.normalFgSprite = NetworkAnarchy.instance.straightSlope ? "ToolbarIconGroup1Hovered" : null;
+            m_button.normalFgSprite = NetworkAnarchy.instance.StraightSlope ? "ToolbarIconGroup1Hovered" : null;
 
             switch (NetworkAnarchy.instance.mode)
             {
@@ -188,8 +188,6 @@ namespace NetworkAnarchy
             m_toolOptionsPanel.clipChildren = true;
 
             m_toolOptionsPanel.isVisible = windowVisible;
-
-            DebugUtils.Log("absolutePosition: " + m_toolOptionsPanel.absolutePosition);
 
             m_toolOptionsPanel.eventPositionChanged += (c, p) =>
             {
@@ -307,7 +305,7 @@ namespace NetworkAnarchy
 
             m_straightSlope.eventCheckChanged += (c, state) =>
             {
-                NetworkAnarchy.instance.straightSlope = state;
+                NetworkAnarchy.instance.StraightSlope = state;
             };
 
             m_normalModeButton.isChecked = true;
@@ -329,7 +327,7 @@ namespace NetworkAnarchy
             m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", "Toggle road anarchy", NetworkAnarchy.saved_anarchy);
             m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", "Toggle road bending", NetworkAnarchy.saved_bending);
             m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", "Toggle node snapping", NetworkAnarchy.saved_nodeSnapping);
-            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", "Toggle road collision", NetworkAnarchy.collision);
+            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", "Toggle road collision", NetworkAnarchy.Collision);
 
             if ((ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None)
             {
@@ -474,14 +472,14 @@ namespace NetworkAnarchy
 
         private void UpdateAnarchyOptions()
         {
-            NetworkAnarchy.anarchy = m_anarchyBtn.isChecked;
-            NetworkAnarchy.bending = m_bendingBtn.isChecked;
-            NetworkAnarchy.snapping = m_snappingBtn.isChecked;
-            NetworkAnarchy.collision = m_collisionBtn.isChecked;
+            NetworkAnarchy.Anarchy = m_anarchyBtn.isChecked;
+            NetworkAnarchy.Bending = m_bendingBtn.isChecked;
+            NetworkAnarchy.NodeSnapping = m_snappingBtn.isChecked;
+            NetworkAnarchy.Collision = m_collisionBtn.isChecked;
 
             if (m_gridBtn != null)
             {
-                NetworkAnarchy.grid = m_gridBtn.isChecked;
+                NetworkAnarchy.Grid = m_gridBtn.isChecked;
             }
         }
 

@@ -1,9 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
-
 using ICities;
-using NetworkAnarchy.Detours;
-using NetworkAnarchy.Redirection;
+using NetworkAnarchy.Patches;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -51,7 +49,6 @@ namespace NetworkAnarchy
         private InfoManager.InfoMode m_infoMode = (InfoManager.InfoMode) (-1);
 
         private Mode m_mode;
-        private bool m_straightSlope = saved_smoothSlope;
 
         private bool m_buttonExists;
         private bool m_activated;
@@ -79,7 +76,7 @@ namespace NetworkAnarchy
         public static UITextureAtlas chirperAtlasAnarchy;
         public static UITextureAtlas chirperAtlasNormal;
 
-        public bool singleMode
+        public bool SingleMode
         {
             get => RoadPrefab.singleMode;
             set => RoadPrefab.singleMode = value;
@@ -100,7 +97,7 @@ namespace NetworkAnarchy
                     }
 
                     prefab.mode = m_mode;
-                    prefab.Update(straightSlope);
+                    prefab.Update();
                     m_toolOptionButton.UpdateInfo();
                 }
             }
@@ -115,30 +112,6 @@ namespace NetworkAnarchy
         public int elevation => Mathf.RoundToInt(m_elevation / 256f * 12f);
 
         public bool isActive => m_activated;
-
-        public bool straightSlope
-        {
-            get => m_straightSlope;
-
-            set {
-                if (value != m_straightSlope)
-                {
-                    m_straightSlope = value;
-
-                    m_toolOptionButton.UpdateInfo();
-
-                    var prefab = RoadPrefab.GetPrefab(m_current);
-                    if (prefab == null)
-                    {
-                        return;
-                    }
-
-                    prefab.Update(straightSlope);
-
-                    saved_smoothSlope.value = value;
-                }
-            }
-        }
 
         public void Start()
         {
@@ -202,8 +175,7 @@ namespace NetworkAnarchy
                 }
             }
 
-            Redirector<NetInfoDetour>.Deploy();
-            collision = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) == ItemClass.Availability.None;
+            Collision = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) == ItemClass.Availability.None;
 
             if (chirperAtlasAnarchy == null)
             {
@@ -257,10 +229,10 @@ namespace NetworkAnarchy
             FixNodes();
 
             // Load Anarchy saved settings
-            anarchy = saved_anarchy.value;
-            bending = saved_bending.value;
-            snapping = saved_nodeSnapping.value;
-            collision = saved_collision.value;
+            Anarchy = saved_anarchy.value;
+            Bending = saved_bending.value;
+            NodeSnapping = saved_nodeSnapping.value;
+            Collision = saved_collision.value;
 
             OptionsKeymapping.RegisterUUIHotkeys();
 
@@ -367,13 +339,13 @@ namespace NetworkAnarchy
                 var errors = (ToolBase.ToolErrors) m_placementErrorsField.GetValue(m_buildingTool);
                 if ((errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
                 {
-                    errors = errors & ~ToolBase.ToolErrors.HeightTooHigh;
+                    errors &= ~ToolBase.ToolErrors.HeightTooHigh;
                     m_placementErrorsField.SetValue(m_buildingTool, errors);
                 }
 
                 if ((errors & ToolBase.ToolErrors.TooShort) == ToolBase.ToolErrors.TooShort)
                 {
-                    errors = errors & ~ToolBase.ToolErrors.TooShort;
+                    errors &= ~ToolBase.ToolErrors.TooShort;
                     m_placementErrorsField.SetValue(m_buildingTool, errors);
                 }
             }
@@ -399,7 +371,7 @@ namespace NetworkAnarchy
 
                 if (prefab != null)
                 {
-                    prefab.Update(false);
+                    prefab.Update();
                 }
             }
 
@@ -427,7 +399,7 @@ namespace NetworkAnarchy
 
                 if (prefab != null)
                 {
-                    prefab.Update(straightSlope);
+                    prefab.Update();
                 }
             }
 
@@ -490,7 +462,7 @@ namespace NetworkAnarchy
             if (prefab != null)
             {
                 prefab.mode = m_mode;
-                prefab.Update(straightSlope);
+                prefab.Update();
             }
             else
             {
@@ -605,33 +577,56 @@ namespace NetworkAnarchy
                 }
             }
         }
+
         public void OnDestroy()
         {
-            Redirector<NetInfoDetour>.Revert();
-            anarchy = false;
+            Anarchy = false;
         }
 
-        public static bool anarchy
+        private bool _straightSlope = saved_smoothSlope;
+        public bool StraightSlope
+        {
+            get => _straightSlope;
+
+            set
+            {
+                if (value != _straightSlope)
+                {
+                    DebugUtils.Log($"Setting StraightSlope to {(value ? "enabled" : "disabled")}");
+
+                    _straightSlope = value;
+
+                    m_toolOptionButton.UpdateInfo();
+
+                    var prefab = RoadPrefab.GetPrefab(m_current);
+                    if (prefab == null)
+                    {
+                        return;
+                    }
+
+                    prefab.Update();
+
+                    saved_smoothSlope.value = value;
+                }
+            }
+        }
+
+        private static bool _anarchy = saved_anarchy.value;
+        public static bool Anarchy
         {
             get
             {
-                return Redirector<NetToolDetour>.IsDeployed();
+                return _anarchy;
             }
 
             set
             {
-                if (anarchy != value)
+                if (_anarchy != value)
                 {
+                    DebugUtils.Log($"Setting Anarchy to {(value ? "enabled" : "disabled")}");
+
                     if (value)
                     {
-                        DebugUtils.Log("Enabling anarchy");
-                        Redirector<NetToolDetour>.Deploy();
-                        Redirector<BuildingToolDetour>.Deploy();
-                        Redirector<RoadAIDetour>.Deploy();
-                        Redirector<PedestrianPathAIDetour>.Deploy();
-                        Redirector<TrainTrackAIDetour>.Deploy();
-                        Redirector<NetAIDetour>.Deploy();
-
                         if (chirperButton != null && chirperAtlasAnarchy != null)
                         {
                             chirperAtlasNormal = chirperButton.atlas;
@@ -640,48 +635,45 @@ namespace NetworkAnarchy
                     }
                     else
                     {
-                        DebugUtils.Log("Disabling anarchy");
-                        Redirector<NetToolDetour>.Revert();
-                        Redirector<BuildingToolDetour>.Revert();
-                        Redirector<RoadAIDetour>.Revert();
-                        Redirector<PedestrianPathAIDetour>.Revert();
-                        Redirector<TrainTrackAIDetour>.Revert();
-                        Redirector<NetAIDetour>.Revert();
-
                         if (chirperButton != null && chirperAtlasNormal != null)
                         {
                             chirperButton.atlas = chirperAtlasNormal;
                         }
                     }
 
+                    _anarchy = value;
                     saved_anarchy.value = value;
                 }
             }
         }
 
-        public static bool bending
+        private static bool _bending = saved_bending.value;
+        public static bool Bending
         {
             get
             {
-                return bendingPrefabs.m_size > 0 && bendingPrefabs.m_buffer[0].m_enableBendingSegments;
+                return _bending;// bendingPrefabs.m_size > 0 && bendingPrefabs.m_buffer[0].m_enableBendingSegments;
             }
 
             set
             {
-                if (bending != value)
+                if (_bending != value)
                 {
+                    DebugUtils.Log($"Setting Bending to {(value ? "enabled" : "disabled")}");
+
                     for (int i = 0; i < bendingPrefabs.m_size; i++)
                     {
                         bendingPrefabs.m_buffer[i].m_enableBendingSegments = value;
                     }
 
+                    _bending = value;
                     saved_bending.value = value;
                 }
             }
         }
 
         private static bool _snapping = saved_nodeSnapping.value;
-        public static bool snapping
+        public static bool NodeSnapping
         {
             get
             {
@@ -692,6 +684,8 @@ namespace NetworkAnarchy
             {
                 if (_snapping != value)
                 {
+                    DebugUtils.Log($"Setting NodeSnapping to {(value ? "enabled" : "disabled")}");
+
                     _snapping = value;
 
                     saved_nodeSnapping.value = value;
@@ -700,33 +694,18 @@ namespace NetworkAnarchy
         }
 
         private static bool _collision = saved_collision.value;
-        public static bool collision
+        public static bool Collision
         {
             get
             {
-                return _collision;// !Redirector<CollisionNetNodeDetour>.IsDeployed();
+                return _collision;
             }
 
             set
             {
                 if (value != _collision)
                 {
-                    if (value)
-                    {
-                        DebugUtils.Log("Enabling collision");
-                        Redirector<CollisionBuildingManagerDetour>.Revert();
-                        //Redirector<CollisionNetManagerDetour>.Revert();
-                        //Redirector<CollisionNetNodeDetour>.Revert();
-                        CollisionZoneBlockDetour.Revert();
-                    }
-                    else
-                    {
-                        DebugUtils.Log("Disabling collision");
-                        Redirector<CollisionBuildingManagerDetour>.Deploy();
-                        //Redirector<CollisionNetManagerDetour>.Deploy();
-                        //Redirector<CollisionNetNodeDetour>.Deploy();
-                        CollisionZoneBlockDetour.Deploy();
-                    }
+                    DebugUtils.Log($"Setting Collision to {(value ? "enabled" : "disabled")}");
 
                     _collision = value;
                     saved_collision.value = value;
@@ -734,7 +713,7 @@ namespace NetworkAnarchy
             }
         }
 
-        public static bool grid
+        public static bool Grid
         {
             get
             {
