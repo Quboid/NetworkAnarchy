@@ -175,8 +175,6 @@ namespace NetworkAnarchy
                 }
             }
 
-            Collision = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) == ItemClass.Availability.None;
-
             if (chirperAtlasAnarchy == null)
             {
                 LoadChirperAtlas();
@@ -233,6 +231,7 @@ namespace NetworkAnarchy
             Bending = saved_bending.value;
             NodeSnapping = saved_nodeSnapping.value;
             Collision = saved_collision.value;
+            UpdateChirperAtlas();
 
             OptionsKeymapping.RegisterUUIHotkeys();
 
@@ -625,24 +624,27 @@ namespace NetworkAnarchy
                 {
                     DebugUtils.Log($"Setting Anarchy to {(value ? "enabled" : "disabled")}");
 
-                    if (value)
-                    {
-                        if (chirperButton != null && chirperAtlasAnarchy != null)
-                        {
-                            chirperAtlasNormal = chirperButton.atlas;
-                            chirperButton.atlas = chirperAtlasAnarchy;
-                        }
-                    }
-                    else
-                    {
-                        if (chirperButton != null && chirperAtlasNormal != null)
-                        {
-                            chirperButton.atlas = chirperAtlasNormal;
-                        }
-                    }
-
                     _anarchy = value;
                     saved_anarchy.value = value;
+                    UpdateChirperAtlas();
+                }
+            }
+        }
+        private static void UpdateChirperAtlas()
+        {
+            if (Anarchy)
+            {
+                if (chirperButton != null && chirperAtlasAnarchy != null)
+                {
+                    chirperAtlasNormal = chirperButton.atlas;
+                    chirperButton.atlas = chirperAtlasAnarchy;
+                }
+            }
+            else
+            {
+                if (chirperButton != null && chirperAtlasNormal != null)
+                {
+                    chirperButton.atlas = chirperAtlasNormal;
                 }
             }
         }
