@@ -39,15 +39,7 @@ namespace NetworkAnarchy
                 var group = helper.AddGroup(Name) as UIHelper;
                 var panel = group.self as UIPanel;
 
-                var checkBox = (UICheckBox) group.AddCheckbox("Disable debug messages logging", DebugUtils.hideDebugMessages.value, (b) =>
-                 {
-                     DebugUtils.hideDebugMessages.value = b;
-                 });
-                checkBox.tooltip = "If checked, debug messages won't be logged.";
-
-                group.AddSpace(10);
-
-                checkBox = (UICheckBox) group.AddCheckbox("Reduce rail catenary masts", NetworkAnarchy.reduceCatenary.value, (b) =>
+                var checkBox = (UICheckBox) group.AddCheckbox("Reduce rail catenary masts", NetworkAnarchy.reduceCatenary.value, (b) =>
                  {
                      NetworkAnarchy.reduceCatenary.value = b;
                      if (NetworkAnarchy.instance != null)
@@ -103,6 +95,14 @@ namespace NetworkAnarchy
                         UIToolOptionsButton.toolOptionsPanel.absolutePosition = new Vector3(-1000, -1000);
                     }
                 });
+
+                group.AddSpace(10);
+
+                checkBox = (UICheckBox)group.AddCheckbox("Disable debug messages logging", DebugUtils.hideDebugMessages.value, (b) =>
+                {
+                    DebugUtils.hideDebugMessages.value = b;
+                });
+                checkBox.tooltip = "If checked, debug messages won't be logged.";
             }
             catch (Exception e)
             {

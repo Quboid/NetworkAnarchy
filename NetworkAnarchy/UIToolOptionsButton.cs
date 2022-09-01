@@ -218,56 +218,7 @@ namespace NetworkAnarchy
             label.relativePosition = new Vector2(8, 8);
             label.SendToBack();
 
-            UIPanel sliderPanel = m_toolOptionsPanel.AddUIComponent<UIPanel>();
-            sliderPanel.atlas = m_toolOptionsPanel.atlas;
-            sliderPanel.backgroundSprite = "GenericPanel";
-            sliderPanel.color = new Color32(206, 206, 206, 255);
-            sliderPanel.size = new Vector2(m_toolOptionsPanel.width - 16, 36);
-            sliderPanel.relativePosition = new Vector2(8, 28);
-
-            m_elevationStepLabel = sliderPanel.AddUIComponent<UILabel>();
-            m_elevationStepLabel.atlas = m_toolOptionsPanel.atlas;
-            m_elevationStepLabel.backgroundSprite = "TextFieldPanel";
-            m_elevationStepLabel.verticalAlignment = UIVerticalAlignment.Bottom;
-            m_elevationStepLabel.textAlignment = UIHorizontalAlignment.Center;
-            m_elevationStepLabel.textScale = 0.7f;
-            m_elevationStepLabel.text = "3m";
-            m_elevationStepLabel.autoSize = false;
-            m_elevationStepLabel.color = new Color32(91, 97, 106, 255);
-            m_elevationStepLabel.size = new Vector2(38, 15);
-            m_elevationStepLabel.relativePosition = new Vector2(sliderPanel.width - m_elevationStepLabel.width - 8, 10);
-
-            m_elevationStepSlider = sliderPanel.AddUIComponent<UISlider>();
-            m_elevationStepSlider.name = "NA_ElevationStepSlider";
-            m_elevationStepSlider.size = new Vector2(sliderPanel.width - 20 - m_elevationStepLabel.width - 8, 18);
-            m_elevationStepSlider.relativePosition = new Vector2(10, 10);
-
-            m_elevationStepSlider.tooltip = OptionsKeymapping.elevationStepUp.ToLocalizedString("KEYNAME") + " and " + OptionsKeymapping.elevationStepDown.ToLocalizedString("KEYNAME") + " to change Elevation Step";
-
-            UISlicedSprite bgSlider = m_elevationStepSlider.AddUIComponent<UISlicedSprite>();
-            bgSlider.atlas = m_toolOptionsPanel.atlas;
-            bgSlider.spriteName = "BudgetSlider";
-            bgSlider.size = new Vector2(m_elevationStepSlider.width, 9);
-            bgSlider.relativePosition = new Vector2(0, 4);
-
-            UISlicedSprite thumb = m_elevationStepSlider.AddUIComponent<UISlicedSprite>();
-            thumb.atlas = m_toolOptionsPanel.atlas;
-            thumb.spriteName = "SliderBudget";
-            m_elevationStepSlider.thumbObject = thumb;
-
-            m_elevationStepSlider.stepSize = 1;
-            m_elevationStepSlider.minValue = 1;
-            m_elevationStepSlider.maxValue = 12;
-            m_elevationStepSlider.value = 3;
-
-            m_elevationStepSlider.eventValueChanged += (c, v) =>
-            {
-                if (v != NetworkAnarchy.instance.elevationStep)
-                {
-                    NetworkAnarchy.instance.elevationStep = (int) v;
-                    UpdateInfo();
-                }
-            };
+            UIPanel sliderPanel = CreateElevationSlider(m_toolOptionsPanel, "GenericPanel");
 
             // Modes
             label = m_toolOptionsPanel.AddUIComponent<UILabel>();
@@ -337,6 +288,63 @@ namespace NetworkAnarchy
             UpdateAnarchyOptions();
 
             anarchyPanel.autoLayout = true;
+        }
+
+        private UIPanel CreateElevationSlider(UIPanel parent, string backgroundSprite)
+        {
+
+            UIPanel sliderPanel = parent.AddUIComponent<UIPanel>();
+            sliderPanel.atlas = parent.atlas;
+            sliderPanel.backgroundSprite = backgroundSprite;
+            sliderPanel.color = new Color32(206, 206, 206, 255);
+            sliderPanel.size = new Vector2(parent.width - 16, 36);
+            sliderPanel.relativePosition = new Vector2(8, 28);
+
+            m_elevationStepLabel = sliderPanel.AddUIComponent<UILabel>();
+            m_elevationStepLabel.atlas = parent.atlas;
+            m_elevationStepLabel.backgroundSprite = "TextFieldPanel";
+            m_elevationStepLabel.verticalAlignment = UIVerticalAlignment.Bottom;
+            m_elevationStepLabel.textAlignment = UIHorizontalAlignment.Center;
+            m_elevationStepLabel.textScale = 0.7f;
+            m_elevationStepLabel.text = "3m";
+            m_elevationStepLabel.autoSize = false;
+            m_elevationStepLabel.color = new Color32(91, 97, 106, 255);
+            m_elevationStepLabel.size = new Vector2(38, 15);
+            m_elevationStepLabel.relativePosition = new Vector2(sliderPanel.width - m_elevationStepLabel.width - 8, 10);
+
+            m_elevationStepSlider = sliderPanel.AddUIComponent<UISlider>();
+            m_elevationStepSlider.name = "NA_ElevationStepSlider";
+            m_elevationStepSlider.size = new Vector2(sliderPanel.width - 20 - m_elevationStepLabel.width - 8, 18);
+            m_elevationStepSlider.relativePosition = new Vector2(10, 10);
+
+            m_elevationStepSlider.tooltip = OptionsKeymapping.elevationStepUp.ToLocalizedString("KEYNAME") + " and " + OptionsKeymapping.elevationStepDown.ToLocalizedString("KEYNAME") + " to change Elevation Step";
+
+            UISlicedSprite bgSlider = m_elevationStepSlider.AddUIComponent<UISlicedSprite>();
+            bgSlider.atlas = parent.atlas;
+            bgSlider.spriteName = "BudgetSlider";
+            bgSlider.size = new Vector2(m_elevationStepSlider.width, 9);
+            bgSlider.relativePosition = new Vector2(0, 4);
+
+            UISlicedSprite thumb = m_elevationStepSlider.AddUIComponent<UISlicedSprite>();
+            thumb.atlas = parent.atlas;
+            thumb.spriteName = "SliderBudget";
+            m_elevationStepSlider.thumbObject = thumb;
+
+            m_elevationStepSlider.stepSize = 1;
+            m_elevationStepSlider.minValue = 1;
+            m_elevationStepSlider.maxValue = 12;
+            m_elevationStepSlider.value = 3;
+
+            m_elevationStepSlider.eventValueChanged += (c, v) =>
+            {
+                if (v != NetworkAnarchy.instance.elevationStep)
+                {
+                    NetworkAnarchy.instance.elevationStep = (int)v;
+                    UpdateInfo();
+                }
+            };
+
+            return sliderPanel;
         }
 
         private UICheckBox CreateCheckBox(UIComponent parent)

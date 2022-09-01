@@ -175,12 +175,13 @@ namespace NetworkAnarchy
                 }
             }
 
+            chirperButton = UIView.GetAView().FindUIComponent<UIButton>("Zone");
+            chirperAtlasNormal = chirperButton.atlas;
+
             if (chirperAtlasAnarchy == null)
             {
                 LoadChirperAtlas();
             }
-
-            chirperButton = UIView.GetAView().FindUIComponent<UIButton>("Zone");
 
             // Getting Upgrade button template
             try
@@ -231,7 +232,7 @@ namespace NetworkAnarchy
             Bending = saved_bending.value;
             NodeSnapping = saved_nodeSnapping.value;
             Collision = saved_collision.value;
-            UpdateChirperAtlas();
+            ForceUpdateChirperAtlas();
 
             OptionsKeymapping.RegisterUUIHotkeys();
 
@@ -450,7 +451,8 @@ namespace NetworkAnarchy
             // Is it a valid prefab?
             m_current.m_netAI.GetElevationLimits(out int min, out int max);
 
-            if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
+            //if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
+            if (m_bulldozeTool.enabled && !m_buttonExists)
             {
                 Deactivate();
                 return;
@@ -626,17 +628,17 @@ namespace NetworkAnarchy
 
                     _anarchy = value;
                     saved_anarchy.value = value;
-                    UpdateChirperAtlas();
+                    ForceUpdateChirperAtlas();
                 }
             }
         }
-        private static void UpdateChirperAtlas()
+
+        private static void ForceUpdateChirperAtlas()
         {
             if (Anarchy)
             {
                 if (chirperButton != null && chirperAtlasAnarchy != null)
                 {
-                    chirperAtlasNormal = chirperButton.atlas;
                     chirperButton.atlas = chirperAtlasAnarchy;
                 }
             }
