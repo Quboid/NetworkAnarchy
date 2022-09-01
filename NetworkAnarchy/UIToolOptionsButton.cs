@@ -10,6 +10,8 @@ namespace NetworkAnarchy
         internal UIPanel m_toolOptionsPanel;
         private UISlider m_elevationStepSlider;
         private UILabel m_elevationStepLabel;
+        internal UILabel m_maxSegmentLengthLabel;
+        private UISlider m_maxSegmentLengthSlider;
 
         private UICheckBox m_normalModeButton;
         private UICheckBox m_groundModeButton;
@@ -33,7 +35,8 @@ namespace NetworkAnarchy
         public static readonly SavedInt savedWindowY = new SavedInt("windowY", NetworkAnarchy.settingsFileName, -1000, true);
 
         public static readonly SavedBool windowVisible = new SavedBool("windowVisible", NetworkAnarchy.settingsFileName, false, true);
-        public static readonly SavedBool showElevationSlider = new SavedBool("showElevationSlider", NetworkAnarchy.settingsFileName, false, true);
+        public static readonly SavedBool showElevationSlider = new SavedBool("showElevationSlider", NetworkAnarchy.settingsFileName, true, true);
+        public static readonly SavedBool showMaxSegmentLengthSlider = new SavedBool("showNodeSpacer", NetworkAnarchy.settingsFileName, false, true);
 
         public static UIPanel toolOptionsPanel = null;
 
@@ -92,6 +95,7 @@ namespace NetworkAnarchy
                 m_elevationStepSlider.value = NetworkAnarchy.instance.elevationStep;
             }
             m_straightSlope.isChecked = NetworkAnarchy.instance.StraightSlope;
+            UpdateSlider();
 
             m_button.normalFgSprite = NetworkAnarchy.instance.StraightSlope ? "ToolbarIconGroup1Hovered" : null;
 
@@ -120,6 +124,15 @@ namespace NetworkAnarchy
             }
 
             m_button.text += NetworkAnarchy.instance.elevation + "m";
+        }
+
+        private void UpdateSlider()
+        {
+            if (m_maxSegmentLengthSlider == null) return;
+
+            NetworkAnarchy.saved_segmentLength.value = NetworkAnarchy.instance.MaxSegmentLength;
+            m_maxSegmentLengthLabel.text = NetworkAnarchy.instance.MaxSegmentLength + "m";
+            m_maxSegmentLengthLabel.tooltip = (Mathf.RoundToInt(NetworkAnarchy.instance.MaxSegmentLength / 8f * 100) / 100f).ToString() + "u";
         }
 
         private void CreateButton()
@@ -194,7 +207,7 @@ namespace NetworkAnarchy
             m_toolOptionsPanel.name = "NA_ToolOptionsPanel";
             m_toolOptionsPanel.atlas = ResourceLoader.GetAtlas("Ingame");
             m_toolOptionsPanel.backgroundSprite = "SubcategoriesPanel";
-            m_toolOptionsPanel.size = new Vector2(228, 236);
+            m_toolOptionsPanel.size = new Vector2(228, 172);
             m_toolOptionsPanel.absolutePosition = new Vector3(savedWindowX.value, savedWindowY.value);
             m_toolOptionsPanel.clipChildren = true;
 
@@ -231,13 +244,11 @@ namespace NetworkAnarchy
                 label.relativePosition = new Vector2(8, yPos);
                 label.SendToBack();
 
-                m_elevationStepSlider = CreateElevationSlider(m_toolOptionsPanel, "GenericPanel");
+                m_elevationStepSlider = CreateElevationSlider(m_toolOptionsPanel);
+
                 yPos += 64u;
-            }
-            else
-            {
-                m_toolOptionsPanel.height -= 64;
-                dragHandle.height -= 64;
+                m_toolOptionsPanel.height += 64;
+                dragHandle.height += 64;
             }
 
             // Modes
@@ -310,15 +321,51 @@ namespace NetworkAnarchy
             UpdateAnarchyOptions();
 
             anarchyPanel.autoLayout = true;
-            yPos += 52;
+            yPos += 58;
+
+            // Node spacing
+            if (showMaxSegmentLengthSlider)
+            {
+                UIPanel mslPanel = m_toolOptionsPanel.AddUIComponent<UIPanel>();
+                mslPanel.size = new Vector2(mslPanel.parent.width - 16, 62);
+                mslPanel.name = "NA_MaxSegmentLengthPanel";
+                mslPanel.relativePosition = new Vector3(8, yPos);
+
+                mslPanel.padding = new RectOffset(0, 0, 0, 0);
+                mslPanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
+                mslPanel.autoLayoutDirection = LayoutDirection.Horizontal;
+
+                UILabel label = mslPanel.AddUIComponent<UILabel>();
+                label.textScale = 0.825f;
+                label.text = "Max Segment Length:";
+                label.name = "NA_MaxSegmentLengthLabel";
+                label.relativePosition = new Vector2(0, 1);
+                label.SendToBack();
+
+                m_maxSegmentLengthLabel = mslPanel.AddUIComponent<UILabel>();
+                m_maxSegmentLengthLabel.atlas = m_toolOptionsPanel.atlas;
+                m_maxSegmentLengthLabel.verticalAlignment = UIVerticalAlignment.Bottom;
+                m_maxSegmentLengthLabel.textScale = 0.85f;
+                m_maxSegmentLengthLabel.autoSize = false;
+                m_maxSegmentLengthLabel.color = new Color32(91, 97, 106, 255);
+                m_maxSegmentLengthLabel.size = new Vector2(42, 15);
+                m_maxSegmentLengthLabel.relativePosition = new Vector2(label.width + 3, 1);
+                UpdateSlider();
+
+                m_maxSegmentLengthSlider = CreateMaxSegmentLengthSlider(mslPanel);
+
+                yPos += 64u;
+                m_toolOptionsPanel.height += 64;
+                dragHandle.height += 64;
+            }
         }
 
-        private UISlider CreateElevationSlider(UIPanel parent, string backgroundSprite)
+        private UISlider CreateElevationSlider(UIPanel parent)
         {
 
             UIPanel sliderPanel = parent.AddUIComponent<UIPanel>();
             sliderPanel.atlas = parent.atlas;
-            sliderPanel.backgroundSprite = backgroundSprite;
+            sliderPanel.backgroundSprite = "GenericPanel";
             sliderPanel.color = new Color32(206, 206, 206, 255);
             sliderPanel.size = new Vector2(parent.width - 16, 36);
             sliderPanel.relativePosition = new Vector2(8, 28);
@@ -364,6 +411,49 @@ namespace NetworkAnarchy
                 {
                     NetworkAnarchy.instance.elevationStep = (int)v;
                     UpdateInfo();
+                }
+            };
+
+            return slider;
+        }
+
+        private UISlider CreateMaxSegmentLengthSlider(UIPanel parent)
+        {
+            UIPanel sliderPanel = parent.AddUIComponent<UIPanel>();
+
+            sliderPanel.atlas = parent.atlas;
+            sliderPanel.backgroundSprite = "GenericPanel";
+            sliderPanel.color = new Color32(206, 206, 206, 255);
+            sliderPanel.size = new Vector2(parent.width, 36);
+            sliderPanel.relativePosition = new Vector2(0, 22);
+
+            UISlider slider = sliderPanel.AddUIComponent<UISlider>();
+            slider.name = "NA_MaxSegmentLengthSlider";
+            slider.size = new Vector2(sliderPanel.width - 16, 18);
+            slider.relativePosition = new Vector2(8, 10);
+
+            UISlicedSprite bgSlider = slider.AddUIComponent<UISlicedSprite>();
+            bgSlider.atlas = parent.atlas;
+            bgSlider.spriteName = "BudgetSlider";
+            bgSlider.size = new Vector2(slider.width, 9);
+            bgSlider.relativePosition = new Vector2(0, 4);
+
+            UISlicedSprite thumb = slider.AddUIComponent<UISlicedSprite>();
+            thumb.atlas = parent.atlas;
+            thumb.spriteName = "SliderBudget";
+            slider.thumbObject = thumb;
+
+            slider.stepSize = NetworkAnarchy.SegmentLengthInterval;
+            slider.minValue = NetworkAnarchy.SegmentLengthFloor;
+            slider.maxValue = NetworkAnarchy.SegmentLengthCeiling;
+            slider.value = NetworkAnarchy.instance.MaxSegmentLength;
+
+            slider.eventValueChanged += (c, v) =>
+            {
+                if (v != NetworkAnarchy.instance.MaxSegmentLength)
+                {
+                    NetworkAnarchy.instance.MaxSegmentLength = (int)v;
+                    UpdateSlider();
                 }
             };
 

@@ -44,11 +44,20 @@ namespace NetworkAnarchy
                     UIToolOptionsButton.showElevationSlider.value = b;
                     if (NetworkAnarchy.instance != null)
                     {
-                        NetworkAnarchy.instance.UpdateCatenary();
                         NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
                     }
                 });
-                checkBox.tooltip = "Reduce the number of catenary mast of rail lines from 3 to 1 per segment.\n";
+                checkBox.tooltip = "Show slider for changing the elevation step, from 1m to 12m.\n";
+
+                checkBox = (UICheckBox)group.AddCheckbox("Show max segment length slider", UIToolOptionsButton.showMaxSegmentLengthSlider.value, (b) =>
+                {
+                    UIToolOptionsButton.showMaxSegmentLengthSlider.value = b;
+                    if (NetworkAnarchy.instance != null)
+                    {
+                        NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
+                    }
+                });
+                checkBox.tooltip = "Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).\n";
 
                 group.AddSpace(10);
 

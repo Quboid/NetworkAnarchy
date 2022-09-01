@@ -25,6 +25,7 @@ namespace NetworkAnarchy
         public static SavedBool saved_bending = new SavedBool("bending", settingsFileName, true, true);
         public static SavedBool saved_nodeSnapping = new SavedBool("nodeSnapping", settingsFileName, true, true);
         public static SavedBool saved_collision = new SavedBool("collision", settingsFileName, true, true);
+        public static SavedInt saved_segmentLength = new SavedInt("saved_segmentLength", settingsFileName, 96, true);
 
         private int m_elevation = 0;
         private readonly SavedInt m_elevationStep = new SavedInt("elevationStep", settingsFileName, 3, true);
@@ -75,6 +76,10 @@ namespace NetworkAnarchy
         public static UIButton chirperButton;
         public static UITextureAtlas chirperAtlasAnarchy;
         public static UITextureAtlas chirperAtlasNormal;
+
+        internal const int SegmentLengthFloor = 4;
+        internal const int SegmentLengthCeiling = 256;
+        internal const int SegmentLengthInterval = 2;
 
         public bool SingleMode
         {
@@ -303,6 +308,13 @@ namespace NetworkAnarchy
         {
             Deactivate();
             RoadPrefab.singleMode = false;
+        }
+
+        private int? m_maxSegmentLength = null;
+        public int MaxSegmentLength
+        {
+            get => m_maxSegmentLength == null ? saved_segmentLength : (int)m_maxSegmentLength;
+            set => m_maxSegmentLength = Mathf.Clamp(value, SegmentLengthFloor, SegmentLengthCeiling);
         }
 
         public class AfterSimulationTick : ThreadingExtensionBase
