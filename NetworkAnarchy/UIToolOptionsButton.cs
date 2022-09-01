@@ -7,7 +7,7 @@ namespace NetworkAnarchy
     public class UIToolOptionsButton : UICheckBox
     {
         private UIButton m_button;
-        private UIPanel m_toolOptionsPanel;
+        internal UIPanel m_toolOptionsPanel;
         private UISlider m_elevationStepSlider;
         private UILabel m_elevationStepLabel;
 
@@ -33,6 +33,7 @@ namespace NetworkAnarchy
         public static readonly SavedInt savedWindowY = new SavedInt("windowY", NetworkAnarchy.settingsFileName, -1000, true);
 
         public static readonly SavedBool windowVisible = new SavedBool("windowVisible", NetworkAnarchy.settingsFileName, false, true);
+        public static readonly SavedBool showElevationSlider = new SavedBool("showElevationSlider", NetworkAnarchy.settingsFileName, false, true);
 
         public static UIPanel toolOptionsPanel = null;
 
@@ -85,8 +86,11 @@ namespace NetworkAnarchy
                 return;
             }
 
-            m_button.text = m_elevationStepLabel.text = NetworkAnarchy.instance.elevationStep + "m\n";
-            m_elevationStepSlider.value = NetworkAnarchy.instance.elevationStep;
+            if (m_elevationStepSlider != null)
+            {
+                m_button.text = m_elevationStepLabel.text = NetworkAnarchy.instance.elevationStep + "m\n";
+                m_elevationStepSlider.value = NetworkAnarchy.instance.elevationStep;
+            }
             m_straightSlope.isChecked = NetworkAnarchy.instance.StraightSlope;
 
             m_button.normalFgSprite = NetworkAnarchy.instance.StraightSlope ? "ToolbarIconGroup1Hovered" : null;
@@ -177,8 +181,15 @@ namespace NetworkAnarchy
 
         protected override void OnClick(UIMouseEventParameter p) { }
 
-        private void CreateOptionPanel()
+        internal void CreateOptionPanel(bool destroyExisting = false)
         {
+            if (destroyExisting && m_toolOptionsPanel != null)
+            {
+                GameObject.Destroy(m_toolOptionsPanel);
+            }
+
+            uint yPos = 8;
+
             m_toolOptionsPanel = UIView.GetAView().AddUIComponent(typeof(UIPanel)) as UIPanel;
             m_toolOptionsPanel.name = "NA_ToolOptionsPanel";
             m_toolOptionsPanel.atlas = ResourceLoader.GetAtlas("Ingame");
@@ -209,22 +220,31 @@ namespace NetworkAnarchy
             UIDragHandle dragHandle = m_toolOptionsPanel.AddUIComponent<UIDragHandle>();
             dragHandle.size = m_toolOptionsPanel.size;
             dragHandle.relativePosition = Vector3.zero;
-            dragHandle.target = parent;
+            dragHandle.target = m_toolOptionsPanel;
 
             // Elevation step
-            UILabel label = m_toolOptionsPanel.AddUIComponent<UILabel>();
-            label.textScale = 0.9f;
-            label.text = "Elevation Step:";
-            label.relativePosition = new Vector2(8, 8);
-            label.SendToBack();
+            if (showElevationSlider)
+            {
+                UILabel label = m_toolOptionsPanel.AddUIComponent<UILabel>();
+                label.textScale = 0.9f;
+                label.text = "Elevation Step:";
+                label.relativePosition = new Vector2(8, yPos);
+                label.SendToBack();
 
-            UIPanel sliderPanel = CreateElevationSlider(m_toolOptionsPanel, "GenericPanel");
+                m_elevationStepSlider = CreateElevationSlider(m_toolOptionsPanel, "GenericPanel");
+                yPos += 64u;
+            }
+            else
+            {
+                m_toolOptionsPanel.height -= 64;
+                dragHandle.height -= 64;
+            }
 
             // Modes
             label = m_toolOptionsPanel.AddUIComponent<UILabel>();
             label.textScale = 0.9f;
             label.text = "Modes:";
-            label.relativePosition = new Vector2(8, 72);
+            label.relativePosition = new Vector2(8, yPos);
             label.SendToBack();
 
             UIPanel modePanel = m_toolOptionsPanel.AddUIComponent<UIPanel>();
@@ -232,7 +252,7 @@ namespace NetworkAnarchy
             modePanel.backgroundSprite = "GenericPanel";
             modePanel.color = new Color32(206, 206, 206, 255);
             modePanel.size = new Vector2(m_toolOptionsPanel.width - 16, 52);
-            modePanel.relativePosition = new Vector2(8, 92);
+            modePanel.relativePosition = new Vector2(8, yPos + 20);
 
             modePanel.padding = new RectOffset(8, 8, 8, 8);
             modePanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
@@ -245,6 +265,7 @@ namespace NetworkAnarchy
             m_tunnelModeButton = CreateModeCheckBox(modePanel, "TunnelMode", "Tunnel: Forces the use of tunnel pieces if available");
 
             modePanel.autoLayout = true;
+            yPos += 80u;
 
             // Straight Slope
             m_straightSlope = CreateCheckBox(m_toolOptionsPanel);
@@ -252,7 +273,7 @@ namespace NetworkAnarchy
             m_straightSlope.label.text = "Straight slope";
             m_straightSlope.tooltip = "Makes the road go straight from A to B instead of following the terrain\n\n" + OptionsKeymapping.toggleStraightSlope.ToLocalizedString("KEYNAME") + " to toggle straight slope";
             m_straightSlope.isChecked = NetworkAnarchy.saved_smoothSlope;
-            m_straightSlope.relativePosition = new Vector3(8, 152);
+            m_straightSlope.relativePosition = new Vector3(8, yPos);
 
             m_straightSlope.eventCheckChanged += (c, state) =>
             {
@@ -260,6 +281,7 @@ namespace NetworkAnarchy
             };
 
             m_normalModeButton.isChecked = true;
+            yPos += 24u;
 
             // Anarchy buttons
             UIPanel anarchyPanel = m_toolOptionsPanel.AddUIComponent<UIPanel>();
@@ -269,7 +291,7 @@ namespace NetworkAnarchy
             anarchyPanel.name = "NA_AnarchysPanel";
             anarchyPanel.color = new Color32(206, 206, 206, 255);
             anarchyPanel.size = new Vector2(m_toolOptionsPanel.width - 16, 52);
-            anarchyPanel.relativePosition = new Vector2(8, 176);
+            anarchyPanel.relativePosition = new Vector2(8, yPos);
 
             anarchyPanel.padding = new RectOffset(8, 8, 8, 8);
             anarchyPanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
@@ -288,9 +310,10 @@ namespace NetworkAnarchy
             UpdateAnarchyOptions();
 
             anarchyPanel.autoLayout = true;
+            yPos += 52;
         }
 
-        private UIPanel CreateElevationSlider(UIPanel parent, string backgroundSprite)
+        private UISlider CreateElevationSlider(UIPanel parent, string backgroundSprite)
         {
 
             UIPanel sliderPanel = parent.AddUIComponent<UIPanel>();
@@ -312,30 +335,30 @@ namespace NetworkAnarchy
             m_elevationStepLabel.size = new Vector2(38, 15);
             m_elevationStepLabel.relativePosition = new Vector2(sliderPanel.width - m_elevationStepLabel.width - 8, 10);
 
-            m_elevationStepSlider = sliderPanel.AddUIComponent<UISlider>();
-            m_elevationStepSlider.name = "NA_ElevationStepSlider";
-            m_elevationStepSlider.size = new Vector2(sliderPanel.width - 20 - m_elevationStepLabel.width - 8, 18);
-            m_elevationStepSlider.relativePosition = new Vector2(10, 10);
+            UISlider slider = sliderPanel.AddUIComponent<UISlider>();
+            slider.name = "NA_ElevationStepSlider";
+            slider.size = new Vector2(sliderPanel.width - 20 - m_elevationStepLabel.width - 8, 18);
+            slider.relativePosition = new Vector2(10, 10);
 
-            m_elevationStepSlider.tooltip = OptionsKeymapping.elevationStepUp.ToLocalizedString("KEYNAME") + " and " + OptionsKeymapping.elevationStepDown.ToLocalizedString("KEYNAME") + " to change Elevation Step";
+            slider.tooltip = OptionsKeymapping.elevationStepUp.ToLocalizedString("KEYNAME") + " and " + OptionsKeymapping.elevationStepDown.ToLocalizedString("KEYNAME") + " to change Elevation Step";
 
-            UISlicedSprite bgSlider = m_elevationStepSlider.AddUIComponent<UISlicedSprite>();
+            UISlicedSprite bgSlider = slider.AddUIComponent<UISlicedSprite>();
             bgSlider.atlas = parent.atlas;
             bgSlider.spriteName = "BudgetSlider";
-            bgSlider.size = new Vector2(m_elevationStepSlider.width, 9);
+            bgSlider.size = new Vector2(slider.width, 9);
             bgSlider.relativePosition = new Vector2(0, 4);
 
-            UISlicedSprite thumb = m_elevationStepSlider.AddUIComponent<UISlicedSprite>();
+            UISlicedSprite thumb = slider.AddUIComponent<UISlicedSprite>();
             thumb.atlas = parent.atlas;
             thumb.spriteName = "SliderBudget";
-            m_elevationStepSlider.thumbObject = thumb;
+            slider.thumbObject = thumb;
 
-            m_elevationStepSlider.stepSize = 1;
-            m_elevationStepSlider.minValue = 1;
-            m_elevationStepSlider.maxValue = 12;
-            m_elevationStepSlider.value = 3;
+            slider.stepSize = 1;
+            slider.minValue = 1;
+            slider.maxValue = 12;
+            slider.value = 3;
 
-            m_elevationStepSlider.eventValueChanged += (c, v) =>
+            slider.eventValueChanged += (c, v) =>
             {
                 if (v != NetworkAnarchy.instance.elevationStep)
                 {
@@ -344,7 +367,7 @@ namespace NetworkAnarchy
                 }
             };
 
-            return sliderPanel;
+            return slider;
         }
 
         private UICheckBox CreateCheckBox(UIComponent parent)

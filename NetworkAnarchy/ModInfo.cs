@@ -39,7 +39,20 @@ namespace NetworkAnarchy
                 var group = helper.AddGroup(Name) as UIHelper;
                 var panel = group.self as UIPanel;
 
-                var checkBox = (UICheckBox) group.AddCheckbox("Reduce rail catenary masts", NetworkAnarchy.reduceCatenary.value, (b) =>
+                var checkBox = (UICheckBox)group.AddCheckbox("Show elevation step slider", UIToolOptionsButton.showElevationSlider.value, (b) =>
+                {
+                    UIToolOptionsButton.showElevationSlider.value = b;
+                    if (NetworkAnarchy.instance != null)
+                    {
+                        NetworkAnarchy.instance.UpdateCatenary();
+                        NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
+                    }
+                });
+                checkBox.tooltip = "Reduce the number of catenary mast of rail lines from 3 to 1 per segment.\n";
+
+                group.AddSpace(10);
+
+                checkBox = (UICheckBox) group.AddCheckbox("Reduce rail catenary masts", NetworkAnarchy.reduceCatenary.value, (b) =>
                  {
                      NetworkAnarchy.reduceCatenary.value = b;
                      if (NetworkAnarchy.instance != null)
@@ -198,6 +211,8 @@ namespace NetworkAnarchy
             if (NetworkAnarchy.instance != null)
             {
                 Debug.Log($"DestroyMod NotNull");
+                GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel);
+                GameObject.Destroy(NetworkAnarchy.m_toolOptionButton);
                 NetworkAnarchy.instance.enabled = false;
                 GameObject.Destroy(NetworkAnarchy.instance);
                 NetworkAnarchy.instance = null;
