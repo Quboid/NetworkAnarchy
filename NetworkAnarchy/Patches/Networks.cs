@@ -24,7 +24,6 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(ref bool __result)
         {
-            //Debug.Log($"AA01");
             if (NetworkAnarchy.Anarchy)
             {
                 __result = true;

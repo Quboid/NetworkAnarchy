@@ -139,7 +139,8 @@ namespace NetworkAnarchy
 
         public static string Version
         {
-            get {
+            get
+            {
                 if (typeof(ModInfo).Assembly.GetName().Version.Minor == 0 && typeof(ModInfo).Assembly.GetName().Version.Build == 0)
                 {
                     return typeof(ModInfo).Assembly.GetName().Version.Major.ToString() + ".0";
@@ -157,7 +158,6 @@ namespace NetworkAnarchy
 
         public void OnEnabled()
         {
-            Debug.Log($"OnEnabled");
             if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
             {
                 InitializeMod();
@@ -166,7 +166,6 @@ namespace NetworkAnarchy
 
         public void OnDisabled()
         {
-            Debug.Log($"OnDisabled");
             if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
             {
                 DestroyMod();
@@ -175,7 +174,6 @@ namespace NetworkAnarchy
 
         public override void OnLevelLoaded(LoadMode mode)
         {
-            Debug.Log($"OnLevelLoaded");
             //if (!(mode == LoadMode.LoadGame || mode == LoadMode.NewGame || mode == LoadMode.NewGameFromScenario))
             //{
             //    return;
@@ -186,16 +184,13 @@ namespace NetworkAnarchy
 
         public override void OnLevelUnloading()
         {
-            Debug.Log($"OnLevelUnloading");
             DestroyMod();
         }
 
         public void InitializeMod()
         {
-            Debug.Log($"InitializeMod");
             if (NetworkAnarchy.instance == null)
             {
-                Debug.Log($"InitializeMod IsNull");
                 // Creating the instance
                 NetworkAnarchy.instance = new GameObject("NetworkAnarchy").AddComponent<NetworkAnarchy>();
 
@@ -204,7 +199,6 @@ namespace NetworkAnarchy
             }
             else
             {
-                Debug.Log($"InitializeMod NotNull");
                 NetworkAnarchy.instance.Start();
                 NetworkAnarchy.instance.enabled = true;
             }
@@ -214,12 +208,10 @@ namespace NetworkAnarchy
 
         public void DestroyMod()
         {
-            Debug.Log($"DestroyMod");
             HarmonyHelper.DoOnHarmonyReady(() => Patcher.UnpatchAll());
 
             if (NetworkAnarchy.instance != null)
             {
-                Debug.Log($"DestroyMod NotNull");
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel);
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton);
                 NetworkAnarchy.instance.enabled = false;

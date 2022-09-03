@@ -636,7 +636,6 @@ namespace NetworkAnarchy
             {
                 if (_anarchy != value)
                 {
-                    UnityEngine.Debug.Log($"Anarchy:{value}");
                     DebugUtils.Log($"Setting Anarchy to {(value ? "enabled" : "disabled")}");
 
                     _anarchy = value;
@@ -648,11 +647,8 @@ namespace NetworkAnarchy
 
         private static void ForceUpdateChirperAtlas()
         {
-            UnityEngine.Debug.Log($"UpdateAnarchyAtlas:{Anarchy}");
             if (Anarchy)
             {
-                UnityEngine.Debug.Log($"AnarchyOnButton:{chirperButton}");
-                UnityEngine.Debug.Log($"AnarchyOnAtlas:{chirperAtlasAnarchy}");
                 if (chirperButton != null && chirperAtlasAnarchy != null)
                 {
                     chirperButton.atlas = chirperAtlasAnarchy;
@@ -660,8 +656,6 @@ namespace NetworkAnarchy
             }
             else
             {
-                UnityEngine.Debug.Log($"AnarchyOffButton:{chirperButton}");
-                UnityEngine.Debug.Log($"AnarchyOffAtlas:{chirperAtlasNormal}");
                 if (chirperButton != null && chirperAtlasNormal != null)
                 {
                     chirperButton.atlas = chirperAtlasNormal;
