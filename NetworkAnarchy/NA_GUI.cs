@@ -47,6 +47,14 @@ namespace NetworkAnarchy
                 {
                     m_buildingElevationField.SetValue(m_buildingTool, 0);
                 }
+                else if (OptionsKeymapping.toggleAnarchy.IsPressed(e))
+                { // Allow Anarchy and Collision shortcuts even if the panel isn't visible
+                    ToggleAnarchy();
+                }
+                else if (OptionsKeymapping.toggleCollision.IsPressed(e))
+                {
+                    ToggleCollision();
+                }
 
                 if (!isActive)
                 {
@@ -132,10 +140,6 @@ namespace NetworkAnarchy
                     StraightSlope = !StraightSlope;
                     m_toolOptionButton.UpdateInfo();
                 }
-                else if (OptionsKeymapping.toggleAnarchy.IsPressed(e))
-                {
-                    ToggleAnarchy();
-                }
                 else if (OptionsKeymapping.toggleBending.IsPressed(e))
                 {
                     ToggleBending();
@@ -143,10 +147,6 @@ namespace NetworkAnarchy
                 else if (OptionsKeymapping.toggleSnapping.IsPressed(e))
                 {
                     ToggleSnapping();
-                }
-                else if (OptionsKeymapping.toggleCollision.IsPressed(e))
-                {
-                    ToggleCollision();
                 }
                 else if (OptionsKeymapping.toggleGrid.IsPressed(e))
                 {

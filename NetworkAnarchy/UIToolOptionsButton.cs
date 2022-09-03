@@ -308,10 +308,10 @@ namespace NetworkAnarchy
             anarchyPanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
             anarchyPanel.autoLayoutDirection = LayoutDirection.Horizontal;
 
-            m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", "Toggle road anarchy", NetworkAnarchy.saved_anarchy);
+            m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", "Toggle anarchy", NetworkAnarchy.saved_anarchy);
             m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", "Toggle road bending", NetworkAnarchy.saved_bending);
             m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", "Toggle node snapping", NetworkAnarchy.saved_nodeSnapping);
-            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", "Toggle road collision", NetworkAnarchy.Collision);
+            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", "Toggle collision", NetworkAnarchy.Collision);
 
             if ((ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None)
             {
