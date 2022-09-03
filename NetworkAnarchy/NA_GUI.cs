@@ -272,6 +272,18 @@ namespace NetworkAnarchy
             m_buttonInOptionsBar = true;
         }
 
+        public static UITextureAtlas GetAtlas(string name)
+        {
+            UITextureAtlas[] atlases = Resources.FindObjectsOfTypeAll(typeof(UITextureAtlas)) as UITextureAtlas[];
+            for (int i = 0; i < atlases.Length; i++)
+            {
+                if (atlases[i].name == name)
+                    return atlases[i];
+            }
+
+            return UIView.GetAView().defaultAtlas;
+        }
+
         private void LoadChirperAtlas()
         {
             string[] spriteNames = new string[]
