@@ -330,6 +330,7 @@ namespace NetworkAnarchy
                 mslPanel.size = new Vector2(mslPanel.parent.width - 16, 62);
                 mslPanel.name = "NA_MaxSegmentLengthPanel";
                 mslPanel.relativePosition = new Vector3(8, yPos);
+                mslPanel.atlas = ResourceLoader.GetAtlas("Ingame");
 
                 mslPanel.padding = new RectOffset(0, 0, 0, 0);
                 mslPanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
@@ -431,6 +432,7 @@ namespace NetworkAnarchy
             slider.name = "NA_MaxSegmentLengthSlider";
             slider.size = new Vector2(sliderPanel.width - 16, 18);
             slider.relativePosition = new Vector2(8, 10);
+            slider.atlas = parent.atlas;
 
             UISlicedSprite bgSlider = slider.AddUIComponent<UISlicedSprite>();
             bgSlider.atlas = parent.atlas;

@@ -73,9 +73,7 @@ namespace NetworkAnarchy
 
         public static FastList<NetInfo> bendingPrefabs = new FastList<NetInfo>();
 
-        public static UIButton chirperButton;
-        public static UITextureAtlas chirperAtlasAnarchy;
-        public static UITextureAtlas chirperAtlasNormal;
+        public static ChirperManager chirperManager;
 
         internal const int SegmentLengthFloor = 4;
         internal const int SegmentLengthCeiling = 256;
@@ -180,13 +178,8 @@ namespace NetworkAnarchy
                 }
             }
 
-            chirperButton = UIView.GetAView().FindUIComponent<UIButton>("Zone");
-            chirperAtlasNormal = GetAtlas("ChirperAtlas");
+            ChirperManager.Initialise();
 
-            if (chirperAtlasAnarchy == null)
-            {
-                LoadChirperAtlas();
-            }
 
             // Getting Upgrade button template
             try
@@ -237,7 +230,7 @@ namespace NetworkAnarchy
             Bending = saved_bending.value;
             NodeSnapping = saved_nodeSnapping.value;
             Collision = saved_collision.value;
-            ForceUpdateChirperAtlas();
+            ChirperManager.UpdateAtlas();
 
             OptionsKeymapping.RegisterUUIHotkeys();
 
@@ -640,25 +633,7 @@ namespace NetworkAnarchy
 
                     _anarchy = value;
                     saved_anarchy.value = value;
-                    ForceUpdateChirperAtlas();
-                }
-            }
-        }
-
-        private static void ForceUpdateChirperAtlas()
-        {
-            if (Anarchy)
-            {
-                if (chirperButton != null && chirperAtlasAnarchy != null)
-                {
-                    chirperButton.atlas = chirperAtlasAnarchy;
-                }
-            }
-            else
-            {
-                if (chirperButton != null && chirperAtlasNormal != null)
-                {
-                    chirperButton.atlas = chirperAtlasNormal;
+                    ChirperManager.UpdateAtlas();
                 }
             }
         }
