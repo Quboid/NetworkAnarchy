@@ -139,34 +139,34 @@
     <value>Elevation Up</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Press any key</value>
+    <value>Appuyer sur n'importe quelle touche</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Toggle Anarchy</value>
+    <value>Activer/Désactiver l'anarchie</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Toggle Bending</value>
+    <value>Activer/Désactiver la courbure</value>
   </data>
   <data name="key_toggleCollision" xml:space="preserve">
-    <value>Toggle Collision</value>
+    <value>Activer/Désactiver la collision</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Toggle Editor Grid</value>
+    <value>Afficher/Masquer la grille de l'éditeur</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Toggle Snapping</value>
+    <value>Activer/Désactiver l'accrochage</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Toggle Straight Slopes</value>
+    <value>Activer/Désactiver les pentes droites</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>Plus d'options d'outil pour les routes et autres réseaux</value>
   </data>
   <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Disable debug messages logging</value>
+    <value>Désactiver la mémorisation des messages de débogage</value>
   </data>
   <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, debug messages won't be logged.</value>
+    <value>Si coché, les messages de débogage ne seront pas enregistrés.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Max turn angle</value>
