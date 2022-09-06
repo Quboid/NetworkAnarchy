@@ -57,7 +57,7 @@ namespace NetworkAnarchy
                 });
                 checkBox.tooltip = Str.options_showElevationStepSliderTooltip;
 
-                checkBox = (UICheckBox)group.AddCheckbox("Show max segment length slider", UIToolOptionsButton.showMaxSegmentLengthSlider.value, (b) =>
+                checkBox = (UICheckBox)group.AddCheckbox(Str.options_showMaxSegmentLengthSlider, UIToolOptionsButton.showMaxSegmentLengthSlider.value, (b) =>
                 {
                     UIToolOptionsButton.showMaxSegmentLengthSlider.value = b;
                     if (NetworkAnarchy.instance != null)
@@ -65,11 +65,11 @@ namespace NetworkAnarchy
                         NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
                     }
                 });
-                checkBox.tooltip = "Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).\n";
+                checkBox.tooltip = Str.options_showMaxSegmentLengthSliderTooltip;
 
                 group.AddSpace(10);
 
-                checkBox = (UICheckBox) group.AddCheckbox("Reduce rail catenary masts", NetworkAnarchy.reduceCatenary.value, (b) =>
+                checkBox = (UICheckBox) group.AddCheckbox(Str.options_reduceCatenaries, NetworkAnarchy.reduceCatenary.value, (b) =>
                  {
                      NetworkAnarchy.reduceCatenary.value = b;
                      if (NetworkAnarchy.instance != null)
@@ -77,11 +77,11 @@ namespace NetworkAnarchy
                          NetworkAnarchy.instance.UpdateCatenary();
                      }
                  });
-                checkBox.tooltip = "Reduce the number of catenary mast of rail lines from 3 to 1 per segment.\n";
+                checkBox.tooltip = Str.options_reduceCatenariesTooltip;
 
                 group.AddSpace(10);
 
-                checkBox = (UICheckBox) group.AddCheckbox("Change max turn angle for more realistic tram tracks turns", NetworkAnarchy.changeMaxTurnAngle.value, (b) =>
+                checkBox = (UICheckBox) group.AddCheckbox(Str.options_tramMaxTurnAngle, NetworkAnarchy.changeMaxTurnAngle.value, (b) =>
                  {
                      NetworkAnarchy.changeMaxTurnAngle.value = b;
 
@@ -94,9 +94,9 @@ namespace NetworkAnarchy
                          RoadPrefab.ResetMaxTurnAngle();
                      }
                  });
-                checkBox.tooltip = "Change all roads with tram tracks max turn angle by the value below if current value is higher";
+                checkBox.tooltip = Str.options_tramMaxTurnAngleTooltip;
 
-                group.AddTextfield("Max turn angle: ", NetworkAnarchy.maxTurnAngle.ToString(), (f) => { },
+                group.AddTextfield(Str.options_maxTurnAngle + ": ", NetworkAnarchy.maxTurnAngle.ToString(), (f) => { },
                     (s) =>
                     {
                         float.TryParse(s, out var f);
@@ -115,7 +115,7 @@ namespace NetworkAnarchy
 
                 group.AddSpace(10);
 
-                group.AddButton("Reset tool window position", () =>
+                group.AddButton(Str.options_resetToolWindowPosition, () =>
                 {
                     UIToolOptionsButton.savedWindowX.Delete();
                     UIToolOptionsButton.savedWindowY.Delete();
@@ -128,11 +128,11 @@ namespace NetworkAnarchy
 
                 group.AddSpace(10);
 
-                checkBox = (UICheckBox)group.AddCheckbox("Disable debug messages logging", DebugUtils.hideDebugMessages.value, (b) =>
+                checkBox = (UICheckBox)group.AddCheckbox(Str.options_disableDebugLogging, DebugUtils.hideDebugMessages.value, (b) =>
                 {
                     DebugUtils.hideDebugMessages.value = b;
                 });
-                checkBox.tooltip = "If checked, debug messages won't be logged.";
+                checkBox.tooltip = Str.options_disableDebugLoggingTooltip;
             }
             catch (Exception e)
             {

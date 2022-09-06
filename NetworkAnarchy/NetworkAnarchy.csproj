@@ -209,10 +209,21 @@
     <EmbeddedResource Include="ChirperAtlas\ThumbChirperTechFocused.png" />
     <EmbeddedResource Include="ChirperAtlas\ThumbChirperTechHovered.png" />
     <EmbeddedResource Include="ChirperAtlas\ThumbChirperTechPressed.png" />
+    <EmbeddedResource Include="Localization\Str.de.resx" />
+    <EmbeddedResource Include="Localization\Str.es.resx" />
+    <EmbeddedResource Include="Localization\Str.fr.resx" />
+    <EmbeddedResource Include="Localization\Str.it.resx" />
+    <EmbeddedResource Include="Localization\Str.ja.resx" />
+    <EmbeddedResource Include="Localization\Str.ko.resx" />
+    <EmbeddedResource Include="Localization\Str.pl.resx" />
+    <EmbeddedResource Include="Localization\Str.pt.resx" />
     <EmbeddedResource Include="Localization\Str.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Str.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Str.ru.resx" />
+    <EmbeddedResource Include="Localization\Str.th.resx" />
+    <EmbeddedResource Include="Localization\Str.zh-cn.resx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icons\Anarchy.png" />

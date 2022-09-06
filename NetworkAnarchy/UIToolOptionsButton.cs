@@ -1,5 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+using NetworkAnarchy.Localization;
+using System;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -145,7 +147,7 @@ namespace NetworkAnarchy
             m_button.playAudioEvents = true;
             m_button.relativePosition = Vector2.zero;
 
-            m_button.tooltip = "Network Anarchy " + ModInfo.Version + "\n\nClick here for Tool Options";
+            m_button.tooltip = "Network Anarchy " + ModInfo.Version + "\n\n" + Str.ui_clickForToolOptions;
 
             m_button.textColor = Color.white;
             m_button.textScale = 0.7f;
@@ -240,7 +242,7 @@ namespace NetworkAnarchy
             {
                 UILabel label = m_toolOptionsPanel.AddUIComponent<UILabel>();
                 label.textScale = 0.9f;
-                label.text = "Elevation Step:";
+                label.text = Str.ui_elevationStep;
                 label.relativePosition = new Vector2(8, yPos);
                 label.SendToBack();
 
@@ -254,7 +256,7 @@ namespace NetworkAnarchy
             // Modes
             label = m_toolOptionsPanel.AddUIComponent<UILabel>();
             label.textScale = 0.9f;
-            label.text = "Modes:";
+            label.text = Str.ui_modes;
             label.relativePosition = new Vector2(8, yPos);
             label.SendToBack();
 
@@ -282,7 +284,7 @@ namespace NetworkAnarchy
             m_straightSlope = CreateCheckBox(m_toolOptionsPanel);
             m_straightSlope.name = "NA_StraightSlope";
             m_straightSlope.label.text = "Straight slope";
-            m_straightSlope.tooltip = "Makes the road go straight from A to B instead of following the terrain\n\n" + OptionsKeymapping.toggleStraightSlope.ToLocalizedString("KEYNAME") + " to toggle straight slope";
+            m_straightSlope.tooltip = String.Format(Str.ui_straightSlopeTooltip, OptionsKeymapping.toggleStraightSlope.ToLocalizedString("KEYNAME"));
             m_straightSlope.isChecked = NetworkAnarchy.saved_smoothSlope;
             m_straightSlope.relativePosition = new Vector3(8, yPos);
 
@@ -308,14 +310,14 @@ namespace NetworkAnarchy
             anarchyPanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
             anarchyPanel.autoLayoutDirection = LayoutDirection.Horizontal;
 
-            m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", "Toggle anarchy", NetworkAnarchy.saved_anarchy);
-            m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", "Toggle road bending", NetworkAnarchy.saved_bending);
-            m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", "Toggle node snapping", NetworkAnarchy.saved_nodeSnapping);
-            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", "Toggle collision", NetworkAnarchy.Collision);
+            m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", Str.ui_toggleAnarchy, NetworkAnarchy.saved_anarchy);
+            m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", Str.ui_toggleBending, NetworkAnarchy.saved_bending);
+            m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", Str.ui_toggleSnapping, NetworkAnarchy.saved_nodeSnapping);
+            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", Str.ui_toggleCollision, NetworkAnarchy.Collision);
 
             if ((ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None)
             {
-                m_gridBtn = CreateAnarchyCheckBox(anarchyPanel, "Grid", "Toggle editor grid", true);
+                m_gridBtn = CreateAnarchyCheckBox(anarchyPanel, "Grid", Str.ui_toggleGrid, true);
             }
 
             UpdateAnarchyOptions();
@@ -338,7 +340,7 @@ namespace NetworkAnarchy
 
                 UILabel label = mslPanel.AddUIComponent<UILabel>();
                 label.textScale = 0.825f;
-                label.text = "Max Segment Length:";
+                label.text = Str.ui_maxSegmentLength;
                 label.name = "NA_MaxSegmentLengthLabel";
                 label.relativePosition = new Vector2(0, 1);
                 label.SendToBack();

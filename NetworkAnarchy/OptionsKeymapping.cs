@@ -1,6 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.Globalization;
 using ColossalFramework.UI;
+using NetworkAnarchy.Localization;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -63,19 +64,19 @@ namespace NetworkAnarchy
 
         private void Awake()
         {
-            AddKeymapping("Elevation Up", elevationUp);
-            AddKeymapping("Elevation Down", elevationDown);
-            AddKeymapping("Reset Elevation", elevationReset);
-            AddKeymapping("Elevation Step Up", elevationStepUp);
-            AddKeymapping("Elevation Step Down", elevationStepDown);
-            AddKeymapping("Cycle Modes Right", modesCycleRight);
-            AddKeymapping("Cycle Modes Left", modesCycleLeft);
-            AddKeymapping("Toggle Straight Slope", toggleStraightSlope);
-            AddKeymapping("Toggle Anarchy", toggleAnarchy);
-            AddKeymapping("Toggle Bending", toggleBending);
-            AddKeymapping("Toggle Snapping", toggleSnapping);
-            AddKeymapping("Toggle Collision", toggleCollision);
-            AddKeymapping("Toggle Editor Grid", toggleGrid);
+            AddKeymapping(Str.key_elevationUp, elevationUp);
+            AddKeymapping(Str.key_elevationDown, elevationDown);
+            AddKeymapping(Str.key_elevationReset, elevationReset);
+            AddKeymapping(Str.key_elevationStepUp, elevationStepUp);
+            AddKeymapping(Str.key_elevationStepDown, elevationStepDown);
+            AddKeymapping(Str.key_cycleModesRight, modesCycleRight);
+            AddKeymapping(Str.key_cycleModesLeft, modesCycleLeft);
+            AddKeymapping(Str.key_toggleStraightSlopes, toggleStraightSlope);
+            AddKeymapping(Str.key_toggleAnarchy, toggleAnarchy);
+            AddKeymapping(Str.key_toggleBending, toggleBending);
+            AddKeymapping(Str.key_toggleSnapping, toggleSnapping);
+            AddKeymapping(Str.key_toggleCollision, toggleCollision);
+            AddKeymapping(Str.key_toggleGrid, toggleGrid);
         }
 
         private void AddKeymapping(string label, SavedInputKey savedInputKey)
@@ -262,7 +263,7 @@ namespace NetworkAnarchy
                 this.m_EditingBindingCategory = p.source.stringUserData;
                 UIButton uIButton = p.source as UIButton;
                 uIButton.buttonsMask = (UIMouseButton.Left | UIMouseButton.Right | UIMouseButton.Middle | UIMouseButton.Special0 | UIMouseButton.Special1 | UIMouseButton.Special2 | UIMouseButton.Special3);
-                uIButton.text = "Press any key";
+                uIButton.text = Str.key_pressAnyKey;
                 p.source.Focus();
                 UIView.PushModal(p.source);
             }

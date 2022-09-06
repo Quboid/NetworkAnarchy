@@ -61,11 +61,191 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cycle Modes Left.
+        /// </summary>
+        internal static string key_cycleModesLeft {
+            get {
+                return ResourceManager.GetString("key_cycleModesLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle Modes Right.
+        /// </summary>
+        internal static string key_cycleModesRight {
+            get {
+                return ResourceManager.GetString("key_cycleModesRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Elevation Down.
+        /// </summary>
+        internal static string key_elevationDown {
+            get {
+                return ResourceManager.GetString("key_elevationDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Elevation.
+        /// </summary>
+        internal static string key_elevationReset {
+            get {
+                return ResourceManager.GetString("key_elevationReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Elevation Step Down.
+        /// </summary>
+        internal static string key_elevationStepDown {
+            get {
+                return ResourceManager.GetString("key_elevationStepDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Elevation Step Up.
+        /// </summary>
+        internal static string key_elevationStepUp {
+            get {
+                return ResourceManager.GetString("key_elevationStepUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Elevation Up.
+        /// </summary>
+        internal static string key_elevationUp {
+            get {
+                return ResourceManager.GetString("key_elevationUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press any key.
+        /// </summary>
+        internal static string key_pressAnyKey {
+            get {
+                return ResourceManager.GetString("key_pressAnyKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle Anarchy.
+        /// </summary>
+        internal static string key_toggleAnarchy {
+            get {
+                return ResourceManager.GetString("key_toggleAnarchy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle Bending.
+        /// </summary>
+        internal static string key_toggleBending {
+            get {
+                return ResourceManager.GetString("key_toggleBending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle Collision.
+        /// </summary>
+        internal static string key_toggleCollision {
+            get {
+                return ResourceManager.GetString("key_toggleCollision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle Editor Grid.
+        /// </summary>
+        internal static string key_toggleGrid {
+            get {
+                return ResourceManager.GetString("key_toggleGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle Snapping.
+        /// </summary>
+        internal static string key_toggleSnapping {
+            get {
+                return ResourceManager.GetString("key_toggleSnapping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle Straight Slopes.
+        /// </summary>
+        internal static string key_toggleStraightSlopes {
+            get {
+                return ResourceManager.GetString("key_toggleStraightSlopes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to More tool options for roads and other networks.
         /// </summary>
         internal static string mod_Description {
             get {
                 return ResourceManager.GetString("mod_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable debug messages logging.
+        /// </summary>
+        internal static string options_disableDebugLogging {
+            get {
+                return ResourceManager.GetString("options_disableDebugLogging", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If checked, debug messages won&apos;t be logged..
+        /// </summary>
+        internal static string options_disableDebugLoggingTooltip {
+            get {
+                return ResourceManager.GetString("options_disableDebugLoggingTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max turn angle.
+        /// </summary>
+        internal static string options_maxTurnAngle {
+            get {
+                return ResourceManager.GetString("options_maxTurnAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reduce rail catenary masts.
+        /// </summary>
+        internal static string options_reduceCatenaries {
+            get {
+                return ResourceManager.GetString("options_reduceCatenaries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reduce the number of catenary mast of rail lines from 3 to 1 per segment..
+        /// </summary>
+        internal static string options_reduceCatenariesTooltip {
+            get {
+                return ResourceManager.GetString("options_reduceCatenariesTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset tool window position.
+        /// </summary>
+        internal static string options_resetToolWindowPosition {
+            get {
+                return ResourceManager.GetString("options_resetToolWindowPosition", resourceCulture);
             }
         }
         
@@ -79,11 +259,193 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show slider for changing the elevation step, from 1m to 12m.
+        ///   Looks up a localized string similar to Show slider for changing the elevation step, from 1m to 12m..
         /// </summary>
         internal static string options_showElevationStepSliderTooltip {
             get {
                 return ResourceManager.GetString("options_showElevationStepSliderTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show max segment length slider.
+        /// </summary>
+        internal static string options_showMaxSegmentLengthSlider {
+            get {
+                return ResourceManager.GetString("options_showMaxSegmentLengthSlider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show slider for changing the maximum segment length, from 4m to 256m (default is 96m)..
+        /// </summary>
+        internal static string options_showMaxSegmentLengthSliderTooltip {
+            get {
+                return ResourceManager.GetString("options_showMaxSegmentLengthSliderTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change max turn angle for more realistic tram tracks turns.
+        /// </summary>
+        internal static string options_tramMaxTurnAngle {
+            get {
+                return ResourceManager.GetString("options_tramMaxTurnAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change all roads with tram tracks max turn angle by the value below if current value is higher..
+        /// </summary>
+        internal static string options_tramMaxTurnAngleTooltip {
+            get {
+                return ResourceManager.GetString("options_tramMaxTurnAngleTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click here for Tool Options.
+        /// </summary>
+        internal static string ui_clickForToolOptions {
+            get {
+                return ResourceManager.GetString("ui_clickForToolOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Elevation Step:.
+        /// </summary>
+        internal static string ui_elevationStep {
+            get {
+                return ResourceManager.GetString("ui_elevationStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Segment Length:.
+        /// </summary>
+        internal static string ui_maxSegmentLength {
+            get {
+                return ResourceManager.GetString("ui_maxSegmentLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bridge: Forces the use of bridge pieces if available.
+        /// </summary>
+        internal static string ui_modeBridge {
+            get {
+                return ResourceManager.GetString("ui_modeBridge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Elevated: Forces the use of elevated pieces if available.
+        /// </summary>
+        internal static string ui_modeElevated {
+            get {
+                return ResourceManager.GetString("ui_modeElevated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ground: Forces the ground to follow the elevation of the road.
+        /// </summary>
+        internal static string ui_modeGround {
+            get {
+                return ResourceManager.GetString("ui_modeGround", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal: Unmodded road placement behavior.
+        /// </summary>
+        internal static string ui_modeNormal {
+            get {
+                return ResourceManager.GetString("ui_modeNormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modes:.
+        /// </summary>
+        internal static string ui_modes {
+            get {
+                return ResourceManager.GetString("ui_modes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tunnel: Forces the use of tunnel pieces if available.
+        /// </summary>
+        internal static string ui_modeTunnel {
+            get {
+                return ResourceManager.GetString("ui_modeTunnel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Straight Slope.
+        /// </summary>
+        internal static string ui_straightSlope {
+            get {
+                return ResourceManager.GetString("ui_straightSlope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Makes the road go straight from A to B instead of following the terrain.
+        ///
+        ///{0} to toggle straight slope..
+        /// </summary>
+        internal static string ui_straightSlopeTooltip {
+            get {
+                return ResourceManager.GetString("ui_straightSlopeTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle anarchy.
+        /// </summary>
+        internal static string ui_toggleAnarchy {
+            get {
+                return ResourceManager.GetString("ui_toggleAnarchy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle road bending.
+        /// </summary>
+        internal static string ui_toggleBending {
+            get {
+                return ResourceManager.GetString("ui_toggleBending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle collision.
+        /// </summary>
+        internal static string ui_toggleCollision {
+            get {
+                return ResourceManager.GetString("ui_toggleCollision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle editor grid.
+        /// </summary>
+        internal static string ui_toggleGrid {
+            get {
+                return ResourceManager.GetString("ui_toggleGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle node snapping.
+        /// </summary>
+        internal static string ui_toggleSnapping {
+            get {
+                return ResourceManager.GetString("ui_toggleSnapping", resourceCulture);
             }
         }
     }
