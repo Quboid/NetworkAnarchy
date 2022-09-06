@@ -154,7 +154,7 @@
     <value>Afficher/Masquer la grille de l'éditeur</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Activer/Désactiver l'ancrage</value>
+    <value>Activer/Désactiver l'ancrage aux nœuds</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Activer/Désactiver les pentes droites</value>
@@ -163,7 +163,7 @@
     <value>Plus d'options d'outil pour les routes et les autres réseaux</value>
   </data>
   <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Désactiver l'archivation des messages de débogage</value>
+    <value>Désactiver la mémorisation des messages de débogage</value>
   </data>
   <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
     <value>Si coché, les messages de débogage ne seront pas enregistrés.</value>
@@ -190,7 +190,7 @@
     <value>Afficher le curseur de longueur de segment maximal</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Afficher le curseur pour changer la longueur maximale du segment, de 4 m à 256 m (par défaut 96 m).</value>
+    <value>Afficher le curseur pour changer la longueur maximale du segment, de 4m à 256m (par défaut 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
     <value>Changer l'angle de virage maximal pour des virages de tram plus réalistes</value>
@@ -213,7 +213,7 @@
     <value>Pont : Force l'utilisation des ponts si possible</value>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Sur-élévation : Force l'utilisation de la sur-élévation si possible</value>
+    <value>Sur-élevé : Force l'utilisation de la sur-élévation si possible</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
     <value>Sol : Force le sol à suivre l'élévation de la route</value>
@@ -247,7 +247,7 @@
     <value>Activer/Désactiver la collision</value>
   </data>
   <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Afficher/Masquer la grille</value>
+    <value>Afficher/Masquer la grille de l'éditeur</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Activer/Désactiver l'ancrage aux nœuds</value>
