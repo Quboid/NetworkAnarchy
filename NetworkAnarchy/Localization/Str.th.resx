@@ -139,7 +139,7 @@
     <value>Elevation Up</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Press any key</value>
+    <value>กดปุ่มใดก็ได้</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
     <value>Toggle Anarchy</value>
@@ -222,7 +222,7 @@
     <value>Normal: Unmodded road placement behavior</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Modes:</value>
+    <value>โหมด:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
