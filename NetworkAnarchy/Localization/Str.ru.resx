@@ -139,7 +139,7 @@
     <value>Elevation Up</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Press any key</value>
+    <value>Нажмите любую клавишу</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
     <value>Toggle Anarchy</value>
@@ -169,7 +169,7 @@
     <value>If checked, debug messages won't be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Max turn angle</value>
+    <value>Макс. угол поворота</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
     <value>Reduce rail catenary masts</value>
@@ -222,7 +222,7 @@
     <value>Normal: Unmodded road placement behavior</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Modes:</value>
+    <value>Режимы:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
