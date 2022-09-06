@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>FR More tool options for roads and other networks</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>FR Show elevation step slider</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m</value>
+    <value>FR Show slider for changing the elevation step, from 1m to 12m</value>
   </data>
 </root>
