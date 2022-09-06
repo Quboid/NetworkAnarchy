@@ -1,10 +1,12 @@
 ﻿using ColossalFramework;
+using ColossalFramework.Globalization;
 using ColossalFramework.UI;
 using CitiesHarmony.API;
 using HarmonyLib;
 using ICities;
+using NetworkAnarchy.Localization;
 using System;
-using System.Reflection;
+using System.Globalization;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -30,16 +32,22 @@ namespace NetworkAnarchy
 
         public string Name => "Network Anarchy " + Version;
 
-        public string Description => "More tool options for roads and other networks";
+        public string Description => Str.mod_Description;
+
+        internal static CultureInfo Culture => new CultureInfo(SingletonLite<LocaleManager>.instance.language == "zh" ? "zh-cn" : SingletonLite<LocaleManager>.instance.language);
 
         public void OnSettingsUI(UIHelperBase helper)
         {
+            LocaleManager.eventLocaleChanged -= LocaleChanged;
+            LocaleChanged();
+            LocaleManager.eventLocaleChanged += LocaleChanged;
+
             try
             {
                 var group = helper.AddGroup(Name) as UIHelper;
                 var panel = group.self as UIPanel;
 
-                var checkBox = (UICheckBox)group.AddCheckbox("Show elevation step slider", UIToolOptionsButton.showElevationSlider.value, (b) =>
+                var checkBox = (UICheckBox)group.AddCheckbox(Str.options_showElevationStepSlider, UIToolOptionsButton.showElevationSlider.value, (b) =>
                 {
                     UIToolOptionsButton.showElevationSlider.value = b;
                     if (NetworkAnarchy.instance != null)
@@ -47,7 +55,7 @@ namespace NetworkAnarchy
                         NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
                     }
                 });
-                checkBox.tooltip = "Show slider for changing the elevation step, from 1m to 12m.\n";
+                checkBox.tooltip = Str.options_showElevationStepSliderTooltip;
 
                 checkBox = (UICheckBox)group.AddCheckbox("Show max segment length slider", UIToolOptionsButton.showMaxSegmentLengthSlider.value, (b) =>
                 {
@@ -218,6 +226,14 @@ namespace NetworkAnarchy
                 GameObject.Destroy(NetworkAnarchy.instance);
                 NetworkAnarchy.instance = null;
             }
+
+            LocaleManager.eventLocaleChanged -= LocaleChanged;
+        }
+
+        internal static void LocaleChanged()
+        {
+            Debug.Log($"Network Anarchy Locale changed {Str.Culture?.Name}->{ModInfo.Culture.Name}");
+            Str.Culture = ModInfo.Culture;
         }
     }
 

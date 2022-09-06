@@ -68,6 +68,11 @@
   <ItemGroup>
     <Compile Include="ChirperManager.cs" />
     <Compile Include="DebugUtils.cs" />
+    <Compile Include="Localization\Str.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Str.resx</DependentUpon>
+    </Compile>
     <Compile Include="Patches\BuildingTool.cs" />
     <Compile Include="Patches\Collision.cs" />
     <Compile Include="Patches\MaxSegmentLength.cs" />
@@ -204,6 +209,10 @@
     <EmbeddedResource Include="ChirperAtlas\ThumbChirperTechFocused.png" />
     <EmbeddedResource Include="ChirperAtlas\ThumbChirperTechHovered.png" />
     <EmbeddedResource Include="ChirperAtlas\ThumbChirperTechPressed.png" />
+    <EmbeddedResource Include="Localization\Str.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Str.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icons\Anarchy.png" />

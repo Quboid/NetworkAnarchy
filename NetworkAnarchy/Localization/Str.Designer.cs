@@ -59,5 +59,32 @@ namespace NetworkAnarchy.Localization {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More tool options for roads and other networks.
+        /// </summary>
+        internal static string mod_Description {
+            get {
+                return ResourceManager.GetString("mod_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show elevation step slider.
+        /// </summary>
+        internal static string options_showElevationStepSlider {
+            get {
+                return ResourceManager.GetString("options_showElevationStepSlider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show slider for changing the elevation step, from 1m to 12m.
+        /// </summary>
+        internal static string options_showElevationStepSliderTooltip {
+            get {
+                return ResourceManager.GetString("options_showElevationStepSliderTooltip", resourceCulture);
+            }
+        }
     }
 }
