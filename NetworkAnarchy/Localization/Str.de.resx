@@ -160,7 +160,7 @@
     <value>Toggle Straight Slopes</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>DE: More tool options for roads and other networks</value>
   </data>
   <data name="options_disableDebugLogging" xml:space="preserve">
     <value>Disable debug messages logging</value>
