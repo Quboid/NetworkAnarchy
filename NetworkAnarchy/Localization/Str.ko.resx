@@ -160,7 +160,7 @@
     <value>직선 경사 전환</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>KO: More tool options for roads and other networks</value>
+    <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
   </data>
   <data name="options_disableDebugLogging" xml:space="preserve">
     <value>디버그 메시지 기록 비활성화</value>
