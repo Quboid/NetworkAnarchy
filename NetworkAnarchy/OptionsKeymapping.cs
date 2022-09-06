@@ -1,13 +1,11 @@
 ﻿using ColossalFramework;
 using ColossalFramework.Globalization;
 using ColossalFramework.UI;
-
+using System;
 using System.Collections.Generic;
 using System.Reflection;
-using UnityEngine;
-
 using UnifiedUI.Helpers;
-using System;
+using UnityEngine;
 
 namespace NetworkAnarchy
 {
