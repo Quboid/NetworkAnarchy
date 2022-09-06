@@ -199,7 +199,7 @@
     <value>Cambia el ángulo de giro máximo de todas las redes con tranvía si el valor actual es más alto.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Haga clic aquí para opciones de herramienta</value>
+    <value>Haz clic aquí para opciones de herramienta</value>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
     <value>Desplazamiento vertical:</value>
@@ -213,20 +213,20 @@
     <value>Puente: Fuerza el uso de puentes si está disponible</value>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Elevated: Forces the use of elevated pieces if available</value>
+    <value>Puente: Fuerza el uso de segmentos elevados si están disponibles</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Ground: Forces the ground to follow the elevation of the road</value>
+    <value>Suelo: Fuerza al suelo a seguir la elevación de la carretera</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normal: Unmodded road placement behavior</value>
+    <value>Normal: Las carreteras se construyen como por defecto (sin mods)</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Modes:</value>
+    <value>Modos:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunnel: Forces the use of tunnel pieces if available</value>
+    <value>Túnel: Fuerza el uso de segmentos de túnel si están disponibles</value>
   </data>
   <data name="ui_straightSlope" xml:space="preserve">
     <value>Pendiente uniforme</value>
