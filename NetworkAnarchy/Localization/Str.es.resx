@@ -130,10 +130,10 @@
     <value>Restaurar elevación</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Elevation Step Down</value>
+    <value>Elevar</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Elevation Step Up</value>
+    <value>Descender</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
     <value>Elevation Up</value>
@@ -160,7 +160,7 @@
     <value>Activar cuestas rectas</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>Más opciones de herramientas para carreteras y otras redes</value>
   </data>
   <data name="options_disableDebugLogging" xml:space="preserve">
     <value>Desactivar el registro de mensajes de depuración</value>
