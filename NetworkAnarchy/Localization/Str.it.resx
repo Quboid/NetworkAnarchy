@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Cycle Modes Left</value>
+    <value>Cambia modalità a sinistra</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Cycle Modes Right</value>
+    <value>Cambia modalità a destra</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
     <value>Elevation Down</value>
