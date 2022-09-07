@@ -118,40 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Cambia modalità a sinistra</value>
+    <value>Cambiare modalità verso sinistra</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Cambia modalità a destra</value>
+    <value>Cambiare modalità verso destra</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Elevation Down</value>
+    <value>Diminuire l'elevazione</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Reset Elevation</value>
+    <value>Ripristinare l'elevazione</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Elevation Step Down</value>
+    <value>Diminuire l'incremento dell'elevazione</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Elevation Step Up</value>
+    <value>Aumentare l'incremento dell'elevazione</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Elevation Up</value>
+    <value>Aumentare l'elevazione</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Press any key</value>
+    <value>Premi qualsiasi tasto</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Toggle Anarchy</value>
+    <value>Attivare/Disattivare Anarchia</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Toggle Bending</value>
+    <value>Attivare/Disattivare Curvatura</value>
   </data>
   <data name="key_toggleCollision" xml:space="preserve">
-    <value>Toggle Collision</value>
+    <value>Attivare/Disattivare Collisione</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Toggle Editor Grid</value>
+    <value>Attivare/Disattivare la griglia dell'editor</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
     <value>Toggle Snapping</value>
@@ -160,34 +160,34 @@
     <value>Toggle Straight Slopes</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>Più opzioni di strumenti per strade e altre reti</value>
   </data>
   <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Disable debug messages logging</value>
+    <value>Disattivare il salvataggio dei messaggi di debug</value>
   </data>
   <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, debug messages won't be logged.</value>
+    <value>Se selezionato, i messaggi di debug non verranno salvati.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Max turn angle</value>
+    <value>Angolo di rotazione massimo</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Reduce rail catenary masts</value>
+    <value>Ridurre il numero di catenarie ferroviarie</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Reduce the number of catenary mast of rail lines from 3 to 1 per segment.</value>
+    <value>Ridurre il numero di catenarie di linee ferroviarie da 3 a 1 per segmento.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Reset tool window position</value>
+    <value>Ripristinare la posizione della finestra degli strumenti</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>Mostrare il cursore dell'incremento di elevazione</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
     <value>Show slider for changing the elevation step, from 1m to 12m.</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Show max segment length slider</value>
+    <value>Mostrare il cursore della lunghezza massima del segmento</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
     <value>Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).</value>
