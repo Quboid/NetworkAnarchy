@@ -142,16 +142,16 @@
     <value>กดปุ่มใดก็ได้</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Toggle Anarchy</value>
+    <value>เปิดโหมดอิสระ (Anarchy)</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Toggle Bending</value>
+    <value>เปิดการดัด</value>
   </data>
   <data name="key_toggleCollision" xml:space="preserve">
-    <value>Toggle Collision</value>
+    <value>เปิดการป้องกันการซ้อนกัน</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Toggle Editor Grid</value>
+    <value>เปิดแสดงเส้นตาราง</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
     <value>Toggle Snapping</value>
@@ -178,10 +178,10 @@
     <value>Reduce the number of catenary mast of rail lines from 3 to 1 per segment.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Reset tool window position</value>
+    <value>คืนค่าตำแหน่งหน้าต่างเครื่องมือ</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>แสดงแถบเลื่อนขั้นของการยกระดับ</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
     <value>Show slider for changing the elevation step, from 1m to 12m.</value>
@@ -199,7 +199,7 @@
     <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Click here for Tool Options</value>
+    <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
     <value>ขั้นของการยกระดับ</value>
