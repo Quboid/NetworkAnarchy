@@ -154,7 +154,7 @@
     <value>Alternar grade</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Alternar encaixe à grade</value>
+    <value>Alternar encaixe</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Alternar elevação uniforme</value>
@@ -193,10 +193,10 @@
     <value>Exibir controle deslizante para alterar o comprimento máximo do segmento, entre 4m e 256m. O padrão é 96m.</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Alterar o ângulo máximo de curvas para deixar os trilhos de bonde mais realistas</value>
+    <value>Forçar ângulo máximo de curvas para deixar os trilhos de bonde mais realistas</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Forçar todas as estradas com trilhos de bonde para permitir curvas apenas até o ângulo máximo definido.</value>
+    <value>Forçar o ângulo máximo definido em todas as estradas com trilhos de bonde.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Clique aqui para as Opções de Ferramenta</value>
@@ -232,7 +232,9 @@
     <value>Elevação uniforme</value>
   </data>
   <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>{0} para alternar o modo de elevação uniforme.</value>
+    <value>Fazer o segmento seguir uma elevação uniforme de A até B ao invés de seguir o terreno.
+
+{0} para alternar o modo de elevação uniforme.</value>
     <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
@@ -248,6 +250,6 @@
     <value>Alternar grade do editor</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Toggle node snapping</value>
+    <value>Alternar encaixe</value>
   </data>
 </root>
