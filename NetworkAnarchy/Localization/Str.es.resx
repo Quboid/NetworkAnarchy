@@ -127,7 +127,7 @@
     <value>Descender</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Restaurar elevación</value>
+    <value>Restaurar elevación por defecto</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
     <value>Disminuir desplazamiento vertical</value>
@@ -241,7 +241,7 @@
     <value>Apagar/encender anarquía</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Toggle road bending</value>
+    <value>Activar autocurva para carreteras</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Apagar/encender colisión</value>
