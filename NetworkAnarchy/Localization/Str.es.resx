@@ -124,7 +124,7 @@
     <value>Cambio de modo hacia la derecha</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Bajar elevación</value>
+    <value>Descender</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
     <value>Restaurar elevación</value>
@@ -136,7 +136,7 @@
     <value>Aumentar desplazamiento vertical</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Subir elevación</value>
+    <value>Ascender</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
     <value>Pulsa cualquier tecla</value>
