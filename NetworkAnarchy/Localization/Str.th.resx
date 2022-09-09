@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Cycle Modes Left</value>
+    <value>เปลี่ยนโหมดการทำงาน (วนไปทางซ้ายมือ)</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Cycle Modes Right</value>
+    <value>เปลี่ยนโหมดการทำงาน (วนไปทางขวามือ)</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Elevation Down</value>
+    <value>ลดการยกระดับ</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
     <value>คืนค่าความสูง</value>
@@ -136,7 +136,7 @@
     <value>Elevation Step Up</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Elevation Up</value>
+    <value>เพิ่มการยกระดับ</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
     <value>กดปุ่มใดก็ได้</value>
