@@ -181,13 +181,13 @@
     <value>Redefinir posição da janela de ferramentas</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Exibir controle deslizante do passo de elevação</value>
+    <value>Exibir controle do passo de elevação</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
     <value>Exibir controle para definir o passo da elevação entre 1m e 12m.</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Exibir controle deslizante para o tamanho máximo do segmento</value>
+    <value>Exibir controle para o tamanho máximo do segmento</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
     <value>Exibir controle deslizante para alterar o comprimento máximo do segmento, entre 4m e 256m. O padrão é 96m.</value>
@@ -196,7 +196,7 @@
     <value>Forçar ângulo máximo de curvas para deixar os trilhos de bonde mais realistas</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Forçar o ângulo máximo definido em todas as estradas com trilhos de bonde.</value>
+    <value>Forçar o ângulo máximo definido em todas as estradas com trilhos de bonde se o valor atual for maior.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Clique aqui para as Opções de Ferramenta</value>
