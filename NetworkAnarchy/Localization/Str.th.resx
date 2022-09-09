@@ -130,10 +130,10 @@
     <value>คืนค่าความสูง</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Elevation Step Down</value>
+    <value>ลดระดับขั้นการยกระดับ</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Elevation Step Up</value>
+    <value>เพิ่มระดับขั้นการยกระดับ</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
     <value>เพิ่มการยกระดับ</value>
@@ -154,28 +154,28 @@
     <value>เปิดแสดงเส้นตาราง</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Toggle Snapping</value>
+    <value>เปิดโหมดการยึดติด</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Toggle Straight Slopes</value>
+    <value>เปิดโหมดปรับทางลาดตรง</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>TH: More tool options for roads and other networks</value>
   </data>
   <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Disable debug messages logging</value>
+    <value>ปิดการบันทึกข้อความการทำงาน (Debug)</value>
   </data>
   <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, debug messages won't be logged.</value>
+    <value>ถ้าเลือกตัวเลือกนี้ ระบบจะไม่บันทึกข้อความการทำงาน (Debug messages)</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Max turn angle</value>
+    <value>มุมการเลี้ยวสูงสุด</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Reduce rail catenary masts</value>
+    <value>ลดเสาสายส่งที่อยู่เหนือรางรถไฟ</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Reduce the number of catenary mast of rail lines from 3 to 1 per segment.</value>
+    <value>ลดจำนวนของเสาสายส่งของเส้นทางรถไฟ จาก 3 เป็น 1 ต่อเซกเมนต์</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
     <value>คืนค่าตำแหน่งหน้าต่างเครื่องมือ</value>
@@ -184,19 +184,19 @@
     <value>แสดงแถบเลื่อนขั้นของการยกระดับ</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m.</value>
+    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนจำนวนขั้นของการยกระดับ จาก 1 เมตร ถึง 12 เมตร</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Show max segment length slider</value>
+    <value>แสดงแถบเลื่อนความยาวสูงสุดของเซ็กเมนต์</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).</value>
+    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนความยาวสูงสุดของเซ็กเมนต์ จาก 4 เมตร ถึง 256 เมตร (ค่าเริ่มต้นคือ 96 เมตร)</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Change max turn angle for more realistic tram tracks turns</value>
+    <value>เปลี่ยนค่าสูงสุดของมุมการเลี้ยว เพื่อการเลี้ยวของรถรางที่สมจริงยิ่งขึ้น</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
+    <value>เปลี่ยนถนนทุกสายที่มีรางรางให้มีมุมเลี้ยวสูงสุด ตามการตั้งค่าด้านล่าง (หากค่าปัจจุบันสูงกว่า)</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
@@ -216,25 +216,24 @@
     <value>ยกระดับ: บังคับให้ใช้ส่วนการยกระดับ (ถ้ามี)</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Ground: Forces the ground to follow the elevation of the road</value>
+    <value>ระดับพื้นดิน: บังคับให้พื้นดินตามระดับความสูงของถนน</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normal: Unmodded road placement behavior</value>
+    <value>โหมดปกติ: ใช้การถนนที่เป็นแบบดั้งเดิมของเกม</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
     <value>โหมด:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunnel: Forces the use of tunnel pieces if available</value>
+    <value>บังคับให้เป็นอุโมงค์ (ถ้ามี)</value>
   </data>
   <data name="ui_straightSlope" xml:space="preserve">
-    <value>Straight Slope</value>
+    <value>ทางลาดตรง</value>
   </data>
   <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Makes the road go straight from A to B instead of following the terrain.
-
-{0} to toggle straight slope.</value>
+    <value>ทำให้ถนนวิ่งตรง พร้อมปรับทางลาดจากจุดหนึ่งไปยังอีกจุดหนึ่ง แทนการไปตามภูมิประเทศ
+{0} เพื่อเปิดโหมดปรับทางลาดตรง</value>
     <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
@@ -250,6 +249,6 @@
     <value>เปิดแสดงเส้นตาราง</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Toggle node snapping</value>
+    <value>เปิดโหมดการยึดติด</value>
   </data>
 </root>
