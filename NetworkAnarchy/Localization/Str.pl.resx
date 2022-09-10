@@ -118,46 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Cycle Modes Left</value>
+    <value>Przełącz tryby w lewo</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Cycle Modes Right</value>
+    <value>Przełącz tryby w prawo</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Elevation Down</value>
+    <value>Podniesienie w dół</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Reset Elevation</value>
+    <value>Zresetuj podniesienie</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Elevation Step Down</value>
+    <value>Stopień podniesienia w dół</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Elevation Step Up</value>
+    <value>Stopień podniesienia w górę</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Elevation Up</value>
+    <value>Podniesienie w górę</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Press any key</value>
+    <value>Naciśnij dowolny klawisz</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Toggle Anarchy</value>
+    <value>Włącz / Wyłącz anarchię</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Toggle Bending</value>
+    <value>Włącz / Wyłącz zaginanie</value>
   </data>
   <data name="key_toggleCollision" xml:space="preserve">
-    <value>Przełącz kolizję</value>
+    <value>Włącz / Wyłącz kolizję</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Przełącz siatkę edytora</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Przełącz przyciąganie</value>
+    <value>Włącz / Wyłącz przyciąganie węzłów</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Toggle Straight Slopes</value>
+    <value>Włącz / Wyłącz proste nachylenia</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Więcej opcji narzędzia dla dróg i innych sieci</value>
@@ -172,7 +172,7 @@
     <value>Maksymalny kąt skrętu</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Zmniejsz liczba masztów sieci trakcyjnej</value>
+    <value>Zmniejszona liczba masztów sieci trakcyjnej</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
     <value>Zmniejsz liczbę masztów sieci trakcyjnej z 3 do 1 na jeden odcinek.</value>
@@ -181,25 +181,25 @@
     <value>Resetuj pozycję okna</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Pokaż suwak stopnia wysokości</value>
+    <value>Pokaż suwak stopnia podniesienia</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Pokaż suwak do zmiany stopnia wysokości, z 1 m na 12 m.</value>
+    <value>Pokaż suwak do zmiany stopnia podniesienia, z 1 m na 12 m.</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>Pokaż suwak maksymalnej długości odcinka</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).</value>
+    <value>Pokaż suwak do zmiany maksymalnej długości segmentu, od 4 m do 256 m (domyślnie 96 m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
     <value>Zmień maksymalny kąt skrętu dla bardziej realistycznych zakrętów torów tramwajowych</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
+    <value>Zmień wszystkie drogi z torami tramwajowymi z maksymalnym kątem skrętu o wartość poniżej, jeśli bieżąca wartość jest wyższa.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Click here for Tool Options</value>
+    <value>Kliknij tutaj, aby wyświetlić opcje narzędzia</value>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
     <value>Stopień ukształtowania terenu:</value>
@@ -213,43 +213,43 @@
     <value>Most: Wymusza użycie elementów mostowych, jeśli są one dostępne</value>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Elevated: Forces the use of elevated pieces if available</value>
+    <value>Podwyższenie: Wymusza użycie elementów podwyższenia, jeśli są one dostępne</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Ground: Forces the ground to follow the elevation of the road</value>
+    <value>Podłoże: Wymusza ziemię do podążania za ukształtowaniem drogi</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normal: Unmodded road placement behavior</value>
+    <value>Normalny: niezmodyfikowane zachowanie umieszczenia drogi</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Modes:</value>
+    <value>Tryby:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunnel: Forces the use of tunnel pieces if available</value>
+    <value>Tunel – wymusza użycie elementów tunelu, jeśli są one dostępne</value>
   </data>
   <data name="ui_straightSlope" xml:space="preserve">
-    <value>Straight Slope</value>
+    <value>Proste nachylenie</value>
   </data>
   <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Makes the road go straight from A to B instead of following the terrain.
+    <value>Sprawia, że droga biegnie prosto od A do B, zamiast podążać za terenem.
 
-{0} to toggle straight slope.</value>
+{0} aby przełączyć proste nachylenie.</value>
     <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Toggle anarchy</value>
+    <value>Włącz / Wyłącz anarchię</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Toggle road bending</value>
+    <value>Włącz / Wyłącz zginanie drogi</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Toggle collision</value>
+    <value>Włącz / Wyłącz kolizję</value>
   </data>
   <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Toggle editor grid</value>
+    <value>Włącz / Wyłącz siatkę edytora</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Toggle node snapping</value>
+    <value>Włącz / Wyłącz przyciąganie węzłów</value>
   </data>
 </root>
