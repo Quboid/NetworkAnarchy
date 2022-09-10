@@ -117,13 +117,139 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="key_cycleModesLeft" xml:space="preserve">
+    <value>Предыдущий режим</value>
+  </data>
+  <data name="key_cycleModesRight" xml:space="preserve">
+    <value>Следующий режим</value>
+  </data>
+  <data name="key_elevationDown" xml:space="preserve">
+    <value>Уменьшить подъем</value>
+  </data>
+  <data name="key_elevationReset" xml:space="preserve">
+    <value>Сбросить подъем</value>
+  </data>
+  <data name="key_elevationStepDown" xml:space="preserve">
+    <value>Уменьшить шаг подъема</value>
+  </data>
+  <data name="key_elevationStepUp" xml:space="preserve">
+    <value>Увеличить шаг подъема</value>
+  </data>
+  <data name="key_elevationUp" xml:space="preserve">
+    <value>Увеличить подъем</value>
+  </data>
+  <data name="key_pressAnyKey" xml:space="preserve">
+    <value>Нажмите любую клавишу</value>
+  </data>
+  <data name="key_toggleAnarchy" xml:space="preserve">
+    <value>Вкл/Выкл анархию</value>
+  </data>
+  <data name="key_toggleBending" xml:space="preserve">
+    <value>Вкл/Выкл изгиб</value>
+  </data>
+  <data name="key_toggleCollision" xml:space="preserve">
+    <value>Вкл/Выкл коллизию</value>
+  </data>
+  <data name="key_toggleGrid" xml:space="preserve">
+    <value>Вкл/Выкл сетку</value>
+  </data>
+  <data name="key_toggleSnapping" xml:space="preserve">
+    <value>Вкл/Выкл привязку</value>
+  </data>
+  <data name="key_toggleStraightSlopes" xml:space="preserve">
+    <value>Вкл/Выкл прямой склон</value>
+  </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>Больше возможностей для дорог и других сетевых объектов</value>
+  </data>
+  <data name="options_disableDebugLogging" xml:space="preserve">
+    <value>Выключить сообщения отладки</value>
+  </data>
+  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
+    <value>Если выбрано, сообщения отладки не будут писаться в лог.</value>
+  </data>
+  <data name="options_maxTurnAngle" xml:space="preserve">
+    <value>Макс. угол поворота</value>
+  </data>
+  <data name="options_reduceCatenaries" xml:space="preserve">
+    <value>Уменьшить число опор проводов</value>
+  </data>
+  <data name="options_reduceCatenariesTooltip" xml:space="preserve">
+    <value>Уменьшить число опор проводов с 3 до 1 для каждого сегмента.</value>
+  </data>
+  <data name="options_resetToolWindowPosition" xml:space="preserve">
+    <value>Сбросить позиции окон</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>Показать слайдер шага подъема</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m</value>
+    <value>Показать слайдер для изменения шага подъема от 1м до 12м.</value>
+  </data>
+  <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
+    <value>Показать слайдер максимальной длины сегмента</value>
+  </data>
+  <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
+    <value>Показать слайдер для изменения максимальной длины сегмента от 4м до 256м (96м по умолчанию).</value>
+  </data>
+  <data name="options_tramMaxTurnAngle" xml:space="preserve">
+    <value>Изменить максимальный угол поворота для более реалистичных поворотов трамвая</value>
+  </data>
+  <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
+    <value>Изменить максимальный угол поворота для всех дорог с трамвайными рельсами, если их значение меньше указанного.</value>
+  </data>
+  <data name="ui_clickForToolOptions" xml:space="preserve">
+    <value>Нажмите здесь для открытия опций</value>
+  </data>
+  <data name="ui_elevationStep" xml:space="preserve">
+    <value>Шаг подъема:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_maxSegmentLength" xml:space="preserve">
+    <value>Макс длина сегмента:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_modeBridge" xml:space="preserve">
+    <value>Мост: использовать мост, при наличии</value>
+  </data>
+  <data name="ui_modeElevated" xml:space="preserve">
+    <value>Эстокада: использовать эстокаду, при наличии</value>
+  </data>
+  <data name="ui_modeGround" xml:space="preserve">
+    <value>Наземный: поверхность следует за высотой дороги</value>
+  </data>
+  <data name="ui_modeNormal" xml:space="preserve">
+    <value>Обычный: выбор типа дороги по умолчанию</value>
+  </data>
+  <data name="ui_modes" xml:space="preserve">
+    <value>Режимы:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_modeTunnel" xml:space="preserve">
+    <value>Туннель: использовать туннель, при наличии</value>
+  </data>
+  <data name="ui_straightSlope" xml:space="preserve">
+    <value>Прямой склон</value>
+  </data>
+  <data name="ui_straightSlopeTooltip" xml:space="preserve">
+    <value>Заставить дорогу идти прямо из точки А в точку Б вместо того чтобы следовать изгибам рельефа.
+
+{0} Для Вкл/Выкл прямой склон.</value>
+    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
+  </data>
+  <data name="ui_toggleAnarchy" xml:space="preserve">
+    <value>Вкл/Выкл анархию</value>
+  </data>
+  <data name="ui_toggleBending" xml:space="preserve">
+    <value>Вкл/Выкл изгиб</value>
+  </data>
+  <data name="ui_toggleCollision" xml:space="preserve">
+    <value>Вкл/Выкл коллизию</value>
+  </data>
+  <data name="ui_toggleGrid" xml:space="preserve">
+    <value>Вкл/Выкл сетку</value>
+  </data>
+  <data name="ui_toggleSnapping" xml:space="preserve">
+    <value>Вкл/Выкл привязку</value>
   </data>
 </root>

@@ -117,13 +117,139 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="key_cycleModesLeft" xml:space="preserve">
+    <value>モードを左に移る</value>
+  </data>
+  <data name="key_cycleModesRight" xml:space="preserve">
+    <value>モードを右に移る</value>
+  </data>
+  <data name="key_elevationDown" xml:space="preserve">
+    <value>高さを下げる</value>
+  </data>
+  <data name="key_elevationReset" xml:space="preserve">
+    <value>高さをリセット</value>
+  </data>
+  <data name="key_elevationStepDown" xml:space="preserve">
+    <value>高さを少し下げる</value>
+  </data>
+  <data name="key_elevationStepUp" xml:space="preserve">
+    <value>高さを少し上げる</value>
+  </data>
+  <data name="key_elevationUp" xml:space="preserve">
+    <value>高さを上げる</value>
+  </data>
+  <data name="key_pressAnyKey" xml:space="preserve">
+    <value>何かキーを押してください</value>
+  </data>
+  <data name="key_toggleAnarchy" xml:space="preserve">
+    <value>アナーキーを切替</value>
+  </data>
+  <data name="key_toggleBending" xml:space="preserve">
+    <value>湾曲の切り替え</value>
+  </data>
+  <data name="key_toggleCollision" xml:space="preserve">
+    <value>衝突判定の切り替え</value>
+  </data>
+  <data name="key_toggleGrid" xml:space="preserve">
+    <value>グリッド表示の切替</value>
+  </data>
+  <data name="key_toggleSnapping" xml:space="preserve">
+    <value>スナップの切替</value>
+  </data>
+  <data name="key_toggleStraightSlopes" xml:space="preserve">
+    <value>直線スロープの切替</value>
+  </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>道路やネットワークのためのより多くのツール</value>
+  </data>
+  <data name="options_disableDebugLogging" xml:space="preserve">
+    <value>デバッグメッセージの出力を無効化</value>
+  </data>
+  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
+    <value>チェックするとデバッグログが出力されません。</value>
+  </data>
+  <data name="options_maxTurnAngle" xml:space="preserve">
+    <value>最大回転角度</value>
+  </data>
+  <data name="options_reduceCatenaries" xml:space="preserve">
+    <value>架線柱を減らす</value>
+  </data>
+  <data name="options_reduceCatenariesTooltip" xml:space="preserve">
+    <value>架線柱の数を1セグメントにつき3つから1つに減らします。</value>
+  </data>
+  <data name="options_resetToolWindowPosition" xml:space="preserve">
+    <value>ウィンドウの位置をリセットする</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>高さのスライダーを表示</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m</value>
+    <value>高さのステップを1m〜12mに変更するためのスライダーを表示します。</value>
+  </data>
+  <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
+    <value>セグメントの最大長を調整するためのスライダーを表示</value>
+  </data>
+  <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
+    <value>セグメントの最大長を4m〜256mに変更するためのスライダーを表示します(デフォルトは96m)。</value>
+  </data>
+  <data name="options_tramMaxTurnAngle" xml:space="preserve">
+    <value>トラム線路のカーブをより現実的にするために最大回転角を変更します</value>
+  </data>
+  <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
+    <value>現在の最大角のほうが大きい場合、トラム線路のある全ての道路の最大角が変更されます。</value>
+  </data>
+  <data name="ui_clickForToolOptions" xml:space="preserve">
+    <value>クリックでオプションを表示</value>
+  </data>
+  <data name="ui_elevationStep" xml:space="preserve">
+    <value>高さの変更量:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_maxSegmentLength" xml:space="preserve">
+    <value>セグメントの最大長:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_modeBridge" xml:space="preserve">
+    <value>橋梁: 可能であれば橋梁を使用する</value>
+  </data>
+  <data name="ui_modeElevated" xml:space="preserve">
+    <value>高架: 可能であれば高架を使用する</value>
+  </data>
+  <data name="ui_modeGround" xml:space="preserve">
+    <value>地面: 道路の傾斜を地面に沿わせる</value>
+  </data>
+  <data name="ui_modeNormal" xml:space="preserve">
+    <value>通常: 非mod状態で道路を配置する</value>
+  </data>
+  <data name="ui_modes" xml:space="preserve">
+    <value>モード</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_modeTunnel" xml:space="preserve">
+    <value>トンネル: 可能であればトンネルを使用する</value>
+  </data>
+  <data name="ui_straightSlope" xml:space="preserve">
+    <value>直線スロープ</value>
+  </data>
+  <data name="ui_straightSlopeTooltip" xml:space="preserve">
+    <value>道路を地形に沿わせず、AからBまでまっすぐにします。
+
+{0} で直線スロープを切替。</value>
+    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
+  </data>
+  <data name="ui_toggleAnarchy" xml:space="preserve">
+    <value>アナーキーの切替</value>
+  </data>
+  <data name="ui_toggleBending" xml:space="preserve">
+    <value>湾曲の切替</value>
+  </data>
+  <data name="ui_toggleCollision" xml:space="preserve">
+    <value>衝突判定の切替</value>
+  </data>
+  <data name="ui_toggleGrid" xml:space="preserve">
+    <value>グリッド表示の切替</value>
+  </data>
+  <data name="ui_toggleSnapping" xml:space="preserve">
+    <value>ノードスナップの切替</value>
   </data>
 </root>

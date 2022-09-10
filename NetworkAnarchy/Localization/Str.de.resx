@@ -117,13 +117,139 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="key_cycleModesLeft" xml:space="preserve">
+    <value>Modi nach links durchschalten</value>
+  </data>
+  <data name="key_cycleModesRight" xml:space="preserve">
+    <value>Modi nach rechts durchschalten</value>
+  </data>
+  <data name="key_elevationDown" xml:space="preserve">
+    <value>Höhe verringern</value>
+  </data>
+  <data name="key_elevationReset" xml:space="preserve">
+    <value>Höhe zurücksetzen</value>
+  </data>
+  <data name="key_elevationStepDown" xml:space="preserve">
+    <value>Höhenschritt nach unten</value>
+  </data>
+  <data name="key_elevationStepUp" xml:space="preserve">
+    <value>Höhenschritt nach oben</value>
+  </data>
+  <data name="key_elevationUp" xml:space="preserve">
+    <value>Höhe erhöhen</value>
+  </data>
+  <data name="key_pressAnyKey" xml:space="preserve">
+    <value>Beliebige Taste drücken</value>
+  </data>
+  <data name="key_toggleAnarchy" xml:space="preserve">
+    <value>Anarchie ein/aus</value>
+  </data>
+  <data name="key_toggleBending" xml:space="preserve">
+    <value>Biegen ein/aus</value>
+  </data>
+  <data name="key_toggleCollision" xml:space="preserve">
+    <value>Kollision ein/aus</value>
+  </data>
+  <data name="key_toggleGrid" xml:space="preserve">
+    <value>Editor-Raster ein/aus</value>
+  </data>
+  <data name="key_toggleSnapping" xml:space="preserve">
+    <value>Einrasten ein/aus</value>
+  </data>
+  <data name="key_toggleStraightSlopes" xml:space="preserve">
+    <value>Begradigen ein/aus</value>
+  </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>Weitere Werkzeugoptionen für Straßen und andere Netzwerke</value>
+  </data>
+  <data name="options_disableDebugLogging" xml:space="preserve">
+    <value>Protokollieren von Debugmeldungen deaktivieren</value>
+  </data>
+  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
+    <value>Wenn aktiviert, werden Debug-Meldungen nicht protokolliert.</value>
+  </data>
+  <data name="options_maxTurnAngle" xml:space="preserve">
+    <value>Maximaler Kurvenwinkel</value>
+  </data>
+  <data name="options_reduceCatenaries" xml:space="preserve">
+    <value>Anzahl der Oberleitungsmasten reduzieren</value>
+  </data>
+  <data name="options_reduceCatenariesTooltip" xml:space="preserve">
+    <value>Reduziert die Anzahl der Oberleitungsmasten von Bahnlinien von 3 auf 1 pro Segment.</value>
+  </data>
+  <data name="options_resetToolWindowPosition" xml:space="preserve">
+    <value>Position des Werkzeugfensters zurücksetzen</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>Höhenschritt-Schieberegler anzeigen</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m</value>
+    <value>Schieberegler zum Ändern des Höhenschritts zwischen 1m bis 12m anzeigen.</value>
+  </data>
+  <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
+    <value>Segmentlänge-Schieberegler anzeigen</value>
+  </data>
+  <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
+    <value>Schieberegler zum Ändern der Segmentlänge zwischen 4m bis 256m anzeigen (Standardwert ist 96m).</value>
+  </data>
+  <data name="options_tramMaxTurnAngle" xml:space="preserve">
+    <value>Ändere den maximalen Kurvenwinkel für realistischere Tramspuren</value>
+  </data>
+  <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
+    <value>Ändert alle Strassen mit Tramspuren auf den maximalen Kurvenwinkel des unten angegebenen Wertes, wenn der aktuelle Wert höher ist.</value>
+  </data>
+  <data name="ui_clickForToolOptions" xml:space="preserve">
+    <value>Hier klicken für Werkzeugoptionen</value>
+  </data>
+  <data name="ui_elevationStep" xml:space="preserve">
+    <value>Höhenschritt:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_maxSegmentLength" xml:space="preserve">
+    <value>Maximale Segmentlänge:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_modeBridge" xml:space="preserve">
+    <value>Brücke: Erzwingt die Verwendung von Brückenteilen, falls verfügbar</value>
+  </data>
+  <data name="ui_modeElevated" xml:space="preserve">
+    <value>Erhöht: Erzwingt den Einsatz erhöhter Teile, falls verfügbar</value>
+  </data>
+  <data name="ui_modeGround" xml:space="preserve">
+    <value>Boden: Zwingt den Boden, der Höhe der Straße zu folgen</value>
+  </data>
+  <data name="ui_modeNormal" xml:space="preserve">
+    <value>Normal: Nicht modifiziertes Platzieren der Straßen</value>
+  </data>
+  <data name="ui_modes" xml:space="preserve">
+    <value>Modi:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_modeTunnel" xml:space="preserve">
+    <value>Tunnel: Erzwingt die Verwendung von Tunnelteilen, falls verfügbar</value>
+  </data>
+  <data name="ui_straightSlope" xml:space="preserve">
+    <value>Begradigte Verbindung</value>
+  </data>
+  <data name="ui_straightSlopeTooltip" xml:space="preserve">
+    <value>Lässt die Straße direkt von A nach B gehen, anstatt dem Gelände zu folgen.
+
+{0} schaltet Begradigen ein/aus.</value>
+    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
+  </data>
+  <data name="ui_toggleAnarchy" xml:space="preserve">
+    <value>Anarchie ein/aus</value>
+  </data>
+  <data name="ui_toggleBending" xml:space="preserve">
+    <value>Straßenbiegung ein/aus</value>
+  </data>
+  <data name="ui_toggleCollision" xml:space="preserve">
+    <value>Kollision ein/aus</value>
+  </data>
+  <data name="ui_toggleGrid" xml:space="preserve">
+    <value>Editor-Raster ein/aus</value>
+  </data>
+  <data name="ui_toggleSnapping" xml:space="preserve">
+    <value>Einrasten ein/aus</value>
   </data>
 </root>

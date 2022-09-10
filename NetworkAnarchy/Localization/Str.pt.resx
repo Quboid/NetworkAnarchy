@@ -117,13 +117,139 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="key_cycleModesLeft" xml:space="preserve">
+    <value>Alternar modos (Esquerda)</value>
+  </data>
+  <data name="key_cycleModesRight" xml:space="preserve">
+    <value>Alternar modos (Direita)</value>
+  </data>
+  <data name="key_elevationDown" xml:space="preserve">
+    <value>Diminuir elevação</value>
+  </data>
+  <data name="key_elevationReset" xml:space="preserve">
+    <value>Redefinir elevação</value>
+  </data>
+  <data name="key_elevationStepDown" xml:space="preserve">
+    <value>Reduzir passo de elevação</value>
+  </data>
+  <data name="key_elevationStepUp" xml:space="preserve">
+    <value>Aumentar passo de elevação</value>
+  </data>
+  <data name="key_elevationUp" xml:space="preserve">
+    <value>Aumentar elevação</value>
+  </data>
+  <data name="key_pressAnyKey" xml:space="preserve">
+    <value>Pressione qualquer tecla</value>
+  </data>
+  <data name="key_toggleAnarchy" xml:space="preserve">
+    <value>Alternar anarquia</value>
+  </data>
+  <data name="key_toggleBending" xml:space="preserve">
+    <value>Alternar curvatura automática</value>
+  </data>
+  <data name="key_toggleCollision" xml:space="preserve">
+    <value>Alternar colisão</value>
+  </data>
+  <data name="key_toggleGrid" xml:space="preserve">
+    <value>Alternar grade</value>
+  </data>
+  <data name="key_toggleSnapping" xml:space="preserve">
+    <value>Alternar encaixe</value>
+  </data>
+  <data name="key_toggleStraightSlopes" xml:space="preserve">
+    <value>Alternar elevação uniforme</value>
+  </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>Mais opções de ferramentas para estradas e redes de segmentos em geral</value>
+  </data>
+  <data name="options_disableDebugLogging" xml:space="preserve">
+    <value>Desabilitar registro de mensagens de depuração</value>
+  </data>
+  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
+    <value>Se ativado, as mensagens de depuração não serão registradas em log.</value>
+  </data>
+  <data name="options_maxTurnAngle" xml:space="preserve">
+    <value>Ângulo de curva máximo</value>
+  </data>
+  <data name="options_reduceCatenaries" xml:space="preserve">
+    <value>Reduzir pilares das catenárias dos trilhos</value>
+  </data>
+  <data name="options_reduceCatenariesTooltip" xml:space="preserve">
+    <value>Reduz a quantidade de catenárias de 3 para 1 por segmento.</value>
+  </data>
+  <data name="options_resetToolWindowPosition" xml:space="preserve">
+    <value>Redefinir posição da janela de ferramentas</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>Exibir controle do passo de elevação</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m</value>
+    <value>Exibir controle para definir o passo da elevação entre 1m e 12m.</value>
+  </data>
+  <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
+    <value>Exibir controle para o tamanho máximo do segmento</value>
+  </data>
+  <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
+    <value>Exibir controle deslizante para alterar o comprimento máximo do segmento, entre 4m e 256m. O padrão é 96m.</value>
+  </data>
+  <data name="options_tramMaxTurnAngle" xml:space="preserve">
+    <value>Forçar ângulo máximo de curvas para deixar os trilhos de bonde mais realistas</value>
+  </data>
+  <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
+    <value>Forçar o ângulo máximo definido em todas as estradas com trilhos de bonde se o valor atual for maior.</value>
+  </data>
+  <data name="ui_clickForToolOptions" xml:space="preserve">
+    <value>Clique aqui para as Opções de Ferramenta</value>
+  </data>
+  <data name="ui_elevationStep" xml:space="preserve">
+    <value>Passo de elevação:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_maxSegmentLength" xml:space="preserve">
+    <value>Comprimento máximo do segmento:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_modeBridge" xml:space="preserve">
+    <value>Pontes: Forçar uso do modelo para ponte se disponível</value>
+  </data>
+  <data name="ui_modeElevated" xml:space="preserve">
+    <value>Elevados: Forçar uso do modelo elevado se disponível</value>
+  </data>
+  <data name="ui_modeGround" xml:space="preserve">
+    <value>Térreo: Forçar aterramento para seguir a elevação da estrada</value>
+  </data>
+  <data name="ui_modeNormal" xml:space="preserve">
+    <value>Normal: Construção de estradas pelas regras padrão do jogo</value>
+  </data>
+  <data name="ui_modes" xml:space="preserve">
+    <value>Modos:</value>
+    <comment>Keep the ":" if used in your language</comment>
+  </data>
+  <data name="ui_modeTunnel" xml:space="preserve">
+    <value>Túnel: Forçar uso do modelo para túneis se disponível</value>
+  </data>
+  <data name="ui_straightSlope" xml:space="preserve">
+    <value>Elevação uniforme</value>
+  </data>
+  <data name="ui_straightSlopeTooltip" xml:space="preserve">
+    <value>Fazer o segmento seguir uma elevação uniforme de A até B ao invés de seguir o terreno.
+
+{0} para alternar o modo de elevação uniforme.</value>
+    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
+  </data>
+  <data name="ui_toggleAnarchy" xml:space="preserve">
+    <value>Alternar anarquia</value>
+  </data>
+  <data name="ui_toggleBending" xml:space="preserve">
+    <value>Alternar curvatura automática</value>
+  </data>
+  <data name="ui_toggleCollision" xml:space="preserve">
+    <value>Alternar colisão</value>
+  </data>
+  <data name="ui_toggleGrid" xml:space="preserve">
+    <value>Alternar grade do editor</value>
+  </data>
+  <data name="ui_toggleSnapping" xml:space="preserve">
+    <value>Alternar encaixe</value>
   </data>
 </root>
