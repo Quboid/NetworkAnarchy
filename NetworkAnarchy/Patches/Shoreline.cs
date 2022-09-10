@@ -14,6 +14,7 @@ namespace NetworkAnarchy.Patches
                 errors &= ~ToolBase.ToolErrors.HeightTooHigh;
                 errors &= ~ToolBase.ToolErrors.ShoreNotFound;
                 errors &= ~ToolBase.ToolErrors.SlopeTooSteep;
+                errors &= ~ToolBase.ToolErrors.WaterNotFound;
             }
             return errors;
         }
@@ -26,6 +27,16 @@ namespace NetworkAnarchy.Patches
         public static void Postfix(ref ToolBase.ToolErrors errors)
         {
             errors = Utils.YeetLimits(errors);
+        }
+    }
+
+    [HarmonyPatch(typeof(ShipPathAI))]
+    [HarmonyPatch("CheckBuildPosition")]
+    class SPAI_CheckBuildPosition
+    {
+        public static void Postfix(ref ToolBase.ToolErrors __result)
+        {
+            __result = Utils.YeetLimits(__result);
         }
     }
 
