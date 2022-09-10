@@ -77,7 +77,7 @@
     <Compile Include="Patches\Collision.cs" />
     <Compile Include="Patches\MaxSegmentLength.cs" />
     <Compile Include="Patches\Networks.cs" />
-    <Compile Include="Patches\Shoreline.cs" />
+    <Compile Include="Patches\Water.cs" />
     <Compile Include="Patches\RoadAI.cs" />
     <Compile Include="ModInfo.cs" />
     <Compile Include="NA_Fixes.cs" />
