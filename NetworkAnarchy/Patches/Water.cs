@@ -20,16 +20,6 @@ namespace NetworkAnarchy.Patches
         }
     }
 
-    [HarmonyPatch(typeof(QuayAI))]
-    [HarmonyPatch("GetInfo")]
-    class QAI_GetInfo
-    {
-        public static void Postfix(ref ToolBase.ToolErrors errors)
-        {
-            errors = Utils.YeetLimits(errors);
-        }
-    }
-
     [HarmonyPatch(typeof(ShipPathAI))]
     [HarmonyPatch("CheckBuildPosition")]
     class SPAI_CheckBuildPosition
@@ -37,6 +27,16 @@ namespace NetworkAnarchy.Patches
         public static void Postfix(ref ToolBase.ToolErrors __result)
         {
             __result = Utils.YeetLimits(__result);
+        }
+    }
+
+    [HarmonyPatch(typeof(QuayAI))]
+    [HarmonyPatch("GetInfo")]
+    class QAI_GetInfo
+    {
+        public static void Postfix(ref ToolBase.ToolErrors errors)
+        {
+            errors = Utils.YeetLimits(errors);
         }
     }
 
