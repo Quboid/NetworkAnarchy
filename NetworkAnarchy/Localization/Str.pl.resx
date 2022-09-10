@@ -148,52 +148,52 @@
     <value>Toggle Bending</value>
   </data>
   <data name="key_toggleCollision" xml:space="preserve">
-    <value>Toggle Collision</value>
+    <value>Przełącz kolizję</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Toggle Editor Grid</value>
+    <value>Przełącz siatkę edytora</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Toggle Snapping</value>
+    <value>Przełącz przyciąganie</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Toggle Straight Slopes</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>Więcej opcji narzędzia dla dróg i innych sieci</value>
   </data>
   <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Disable debug messages logging</value>
+    <value>Wyłącz logowanie komunikatów debugowania</value>
   </data>
   <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, debug messages won't be logged.</value>
+    <value>Jeśli zaznaczone, komunikaty debugowania nie będą logowane.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Max turn angle</value>
+    <value>Maksymalny kąt skrętu</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Reduce rail catenary masts</value>
+    <value>Zmniejsz liczba masztów sieci trakcyjnej</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Reduce the number of catenary mast of rail lines from 3 to 1 per segment.</value>
+    <value>Zmniejsz liczbę masztów sieci trakcyjnej z 3 do 1 na jeden odcinek.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Reset tool window position</value>
+    <value>Resetuj pozycję okna</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>Pokaż suwak stopnia wysokości</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m.</value>
+    <value>Pokaż suwak do zmiany stopnia wysokości, z 1 m na 12 m.</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Show max segment length slider</value>
+    <value>Pokaż suwak maksymalnej długości odcinka</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
     <value>Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Change max turn angle for more realistic tram tracks turns</value>
+    <value>Zmień maksymalny kąt skrętu dla bardziej realistycznych zakrętów torów tramwajowych</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
@@ -202,15 +202,15 @@
     <value>Click here for Tool Options</value>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>Elevation Step:</value>
+    <value>Stopień ukształtowania terenu:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Max Segment Length:</value>
+    <value>Maksymalna długość odcinka:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Bridge: Forces the use of bridge pieces if available</value>
+    <value>Most: Wymusza użycie elementów mostowych, jeśli są one dostępne</value>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
     <value>Elevated: Forces the use of elevated pieces if available</value>
