@@ -118,46 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Cycle Modes Left</value>
+    <value>左循环模式</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Cycle Modes Right</value>
+    <value>右循环模式</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Elevation Down</value>
+    <value>高度下降</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Reset Elevation</value>
+    <value>重设高度</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Elevation Step Down</value>
+    <value>高度逐步下降</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Elevation Step Up</value>
+    <value>高度逐步提升</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Elevation Up</value>
+    <value>高度提升</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Press any key</value>
+    <value>按任意键</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Toggle Anarchy</value>
+    <value>切换无碰撞状态</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Toggle Bending</value>
+    <value>切换弯曲</value>
   </data>
   <data name="key_toggleCollision" xml:space="preserve">
-    <value>Toggle Collision</value>
+    <value>切换碰撞</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Toggle Editor Grid</value>
+    <value>切换编辑器网格</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Toggle Snapping</value>
+    <value>切换捕捉吸附</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Toggle Straight Slopes</value>
+    <value>切换直坡道</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>More tool options for roads and other networks</value>
