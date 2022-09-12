@@ -64,36 +64,36 @@ namespace NetworkAnarchy
 
             if (m_toolOptionsPanel != null)
             {
+                //Debug.Log($"ButtonUpdate {isVisible}, {isChecked}");
                 m_toolOptionsPanel.isVisible = isVisible && isChecked;
             }
         }
 
         public void UpdateInfo()
         {
-            if (NetworkAnarchy.instance == null)
-                return;
-
-            if (parent != null)
+            if (NetworkAnarchy.instance == null) return;
+            if (parent == null)
             {
-                if (parent.name == "OptionsBar")
-                {
-                    relativePosition = new Vector2(36, 0);
-                }
-                else
-                {
-                    relativePosition = Vector2.zero;
-                    parent.BringToFront();
-                }
-            }
-            else
-            {
+                DebugUtils.Log("Button parent is null");
                 isVisible = false;
                 return;
             }
 
+            //if (parent.name == "OptionsBar")
+            if (NetworkAnarchy.instance.isButtonInOptionsBar)
+            {
+                relativePosition = new Vector2(36, 0);
+            }
+            else
+            {
+                relativePosition = Vector2.zero;
+                parent.BringToFront();
+            }
+
+            m_button.text = NetworkAnarchy.instance.elevationStep + "m\n";
             if (m_elevationStepSlider != null)
             {
-                m_button.text = m_elevationStepLabel.text = NetworkAnarchy.instance.elevationStep + "m\n";
+                m_elevationStepLabel.text = NetworkAnarchy.instance.elevationStep + "m\n";
                 m_elevationStepSlider.value = NetworkAnarchy.instance.elevationStep;
             }
             m_straightSlope.isChecked = NetworkAnarchy.instance.StraightSlope;

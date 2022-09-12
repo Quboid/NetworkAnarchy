@@ -217,7 +217,7 @@ namespace NetworkAnarchy
 
         private void AttachToolOptionsButton(RoadPrefab prefab)
         {
-            m_buttonExists = false;
+            doesVanillaElevationButtonExit = false;
 
             RoadsOptionPanel[] panels = GameObject.FindObjectsOfType<RoadsOptionPanel>();
 
@@ -234,9 +234,9 @@ namespace NetworkAnarchy
 
                     // Put the main button in ElevationStep
                     m_toolOptionButton.transform.SetParent(button.transform);
-                    m_buttonInOptionsBar = false;
+                    isButtonInOptionsBar = false;
                     button.tooltip = null;
-                    m_buttonExists = true;
+                    doesVanillaElevationButtonExit = true;
 
                     // Add Upgrade button if needed
                     var list = new List<NetTool.Mode>(panel.m_Modes);
@@ -267,7 +267,7 @@ namespace NetworkAnarchy
                 return;
             }
             m_toolOptionButton.transform.SetParent(optionBar.transform);
-            m_buttonInOptionsBar = true;
+            isButtonInOptionsBar = true;
         }
 
         public static UITextureAtlas GetAtlas(string name)

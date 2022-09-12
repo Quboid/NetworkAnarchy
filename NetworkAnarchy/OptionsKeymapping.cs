@@ -95,20 +95,20 @@ namespace NetworkAnarchy
             uIButton.eventVisibilityChanged += ButtonVisibilityChanged;
         }
 
-        private void OnEnable()
-        {
-            LocaleManager.eventLocaleChanged += new LocaleManager.LocaleChangedHandler(this.OnLocaleChanged);
-        }
+        //private void OnEnable()
+        //{
+        //    LocaleManager.eventLocaleChanged += new LocaleManager.LocaleChangedHandler(this.OnLocaleChanged);
+        //}
 
-        private void OnDisable()
-        {
-            LocaleManager.eventLocaleChanged -= new LocaleManager.LocaleChangedHandler(this.OnLocaleChanged);
-        }
+        //private void OnDisable()
+        //{
+        //    LocaleManager.eventLocaleChanged -= new LocaleManager.LocaleChangedHandler(this.OnLocaleChanged);
+        //}
 
-        private void OnLocaleChanged()
-        {
-            this.RefreshBindableInputs();
-        }
+        //private void OnLocaleChanged()
+        //{
+        //    this.RefreshBindableInputs();
+        //}
 
         private bool IsModifierKey(KeyCode code)
         {
@@ -307,26 +307,27 @@ namespace NetworkAnarchy
             }
         }
 
-        private void RefreshBindableInputs()
-        {
-            foreach (UIComponent current in component.GetComponentsInChildren<UIComponent>())
-            {
-                UITextComponent uITextComponent = current.Find<UITextComponent>("Binding");
-                if (uITextComponent != null)
-                {
-                    SavedInputKey savedInputKey = uITextComponent.objectUserData as SavedInputKey;
-                    if (savedInputKey != null)
-                    {
-                        uITextComponent.text = savedInputKey.ToLocalizedString("KEYNAME");
-                    }
-                }
-                UILabel uILabel = current.Find<UILabel>("Name");
-                if (uILabel != null)
-                {
-                    uILabel.text = Locale.Get("KEYMAPPING", uILabel.stringUserData);
-                }
-            }
-        }
+        //private void RefreshBindableInputs()
+        //{
+        //    UnityEngine.Debug.Log($"Component:{(component is null ? "<null>" : "not null")}");
+        //    foreach (UIComponent current in component.GetComponentsInChildren<UIComponent>())
+        //    {
+        //        UITextComponent uITextComponent = current.Find<UITextComponent>("Binding");
+        //        if (uITextComponent != null)
+        //        {
+        //            SavedInputKey savedInputKey = uITextComponent.objectUserData as SavedInputKey;
+        //            if (savedInputKey != null)
+        //            {
+        //                uITextComponent.text = savedInputKey.ToLocalizedString("KEYNAME");
+        //            }
+        //        }
+        //        UILabel uILabel = current.Find<UILabel>("Name");
+        //        if (uILabel != null)
+        //        {
+        //            uILabel.text = Locale.Get("KEYMAPPING", uILabel.stringUserData);
+        //        }
+        //    }
+        //}
 
         internal InputKey GetDefaultEntry(string entryName)
         {

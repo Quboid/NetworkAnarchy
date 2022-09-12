@@ -51,10 +51,71 @@ namespace NetworkAnarchy
 
         private Mode m_mode;
 
-        private bool m_buttonExists;
-        private bool m_activated;
-        private bool m_toolEnabled;
-        private bool m_buttonInOptionsBar;
+        private bool _doesVanillaElevationButtonExit;
+        private bool _activated;
+        private bool _isNetToolEnabled;
+        private bool _isButtonInOptionsBar;
+
+        /// <summary>
+        /// Does the vanilla elevation button exist?
+        /// </summary>
+        private bool doesVanillaElevationButtonExit
+        {
+            get
+            {
+                return _doesVanillaElevationButtonExit;
+            }
+            set
+            {
+                _doesVanillaElevationButtonExit = value;
+                //UnityEngine.Debug.Log($"_buttonExists.set:{value}");
+            }
+        }
+        /// <summary>
+        /// Is NA active (valid NetTool prefab selected)
+        /// </summary>
+        public bool isActive
+        {
+            get
+            {
+                return _activated;
+            }
+            set
+            {
+                _activated = value;
+                //UnityEngine.Debug.Log($"_activated.set:{value}");
+            }
+        }
+        /// <summary>
+        /// Is the vanilla NetTool active? To check if it has been toggled next tick
+        /// </summary>
+        private bool isNetToolEnabled
+        {
+            get
+            {
+                return _isNetToolEnabled;
+            }
+            set
+            {
+                //if (_toolEnabled != value) UnityEngine.Debug.Log($"_toolEnabled.toggle:{value}");
+                _isNetToolEnabled = value;
+            }
+        }
+        /// <summary>
+        /// Is the NA button in the options bar instead of attached to the vanilla elevation button?
+        /// </summary>
+        internal bool isButtonInOptionsBar
+        {
+            get
+            {
+                return _isButtonInOptionsBar;
+            }
+            set
+            {
+                _isButtonInOptionsBar = value;
+                //UnityEngine.Debug.Log($"_buttonInOptionsBar.set:{_buttonInOptionsBar}");
+            }
+        }
         private bool m_inEditor;
 
         private int m_fixNodesCount = 0;
@@ -114,7 +175,7 @@ namespace NetworkAnarchy
 
         public int elevation => Mathf.RoundToInt(m_elevation / 256f * 12f);
 
-        public bool isActive => m_activated;
+        //public bool isActive => isActivated;
 
         public void Start()
         {
@@ -239,6 +300,10 @@ namespace NetworkAnarchy
 
         public void Update()
         {
+            //UnityEngine.Debug.Log($"NAUpdate shouldShow:{(m_activated || !m_buttonInOptionsBar)} (activated:{m_activated}, inOptBar:{m_buttonInOptionsBar})\n" +
+            //    $"prefab:{((m_netTool.enabled || m_bulldozeTool.enabled) ? m_netTool.m_prefab : null)}\n" +
+            //    $"currentPref:{m_current} wasEnabled:{m_toolEnabled}, nowEnabled:{m_netTool.enabled}, buttonVis:{m_toolOptionButton.isVisible}, buttonChecked:{m_toolOptionButton.isChecked}");
+
             if (m_netTool == null)
             {
                 return;
@@ -247,12 +312,12 @@ namespace NetworkAnarchy
             try
             {
                 // Getting selected prefab
-                NetInfo prefab = m_netTool.enabled || m_bulldozeTool.enabled ? m_netTool.m_prefab : null;
+                NetInfo prefab = (m_netTool.enabled || m_bulldozeTool.enabled) ? m_netTool.m_prefab : null;
 
                 // Has the prefab/tool changed?
-                if (prefab != m_current || m_toolEnabled != m_netTool.enabled)
+                if (prefab != m_current || isNetToolEnabled != m_netTool.enabled)
                 {
-                    m_toolEnabled = m_netTool.enabled;
+                    isNetToolEnabled = m_netTool.enabled;
 
                     if (prefab == null)
                     {
@@ -265,7 +330,8 @@ namespace NetworkAnarchy
 
                     if (m_toolOptionButton != null)
                     {
-                        m_toolOptionButton.isVisible = m_activated || !m_buttonInOptionsBar;
+                        //UnityEngine.Debug.Log($"WasVis:{m_toolOptionButton.isVisible}, NowVis:{m_activated || !m_buttonInOptionsBar} ({m_activated}, {m_buttonInOptionsBar})");
+                        m_toolOptionButton.isVisible = isActive;// || !m_buttonInOptionsBar;
                     }
                 }
 
@@ -353,6 +419,12 @@ namespace NetworkAnarchy
                     errors &= ~ToolBase.ToolErrors.TooShort;
                     m_placementErrorsField.SetValue(m_buildingTool, errors);
                 }
+
+                if ((errors & ToolBase.ToolErrors.SlopeTooSteep) == ToolBase.ToolErrors.SlopeTooSteep)
+                {
+                    errors &= ~ToolBase.ToolErrors.SlopeTooSteep;
+                    m_placementErrorsField.SetValue(m_buildingTool, errors);
+                }
             }
 
             // Resume fixes
@@ -380,6 +452,7 @@ namespace NetworkAnarchy
                 }
             }
 
+            // Stop here if neither active nor bulldozer tool enabled
             if (!isActive && !m_bulldozeTool.enabled)
             {
                 return;
@@ -437,6 +510,8 @@ namespace NetworkAnarchy
 
         private void Activate(NetInfo info)
         {
+            DebugUtils.Log($"Activated ({info})\n{new StackTrace().ToString()}");
+
             if (info == null)
             {
                 return;
@@ -454,10 +529,10 @@ namespace NetworkAnarchy
             AttachToolOptionsButton(prefab);
 
             // Is it a valid prefab?
-            m_current.m_netAI.GetElevationLimits(out int min, out int max);
+            //m_current.m_netAI.GetElevationLimits(out int min, out int max);
 
             //if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
-            if (m_bulldozeTool.enabled && !m_buttonExists)
+            if (m_bulldozeTool.enabled && !doesVanillaElevationButtonExit)
             {
                 Deactivate();
                 return;
@@ -478,7 +553,7 @@ namespace NetworkAnarchy
             m_segmentCount = NetManager.instance.m_segmentCount;
             m_controlPointCount = 0;
 
-            m_activated = true;
+            isActive = true;
             m_toolOptionButton.isVisible = true;
             m_toolOptionButton.UpdateInfo();
         }
@@ -500,7 +575,8 @@ namespace NetworkAnarchy
 
             RestoreDefaultKeys();
 
-            m_activated = false;
+            isActive = false;
+            m_toolOptionButton.isVisible = false;
 
             DebugUtils.Log($"Deactivated \n {new StackTrace().ToString()}");
         }
@@ -584,10 +660,10 @@ namespace NetworkAnarchy
             }
         }
 
-        public void OnDestroy()
-        {
-            Anarchy = false;
-        }
+        //public void OnDestroy()
+        //{
+        //    Anarchy = false;
+        //}
 
         private bool _straightSlope = saved_smoothSlope;
         public bool StraightSlope
