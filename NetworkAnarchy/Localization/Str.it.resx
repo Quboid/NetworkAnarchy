@@ -154,10 +154,10 @@
     <value>Attivare/Disattivare la griglia dell'editor</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Toggle Snapping</value>
+    <value>Attivare/Disattivare lo Snapping</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Toggle Straight Slopes</value>
+    <value>Attivare/Disattivare Pendenze Dritte</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Più opzioni di strumenti per strade e altre reti</value>
@@ -190,7 +190,7 @@
     <value>Mostrare il cursore della lunghezza massima del segmento</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).</value>
+    <value>Mostrare il cursore per cambiare la lunghezza massima del segmento, da 4m a 256m (predefinito 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
     <value>Change max turn angle for more realistic tram tracks turns</value>
