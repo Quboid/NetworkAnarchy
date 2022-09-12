@@ -184,7 +184,7 @@
     <value>Mostrare il cursore dell'incremento di elevazione</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m.</value>
+    <value>Mostrare il cursore per cambiare l'incremento dell'elevazione, da 1m a 12m.</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>Mostrare il cursore della lunghezza massima del segmento</value>
@@ -193,13 +193,13 @@
     <value>Mostrare il cursore per cambiare la lunghezza massima del segmento, da 4m a 256m (predefinito 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Change max turn angle for more realistic tram tracks turns</value>
+    <value>Cambiare l'angolo massimo di rotazione per curve dei tram più realistiche</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Click here for Tool Options</value>
+    <value>Fare clic qui per le opzioni degli strumenti</value>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
     <value>Elevation Step:</value>
@@ -238,7 +238,7 @@
     <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Toggle anarchy</value>
+    <value>Attivare/Disattivare l'anarchia</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
     <value>Toggle road bending</value>
