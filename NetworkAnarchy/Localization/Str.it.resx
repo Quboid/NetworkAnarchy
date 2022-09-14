@@ -196,60 +196,59 @@
     <value>Cambiare l'angolo massimo di rotazione per curve dei tram più realistiche</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
+    <value>Cambia tutte le strade con binari del tram con angolo di rotazione massimo con il valore sottostante se quello attuale è maggiore.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Fare clic qui per le opzioni degli strumenti</value>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>Elevation Step:</value>
+    <value>Incremento dell'elevazione:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Max Segment Length:</value>
+    <value>Lunghezza massima del segmento:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Bridge: Forces the use of bridge pieces if available</value>
+    <value>Ponte: se possibile, forza l'utilizzo di ponti</value>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Elevated: Forces the use of elevated pieces if available</value>
+    <value>Strada sopraelevata: se possibile, forza l'utilizzo di strade strade sopraelevate</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Ground: Forces the ground to follow the elevation of the road</value>
+    <value>Terreno: forza il terreno a seguire l'elevazione della strada</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normal: Unmodded road placement behavior</value>
+    <value>Normale: le strade vengono costruite normalmente (senza mod)</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Modes:</value>
+    <value>Modalità:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunnel: Forces the use of tunnel pieces if available</value>
+    <value>Galleria: se possibile forza l'uso di gallerie</value>
   </data>
   <data name="ui_straightSlope" xml:space="preserve">
-    <value>Straight Slope</value>
+    <value>Pendio rettilineo</value>
   </data>
   <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Makes the road go straight from A to B instead of following the terrain.
-
-{0} to toggle straight slope.</value>
+    <value>Fa si che la strada rimanga dritta da A a B invece di seguire il terreno.
+{0} Attivare/Disattivare pendio rettilineo.</value>
     <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Attivare/Disattivare l'anarchia</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Toggle road bending</value>
+    <value>Attivare/Disattivare la curvatura delle strade</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Toggle collision</value>
+    <value>Attivare/Disattivare la collisione</value>
   </data>
   <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Toggle editor grid</value>
+    <value>Attivare/Disattivare la griglia dell'editor</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Toggle node snapping</value>
+    <value>Attivare/Disattivare l'aggancio ai nodi</value>
   </data>
 </root>
