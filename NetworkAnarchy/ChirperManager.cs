@@ -20,6 +20,7 @@ namespace NetworkAnarchy
             if (normalAtlas == null) UnityEngine.Debug.Log($"NetworkAnarchy: Failed to load Chirper normal atlas");
             if (anarchyAtlas == null) UnityEngine.Debug.Log($"NetworkAnarchy: Failed to load Chirper anarchy atlas");
             if (chirperButton == null) UnityEngine.Debug.Log($"NetworkAnarchy: Failed to find Chirper button");
+            if (normalAtlas == null || anarchyAtlas == null || chirperButton == null) return;
 
             hoveredSprite = chirperButton.hoveredBgSprite;
             normalSprite = chirperButton.normalBgSprite;

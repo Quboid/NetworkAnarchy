@@ -249,7 +249,7 @@ namespace NetworkAnarchy
             patched = true;
             var harmony = new Harmony(HarmonyId);
 #if DEBUG
-            Harmony.DEBUG = true;
+            //Harmony.DEBUG = true;
 #endif
             harmony.PatchAll();
         }
