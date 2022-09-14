@@ -222,34 +222,33 @@
     <value>Normal: Unmodded road placement behavior</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Modes:</value>
+    <value>Modalità:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunnel: Forces the use of tunnel pieces if available</value>
+    <value>Galleria: forza l'uso di gallerie dove possibile</value>
   </data>
   <data name="ui_straightSlope" xml:space="preserve">
-    <value>Straight Slope</value>
+    <value>Pendio rettilineo</value>
   </data>
   <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Makes the road go straight from A to B instead of following the terrain.
-
-{0} to toggle straight slope.</value>
+    <value>Fa si che la strada rimanga dritta da A a B invece di seguire il terreno.
+{0} Attivare/Disattivare pendio rettilineo.</value>
     <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Attivare/Disattivare l'anarchia</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Toggle road bending</value>
+    <value>Attivare/Disattivare la curvatura delle strade</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Toggle collision</value>
+    <value>Attivare/Disattivare la collisione</value>
   </data>
   <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Toggle editor grid</value>
+    <value>Attivare/Disattivare la griglia dell'editor</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Toggle node snapping</value>
+    <value>Attivare/Disattivare l'aggancio ai nodi</value>
   </data>
 </root>
