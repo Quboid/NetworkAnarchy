@@ -187,10 +187,10 @@
     <value>显示将高度单次调整范围更改为1m～12m的滑条。</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Show Labels</value>
+    <value>显示标签</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Disable to save some screen space</value>
+    <value>禁用以节省一些屏幕空间</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>显示最大分段长度滑条</value>
@@ -208,7 +208,7 @@
     <value>点击此处查看工具选项</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} and {1} to change elevation step</value>
+    <value>按 {0} 以及 {1} 来改变单次调整高度</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
@@ -223,7 +223,7 @@
     <value>桥梁：如果开启，道路将强制在任何地形使用桥梁模式。</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} and {1} to cycle modes</value>
+    <value>按 {0} 以及 {1} 来切换模式</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
