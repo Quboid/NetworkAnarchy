@@ -187,10 +187,10 @@
     <value>Muestra el deslizador para cambiar el desplazamiento vertical.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Show Labels</value>
+    <value>Mostrar etiquetas</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Disable to save some screen space</value>
+    <value>Desactivar para ahorrar espacio en la pantalla</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>Mostrar el deslizador de longitud máxima</value>
