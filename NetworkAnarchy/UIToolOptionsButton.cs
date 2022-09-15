@@ -271,11 +271,11 @@ namespace NetworkAnarchy
             modePanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
             modePanel.autoLayoutDirection = LayoutDirection.Horizontal;
 
-            m_normalModeButton = CreateModeCheckBox(modePanel, "NormalMode", "Normal: Unmodded road placement behavior");
-            m_groundModeButton = CreateModeCheckBox(modePanel, "GroundMode", "Ground: Forces the ground to follow the elevation of the road");
-            m_elevatedModeButton = CreateModeCheckBox(modePanel, "ElevatedMode", "Elevated: Forces the use of elevated pieces if available");
-            m_bridgeModeButton = CreateModeCheckBox(modePanel, "BridgeMode", "Bridge: Forces the use of bridge pieces if available");
-            m_tunnelModeButton = CreateModeCheckBox(modePanel, "TunnelMode", "Tunnel: Forces the use of tunnel pieces if available");
+            m_normalModeButton = CreateModeCheckBox(modePanel, "NormalMode", Str.ui_modeNormal);
+            m_groundModeButton = CreateModeCheckBox(modePanel, "GroundMode", Str.ui_modeGround);
+            m_elevatedModeButton = CreateModeCheckBox(modePanel, "ElevatedMode", Str.ui_modeElevated);
+            m_bridgeModeButton = CreateModeCheckBox(modePanel, "BridgeMode", Str.ui_modeBridge);
+            m_tunnelModeButton = CreateModeCheckBox(modePanel, "TunnelMode", Str.ui_modeTunnel);
 
             modePanel.autoLayout = true;
             yPos += 80u;
@@ -283,7 +283,7 @@ namespace NetworkAnarchy
             // Straight Slope
             m_straightSlope = CreateCheckBox(m_toolOptionsPanel);
             m_straightSlope.name = "NA_StraightSlope";
-            m_straightSlope.label.text = "Straight slope";
+            m_straightSlope.label.text = Str.ui_straightSlope;
             m_straightSlope.tooltip = String.Format(Str.ui_straightSlopeTooltip, OptionsKeymapping.toggleStraightSlope.ToLocalizedString("KEYNAME"));
             m_straightSlope.isChecked = NetworkAnarchy.saved_smoothSlope;
             m_straightSlope.relativePosition = new Vector3(8, yPos);
@@ -328,34 +328,13 @@ namespace NetworkAnarchy
             // Node spacing
             if (showMaxSegmentLengthSlider)
             {
-                UIPanel mslPanel = m_toolOptionsPanel.AddUIComponent<UIPanel>();
-                mslPanel.size = new Vector2(mslPanel.parent.width - 16, 62);
-                mslPanel.name = "NA_MaxSegmentLengthPanel";
-                mslPanel.relativePosition = new Vector3(8, yPos);
-                mslPanel.atlas = ResourceLoader.GetAtlas("Ingame");
-
-                mslPanel.padding = new RectOffset(0, 0, 0, 0);
-                mslPanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
-                mslPanel.autoLayoutDirection = LayoutDirection.Horizontal;
-
-                UILabel label = mslPanel.AddUIComponent<UILabel>();
+                UILabel label = m_toolOptionsPanel.AddUIComponent<UILabel>();
                 label.textScale = 0.825f;
                 label.text = Str.ui_maxSegmentLength;
-                label.name = "NA_MaxSegmentLengthLabel";
-                label.relativePosition = new Vector2(0, 1);
+                label.relativePosition = new Vector2(8, yPos + 2);
                 label.SendToBack();
 
-                m_maxSegmentLengthLabel = mslPanel.AddUIComponent<UILabel>();
-                m_maxSegmentLengthLabel.atlas = m_toolOptionsPanel.atlas;
-                m_maxSegmentLengthLabel.verticalAlignment = UIVerticalAlignment.Bottom;
-                m_maxSegmentLengthLabel.textScale = 0.85f;
-                m_maxSegmentLengthLabel.autoSize = false;
-                m_maxSegmentLengthLabel.color = new Color32(91, 97, 106, 255);
-                m_maxSegmentLengthLabel.size = new Vector2(42, 15);
-                m_maxSegmentLengthLabel.relativePosition = new Vector2(label.width + 3, 1);
-                UpdateSlider();
-
-                m_maxSegmentLengthSlider = CreateMaxSegmentLengthSlider(mslPanel);
+                m_maxSegmentLengthSlider = CreateMaxSegmentLengthSlider(m_toolOptionsPanel, yPos);
 
                 yPos += 64u;
                 m_toolOptionsPanel.height += 64;
@@ -365,7 +344,6 @@ namespace NetworkAnarchy
 
         private UISlider CreateElevationSlider(UIPanel parent)
         {
-
             UIPanel sliderPanel = parent.AddUIComponent<UIPanel>();
             sliderPanel.atlas = parent.atlas;
             sliderPanel.backgroundSprite = "GenericPanel";
@@ -389,8 +367,7 @@ namespace NetworkAnarchy
             slider.name = "NA_ElevationStepSlider";
             slider.size = new Vector2(sliderPanel.width - 20 - m_elevationStepLabel.width - 8, 18);
             slider.relativePosition = new Vector2(10, 10);
-
-            slider.tooltip = OptionsKeymapping.elevationStepUp.ToLocalizedString("KEYNAME") + " and " + OptionsKeymapping.elevationStepDown.ToLocalizedString("KEYNAME") + " to change Elevation Step";
+            slider.tooltip = String.Format(Str.ui_elevationSliderKeyTip, OptionsKeymapping.elevationStepUp.ToLocalizedString("KEYNAME"), OptionsKeymapping.elevationStepDown.ToLocalizedString("KEYNAME"));
 
             UISlicedSprite bgSlider = slider.AddUIComponent<UISlicedSprite>();
             bgSlider.atlas = parent.atlas;
@@ -420,21 +397,31 @@ namespace NetworkAnarchy
             return slider;
         }
 
-        private UISlider CreateMaxSegmentLengthSlider(UIPanel parent)
+        private UISlider CreateMaxSegmentLengthSlider(UIPanel parent, uint yPos)
         {
             UIPanel sliderPanel = parent.AddUIComponent<UIPanel>();
-
             sliderPanel.atlas = parent.atlas;
             sliderPanel.backgroundSprite = "GenericPanel";
             sliderPanel.color = new Color32(206, 206, 206, 255);
-            sliderPanel.size = new Vector2(parent.width, 36);
-            sliderPanel.relativePosition = new Vector2(0, 22);
+            sliderPanel.size = new Vector2(parent.width - 16, 36);
+            sliderPanel.relativePosition = new Vector2(8, yPos + 22);
+
+            m_maxSegmentLengthLabel = sliderPanel.AddUIComponent<UILabel>();
+            m_maxSegmentLengthLabel.atlas = parent.atlas;
+            m_maxSegmentLengthLabel.backgroundSprite = "TextFieldPanel";
+            m_maxSegmentLengthLabel.verticalAlignment = UIVerticalAlignment.Bottom;
+            m_maxSegmentLengthLabel.textAlignment = UIHorizontalAlignment.Center;
+            m_maxSegmentLengthLabel.textScale = 0.65f;
+            m_maxSegmentLengthLabel.text = "96m";
+            m_maxSegmentLengthLabel.autoSize = false;
+            m_maxSegmentLengthLabel.color = new Color32(91, 97, 106, 255);
+            m_maxSegmentLengthLabel.size = new Vector2(38, 15);
+            m_maxSegmentLengthLabel.relativePosition = new Vector2(sliderPanel.width - m_maxSegmentLengthLabel.width - 8, 10);
 
             UISlider slider = sliderPanel.AddUIComponent<UISlider>();
             slider.name = "NA_MaxSegmentLengthSlider";
-            slider.size = new Vector2(sliderPanel.width - 16, 18);
-            slider.relativePosition = new Vector2(8, 10);
-            slider.atlas = parent.atlas;
+            slider.size = new Vector2(sliderPanel.width - 20 - m_maxSegmentLengthLabel.width - 8, 18);
+            slider.relativePosition = new Vector2(10, 10);
 
             UISlicedSprite bgSlider = slider.AddUIComponent<UISlicedSprite>();
             bgSlider.atlas = parent.atlas;
@@ -503,7 +490,7 @@ namespace NetworkAnarchy
             button.atlas = m_atlas;
             button.relativePosition = new Vector2(0, 0);
 
-            button.tooltip = toolTip + "\n\n" + OptionsKeymapping.modesCycleLeft.ToLocalizedString("KEYNAME") + " and " + OptionsKeymapping.modesCycleRight.ToLocalizedString("KEYNAME") + " to cycle Modes";
+            button.tooltip = toolTip + "\n\n" + String.Format(Str.ui_modeCycleKeyTip, OptionsKeymapping.modesCycleLeft.ToLocalizedString("KEYNAME"), OptionsKeymapping.modesCycleRight.ToLocalizedString("KEYNAME"));
 
             button.normalBgSprite = "OptionBase";
             button.hoveredBgSprite = "OptionBaseHovered";

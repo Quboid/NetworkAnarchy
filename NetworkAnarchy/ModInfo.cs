@@ -232,6 +232,14 @@ namespace NetworkAnarchy
 
         internal static void LocaleChanged()
         {
+            if (NetworkAnarchy.instance != null)
+            {
+                if (NetworkAnarchy.m_toolOptionButton != null)
+                {
+                    NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
+                }
+            }
+
             Debug.Log($"Network Anarchy Locale changed {Str.Culture?.Name}->{ModInfo.Culture.Name}");
             Str.Culture = ModInfo.Culture;
         }

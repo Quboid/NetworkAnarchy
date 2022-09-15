@@ -268,6 +268,24 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show Labels.
+        /// </summary>
+        internal static string options_showLabels {
+            get {
+                return ResourceManager.GetString("options_showLabels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable to save some screen space.
+        /// </summary>
+        internal static string options_showLabelsTooltip {
+            get {
+                return ResourceManager.GetString("options_showLabelsTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show max segment length slider.
         /// </summary>
         internal static string options_showMaxSegmentLengthSlider {
@@ -313,6 +331,15 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} and {1} to change elevation step.
+        /// </summary>
+        internal static string ui_elevationSliderKeyTip {
+            get {
+                return ResourceManager.GetString("ui_elevationSliderKeyTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Elevation Step:.
         /// </summary>
         internal static string ui_elevationStep {
@@ -336,6 +363,15 @@ namespace NetworkAnarchy.Localization {
         internal static string ui_modeBridge {
             get {
                 return ResourceManager.GetString("ui_modeBridge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} and {1} to cycle modes.
+        /// </summary>
+        internal static string ui_modeCycleKeyTip {
+            get {
+                return ResourceManager.GetString("ui_modeCycleKeyTip", resourceCulture);
             }
         }
         
