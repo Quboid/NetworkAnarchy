@@ -187,10 +187,10 @@
     <value>Pokaż suwak do zmiany stopnia podniesienia, z 1 m na 12 m.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Show Labels</value>
+    <value>Pokaż etykiety</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Disable to save some screen space</value>
+    <value>Wyłącz, aby zaoszczędzić trochę miejsca na ekranie</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>Pokaż suwak maksymalnej długości odcinka</value>
@@ -208,7 +208,7 @@
     <value>Kliknij tutaj, aby wyświetlić opcje narzędzia</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} and {1} to change elevation step</value>
+    <value>{0} i {1} aby zmienić poziom wzniesienia</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
@@ -223,7 +223,7 @@
     <value>Most: Wymusza użycie elementów mostowych, jeśli są one dostępne</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} and {1} to cycle modes</value>
+    <value>{0} i {1} aby przełączać pomiędzy trybami</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
