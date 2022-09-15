@@ -186,6 +186,12 @@
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
     <value>Show slider for changing the elevation step, from 1m to 12m.</value>
   </data>
+  <data name="options_showLabels" xml:space="preserve">
+    <value>Show Labels</value>
+  </data>
+  <data name="options_showLabelsTooltip" xml:space="preserve">
+    <value>Disable to save some screen space</value>
+  </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>Show max segment length slider</value>
   </data>
@@ -201,6 +207,10 @@
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Click here for Tool Options</value>
   </data>
+  <data name="ui_elevationSliderKeyTip" xml:space="preserve">
+    <value>{0} and {1} to change elevation step</value>
+    <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
+  </data>
   <data name="ui_elevationStep" xml:space="preserve">
     <value>Elevation Step:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -211,6 +221,10 @@
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
     <value>Bridge: Forces the use of bridge pieces if available</value>
+  </data>
+  <data name="ui_modeCycleKeyTip" xml:space="preserve">
+    <value>{0} and {1} to cycle modes</value>
+    <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
     <value>Elevated: Forces the use of elevated pieces if available</value>
