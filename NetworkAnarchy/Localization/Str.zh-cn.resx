@@ -130,10 +130,10 @@
     <value>重设高度</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>高度逐步下降</value>
+    <value>高度单次下降</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>高度逐步提升</value>
+    <value>高度单次提升</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
     <value>高度提升</value>
@@ -184,13 +184,19 @@
     <value>显示一次性调整高度滑条</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>显示将高度一次性调整范围更改为1m～12m的滑条。</value>
+    <value>显示将高度单次调整范围更改为1m～12m的滑条。</value>
+  </data>
+  <data name="options_showLabels" xml:space="preserve">
+    <value>Show Labels</value>
+  </data>
+  <data name="options_showLabelsTooltip" xml:space="preserve">
+    <value>Disable to save some screen space</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>显示最大分段长度滑条</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>显示最大线段长度调整4m～256m（默认值为96m）的滑条。</value>
+    <value>显示最大分段长度调整4m～256m（默认值为96m）的滑条。</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
     <value>为了更真实的有轨电车与列车转向而更改最大转角</value>
@@ -201,8 +207,12 @@
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>点击此处查看工具选项</value>
   </data>
+  <data name="ui_elevationSliderKeyTip" xml:space="preserve">
+    <value>{0} and {1} to change elevation step</value>
+    <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
+  </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>一次性调整高度：</value>
+    <value>单次调整高度：</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
@@ -211,6 +221,10 @@
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
     <value>桥梁：如果开启，道路将强制在任何地形使用桥梁模式。</value>
+  </data>
+  <data name="ui_modeCycleKeyTip" xml:space="preserve">
+    <value>{0} and {1} to cycle modes</value>
+    <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
     <value>高架：如果开启，道路将强制在任何地形使用高架模式</value>
