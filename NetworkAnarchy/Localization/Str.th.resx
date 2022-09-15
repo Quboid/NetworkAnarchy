@@ -186,6 +186,12 @@
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
     <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนจำนวนขั้นของการยกระดับ จาก 1 เมตร ถึง 12 เมตร</value>
   </data>
+  <data name="options_showLabels" xml:space="preserve">
+    <value>Show Labels</value>
+  </data>
+  <data name="options_showLabelsTooltip" xml:space="preserve">
+    <value>Disable to save some screen space</value>
+  </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>แสดงแถบเลื่อนความยาวสูงสุดของเซ็กเมนต์</value>
   </data>
@@ -201,6 +207,10 @@
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
   </data>
+  <data name="ui_elevationSliderKeyTip" xml:space="preserve">
+    <value>{0} and {1} to change elevation step</value>
+    <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
+  </data>
   <data name="ui_elevationStep" xml:space="preserve">
     <value>ขั้นของการยกระดับ</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -211,6 +221,10 @@
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
     <value>สะพาน: บังคับให้ใช้ชิ้นส่วนสะพาน (ถ้ามี)</value>
+  </data>
+  <data name="ui_modeCycleKeyTip" xml:space="preserve">
+    <value>{0} and {1} to cycle modes</value>
+    <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
     <value>ยกระดับ: บังคับให้ใช้ส่วนการยกระดับ (ถ้ามี)</value>
