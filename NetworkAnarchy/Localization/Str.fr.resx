@@ -206,7 +206,7 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Longueur maximale du segment :</value>
+    <value>Longueur max du segment :</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
@@ -229,7 +229,7 @@
     <value>Tunnel : Force l'utilisation des tunnels si possible</value>
   </data>
   <data name="ui_straightSlope" xml:space="preserve">
-    <value>Pente droite</value>
+    <value>Pente constante</value>
   </data>
   <data name="ui_straightSlopeTooltip" xml:space="preserve">
     <value>Ceci permet que la route aille directement de A à B sans suivre le terrain.

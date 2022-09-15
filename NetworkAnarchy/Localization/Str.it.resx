@@ -142,22 +142,22 @@
     <value>Premi qualsiasi tasto</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Attivare/Disattivare Anarchia</value>
+    <value>Attivare/Disattivare l'anarchia</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Attivare/Disattivare Curvatura</value>
+    <value>Attivare/Disattivare la curvatura</value>
   </data>
   <data name="key_toggleCollision" xml:space="preserve">
-    <value>Attivare/Disattivare Collisione</value>
+    <value>Attivare/Disattivare la collisione</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Attivare/Disattivare la griglia dell'editor</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Attivare/Disattivare lo Snapping</value>
+    <value>Attivare/Disattivare l'aggancio dei nodi</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Attivare/Disattivare Pendenze Dritte</value>
+    <value>Attivare/Disattivare le pendenze rettilinee</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Più opzioni di strumenti per strade e altre reti</value>
@@ -213,7 +213,7 @@
     <value>Ponte: se possibile, forza l'utilizzo di ponti</value>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Strada sopraelevata: se possibile, forza l'utilizzo di strade strade sopraelevate</value>
+    <value>Strada sopraelevata: se possibile, forza l'utilizzo di strade sopraelevate</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
     <value>Terreno: forza il terreno a seguire l'elevazione della strada</value>
