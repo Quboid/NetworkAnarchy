@@ -187,7 +187,7 @@
     <value>显示将高度一次性调整范围更改为1m～12m的滑条。</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>显示最大路段长度滑条</value>
+    <value>显示最大分段长度滑条</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
     <value>显示最大线段长度调整4m～256m（默认值为96m）的滑条。</value>
