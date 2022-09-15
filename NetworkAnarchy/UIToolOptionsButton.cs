@@ -14,6 +14,7 @@ namespace NetworkAnarchy
         private UILabel m_elevationStepLabel;
         internal UILabel m_maxSegmentLengthLabel;
         private UISlider m_maxSegmentLengthSlider;
+        private UIDragHandle dragHandle;
 
         private UICheckBox m_normalModeButton;
         private UICheckBox m_groundModeButton;
@@ -39,6 +40,7 @@ namespace NetworkAnarchy
         public static readonly SavedBool windowVisible = new SavedBool("windowVisible", NetworkAnarchy.settingsFileName, false, true);
         public static readonly SavedBool showElevationSlider = new SavedBool("showElevationSlider", NetworkAnarchy.settingsFileName, true, true);
         public static readonly SavedBool showMaxSegmentLengthSlider = new SavedBool("showNodeSpacer", NetworkAnarchy.settingsFileName, false, true);
+        public static readonly SavedBool showLabels = new SavedBool("showLabels", NetworkAnarchy.settingsFileName, true, true);
 
         public static UIPanel toolOptionsPanel = null;
 
@@ -209,7 +211,7 @@ namespace NetworkAnarchy
             m_toolOptionsPanel.name = "NA_ToolOptionsPanel";
             m_toolOptionsPanel.atlas = ResourceLoader.GetAtlas("Ingame");
             m_toolOptionsPanel.backgroundSprite = "SubcategoriesPanel";
-            m_toolOptionsPanel.size = new Vector2(228, 172);
+            m_toolOptionsPanel.size = new Vector2(228, yPos);
             m_toolOptionsPanel.absolutePosition = new Vector3(savedWindowX.value, savedWindowY.value);
             m_toolOptionsPanel.clipChildren = true;
 
@@ -232,7 +234,7 @@ namespace NetworkAnarchy
 
             toolOptionsPanel = m_toolOptionsPanel;
 
-            UIDragHandle dragHandle = m_toolOptionsPanel.AddUIComponent<UIDragHandle>();
+            dragHandle = m_toolOptionsPanel.AddUIComponent<UIDragHandle>();
             dragHandle.size = m_toolOptionsPanel.size;
             dragHandle.relativePosition = Vector3.zero;
             dragHandle.target = m_toolOptionsPanel;
@@ -240,32 +242,39 @@ namespace NetworkAnarchy
             // Elevation step
             if (showElevationSlider)
             {
-                UILabel label = m_toolOptionsPanel.AddUIComponent<UILabel>();
-                label.textScale = 0.9f;
-                label.text = Str.ui_elevationStep;
-                label.relativePosition = new Vector2(8, yPos);
-                label.SendToBack();
+                if (showLabels)
+                {
+                    UILabel label = m_toolOptionsPanel.AddUIComponent<UILabel>();
+                    label.textScale = 0.9f;
+                    label.text = Str.ui_elevationStep;
+                    label.relativePosition = new Vector2(8, yPos);
+                    label.SendToBack();
 
-                m_elevationStepSlider = CreateElevationSlider(m_toolOptionsPanel);
+                    ExpandY(ref yPos, 20u);
+                }
 
-                yPos += 64u;
-                m_toolOptionsPanel.height += 64;
-                dragHandle.height += 64;
+                m_elevationStepSlider = CreateElevationSlider(m_toolOptionsPanel, yPos);
+
+                ExpandY(ref yPos, 42u);
             }
 
             // Modes
-            label = m_toolOptionsPanel.AddUIComponent<UILabel>();
-            label.textScale = 0.9f;
-            label.text = Str.ui_modes;
-            label.relativePosition = new Vector2(8, yPos);
-            label.SendToBack();
+            if (showLabels)
+            {
+                label = m_toolOptionsPanel.AddUIComponent<UILabel>();
+                label.textScale = 0.9f;
+                label.text = Str.ui_modes;
+                label.relativePosition = new Vector2(8, yPos);
+                label.SendToBack();
+                ExpandY(ref yPos, 20u);
+            }
 
             UIPanel modePanel = m_toolOptionsPanel.AddUIComponent<UIPanel>();
             modePanel.atlas = m_toolOptionsPanel.atlas;
             modePanel.backgroundSprite = "GenericPanel";
             modePanel.color = new Color32(206, 206, 206, 255);
             modePanel.size = new Vector2(m_toolOptionsPanel.width - 16, 52);
-            modePanel.relativePosition = new Vector2(8, yPos + 20);
+            modePanel.relativePosition = new Vector2(8, yPos);
 
             modePanel.padding = new RectOffset(8, 8, 8, 8);
             modePanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
@@ -278,7 +287,7 @@ namespace NetworkAnarchy
             m_tunnelModeButton = CreateModeCheckBox(modePanel, "TunnelMode", Str.ui_modeTunnel);
 
             modePanel.autoLayout = true;
-            yPos += 80u;
+            ExpandY(ref yPos, 60u);
 
             // Straight Slope
             m_straightSlope = CreateCheckBox(m_toolOptionsPanel);
@@ -287,6 +296,7 @@ namespace NetworkAnarchy
             m_straightSlope.tooltip = String.Format(Str.ui_straightSlopeTooltip, OptionsKeymapping.toggleStraightSlope.ToLocalizedString("KEYNAME"));
             m_straightSlope.isChecked = NetworkAnarchy.saved_smoothSlope;
             m_straightSlope.relativePosition = new Vector3(8, yPos);
+            m_straightSlope.width = m_toolOptionsPanel.width - 16;
 
             m_straightSlope.eventCheckChanged += (c, state) =>
             {
@@ -294,7 +304,7 @@ namespace NetworkAnarchy
             };
 
             m_normalModeButton.isChecked = true;
-            yPos += 24u;
+            ExpandY(ref yPos, 24u);
 
             // Anarchy buttons
             UIPanel anarchyPanel = m_toolOptionsPanel.AddUIComponent<UIPanel>();
@@ -323,33 +333,43 @@ namespace NetworkAnarchy
             UpdateAnarchyOptions();
 
             anarchyPanel.autoLayout = true;
-            yPos += 58;
+            ExpandY(ref yPos, 58u);
 
             // Node spacing
             if (showMaxSegmentLengthSlider)
             {
-                UILabel label = m_toolOptionsPanel.AddUIComponent<UILabel>();
-                label.textScale = 0.825f;
-                label.text = Str.ui_maxSegmentLength;
-                label.relativePosition = new Vector2(8, yPos + 2);
-                label.SendToBack();
+                if (showLabels)
+                {
+                    UILabel label = m_toolOptionsPanel.AddUIComponent<UILabel>();
+                    label.textScale = 0.825f;
+                    label.text = Str.ui_maxSegmentLength;
+                    label.relativePosition = new Vector2(8, yPos);
+                    label.SendToBack();
+                    ExpandY(ref yPos, 17u);
+                }
 
+                ExpandY(ref yPos, 2u);
                 m_maxSegmentLengthSlider = CreateMaxSegmentLengthSlider(m_toolOptionsPanel, yPos);
-
-                yPos += 64u;
-                m_toolOptionsPanel.height += 64;
-                dragHandle.height += 64;
+                ExpandY(ref yPos, 42u);
             }
+            ExpandY(ref yPos, 2u);
         }
 
-        private UISlider CreateElevationSlider(UIPanel parent)
+        private void ExpandY(ref uint yPos, uint increase)
+        {
+            m_toolOptionsPanel.height += increase;
+            dragHandle.height += increase;
+            yPos += increase;
+        }
+
+        private UISlider CreateElevationSlider(UIPanel parent, uint yPos)
         {
             UIPanel sliderPanel = parent.AddUIComponent<UIPanel>();
             sliderPanel.atlas = parent.atlas;
             sliderPanel.backgroundSprite = "GenericPanel";
             sliderPanel.color = new Color32(206, 206, 206, 255);
             sliderPanel.size = new Vector2(parent.width - 16, 36);
-            sliderPanel.relativePosition = new Vector2(8, 28);
+            sliderPanel.relativePosition = new Vector2(8, yPos);
 
             m_elevationStepLabel = sliderPanel.AddUIComponent<UILabel>();
             m_elevationStepLabel.atlas = parent.atlas;
@@ -404,7 +424,7 @@ namespace NetworkAnarchy
             sliderPanel.backgroundSprite = "GenericPanel";
             sliderPanel.color = new Color32(206, 206, 206, 255);
             sliderPanel.size = new Vector2(parent.width - 16, 36);
-            sliderPanel.relativePosition = new Vector2(8, yPos + 22);
+            sliderPanel.relativePosition = new Vector2(8, yPos);
 
             m_maxSegmentLengthLabel = sliderPanel.AddUIComponent<UILabel>();
             m_maxSegmentLengthLabel.atlas = parent.atlas;

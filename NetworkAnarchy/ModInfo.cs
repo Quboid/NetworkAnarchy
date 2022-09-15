@@ -47,7 +47,17 @@ namespace NetworkAnarchy
                 var group = helper.AddGroup(Name) as UIHelper;
                 var panel = group.self as UIPanel;
 
-                var checkBox = (UICheckBox)group.AddCheckbox(Str.options_showElevationStepSlider, UIToolOptionsButton.showElevationSlider.value, (b) =>
+                var checkBox = (UICheckBox)group.AddCheckbox(Str.options_showLabels, UIToolOptionsButton.showLabels.value, (b) =>
+                {
+                    UIToolOptionsButton.showLabels.value = b;
+                    if (NetworkAnarchy.instance != null)
+                    {
+                        NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
+                    }
+                });
+                checkBox.tooltip = Str.options_showLabelsTooltip;
+
+                checkBox = (UICheckBox)group.AddCheckbox(Str.options_showElevationStepSlider, UIToolOptionsButton.showElevationSlider.value, (b) =>
                 {
                     UIToolOptionsButton.showElevationSlider.value = b;
                     if (NetworkAnarchy.instance != null)
