@@ -248,7 +248,7 @@
   <data name="ui_straightSlopeTooltip" xml:space="preserve">
     <value>도로가 지형을 따르지 않고 일직선으로 A에서 B로 짓게 합니다.
 
-{0}(으)로 직선 경사 전환</value>
+{0}(으)로 직선 경사 전환.</value>
     <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
