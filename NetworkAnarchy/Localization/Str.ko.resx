@@ -187,10 +187,10 @@
     <value>1m부터 12m까지 고도 단계를 변경하는 슬라이더를 표시합니다.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Show Labels</value>
+    <value>라벨 표시</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Disable to save some screen space</value>
+    <value>화면 공간을 아끼려면 비활성화하세요</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>최대 세그먼트 길이 슬라이더 표시</value>
@@ -208,7 +208,7 @@
     <value>여기를 클릭해 툴 옵션 보기</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} and {1} to change elevation step</value>
+    <value>{0} 과 {1} 로 고도 단계 바꾸기</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
@@ -223,7 +223,7 @@
     <value>다리: 사용 가능하다면 다리 부분을 강제로 사용합니다.</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} and {1} to cycle modes</value>
+    <value>{0} 과 {1} 로 모드 순환</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
