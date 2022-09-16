@@ -227,7 +227,7 @@
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Эстокада: использовать эстокаду, при наличии</value>
+    <value>Эстакада: использовать эстакаду, при наличии</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
     <value>Наземный: поверхность следует за высотой дороги</value>
