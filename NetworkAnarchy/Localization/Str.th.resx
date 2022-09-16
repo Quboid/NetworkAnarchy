@@ -187,10 +187,10 @@
     <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนจำนวนขั้นของการยกระดับ จาก 1 เมตร ถึง 12 เมตร</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Show Labels</value>
+    <value>แสดงป้ายกำกับแถบเครื่องมือ</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Disable to save some screen space</value>
+    <value>ปิดเพื่อประหยัดพื้นที่บนหน้าจอบางส่วน</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
     <value>แสดงแถบเลื่อนความยาวสูงสุดของเซ็กเมนต์</value>
