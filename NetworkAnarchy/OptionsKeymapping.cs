@@ -5,7 +5,6 @@ using NetworkAnarchy.Localization;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using UnifiedUI.Helpers;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -37,30 +36,6 @@ namespace NetworkAnarchy
         public static readonly SavedInputKey toggleGrid = new SavedInputKey("toggleGrid", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.G, false, false, true), true);
 
         private int count = 0;
-
-        public static void RegisterUUIHotkeys()
-        {
-            bool IsActive() => NetworkAnarchy.instance.isActive;
-            Dictionary<SavedInputKey, Func<bool>> intoolKeys = new Dictionary<SavedInputKey, Func<bool>>
-            {
-                // use UUI to resolve hotkey collisions
-                { elevationUp, IsActive },
-                { elevationDown, IsActive },
-                { elevationReset, IsActive },
-                { elevationStepUp, IsActive },
-                { elevationStepDown, IsActive },
-                { modesCycleRight, IsActive },
-                { modesCycleLeft, IsActive },
-                { toggleStraightSlope, IsActive },
-                { toggleAnarchy, IsActive },
-                { toggleBending, IsActive },
-                { toggleSnapping, IsActive },
-                { toggleCollision, IsActive },
-                { toggleGrid, IsActive }
-            };
-
-            UUIHelpers.RegisterHotkeys(null, activeKeys: intoolKeys);
-        }
 
         private void Awake()
         {
@@ -94,21 +69,6 @@ namespace NetworkAnarchy
             uIButton.objectUserData = savedInputKey;
             uIButton.eventVisibilityChanged += ButtonVisibilityChanged;
         }
-
-        //private void OnEnable()
-        //{
-        //    LocaleManager.eventLocaleChanged += new LocaleManager.LocaleChangedHandler(this.OnLocaleChanged);
-        //}
-
-        //private void OnDisable()
-        //{
-        //    LocaleManager.eventLocaleChanged -= new LocaleManager.LocaleChangedHandler(this.OnLocaleChanged);
-        //}
-
-        //private void OnLocaleChanged()
-        //{
-        //    this.RefreshBindableInputs();
-        //}
 
         private bool IsModifierKey(KeyCode code)
         {
@@ -306,28 +266,6 @@ namespace NetworkAnarchy
                 }
             }
         }
-
-        //private void RefreshBindableInputs()
-        //{
-        //    UnityEngine.Debug.Log($"Component:{(component is null ? "<null>" : "not null")}");
-        //    foreach (UIComponent current in component.GetComponentsInChildren<UIComponent>())
-        //    {
-        //        UITextComponent uITextComponent = current.Find<UITextComponent>("Binding");
-        //        if (uITextComponent != null)
-        //        {
-        //            SavedInputKey savedInputKey = uITextComponent.objectUserData as SavedInputKey;
-        //            if (savedInputKey != null)
-        //            {
-        //                uITextComponent.text = savedInputKey.ToLocalizedString("KEYNAME");
-        //            }
-        //        }
-        //        UILabel uILabel = current.Find<UILabel>("Name");
-        //        if (uILabel != null)
-        //        {
-        //            uILabel.text = Locale.Get("KEYMAPPING", uILabel.stringUserData);
-        //        }
-        //    }
-        //}
 
         internal InputKey GetDefaultEntry(string entryName)
         {

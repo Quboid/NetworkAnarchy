@@ -73,6 +73,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Str.resx</DependentUpon>
     </Compile>
+    <Compile Include="NA_Operation.cs" />
     <Compile Include="Patches\BuildingTool.cs" />
     <Compile Include="Patches\Collision.cs" />
     <Compile Include="Patches\MaxSegmentLength.cs" />

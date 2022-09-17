@@ -14,6 +14,18 @@ namespace NetworkAnarchy
             {
                 Event e = Event.current;
 
+                Debug.Log($"Hello {e.keyCode} {e.control}");
+                // Allow Anarchy and Collision shortcuts even if the panel isn't visible
+                if (!UIView.HasModalInput() && !UIView.HasInputFocus() && OptionsKeymapping.toggleAnarchy.IsPressed(e))
+                {
+                    Debug.Log($"World");
+                    ToggleAnarchy();
+                }
+                else if (OptionsKeymapping.toggleCollision.IsPressed(e))
+                {
+                    ToggleCollision();
+                }
+
                 if (m_buildingTool.enabled && RoadPrefab.singleMode)
                 {
                     // Checking key presses
@@ -44,14 +56,6 @@ namespace NetworkAnarchy
                 else if (m_buildingTool.enabled && OptionsKeymapping.elevationReset.IsPressed(e))
                 {
                     m_buildingElevationField.SetValue(m_buildingTool, 0);
-                }
-                else if (OptionsKeymapping.toggleAnarchy.IsPressed(e))
-                { // Allow Anarchy and Collision shortcuts even if the panel isn't visible
-                    ToggleAnarchy();
-                }
-                else if (OptionsKeymapping.toggleCollision.IsPressed(e))
-                {
-                    ToggleCollision();
                 }
 
                 if (!isActive)
