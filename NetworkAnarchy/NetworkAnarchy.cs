@@ -304,5 +304,35 @@ namespace NetworkAnarchy
                 }
             }
         }
+
+
+        public void ToggleAnarchy()
+        {
+            Anarchy = !Anarchy;
+            UpdateAnarchyButton(m_toolOptionButton.m_anarchyBtn, "Anarchy", Anarchy);
+        }
+        public void ToggleBending()
+        {
+            Bending = !Bending;
+            UpdateAnarchyButton(m_toolOptionButton.m_bendingBtn, "Bending", Bending);
+        }
+        public void ToggleSnapping()
+        {
+            NodeSnapping = !NodeSnapping;
+            UpdateAnarchyButton(m_toolOptionButton.m_snappingBtn, "Snapping", NodeSnapping);
+        }
+        public void ToggleCollision()
+        {
+            Collision = !Collision;
+            UpdateAnarchyButton(m_toolOptionButton.m_collisionBtn, "Collision", Collision);
+        }
+        public void ToggleGrid()
+        {
+            if (m_toolOptionButton.m_gridBtn != null)
+            {
+                Grid = !Grid;
+                UpdateAnarchyButton(m_toolOptionButton.m_gridBtn, "Grid", Grid);
+            }
+        }
     }
 }

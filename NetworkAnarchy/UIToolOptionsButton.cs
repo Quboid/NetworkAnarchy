@@ -2,6 +2,7 @@
 using ColossalFramework.UI;
 using NetworkAnarchy.Localization;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -320,17 +321,17 @@ namespace NetworkAnarchy
             anarchyPanel.autoLayoutPadding = new RectOffset(0, 4, 0, 0);
             anarchyPanel.autoLayoutDirection = LayoutDirection.Horizontal;
 
-            m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", Str.ui_toggleAnarchy, NetworkAnarchy.saved_anarchy);
-            m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", Str.ui_toggleBending, NetworkAnarchy.saved_bending);
-            m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", Str.ui_toggleSnapping, NetworkAnarchy.saved_nodeSnapping);
-            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", Str.ui_toggleCollision, NetworkAnarchy.Collision);
+            m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", Str.ui_toggleAnarchy, NetworkAnarchy.saved_anarchy, NetworkAnarchy.instance.ToggleAnarchy);
+            m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", Str.ui_toggleBending, NetworkAnarchy.saved_bending, NetworkAnarchy.instance.ToggleBending);
+            m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", Str.ui_toggleSnapping, NetworkAnarchy.saved_nodeSnapping, NetworkAnarchy.instance.ToggleSnapping);
+            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", Str.ui_toggleCollision, NetworkAnarchy.Collision, NetworkAnarchy.instance.ToggleCollision);
 
             if ((ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None)
             {
-                m_gridBtn = CreateAnarchyCheckBox(anarchyPanel, "Grid", Str.ui_toggleGrid, true);
+                m_gridBtn = CreateAnarchyCheckBox(anarchyPanel, "Grid", Str.ui_toggleGrid, true, NetworkAnarchy.instance.ToggleGrid);
             }
 
-            UpdateAnarchyOptions();
+            //UpdateAnarchyOptions();
 
             anarchyPanel.autoLayout = true;
             ExpandY(ref yPos, 58u);
@@ -555,7 +556,7 @@ namespace NetworkAnarchy
                 NetworkAnarchy.instance.mode = Mode.Tunnel;
         }
 
-        private UICheckBox CreateAnarchyCheckBox(UIComponent parent, string spriteName, string toolTip, bool value)
+        private UICheckBox CreateAnarchyCheckBox(UIComponent parent, string spriteName, string toolTip, bool value, ToggleAnarchyButton method)
         {
             UICheckBox checkBox = parent.AddUIComponent<UICheckBox>();
             checkBox.size = new Vector2(36, 36);
@@ -585,35 +586,38 @@ namespace NetworkAnarchy
 
             checkBox.eventCheckChanged += (c, s) =>
             {
-                if (s)
-                {
-                    button.normalBgSprite = "OptionBaseFocused";
-                    button.normalFgSprite = spriteName + "Focused";
-                }
-                else
-                {
-                    button.normalBgSprite = "OptionBase";
-                    button.normalFgSprite = spriteName;
-                }
+                method();
+                //if (s)
+                //{
+                //    button.normalBgSprite = "OptionBaseFocused";
+                //    button.normalFgSprite = spriteName + "Focused";
+                //}
+                //else
+                //{
+                //    button.normalBgSprite = "OptionBase";
+                //    button.normalFgSprite = spriteName;
+                //}
 
-                UpdateAnarchyOptions();
+                //UpdateAnarchyOptions();
             };
 
             return checkBox;
         }
 
-        private void UpdateAnarchyOptions()
-        {
-            NetworkAnarchy.Anarchy = m_anarchyBtn.isChecked;
-            NetworkAnarchy.Bending = m_bendingBtn.isChecked;
-            NetworkAnarchy.NodeSnapping = m_snappingBtn.isChecked;
-            NetworkAnarchy.Collision = m_collisionBtn.isChecked;
+        delegate void ToggleAnarchyButton();
 
-            if (m_gridBtn != null)
-            {
-                NetworkAnarchy.Grid = m_gridBtn.isChecked;
-            }
-        }
+        //private void UpdateAnarchyOptions()
+        //{
+        //    NetworkAnarchy.Anarchy = m_anarchyBtn.isChecked;
+        //    NetworkAnarchy.Bending = m_bendingBtn.isChecked;
+        //    NetworkAnarchy.NodeSnapping = m_snappingBtn.isChecked;
+        //    NetworkAnarchy.Collision = m_collisionBtn.isChecked;
+
+        //    if (m_gridBtn != null)
+        //    {
+        //        NetworkAnarchy.Grid = m_gridBtn.isChecked;
+        //    }
+        //}
 
         private void LoadResources()
         {

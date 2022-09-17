@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using UnifiedUI.Util;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -14,14 +15,16 @@ namespace NetworkAnarchy
             {
                 Event e = Event.current;
 
-                Debug.Log($"Hello {e.keyCode} {e.control}");
+                //Debug.Log($"AAA {e.keyCode} Ctrl:{e.control}, Alt:{e.alt}, Shift:{e.shift}\n" +
+                //    $"Ctrl:{OptionsKeymapping.toggleAnarchy.Control}, key:{OptionsKeymapping.toggleAnarchy.Key}, up:{OptionsKeymapping.toggleAnarchy.IsKeyUp()}\n" +
+                //    $"pressed:{OptionsKeymapping.toggleAnarchy.IsPressed()}, pressedE:{OptionsKeymapping.toggleAnarchy.IsPressed(e)}, pressedEv:{OptionsKeymapping.toggleAnarchy.IsPressed(Event.current)}");
+
                 // Allow Anarchy and Collision shortcuts even if the panel isn't visible
-                if (!UIView.HasModalInput() && !UIView.HasInputFocus() && OptionsKeymapping.toggleAnarchy.IsPressed(e))
+                if (OptionsKeymapping.toggleAnarchy.IsPressed())
                 {
-                    Debug.Log($"World");
                     ToggleAnarchy();
                 }
-                else if (OptionsKeymapping.toggleCollision.IsPressed(e))
+                else if (OptionsKeymapping.toggleCollision.IsPressed())
                 {
                     ToggleCollision();
                 }
@@ -53,7 +56,7 @@ namespace NetworkAnarchy
                     }
                     return;
                 }
-                else if (m_buildingTool.enabled && OptionsKeymapping.elevationReset.IsPressed(e))
+                else if (m_buildingTool.enabled && OptionsKeymapping.elevationReset.IsPressed())
                 {
                     m_buildingElevationField.SetValue(m_buildingTool, 0);
                 }
@@ -177,15 +180,23 @@ namespace NetworkAnarchy
             }
         }
 
-        public void ToggleAnarchy() => m_toolOptionButton.m_anarchyBtn.isChecked = !m_toolOptionButton.m_anarchyBtn.isChecked;
-        public void ToggleBending() => m_toolOptionButton.m_bendingBtn.isChecked = !m_toolOptionButton.m_bendingBtn.isChecked;
-        public void ToggleSnapping() => m_toolOptionButton.m_snappingBtn.isChecked = !m_toolOptionButton.m_snappingBtn.isChecked;
-        public void ToggleCollision() => m_toolOptionButton.m_collisionBtn.isChecked = !m_toolOptionButton.m_collisionBtn.isChecked;
-        public void ToggleGrid()
+        private void UpdateAnarchyButton(UICheckBox checkBox, string name, bool enabled)
         {
-            if (m_toolOptionButton.m_gridBtn != null)
+            UIButton button = checkBox.Find<UIButton>("NA_" + name);
+            if (button == null)
             {
-                m_toolOptionButton.m_gridBtn.isChecked = !m_toolOptionButton.m_gridBtn.isChecked;
+                DebugUtils.Log($"Failed to find anarchy button \"{name}\"!");
+                return;
+            }
+            if (enabled)
+            {
+                button.normalBgSprite = "OptionBaseFocused";
+                button.normalFgSprite = name + "Focused";
+            }
+            else
+            {
+                button.normalBgSprite = "OptionBase";
+                button.normalFgSprite = name;
             }
         }
 

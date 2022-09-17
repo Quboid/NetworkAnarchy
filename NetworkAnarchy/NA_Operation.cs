@@ -77,7 +77,6 @@ namespace NetworkAnarchy
 
             ChirperManager.Initialise();
 
-
             // Getting Upgrade button template
             try
             {
