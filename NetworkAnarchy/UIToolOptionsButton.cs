@@ -77,7 +77,7 @@ namespace NetworkAnarchy
             if (NetworkAnarchy.instance == null) return;
             if (parent == null)
             {
-                DebugUtils.Log("Button parent is null");
+                DebugUtils.Log($"Button parent is null (m_parent is {m_parent})");
                 isVisible = false;
                 return;
             }

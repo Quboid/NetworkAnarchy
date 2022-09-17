@@ -65,7 +65,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(ZoneBlock __instance, ushort blockID, ushort segmentID, ref NetSegment data, ref ulong valid, float minX, float minZ, float maxX, float maxZ)
         {
-            if (data.Info.m_flattenTerrain)
+            if (NetworkAnarchy.Collision || data.Info.m_flattenTerrain)
             {
                 return true;
             }
