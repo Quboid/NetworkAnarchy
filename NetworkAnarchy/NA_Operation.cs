@@ -2,11 +2,9 @@
 using ColossalFramework.UI;
 using ICities;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using UnifiedUI.Helpers;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -128,46 +126,7 @@ namespace NetworkAnarchy
             Collision = saved_collision.value;
             ChirperManager.UpdateAtlas();
 
-            RegisterUUIHotkeys();
-
             DebugUtils.Log("Initialized");
-        }
-
-        public void RegisterUUIHotkeys()
-        {
-            UUIHelpers.RegisterHotkeys(
-                activationKey: OptionsKeymapping.toggleAnarchy,
-                onToggle: ToggleAnarchy);
-            UUIHelpers.RegisterHotkeys(
-                activationKey: OptionsKeymapping.toggleCollision,
-                onToggle: ToggleCollision);
-            if (m_toolOptionButton.m_gridBtn != null)
-            {
-                UUIHelpers.RegisterHotkeys(
-                    activationKey: OptionsKeymapping.toggleGrid,
-                    onToggle: ToggleGrid);
-            }
-
-            bool IsActive() => instance.isActive;
-            Dictionary<SavedInputKey, Func<bool>> intoolKeys = new Dictionary<SavedInputKey, Func<bool>>
-            {
-                // use UUI to resolve hotkey collisions
-                { OptionsKeymapping.elevationUp, IsActive },
-                { OptionsKeymapping.elevationDown, IsActive },
-                { OptionsKeymapping.elevationReset, IsActive },
-                { OptionsKeymapping.elevationStepUp, IsActive },
-                { OptionsKeymapping.elevationStepDown, IsActive },
-                { OptionsKeymapping.modesCycleRight, IsActive },
-                { OptionsKeymapping.modesCycleLeft, IsActive },
-                { OptionsKeymapping.toggleStraightSlope, IsActive },
-                { OptionsKeymapping.toggleAnarchy, IsActive },
-                { OptionsKeymapping.toggleBending, IsActive },
-                { OptionsKeymapping.toggleSnapping, IsActive },
-                { OptionsKeymapping.toggleCollision, IsActive },
-                { OptionsKeymapping.toggleGrid, IsActive }
-            };
-
-            UUIHelpers.RegisterHotkeys(null, activeKeys: intoolKeys);
         }
 
         public void Update()

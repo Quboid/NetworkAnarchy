@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using UnifiedUI.Util;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -20,11 +19,11 @@ namespace NetworkAnarchy
                 //    $"pressed:{OptionsKeymapping.toggleAnarchy.IsPressed()}, pressedE:{OptionsKeymapping.toggleAnarchy.IsPressed(e)}, pressedEv:{OptionsKeymapping.toggleAnarchy.IsPressed(Event.current)}");
 
                 // Allow Anarchy and Collision shortcuts even if the panel isn't visible
-                if (OptionsKeymapping.toggleAnarchy.IsPressed())
+                if (!UIView.HasModalInput() && OptionsKeymapping.toggleAnarchy.IsPressed(e))
                 {
                     ToggleAnarchy();
                 }
-                else if (OptionsKeymapping.toggleCollision.IsPressed())
+                else if (!UIView.HasModalInput() && OptionsKeymapping.toggleCollision.IsPressed(e))
                 {
                     ToggleCollision();
                 }

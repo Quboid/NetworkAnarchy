@@ -38,7 +38,7 @@ namespace NetworkAnarchy
         public static readonly SavedInt savedWindowX = new SavedInt("windowX", NetworkAnarchy.settingsFileName, -1000, true);
         public static readonly SavedInt savedWindowY = new SavedInt("windowY", NetworkAnarchy.settingsFileName, -1000, true);
 
-        public static readonly SavedBool windowVisible = new SavedBool("windowVisible", NetworkAnarchy.settingsFileName, false, true);
+        public static readonly SavedBool windowVisible = new SavedBool("windowVisible", NetworkAnarchy.settingsFileName, true, true);
         public static readonly SavedBool showElevationSlider = new SavedBool("showElevationSlider", NetworkAnarchy.settingsFileName, true, true);
         public static readonly SavedBool showMaxSegmentLengthSlider = new SavedBool("showNodeSpacer", NetworkAnarchy.settingsFileName, false, true);
         public static readonly SavedBool showLabels = new SavedBool("showLabels", NetworkAnarchy.settingsFileName, true, true);
