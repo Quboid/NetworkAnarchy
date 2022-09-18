@@ -208,7 +208,7 @@
     <value>Haz clic aquí para opciones de herramienta</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} and {1} to change elevation step</value>
+    <value>{0} y {1} para cambiar paso de elevación</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
@@ -223,7 +223,7 @@
     <value>Puente: Fuerza el uso de puentes si está disponible</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} and {1} to cycle modes</value>
+    <value>{0} y {1} para cambiar los modos</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
