@@ -9,7 +9,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(ref bool __result, NetAI __instance)
         {
-            if (NetworkAnarchy.instance.StraightSlope)
+            if (NetworkAnarchy.instance.StraightSlope && !(__instance is WaterPipeAI))
             {
                 __result = true;
                 return false;

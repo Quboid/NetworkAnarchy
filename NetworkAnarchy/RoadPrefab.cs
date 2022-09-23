@@ -31,7 +31,6 @@ namespace NetworkAnarchy
 
         public static Dictionary<NetInfo, RoadPrefab> m_roadPrefabs;
         private static bool m_singleMode;
-        private static MethodInfo m_LinearMiddleHeight = typeof(RoadPrefab).GetMethod("LinearMiddleHeight");
 
         private RoadPrefab(NetInfo prefab)
         {
