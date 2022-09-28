@@ -131,6 +131,7 @@ namespace NetworkAnarchy
 
         public static ChirperManager chirperManager;
 
+        // Max Segment Length settings
         internal const int SegmentLengthFloor = 4;
         internal const int SegmentLengthCeiling = 256;
         internal const int SegmentLengthInterval = 2;

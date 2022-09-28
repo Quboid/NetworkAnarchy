@@ -73,6 +73,7 @@
     <Compile Include="NA_Operation.cs" />
     <Compile Include="Patches\BuildingTool.cs" />
     <Compile Include="Patches\Collision.cs" />
+    <Compile Include="Patches\LeftHandTraffic.cs" />
     <Compile Include="Patches\MaxSegmentLength.cs" />
     <Compile Include="Patches\Networks.cs" />
     <Compile Include="Patches\Water.cs" />

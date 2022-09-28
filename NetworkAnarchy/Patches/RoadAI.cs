@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿using ColossalFramework;
+using HarmonyLib;
+using UnityEngine;
 
 namespace NetworkAnarchy.Patches
 {
@@ -9,7 +11,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(out int min, out int max)
         {
-            min = 0;
+            min = -3;
             max = 0;
             if (NetworkAnarchy.Anarchy)
             {
@@ -20,6 +22,12 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
+        }
+
+        public static void  Postfix(out int min)
+        {
+            // Always override minimum height for tunnels in map editor
+            min = -3;
         }
     }
 
@@ -60,7 +68,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(out int min, out int max)
         {
-            min = 0;
+            min = -3;
             max = 0;
             if (NetworkAnarchy.Anarchy)
             {
@@ -71,6 +79,12 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
+        }
+
+        public static void Postfix(out int min)
+        {
+            // Always override minimum height for tunnels in map editor
+            min = -3;
         }
     }
 
@@ -109,7 +123,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(out int min, out int max)
         {
-            min = 0;
+            min = -3;
             max = 0;
             if (NetworkAnarchy.Anarchy)
             {
@@ -120,6 +134,12 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
+        }
+
+        public static void Postfix(out int min)
+        {
+            // Always override minimum height for tunnels in map editor
+            min = -3;
         }
     }
 
@@ -158,7 +178,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(out int min, out int max)
         {
-            min = 0;
+            min = -3;
             max = 0;
             if (NetworkAnarchy.Anarchy)
             {
@@ -169,6 +189,12 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
+        }
+
+        public static void Postfix(out int min)
+        {
+            // Always override minimum height for tunnels in map editor
+            min = -3;
         }
     }
 
