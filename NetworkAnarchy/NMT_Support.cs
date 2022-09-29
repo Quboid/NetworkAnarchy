@@ -25,7 +25,7 @@ namespace NetworkAnarchy
             }
 
             tNMTClass = NMTAssembly.GetType("NetworkMultitool.NetworkMultitoolTool");
-            Debug.Log($"class:{tNMTClass}");
+
             if (tNMTClass == null)
             {
                 IsEnabled = false;

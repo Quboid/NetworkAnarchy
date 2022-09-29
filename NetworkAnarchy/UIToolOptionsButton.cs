@@ -68,7 +68,6 @@ namespace NetworkAnarchy
 
             if (m_toolOptionsPanel != null)
             {
-                //Debug.Log($"ButtonUpdate {isVisible}, {isChecked}");
                 m_toolOptionsPanel.isVisible = isVisible && isChecked;
             }
         }

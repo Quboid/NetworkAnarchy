@@ -64,7 +64,6 @@ namespace NetworkAnarchy
             set
             {
                 _doesVanillaElevationButtonExit = value;
-                //UnityEngine.Debug.Log($"_buttonExists.set:{value}");
             }
         }
         /// <summary>
@@ -79,7 +78,6 @@ namespace NetworkAnarchy
             set
             {
                 _activated = value;
-                //UnityEngine.Debug.Log($"_activated.set:{value}");
             }
         }
         /// <summary>
@@ -93,7 +91,6 @@ namespace NetworkAnarchy
             }
             set
             {
-                //if (_toolEnabled != value) UnityEngine.Debug.Log($"_toolEnabled.toggle:{value}");
                 _isNetToolEnabled = value;
             }
         }
@@ -109,7 +106,6 @@ namespace NetworkAnarchy
             set
             {
                 _isButtonInOptionsBar = value;
-                //UnityEngine.Debug.Log($"_buttonInOptionsBar.set:{_buttonInOptionsBar}");
             }
         }
         private bool m_inEditor;
