@@ -47,7 +47,7 @@ namespace NetworkAnarchy
 
         private Mode m_mode;
 
-        private bool _doesVanillaElevationButtonExit;
+        private bool _doesVanillaElevationButtonExist;
         private bool _activated;
         private bool _isNetToolEnabled;
         private bool _isButtonInOptionsBar;
@@ -59,11 +59,11 @@ namespace NetworkAnarchy
         {
             get
             {
-                return _doesVanillaElevationButtonExit;
+                return _doesVanillaElevationButtonExist;
             }
             set
             {
-                _doesVanillaElevationButtonExit = value;
+                _doesVanillaElevationButtonExist = value;
             }
         }
         /// <summary>
