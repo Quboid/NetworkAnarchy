@@ -1,6 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
 using ICities;
+using QCommonLib;
 using System.Diagnostics;
 using System.Reflection;
 using UnityEngine;
@@ -54,7 +55,7 @@ namespace NetworkAnarchy
         /// <summary>
         /// Does the vanilla elevation button exist?
         /// </summary>
-        private bool doesVanillaElevationButtonExit
+        private bool DoesVanillaElevationButtonExist
         {
             get
             {
@@ -69,7 +70,7 @@ namespace NetworkAnarchy
         /// <summary>
         /// Is NA active (valid NetTool prefab selected)
         /// </summary>
-        public bool isActive
+        public bool IsActive
         {
             get
             {
@@ -84,7 +85,7 @@ namespace NetworkAnarchy
         /// <summary>
         /// Is the vanilla NetTool active? To check if it has been toggled next tick
         /// </summary>
-        private bool isNetToolEnabled
+        private bool IsNetToolEnabled
         {
             get
             {
@@ -99,7 +100,7 @@ namespace NetworkAnarchy
         /// <summary>
         /// Is the NA button in the options bar instead of attached to the vanilla elevation button?
         /// </summary>
-        internal bool isButtonInOptionsBar
+        internal bool IsButtonInOptionsBar
         {
             get
             {
@@ -127,7 +128,7 @@ namespace NetworkAnarchy
         internal static UIToolOptionsButton m_toolOptionButton;
         private static UIButton m_upgradeButtonTemplate;
 
-        public static FastList<NetInfo> bendingPrefabs = new FastList<NetInfo>();
+        //public static FastList<NetInfo> bendingPrefabs = new FastList<NetInfo>();
 
         public static ChirperManager chirperManager;
 
@@ -138,8 +139,8 @@ namespace NetworkAnarchy
 
         public bool SingleMode
         {
-            get => RoadPrefab.singleMode;
-            set => RoadPrefab.singleMode = value;
+            get => NetPrefab.SingleMode;
+            set => NetPrefab.SingleMode = value;
         }
 
         public Mode mode
@@ -150,7 +151,7 @@ namespace NetworkAnarchy
                 {
                     m_mode = value;
 
-                    var prefab = RoadPrefab.GetPrefab(m_current);
+                    var prefab = NetPrefab.GetPrefab(m_current);
                     if (prefab == null)
                     {
                         return;
@@ -186,7 +187,7 @@ namespace NetworkAnarchy
 
                     m_toolOptionButton.UpdateInfo();
 
-                    var prefab = RoadPrefab.GetPrefab(m_current);
+                    var prefab = NetPrefab.GetPrefab(m_current);
                     if (prefab == null)
                     {
                         return;
@@ -234,10 +235,10 @@ namespace NetworkAnarchy
                 {
                     DebugUtils.Log($"Setting Bending to {(value ? "enabled" : "disabled")}");
 
-                    for (int i = 0; i < bendingPrefabs.m_size; i++)
-                    {
-                        bendingPrefabs.m_buffer[i].m_enableBendingSegments = value;
-                    }
+                    //for (int i = 0; i < bendingPrefabs.m_size; i++)
+                    //{
+                    //    bendingPrefabs.m_buffer[i].m_enableBendingSegments = value;
+                    //}
 
                     _bending = value;
                     saved_bending.value = value;

@@ -28,12 +28,12 @@ namespace NetworkAnarchy
                     ToggleCollision();
                 }
 
-                if (m_buildingTool.enabled && RoadPrefab.singleMode)
+                if (m_buildingTool.enabled && NetPrefab.SingleMode)
                 {
                     // Checking key presses
                     if (OptionsKeymapping.elevationUp.IsPressed(e) || OptionsKeymapping.elevationDown.IsPressed(e))
                     {
-                        RoadPrefab.singleMode = false;
+                        NetPrefab.SingleMode = false;
                         BuildingInfo info = m_buildingTool.m_prefab;
                         if (info != null)
                         {
@@ -60,7 +60,7 @@ namespace NetworkAnarchy
                     m_buildingElevationField.SetValue(m_buildingTool, 0);
                 }
 
-                if (!isActive)
+                if (!IsActive)
                 {
                     return;
                 }
@@ -229,9 +229,9 @@ namespace NetworkAnarchy
             }
         }
 
-        private void AttachToolOptionsButton(RoadPrefab prefab)
+        private void AttachToolOptionsButton(NetPrefab prefab)
         {
-            doesVanillaElevationButtonExit = false;
+            DoesVanillaElevationButtonExist = false;
 
             RoadsOptionPanel[] panels = GameObject.FindObjectsOfType<RoadsOptionPanel>();
 
@@ -248,9 +248,9 @@ namespace NetworkAnarchy
 
                     // Put the main button in ElevationStep
                     m_toolOptionButton.transform.SetParent(button.transform);
-                    isButtonInOptionsBar = false;
+                    IsButtonInOptionsBar = false;
                     button.tooltip = null;
-                    doesVanillaElevationButtonExit = true;
+                    DoesVanillaElevationButtonExist = true;
 
                     // Add Upgrade button if needed
                     var list = new List<NetTool.Mode>(panel.m_Modes);
@@ -281,7 +281,7 @@ namespace NetworkAnarchy
                 return;
             }
             m_toolOptionButton.transform.SetParent(optionBar.transform);
-            isButtonInOptionsBar = true;
+            IsButtonInOptionsBar = true;
         }
 
         public static UITextureAtlas GetAtlas(string name)

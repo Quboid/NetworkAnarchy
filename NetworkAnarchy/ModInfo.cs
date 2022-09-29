@@ -97,11 +97,11 @@ namespace NetworkAnarchy
 
                      if (b)
                      {
-                         RoadPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle);
+                         NetPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle);
                      }
                      else
                      {
-                         RoadPrefab.ResetMaxTurnAngle();
+                         NetPrefab.ResetMaxTurnAngle();
                      }
                  });
                 checkBox.tooltip = Str.options_tramMaxTurnAngleTooltip;
@@ -115,7 +115,7 @@ namespace NetworkAnarchy
 
                         if (NetworkAnarchy.changeMaxTurnAngle.value)
                         {
-                            RoadPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle.value);
+                            NetPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle.value);
                         }
                     });
 

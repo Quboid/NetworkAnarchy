@@ -1,5 +1,6 @@
 ﻿using ColossalFramework.UI;
 using HarmonyLib;
+using QCommonLib;
 using System.Linq;
 
 namespace NetworkAnarchy
@@ -175,7 +176,7 @@ namespace NetworkAnarchy
                 "ThumbChirperTechPressed"
             };
 
-            return ResourceLoader.CreateTextureAtlas("ChirperAtlasAnarchy", spriteNames, "NetworkAnarchy.ChirperAtlas.");
+            return QCommon.CreateTextureAtlas(typeof(ModInfo).Assembly, "ChirperAtlasAnarchy", spriteNames, "NetworkAnarchy.ChirperAtlas.");
         }
     }
 
