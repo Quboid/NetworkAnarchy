@@ -8,11 +8,14 @@ using NetworkAnarchy.Localization;
 using System;
 using System.Globalization;
 using UnityEngine;
+using System.Linq;
 
 namespace NetworkAnarchy
 {
     public class ModInfo : LoadingExtensionBase, IUserMod 
     {
+        private static readonly string[] supportedLanguages = { "en", "de", "es", "fr", "it", "ja", "ko", "pl", "pt", "ru", "th", "zh-cn" };
+
         public ModInfo()
         {
             try
@@ -34,7 +37,12 @@ namespace NetworkAnarchy
 
         public string Description => Str.mod_Description;
 
-        internal static CultureInfo Culture => new CultureInfo(SingletonLite<LocaleManager>.instance.language == "zh" ? "zh-cn" : SingletonLite<LocaleManager>.instance.language);
+        private static string GetLanguage()
+        {
+            string lang = SingletonLite<LocaleManager>.instance.language == "zh" ? "zh-cn" : SingletonLite<LocaleManager>.instance.language;
+            return supportedLanguages.Contains(lang) ? lang : "en";
+        }
+        internal static CultureInfo Culture => new CultureInfo(GetLanguage());
 
         public void OnSettingsUI(UIHelperBase helper)
         {
