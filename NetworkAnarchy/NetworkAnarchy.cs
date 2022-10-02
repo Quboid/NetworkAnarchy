@@ -124,7 +124,7 @@ namespace NetworkAnarchy
         internal static UIToolOptionsButton m_toolOptionButton;
         private static UIButton m_upgradeButtonTemplate;
 
-        //public static FastList<NetInfo> bendingPrefabs = new FastList<NetInfo>();
+        public static FastList<NetInfo> bendingPrefabs = new FastList<NetInfo>();
 
         public static ChirperManager chirperManager;
 
@@ -231,10 +231,10 @@ namespace NetworkAnarchy
                 {
                     DebugUtils.Log($"Setting Bending to {(value ? "enabled" : "disabled")}");
 
-                    //for (int i = 0; i < bendingPrefabs.m_size; i++)
-                    //{
-                    //    bendingPrefabs.m_buffer[i].m_enableBendingSegments = value;
-                    //}
+                    for (int i = 0; i < bendingPrefabs.m_size; i++)
+                    {
+                        bendingPrefabs.m_buffer[i].m_enableBendingSegments = value;
+                    }
 
                     _bending = value;
                     saved_bending.value = value;

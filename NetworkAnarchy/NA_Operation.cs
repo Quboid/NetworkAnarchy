@@ -60,19 +60,19 @@ namespace NetworkAnarchy
                 return;
             }
 
-            //bendingPrefabs.Clear();
-            //int count = PrefabCollection<NetInfo>.PrefabCount();
-            //for (uint i = 0; i < count; i++)
-            //{
-            //    NetInfo prefab = PrefabCollection<NetInfo>.GetPrefab(i);
-            //    if (prefab != null)
-            //    {
-            //        if (prefab.m_enableBendingSegments)
-            //        {
-            //            bendingPrefabs.Add(prefab);
-            //        }
-            //    }
-            //}
+            bendingPrefabs.Clear();
+            int count = PrefabCollection<NetInfo>.PrefabCount();
+            for (uint i = 0; i < count; i++)
+            {
+                NetInfo prefab = PrefabCollection<NetInfo>.GetPrefab(i);
+                if (prefab != null)
+                {
+                    if (prefab.m_enableBendingSegments)
+                    {
+                        bendingPrefabs.Add(prefab);
+                    }
+                }
+            }
 
             ChirperManager.Initialise();
 
