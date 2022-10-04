@@ -15,8 +15,6 @@ namespace NetworkAnarchy
 {
     public class ModInfo : LoadingExtensionBase, IUserMod 
     {
-        private static readonly string[] supportedLanguages = { "en", "de", "es", "fr", "it", "ja", "ko", "pl", "pt", "ru", "th", "zh-cn" };
-
         public ModInfo()
         {
             try
