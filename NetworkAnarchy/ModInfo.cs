@@ -9,6 +9,7 @@ using System;
 using System.Globalization;
 using UnityEngine;
 using System.Linq;
+using QCommonLib;
 
 namespace NetworkAnarchy
 {
@@ -34,15 +35,9 @@ namespace NetworkAnarchy
         }
 
         public string Name => "Network Anarchy " + Version;
-
         public string Description => Str.mod_Description;
 
-        private static string GetLanguage()
-        {
-            string lang = SingletonLite<LocaleManager>.instance.language == "zh" ? "zh-cn" : SingletonLite<LocaleManager>.instance.language;
-            return supportedLanguages.Contains(lang) ? lang : "en";
-        }
-        internal static CultureInfo Culture => new CultureInfo(GetLanguage());
+        internal static CultureInfo Culture => QCommon.GetCultureInfo();
 
         public void OnSettingsUI(UIHelperBase helper)
         {

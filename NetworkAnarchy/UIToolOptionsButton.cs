@@ -143,7 +143,7 @@ namespace NetworkAnarchy
         private void CreateButton()
         {
             m_button = AddUIComponent<UIButton>();
-            m_button.atlas = QCommon.GetAtlas("Ingame");
+            m_button.atlas = QTextures.GetAtlas("Ingame");
             m_button.name = "NA_MainButton";
             m_button.size = new Vector2(36, 36);
             m_button.textScale = 0.7f;
@@ -210,7 +210,7 @@ namespace NetworkAnarchy
 
             m_toolOptionsPanel = UIView.GetAView().AddUIComponent(typeof(UIPanel)) as UIPanel;
             m_toolOptionsPanel.name = "NA_ToolOptionsPanel";
-            m_toolOptionsPanel.atlas = QCommon.GetAtlas("Ingame");
+            m_toolOptionsPanel.atlas = QTextures.GetAtlas("Ingame");
             m_toolOptionsPanel.backgroundSprite = "SubcategoriesPanel";
             m_toolOptionsPanel.size = new Vector2(228, yPos);
             m_toolOptionsPanel.absolutePosition = new Vector3(savedWindowX.value, savedWindowY.value);
@@ -684,9 +684,9 @@ namespace NetworkAnarchy
                 "GridPressed"
             };
 
-            m_atlas = QCommon.CreateTextureAtlas(typeof(ModInfo).Assembly, "NetworkAnarchy", spriteNames, "NetworkAnarchy.Icons.");
+            m_atlas = QTextures.CreateTextureAtlas(typeof(ModInfo).Assembly, "NetworkAnarchy", spriteNames, "NetworkAnarchy.Icons.");
 
-            UITextureAtlas defaultAtlas = QCommon.GetAtlas("Ingame");
+            UITextureAtlas defaultAtlas = QTextures.GetAtlas("Ingame");
             Texture2D[] textures = new Texture2D[]
             {
                 defaultAtlas["OptionBase"].texture,
@@ -696,7 +696,7 @@ namespace NetworkAnarchy
                 defaultAtlas["OptionBaseDisabled"].texture
             };
 
-            QCommon.AddTexturesInAtlas(m_atlas, textures);
+            QTextures.AddTexturesInAtlas(m_atlas, textures);
         }
     }
 }
