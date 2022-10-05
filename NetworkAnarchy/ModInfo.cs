@@ -232,7 +232,9 @@ namespace NetworkAnarchy
             if (NetworkAnarchy.instance != null)
             {
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel);
+                NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel = null;
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton);
+                NetworkAnarchy.m_toolOptionButton = null;
                 NetworkAnarchy.instance.enabled = false;
                 GameObject.Destroy(NetworkAnarchy.instance);
                 NetworkAnarchy.instance = null;
