@@ -272,7 +272,7 @@ namespace NetworkAnarchy
         public static void EarlyPatch()
         {
             Instance = new Harmony(HarmonyId);
-            Instance.Patch(typeof(TransportInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(typeof(EarlyPatches).GetMethod("TransportInfo_InitializePrefab_Postfix")));
+            EarlyPatches.Deploy();
         }
 
         public static void PatchAll()
@@ -291,7 +291,7 @@ namespace NetworkAnarchy
             if (!patched) return;
 
             Instance.UnpatchAll(HarmonyId);
-            Instance.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab"), typeof(EarlyPatches).GetMethod("TransportInfo_InitializePrefab_Postfix"));
+            EarlyPatches.Revert();
             patched = false;
         }
     }

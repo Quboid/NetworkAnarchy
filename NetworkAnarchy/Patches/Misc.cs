@@ -25,27 +25,8 @@ namespace NetworkAnarchy.Patches
         }
     }
 
-    [HarmonyPatch(typeof(PublicTransportPanel), "IsRoadEligibleToPublicTransport")]
-    public static class PTP_IsRoadEligibleToPublicTransport
-    {
-        public static bool Prefix(ref PublicTransportPanel __instance, ref bool __result, NetInfo info)
-        {
-            if (__instance.category == "PublicTransportShip")
-            {
-                __result = (info.m_vehicleTypes & (VehicleInfo.VehicleType.Ferry | VehicleInfo.VehicleType.Ship)) != VehicleInfo.VehicleType.None;
-                return false;
-            }
-            if (__instance.category == "PublicTransportPlane")
-            {
-                __result = (info.m_vehicleTypes & (VehicleInfo.VehicleType.Helicopter | VehicleInfo.VehicleType.Blimp | VehicleInfo.VehicleType.Plane)) != VehicleInfo.VehicleType.None;
-                return false;
-            }
-            return true;
-        }
-    }
-
     /// <summary>
-    /// Show the Airplane paths (purple dotted lines)
+    /// Make ship and airplane paths bulldozeable 
     /// </summary>
     [HarmonyPatch(typeof(DefaultTool), "GetService")]
     public static class DT_GetService
@@ -56,7 +37,7 @@ namespace NetworkAnarchy.Patches
 
             if (Singleton<InfoManager>.instance.CurrentMode == InfoManager.InfoMode.Transport)
             {
-                __result.m_itemLayers |= ItemClass.Layer.AirplanePaths;
+                __result.m_itemLayers |= ItemClass.Layer.AirplanePaths | ItemClass.Layer.ShipPaths;
             }
         }
     }

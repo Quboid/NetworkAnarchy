@@ -131,9 +131,9 @@ namespace NetworkAnarchy
             ChirperManager.UpdateAtlas();
 
             // Add ship/airplane line buttons
-            PathingButtons = new PathButtons();
-            PathingButtons.CreateShipPathButton();
-            PathingButtons.CreateAirplanePathButton();
+            //PathingButtons = new PathButtons();
+            //PathingButtons.CreateShipPathButton();
+            //PathingButtons.CreateAirplanePathButton();
 
             DebugUtils.Log("Initialized");
         }
