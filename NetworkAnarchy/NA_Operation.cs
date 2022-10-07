@@ -1,6 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
 using ICities;
+using QCommonLib;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -11,8 +12,6 @@ namespace NetworkAnarchy
 {
     public partial class NetworkAnarchy : MonoBehaviour
     {
-        internal PathButtons PathingButtons;
-
         public void Start()
         {
             NetSkins_Support.Init();
@@ -108,9 +107,7 @@ namespace NetworkAnarchy
             // Init dictionary
             NetPrefab.Initialize();
 
-            m_inAssetEditor = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None;
-            m_inMapEditor = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.MapEditor) != ItemClass.Availability.None;
-            NetPrefab.SingleMode = m_inAssetEditor;
+            NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor);
 
             if (changeMaxTurnAngle.value)
             {
@@ -125,15 +122,11 @@ namespace NetworkAnarchy
 
             // Load Anarchy saved settings
             Anarchy = saved_anarchy.value;
+            Bending = !saved_bending.value; // Toggle value to force prefab updates
             Bending = saved_bending.value;
             NodeSnapping = saved_nodeSnapping.value;
             Collision = saved_collision.value;
             ChirperManager.UpdateAtlas();
-
-            // Add ship/airplane line buttons
-            //PathingButtons = new PathButtons();
-            //PathingButtons.CreateShipPathButton();
-            //PathingButtons.CreateAirplanePathButton();
 
             DebugUtils.Log("Initialized");
         }
@@ -186,7 +179,7 @@ namespace NetworkAnarchy
                 }
                 else
                 {
-                    NetPrefab.SingleMode = m_inAssetEditor && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
+                    NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor) && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
                 }
             }
             catch (Exception e)

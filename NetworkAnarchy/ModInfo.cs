@@ -234,8 +234,6 @@ namespace NetworkAnarchy
 
             if (NetworkAnarchy.instance != null)
             {
-                NetworkAnarchy.instance.PathingButtons?.Destroy();
-                NetworkAnarchy.instance.PathingButtons = null;
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel);
                 NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel = null;
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton);

@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using QCommonLib;
 using System;
 using System.Reflection;
 using UnityEngine;
@@ -44,7 +45,7 @@ namespace NetworkAnarchy.Patches
         /// </summary>
         public static void NetInfo_InitializePrefab_Postfix(ref NetInfo __instance)
         {
-            if (!NetworkAnarchy.InGame()) return;
+            if (QCommon.Scene != QCommon.SceneTypes.Game) return;
 
             if (__instance.name == "Ship Path" || __instance.name == "Airplane Path")
             {
@@ -58,7 +59,7 @@ namespace NetworkAnarchy.Patches
         /// </summary>
         public static void TransportInfo_InitializePrefab_Postfix(ref TransportInfo __instance)
         {
-            if (!NetworkAnarchy.InGame()) return;
+            if (QCommon.Scene != QCommon.SceneTypes.Game) return;
 
             if (__instance.name == "Airplane")
             {

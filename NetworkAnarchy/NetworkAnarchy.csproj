@@ -90,7 +90,6 @@
     <Compile Include="NetSkins_Support.cs" />
     <Compile Include="NetworkAnarchy.cs" />
     <Compile Include="OptionsKeymapping.cs" />
-    <Compile Include="PathButtons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NetAIWrapper.cs" />
     <Compile Include="NetPrefab.cs" />

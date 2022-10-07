@@ -108,8 +108,6 @@ namespace NetworkAnarchy
                 _isButtonInOptionsBar = value;
             }
         }
-        internal static bool m_inAssetEditor;
-        internal static bool m_inMapEditor;
 
         private int m_fixNodesCount = 0;
         private ushort m_fixTunnelsCount = 0;
@@ -332,13 +330,6 @@ namespace NetworkAnarchy
                 Grid = !Grid;
                 UpdateAnarchyButton(m_toolOptionButton.m_gridBtn, "Grid", Grid);
             }
-        }
-
-        public static bool InGame()
-        {
-            if (m_inAssetEditor) return false;
-            if (m_inMapEditor) return false;
-            return true;
         }
     }
 }

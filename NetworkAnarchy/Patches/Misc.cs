@@ -1,5 +1,6 @@
 ﻿using ColossalFramework;
 using HarmonyLib;
+using QCommonLib;
 
 namespace NetworkAnarchy.Patches
 {
@@ -33,7 +34,7 @@ namespace NetworkAnarchy.Patches
     {
         public static void Postfix(ref ToolBase.RaycastService __result)
         {
-            if (!NetworkAnarchy.InGame()) return;
+            if (QCommon.Scene != QCommon.SceneTypes.Game) return;
 
             if (Singleton<InfoManager>.instance.CurrentMode == InfoManager.InfoMode.Transport)
             {

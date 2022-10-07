@@ -63,7 +63,7 @@ namespace NetworkAnarchy.Patches
         new[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Ref, ArgumentType.Ref, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal })]
     public class ZB_CalculateImplementation1
     {
-        public static bool Prefix(ZoneBlock __instance, ushort blockID, ushort segmentID, ref NetSegment data, ref ulong valid, float minX, float minZ, float maxX, float maxZ)
+        public static bool Prefix(ref NetSegment data)
         {
             if (NetworkAnarchy.Collision || data.Info.m_flattenTerrain)
             {
