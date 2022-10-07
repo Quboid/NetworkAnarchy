@@ -14,7 +14,7 @@ namespace NetworkAnarchy
 
         public static void Initialise()
         {
-            normalAtlas = NetworkAnarchy.GetAtlas("ChirperAtlas");
+            normalAtlas = QTextures.GetAtlas("ChirperAtlas");
             anarchyAtlas = GetChirperAtlas();
             chirperButton = UIView.GetAView().FindUIComponent<UIButton>("Zone");
 

@@ -11,6 +11,8 @@ namespace NetworkAnarchy
 {
     public partial class NetworkAnarchy : MonoBehaviour
     {
+        internal PathButtons PathingButtons;
+
         public void Start()
         {
             NetSkins_Support.Init();
@@ -106,8 +108,9 @@ namespace NetworkAnarchy
             // Init dictionary
             NetPrefab.Initialize();
 
-            m_inEditor = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None;
-            NetPrefab.SingleMode = m_inEditor;
+            m_inAssetEditor = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None;
+            m_inMapEditor = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.MapEditor) != ItemClass.Availability.None;
+            NetPrefab.SingleMode = m_inAssetEditor;
 
             if (changeMaxTurnAngle.value)
             {
@@ -126,6 +129,11 @@ namespace NetworkAnarchy
             NodeSnapping = saved_nodeSnapping.value;
             Collision = saved_collision.value;
             ChirperManager.UpdateAtlas();
+
+            // Add ship/airplane line buttons
+            PathingButtons = new PathButtons();
+            PathingButtons.CreateShipPathButton();
+            PathingButtons.CreateAirplanePathButton();
 
             DebugUtils.Log("Initialized");
         }
@@ -178,7 +186,7 @@ namespace NetworkAnarchy
                 }
                 else
                 {
-                    NetPrefab.SingleMode = m_inEditor && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
+                    NetPrefab.SingleMode = m_inAssetEditor && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
                 }
             }
             catch (Exception e)

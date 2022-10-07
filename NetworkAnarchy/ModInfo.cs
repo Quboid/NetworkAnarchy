@@ -10,6 +10,7 @@ using System.Globalization;
 using UnityEngine;
 using System.Linq;
 using QCommonLib;
+using NetworkAnarchy.Patches;
 
 namespace NetworkAnarchy
 {
@@ -177,6 +178,8 @@ namespace NetworkAnarchy
 
         public void OnEnabled()
         {
+            Patcher.EarlyPatch();
+
             if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
             {
                 InitializeMod();
@@ -231,6 +234,8 @@ namespace NetworkAnarchy
 
             if (NetworkAnarchy.instance != null)
             {
+                NetworkAnarchy.instance.PathingButtons?.Destroy();
+                NetworkAnarchy.instance.PathingButtons = null;
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel);
                 NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel = null;
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton);
@@ -262,25 +267,31 @@ namespace NetworkAnarchy
     {
         private const string HarmonyId = "quboid.csl_mods.networkanarchy";
         private static bool patched = false;
+        internal static Harmony Instance;
+
+        public static void EarlyPatch()
+        {
+            Instance = new Harmony(HarmonyId);
+            Instance.Patch(typeof(TransportInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(typeof(EarlyPatches).GetMethod("TransportInfo_InitializePrefab_Postfix")));
+        }
 
         public static void PatchAll()
         {
             if (patched) return;
 
             patched = true;
-            var harmony = new Harmony(HarmonyId);
 #if DEBUG
             //Harmony.DEBUG = true;
 #endif
-            harmony.PatchAll();
+            Instance.PatchAll();
         }
 
         public static void UnpatchAll()
         {
             if (!patched) return;
 
-            var harmony = new Harmony(HarmonyId);
-            harmony.UnpatchAll(HarmonyId);
+            Instance.UnpatchAll(HarmonyId);
+            Instance.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab"), typeof(EarlyPatches).GetMethod("TransportInfo_InitializePrefab_Postfix"));
             patched = false;
         }
     }
