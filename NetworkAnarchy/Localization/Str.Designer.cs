@@ -61,24 +61,6 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create path for cargo and passenger aircraft.
-        /// </summary>
-        internal static string buttons_airplanePath {
-            get {
-                return ResourceManager.GetString("buttons_airplanePath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create path for cargo and cruise ships.
-        /// </summary>
-        internal static string buttons_shipPath {
-            get {
-                return ResourceManager.GetString("buttons_shipPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cycle Modes Left.
         /// </summary>
         internal static string key_cycleModesLeft {
