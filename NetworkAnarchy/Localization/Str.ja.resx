@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttons_airplanePath" xml:space="preserve">
-    <value>貨物機と旅客機の空路パスを作成</value>
-  </data>
-  <data name="buttons_shipPath" xml:space="preserve">
-    <value>貨物船と大型客船の航路パスを作成</value>
-  </data>
   <data name="key_cycleModesLeft" xml:space="preserve">
     <value>モードを左に移る</value>
   </data>
