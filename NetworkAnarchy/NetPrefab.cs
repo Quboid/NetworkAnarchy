@@ -240,7 +240,7 @@ namespace NetworkAnarchy
 
             Restore(!NetworkAnarchy.instance.StraightSlope);
 
-            NetSkins_Support.ForceUpdate();
+            Mods.NetworkSkins.ForceUpdate();
 
             if (!hasElevation) return;
 

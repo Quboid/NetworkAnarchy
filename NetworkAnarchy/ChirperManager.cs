@@ -18,9 +18,9 @@ namespace NetworkAnarchy
             anarchyAtlas = GetChirperAtlas();
             chirperButton = UIView.GetAView().FindUIComponent<UIButton>("Zone");
 
-            if (normalAtlas == null) UnityEngine.Debug.Log($"NetworkAnarchy: Failed to load Chirper normal atlas");
-            if (anarchyAtlas == null) UnityEngine.Debug.Log($"NetworkAnarchy: Failed to load Chirper anarchy atlas");
-            if (chirperButton == null) UnityEngine.Debug.Log($"NetworkAnarchy: Failed to find Chirper button");
+            if (normalAtlas == null) UnityEngine.Debug.Log($"NetworkAnarchy: Failed to load Chirper normal atlas [NA10]");
+            if (anarchyAtlas == null) UnityEngine.Debug.Log($"NetworkAnarchy: Failed to load Chirper anarchy atlas [NA11]");
+            if (chirperButton == null) UnityEngine.Debug.Log($"NetworkAnarchy: Failed to find Chirper button [NA12]");
             if (normalAtlas == null || anarchyAtlas == null || chirperButton == null) return;
 
             hoveredSprite = chirperButton.hoveredBgSprite;

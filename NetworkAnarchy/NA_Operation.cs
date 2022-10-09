@@ -14,8 +14,9 @@ namespace NetworkAnarchy
     {
         public void Start()
         {
-            NetSkins_Support.Init();
-            NMT_Support.Initialise();
+            Mods.NetworkSkins.Init();
+            Mods.NetworkMultitool.Initialise();
+            Mods.ZoningAdjuster.Initialise();
 
             // Getting NetTool
             m_netTool = GameObject.FindObjectsOfType<NetTool>().Where(x => x.GetType() == typeof(NetTool)).FirstOrDefault();
@@ -145,7 +146,7 @@ namespace NetworkAnarchy
             try
             {
                 // Getting selected prefab
-                NetInfo prefab = (m_netTool.enabled || m_bulldozeTool.enabled || NMT_Support.IsNMTToolActive()) ? m_netTool.m_prefab : null;
+                NetInfo prefab = (m_netTool.enabled || m_bulldozeTool.enabled || Mods.NetworkMultitool.IsToolActive() || Mods.ZoningAdjuster.IsToolActive()) ? m_netTool.m_prefab : null;
 
                 // Has the prefab/tool changed?
                 if (prefab != m_current || IsNetToolEnabled != m_netTool.enabled)

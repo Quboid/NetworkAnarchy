@@ -16,11 +16,11 @@ namespace NetworkAnarchy.Patches
                 Patcher.Instance.Patch(typeof(NetInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(self.GetMethod("NetInfo_InitializePrefab_Postfix")));
                 Patcher.Instance.Patch(typeof(TransportInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(self.GetMethod("TransportInfo_InitializePrefab_Postfix")));
                 Patcher.Instance.Patch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), prefix: new HarmonyMethod(self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix")));
-                Debug.Log($"NetworkAnarchy: Deployed early patches");
+                Debug.Log($"NetworkAnarchy: Deployed early patches [NA13]");
             }
             catch (Exception e)
             {
-                Debug.Log($"NetworkAnarchy: Failed to deploy early patches\n{e}");
+                Debug.Log($"NetworkAnarchy: Failed to deploy early patches [NA14]\n{e}");
             }
         }
 
@@ -32,11 +32,11 @@ namespace NetworkAnarchy.Patches
                 Patcher.Instance.Unpatch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport"), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
                 Patcher.Instance.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("TransportInfo_InitializePrefab_Postfix"));
                 Patcher.Instance.Unpatch(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
-                Debug.Log($"NetworkAnarchy: Reverted early patches");
+                Debug.Log($"NetworkAnarchy: Reverted early patches [NA15]");
             }
             catch (Exception e)
             {
-                Debug.Log($"NetworkAnarchy: Failed to revert early patches\n{e}");
+                Debug.Log($"NetworkAnarchy: Failed to revert early patches [NA16]\n{e}");
             }
         }
 
@@ -50,7 +50,6 @@ namespace NetworkAnarchy.Patches
             if (__instance.name == "Ship Path" || __instance.name == "Airplane Path")
             {
                 __instance.m_availableIn |= ItemClass.Availability.Game;
-                Debug.Log($"NetworkAnarchy: {__instance.name} is {__instance.m_availableIn}");
             }
         }
 
@@ -64,7 +63,6 @@ namespace NetworkAnarchy.Patches
             if (__instance.name == "Airplane")
             {
                 __instance.m_pathVisibility |= ItemClass.Availability.Game;
-                Debug.Log($"NetworkAnarchy: {__instance.name} is {__instance.m_pathVisibility}");
             }
         }
 

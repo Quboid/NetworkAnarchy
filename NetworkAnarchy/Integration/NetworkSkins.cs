@@ -3,9 +3,9 @@ using System;
 using System.Reflection;
 using UnityEngine;
 
-namespace NetworkAnarchy
+namespace NetworkAnarchy.Mods
 {
-    internal class NetSkins_Support
+    internal class NetworkSkins
     {
         private static object m_instance;
 
@@ -57,14 +57,19 @@ namespace NetworkAnarchy
 
                     if (m_selectedPrefab != null && m_update != null)
                     {
-                        DebugUtils.Log("Network Skins found");
+                        DebugUtils.Log("NetworkAnarchy: Network Skins loaded [NA07]");
                     }
                     else
                     {
                         m_UINetworkSkinsPanel = null;
                         m_selectedPrefab = null;
                         m_update = null;
+                        DebugUtils.Log("NetworkAnarchy: Network Skins not loaded [NA08]");
                     }
+                }
+                else
+                {
+                    DebugUtils.Log("NetworkAnarchy: Network Skins not found [NA09]");
                 }
             }
             catch (Exception e)

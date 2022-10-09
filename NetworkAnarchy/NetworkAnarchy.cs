@@ -302,7 +302,6 @@ namespace NetworkAnarchy
             }
         }
 
-
         public void ToggleAnarchy()
         {
             Anarchy = !Anarchy;

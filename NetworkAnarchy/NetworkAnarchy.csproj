@@ -68,13 +68,14 @@
   <ItemGroup>
     <Compile Include="ChirperManager.cs" />
     <Compile Include="DebugUtils.cs" />
+    <Compile Include="Integration\ZoningAdjuster.cs" />
     <Compile Include="Localization\Str.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Str.resx</DependentUpon>
     </Compile>
     <Compile Include="NA_Operation.cs" />
-    <Compile Include="NMT_Support.cs" />
+    <Compile Include="Integration\NetworkMultitool.cs" />
     <Compile Include="Patches\BuildingTool.cs" />
     <Compile Include="Patches\Collision.cs" />
     <Compile Include="Patches\Misc.cs" />
@@ -87,7 +88,7 @@
     <Compile Include="ModInfo.cs" />
     <Compile Include="NA_Fixes.cs" />
     <Compile Include="NA_GUI.cs" />
-    <Compile Include="NetSkins_Support.cs" />
+    <Compile Include="Integration\NetworkSkins.cs" />
     <Compile Include="NetworkAnarchy.cs" />
     <Compile Include="OptionsKeymapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
