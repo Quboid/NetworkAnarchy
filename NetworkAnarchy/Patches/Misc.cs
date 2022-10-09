@@ -1,6 +1,8 @@
 ﻿using ColossalFramework;
 using HarmonyLib;
 using QCommonLib;
+using System;
+using UnityEngine;
 
 namespace NetworkAnarchy.Patches
 {
@@ -51,15 +53,22 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(ref bool __result)
         {
-            if (!(Singleton<ToolController>.instance.CurrentTool is NetTool)) return true;
-
-            NetTool netTool = (NetTool)Singleton<ToolController>.instance.CurrentTool;
-            NetInfo prefab = netTool.Prefab;
-
-            if (prefab.name == "Ship Path" || prefab.name == "Airplane Path")
+            try
             {
-                __result = false;
-                return false;
+                if (!(Singleton<ToolController>.instance.CurrentTool is NetTool)) return true;
+                NetTool netTool = (NetTool)Singleton<ToolController>.instance.CurrentTool;
+                if (netTool.Prefab == null) return true;
+                NetInfo prefab = netTool.Prefab;
+
+                if (prefab.name == "Ship Path" || prefab.name == "Airplane Path")
+                {
+                    __result = false;
+                    return false;
+                }
+            }
+            catch (NullReferenceException e)
+            {
+                Debug.Log($"Failed to enable placing transport paths outside purchased tiles\n{e}");
             }
             return true;
         }
