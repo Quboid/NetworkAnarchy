@@ -1,6 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
 using ICities;
+using QCommonLib;
 using System.Diagnostics;
 using System.Reflection;
 using UnityEngine;
@@ -46,7 +47,7 @@ namespace NetworkAnarchy
 
         private Mode m_mode;
 
-        private bool _doesVanillaElevationButtonExit;
+        private bool _doesVanillaElevationButtonExist;
         private bool _activated;
         private bool _isNetToolEnabled;
         private bool _isButtonInOptionsBar;
@@ -54,22 +55,21 @@ namespace NetworkAnarchy
         /// <summary>
         /// Does the vanilla elevation button exist?
         /// </summary>
-        private bool doesVanillaElevationButtonExit
+        private bool DoesVanillaElevationButtonExist
         {
             get
             {
-                return _doesVanillaElevationButtonExit;
+                return _doesVanillaElevationButtonExist;
             }
             set
             {
-                _doesVanillaElevationButtonExit = value;
-                //UnityEngine.Debug.Log($"_buttonExists.set:{value}");
+                _doesVanillaElevationButtonExist = value;
             }
         }
         /// <summary>
         /// Is NA active (valid NetTool prefab selected)
         /// </summary>
-        public bool isActive
+        public bool IsActive
         {
             get
             {
@@ -78,13 +78,12 @@ namespace NetworkAnarchy
             set
             {
                 _activated = value;
-                //UnityEngine.Debug.Log($"_activated.set:{value}");
             }
         }
         /// <summary>
         /// Is the vanilla NetTool active? To check if it has been toggled next tick
         /// </summary>
-        private bool isNetToolEnabled
+        private bool IsNetToolEnabled
         {
             get
             {
@@ -92,14 +91,13 @@ namespace NetworkAnarchy
             }
             set
             {
-                //if (_toolEnabled != value) UnityEngine.Debug.Log($"_toolEnabled.toggle:{value}");
                 _isNetToolEnabled = value;
             }
         }
         /// <summary>
         /// Is the NA button in the options bar instead of attached to the vanilla elevation button?
         /// </summary>
-        internal bool isButtonInOptionsBar
+        internal bool IsButtonInOptionsBar
         {
             get
             {
@@ -108,10 +106,8 @@ namespace NetworkAnarchy
             set
             {
                 _isButtonInOptionsBar = value;
-                //UnityEngine.Debug.Log($"_buttonInOptionsBar.set:{_buttonInOptionsBar}");
             }
         }
-        private bool m_inEditor;
 
         private int m_fixNodesCount = 0;
         private ushort m_fixTunnelsCount = 0;
@@ -131,14 +127,15 @@ namespace NetworkAnarchy
 
         public static ChirperManager chirperManager;
 
+        // Max Segment Length settings
         internal const int SegmentLengthFloor = 4;
         internal const int SegmentLengthCeiling = 256;
         internal const int SegmentLengthInterval = 2;
 
         public bool SingleMode
         {
-            get => RoadPrefab.singleMode;
-            set => RoadPrefab.singleMode = value;
+            get => NetPrefab.SingleMode;
+            set => NetPrefab.SingleMode = value;
         }
 
         public Mode mode
@@ -149,7 +146,7 @@ namespace NetworkAnarchy
                 {
                     m_mode = value;
 
-                    var prefab = RoadPrefab.GetPrefab(m_current);
+                    var prefab = NetPrefab.GetPrefab(m_current);
                     if (prefab == null)
                     {
                         return;
@@ -185,7 +182,7 @@ namespace NetworkAnarchy
 
                     m_toolOptionButton.UpdateInfo();
 
-                    var prefab = RoadPrefab.GetPrefab(m_current);
+                    var prefab = NetPrefab.GetPrefab(m_current);
                     if (prefab == null)
                     {
                         return;

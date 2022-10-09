@@ -1,4 +1,8 @@
-﻿using HarmonyLib;
+﻿using ColossalFramework;
+using HarmonyLib;
+using QCommonLib;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace NetworkAnarchy.Patches
 {
@@ -9,7 +13,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(out int min, out int max)
         {
-            min = 0;
+            min = -3;
             max = 0;
             if (NetworkAnarchy.Anarchy)
             {
@@ -20,6 +24,22 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
+        }
+
+        public static void Postfix(ref int min)
+        {
+            // Override minimum height for tunnels in map editor
+            if (QCommon.Scene == QCommon.SceneTypes.MapEditor)
+            {
+                if (NetworkAnarchy.Anarchy)
+                {
+                    min = int.MinValue / 256;
+                }
+                else
+                {
+                    min = 0;
+                }
+            }
         }
     }
 
@@ -60,7 +80,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(out int min, out int max)
         {
-            min = 0;
+            min = -3;
             max = 0;
             if (NetworkAnarchy.Anarchy)
             {
@@ -71,6 +91,22 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
+        }
+
+        public static void Postfix(ref int min)
+        {
+            // Override minimum height for tunnels in map editor
+            if (QCommon.Scene == QCommon.SceneTypes.MapEditor)
+            {
+                if (NetworkAnarchy.Anarchy)
+                {
+                    min = int.MinValue / 256;
+                }
+                else
+                {
+                    min = 0;
+                }
+            }
         }
     }
 
@@ -109,7 +145,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(out int min, out int max)
         {
-            min = 0;
+            min = -3;
             max = 0;
             if (NetworkAnarchy.Anarchy)
             {
@@ -120,6 +156,22 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
+        }
+
+        public static void Postfix(ref int min)
+        {
+            // Override minimum height for tunnels in map editor
+            if (QCommon.Scene == QCommon.SceneTypes.MapEditor)
+            {
+                if (NetworkAnarchy.Anarchy)
+                {
+                    min = int.MinValue / 256;
+                }
+                else
+                {
+                    min = 0;
+                }
+            }
         }
     }
 
@@ -158,7 +210,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(out int min, out int max)
         {
-            min = 0;
+            min = -3;
             max = 0;
             if (NetworkAnarchy.Anarchy)
             {
@@ -169,6 +221,22 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
+        }
+
+        public static void Postfix(ref int min)
+        {
+            // Override minimum height for tunnels in map editor
+            if (QCommon.Scene == QCommon.SceneTypes.MapEditor)
+            {
+                if (NetworkAnarchy.Anarchy)
+                {
+                    min = int.MinValue / 256;
+                }
+                else
+                {
+                    min = 0;
+                }
+            }
         }
     }
 

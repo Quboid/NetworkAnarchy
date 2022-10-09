@@ -1,6 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
 using NetworkAnarchy.Localization;
+using QCommonLib;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,7 +68,6 @@ namespace NetworkAnarchy
 
             if (m_toolOptionsPanel != null)
             {
-                //Debug.Log($"ButtonUpdate {isVisible}, {isChecked}");
                 m_toolOptionsPanel.isVisible = isVisible && isChecked;
             }
         }
@@ -83,7 +83,7 @@ namespace NetworkAnarchy
             }
 
             //if (parent.name == "OptionsBar")
-            if (NetworkAnarchy.instance.isButtonInOptionsBar)
+            if (NetworkAnarchy.instance.IsButtonInOptionsBar)
             {
                 relativePosition = new Vector2(36, 0);
             }
@@ -133,7 +133,7 @@ namespace NetworkAnarchy
 
         private void UpdateSlider()
         {
-            if (m_maxSegmentLengthSlider == null) return;
+            if (!showMaxSegmentLengthSlider || m_maxSegmentLengthSlider == null) return;
 
             NetworkAnarchy.saved_segmentLength.value = NetworkAnarchy.instance.MaxSegmentLength;
             m_maxSegmentLengthLabel.text = NetworkAnarchy.instance.MaxSegmentLength + "m";
@@ -143,7 +143,7 @@ namespace NetworkAnarchy
         private void CreateButton()
         {
             m_button = AddUIComponent<UIButton>();
-            m_button.atlas = ResourceLoader.GetAtlas("Ingame");
+            m_button.atlas = QTextures.GetAtlas("Ingame");
             m_button.name = "NA_MainButton";
             m_button.size = new Vector2(36, 36);
             m_button.textScale = 0.7f;
@@ -210,7 +210,7 @@ namespace NetworkAnarchy
 
             m_toolOptionsPanel = UIView.GetAView().AddUIComponent(typeof(UIPanel)) as UIPanel;
             m_toolOptionsPanel.name = "NA_ToolOptionsPanel";
-            m_toolOptionsPanel.atlas = ResourceLoader.GetAtlas("Ingame");
+            m_toolOptionsPanel.atlas = QTextures.GetAtlas("Ingame");
             m_toolOptionsPanel.backgroundSprite = "SubcategoriesPanel";
             m_toolOptionsPanel.size = new Vector2(228, yPos);
             m_toolOptionsPanel.absolutePosition = new Vector3(savedWindowX.value, savedWindowY.value);
@@ -331,8 +331,6 @@ namespace NetworkAnarchy
                 m_gridBtn = CreateAnarchyCheckBox(anarchyPanel, "Grid", Str.ui_toggleGrid, true, NetworkAnarchy.instance.ToggleGrid);
             }
 
-            //UpdateAnarchyOptions();
-
             anarchyPanel.autoLayout = true;
             ExpandY(ref yPos, 58u);
 
@@ -350,8 +348,13 @@ namespace NetworkAnarchy
                 }
 
                 ExpandY(ref yPos, 2u);
-                m_maxSegmentLengthSlider = CreateMaxSegmentLengthSlider(m_toolOptionsPanel, yPos);
+                m_maxSegmentLengthSlider = CreateMaxSegmentLengthSliderPanel(m_toolOptionsPanel, yPos);
                 ExpandY(ref yPos, 42u);
+            }
+            else
+            {
+                m_maxSegmentLengthSlider = CreateMaxSegmentLengthSlider(m_toolOptionsPanel, 0);
+                m_maxSegmentLengthSlider.isVisible = false;
             }
             ExpandY(ref yPos, 2u);
         }
@@ -418,7 +421,7 @@ namespace NetworkAnarchy
             return slider;
         }
 
-        private UISlider CreateMaxSegmentLengthSlider(UIPanel parent, uint yPos)
+        private UISlider CreateMaxSegmentLengthSliderPanel(UIPanel parent, uint yPos)
         {
             UIPanel sliderPanel = parent.AddUIComponent<UIPanel>();
             sliderPanel.atlas = parent.atlas;
@@ -439,10 +442,7 @@ namespace NetworkAnarchy
             m_maxSegmentLengthLabel.size = new Vector2(38, 15);
             m_maxSegmentLengthLabel.relativePosition = new Vector2(sliderPanel.width - m_maxSegmentLengthLabel.width - 8, 10);
 
-            UISlider slider = sliderPanel.AddUIComponent<UISlider>();
-            slider.name = "NA_MaxSegmentLengthSlider";
-            slider.size = new Vector2(sliderPanel.width - 20 - m_maxSegmentLengthLabel.width - 8, 18);
-            slider.relativePosition = new Vector2(10, 10);
+            UISlider slider = CreateMaxSegmentLengthSlider(sliderPanel, parent.width - 20 - m_maxSegmentLengthLabel.width - 8);
 
             UISlicedSprite bgSlider = slider.AddUIComponent<UISlicedSprite>();
             bgSlider.atlas = parent.atlas;
@@ -455,11 +455,6 @@ namespace NetworkAnarchy
             thumb.spriteName = "SliderBudget";
             slider.thumbObject = thumb;
 
-            slider.stepSize = NetworkAnarchy.SegmentLengthInterval;
-            slider.minValue = NetworkAnarchy.SegmentLengthFloor;
-            slider.maxValue = NetworkAnarchy.SegmentLengthCeiling;
-            slider.value = NetworkAnarchy.instance.MaxSegmentLength;
-
             slider.eventValueChanged += (c, v) =>
             {
                 if (v != NetworkAnarchy.instance.MaxSegmentLength)
@@ -469,6 +464,20 @@ namespace NetworkAnarchy
                 }
             };
 
+            return slider;
+        }
+
+        private UISlider CreateMaxSegmentLengthSlider(UIPanel parent, float width)
+        {
+            UISlider slider = parent.AddUIComponent<UISlider>();
+            slider.name = "NA_MaxSegmentLengthSlider";
+            slider.size = new Vector2(width, 18);
+            slider.relativePosition = new Vector2(10, 10);
+
+            slider.stepSize = NetworkAnarchy.SegmentLengthInterval;
+            slider.minValue = NetworkAnarchy.SegmentLengthFloor;
+            slider.maxValue = NetworkAnarchy.SegmentLengthCeiling;
+            slider.value = NetworkAnarchy.instance.MaxSegmentLength;
             return slider;
         }
 
@@ -675,9 +684,9 @@ namespace NetworkAnarchy
                 "GridPressed"
             };
 
-            m_atlas = ResourceLoader.CreateTextureAtlas("NetworkAnarchy", spriteNames, "NetworkAnarchy.Icons.");
+            m_atlas = QTextures.CreateTextureAtlas(typeof(ModInfo).Assembly, "NetworkAnarchy", spriteNames, "NetworkAnarchy.Icons.");
 
-            UITextureAtlas defaultAtlas = ResourceLoader.GetAtlas("Ingame");
+            UITextureAtlas defaultAtlas = QTextures.GetAtlas("Ingame");
             Texture2D[] textures = new Texture2D[]
             {
                 defaultAtlas["OptionBase"].texture,
@@ -687,7 +696,7 @@ namespace NetworkAnarchy
                 defaultAtlas["OptionBaseDisabled"].texture
             };
 
-            ResourceLoader.AddTexturesInAtlas(m_atlas, textures);
+            QTextures.AddTexturesInAtlas(m_atlas, textures);
         }
     }
 }

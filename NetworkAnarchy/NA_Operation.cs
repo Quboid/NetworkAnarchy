@@ -1,6 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
 using ICities;
+using QCommonLib;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace NetworkAnarchy
         public void Start()
         {
             NetSkins_Support.Init();
+            NMT_Support.Initialise();
 
             // Getting NetTool
             m_netTool = GameObject.FindObjectsOfType<NetTool>().Where(x => x.GetType() == typeof(NetTool)).FirstOrDefault();
@@ -103,14 +105,13 @@ namespace NetworkAnarchy
             }
 
             // Init dictionary
-            RoadPrefab.Initialize();
+            NetPrefab.Initialize();
 
-            m_inEditor = (ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None;
-            RoadPrefab.singleMode = m_inEditor;
+            NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor);
 
             if (changeMaxTurnAngle.value)
             {
-                RoadPrefab.SetMaxTurnAngle(maxTurnAngle.value);
+                NetPrefab.SetMaxTurnAngle(maxTurnAngle.value);
             }
 
             // Update Catenary
@@ -121,6 +122,7 @@ namespace NetworkAnarchy
 
             // Load Anarchy saved settings
             Anarchy = saved_anarchy.value;
+            Bending = !saved_bending.value; // Toggle value to force prefab updates
             Bending = saved_bending.value;
             NodeSnapping = saved_nodeSnapping.value;
             Collision = saved_collision.value;
@@ -143,12 +145,12 @@ namespace NetworkAnarchy
             try
             {
                 // Getting selected prefab
-                NetInfo prefab = (m_netTool.enabled || m_bulldozeTool.enabled) ? m_netTool.m_prefab : null;
+                NetInfo prefab = (m_netTool.enabled || m_bulldozeTool.enabled || NMT_Support.IsNMTToolActive()) ? m_netTool.m_prefab : null;
 
                 // Has the prefab/tool changed?
-                if (prefab != m_current || isNetToolEnabled != m_netTool.enabled)
+                if (prefab != m_current || IsNetToolEnabled != m_netTool.enabled)
                 {
-                    isNetToolEnabled = m_netTool.enabled;
+                    IsNetToolEnabled = m_netTool.enabled;
 
                     if (prefab == null)
                     {
@@ -162,22 +164,22 @@ namespace NetworkAnarchy
                     if (m_toolOptionButton != null)
                     {
                         //UnityEngine.Debug.Log($"WasVis:{m_toolOptionButton.isVisible}, NowVis:{m_activated || !m_buttonInOptionsBar} ({m_activated}, {m_buttonInOptionsBar})");
-                        m_toolOptionButton.isVisible = isActive;// || !m_buttonInOptionsBar;
+                        m_toolOptionButton.isVisible = IsActive;// || !m_buttonInOptionsBar;
                     }
                 }
 
                 // Plopping intersection?
                 if (m_buildingTool.enabled)
                 {
-                    if (!RoadPrefab.singleMode)
+                    if (!NetPrefab.SingleMode)
                     {
                         int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
-                        RoadPrefab.singleMode = (elevation == 0);
+                        NetPrefab.SingleMode = (elevation == 0);
                     }
                 }
                 else
                 {
-                    RoadPrefab.singleMode = m_inEditor && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
+                    NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor) && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
                 }
             }
             catch (Exception e)
@@ -188,7 +190,7 @@ namespace NetworkAnarchy
                 try
                 {
                     Deactivate();
-                    RoadPrefab.singleMode = false;
+                    NetPrefab.SingleMode = false;
                 }
                 catch { }
             }
@@ -197,7 +199,7 @@ namespace NetworkAnarchy
         public void OnDisable()
         {
             Deactivate();
-            RoadPrefab.singleMode = false;
+            NetPrefab.SingleMode = false;
         }
 
         private int? m_maxSegmentLength = null;
@@ -261,7 +263,7 @@ namespace NetworkAnarchy
             // Resume fixes
             if (m_fixNodesCount != 0 || m_fixTunnelsCount != 0)
             {
-                var prefab = RoadPrefab.GetPrefab(m_current);
+                var prefab = NetPrefab.GetPrefab(m_current);
                 if (prefab != null)
                 {
                     prefab.Restore(false);
@@ -284,7 +286,7 @@ namespace NetworkAnarchy
             }
 
             // Stop here if neither active nor bulldozer tool enabled
-            if (!isActive && !m_bulldozeTool.enabled)
+            if (!IsActive && !m_bulldozeTool.enabled)
             {
                 return;
             }
@@ -294,7 +296,7 @@ namespace NetworkAnarchy
             {
                 m_segmentCount = NetManager.instance.m_segmentCount;
 
-                var prefab = RoadPrefab.GetPrefab(m_current);
+                var prefab = NetPrefab.GetPrefab(m_current);
                 if (prefab != null)
                 {
                     prefab.Restore(false);
@@ -312,7 +314,7 @@ namespace NetworkAnarchy
                 }
             }
 
-            if (!isActive)
+            if (!IsActive)
             {
                 return;
             }
@@ -348,14 +350,14 @@ namespace NetworkAnarchy
                 return;
             }
 
-            var prefab = RoadPrefab.GetPrefab(m_current);
+            var prefab = NetPrefab.GetPrefab(m_current);
             if (prefab != null)
             {
                 prefab.Restore(true);
             }
 
             m_current = info;
-            prefab = RoadPrefab.GetPrefab(info);
+            prefab = NetPrefab.GetPrefab(info);
 
             AttachToolOptionsButton(prefab);
 
@@ -363,7 +365,7 @@ namespace NetworkAnarchy
             //m_current.m_netAI.GetElevationLimits(out int min, out int max);
 
             //if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
-            if (m_bulldozeTool.enabled && !doesVanillaElevationButtonExit)
+            if (m_bulldozeTool.enabled && !DoesVanillaElevationButtonExist)
             {
                 Deactivate();
                 return;
@@ -384,19 +386,19 @@ namespace NetworkAnarchy
             m_segmentCount = NetManager.instance.m_segmentCount;
             m_controlPointCount = 0;
 
-            isActive = true;
+            IsActive = true;
             m_toolOptionButton.isVisible = true;
             m_toolOptionButton.UpdateInfo();
         }
 
         private void Deactivate()
         {
-            if (!isActive)
+            if (!IsActive)
             {
                 return;
             }
 
-            var prefab = RoadPrefab.GetPrefab(m_current);
+            var prefab = NetPrefab.GetPrefab(m_current);
             if (prefab != null)
             {
                 prefab.Restore(true);
@@ -406,7 +408,7 @@ namespace NetworkAnarchy
 
             RestoreDefaultKeys();
 
-            isActive = false;
+            IsActive = false;
             m_toolOptionButton.isVisible = false;
 
             DebugUtils.Log($"Deactivated \n {new StackTrace().ToString()}");

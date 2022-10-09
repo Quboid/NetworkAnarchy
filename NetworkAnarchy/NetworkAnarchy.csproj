@@ -51,6 +51,9 @@
       <HintPath>..\..\..\Managed DLLs\ICities.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="QCommon">
+      <HintPath>..\..\..\..\QCommon\Repo\QCommon\QCommon\bin\Release\QCommon.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -71,10 +74,14 @@
       <DependentUpon>Str.resx</DependentUpon>
     </Compile>
     <Compile Include="NA_Operation.cs" />
+    <Compile Include="NMT_Support.cs" />
     <Compile Include="Patches\BuildingTool.cs" />
     <Compile Include="Patches\Collision.cs" />
+    <Compile Include="Patches\Misc.cs" />
+    <Compile Include="Patches\LeftHandTraffic.cs" />
     <Compile Include="Patches\MaxSegmentLength.cs" />
     <Compile Include="Patches\Networks.cs" />
+    <Compile Include="Patches\EarlyPatches.cs" />
     <Compile Include="Patches\Water.cs" />
     <Compile Include="Patches\RoadAI.cs" />
     <Compile Include="ModInfo.cs" />
@@ -84,9 +91,8 @@
     <Compile Include="NetworkAnarchy.cs" />
     <Compile Include="OptionsKeymapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceLoader.cs" />
-    <Compile Include="RoadAIWrapper.cs" />
-    <Compile Include="RoadPrefab.cs" />
+    <Compile Include="NetAIWrapper.cs" />
+    <Compile Include="NetPrefab.cs" />
     <Compile Include="UIToolOptionsButton.cs" />
   </ItemGroup>
   <ItemGroup>

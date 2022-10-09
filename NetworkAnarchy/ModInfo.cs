@@ -8,6 +8,9 @@ using NetworkAnarchy.Localization;
 using System;
 using System.Globalization;
 using UnityEngine;
+using System.Linq;
+using QCommonLib;
+using NetworkAnarchy.Patches;
 
 namespace NetworkAnarchy
 {
@@ -31,10 +34,9 @@ namespace NetworkAnarchy
         }
 
         public string Name => "Network Anarchy " + Version;
-
         public string Description => Str.mod_Description;
 
-        internal static CultureInfo Culture => new CultureInfo(SingletonLite<LocaleManager>.instance.language == "zh" ? "zh-cn" : SingletonLite<LocaleManager>.instance.language);
+        internal static CultureInfo Culture => QCommon.GetCultureInfo();
 
         public void OnSettingsUI(UIHelperBase helper)
         {
@@ -97,11 +99,11 @@ namespace NetworkAnarchy
 
                      if (b)
                      {
-                         RoadPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle);
+                         NetPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle);
                      }
                      else
                      {
-                         RoadPrefab.ResetMaxTurnAngle();
+                         NetPrefab.ResetMaxTurnAngle();
                      }
                  });
                 checkBox.tooltip = Str.options_tramMaxTurnAngleTooltip;
@@ -115,7 +117,7 @@ namespace NetworkAnarchy
 
                         if (NetworkAnarchy.changeMaxTurnAngle.value)
                         {
-                            RoadPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle.value);
+                            NetPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle.value);
                         }
                     });
 
@@ -176,6 +178,8 @@ namespace NetworkAnarchy
 
         public void OnEnabled()
         {
+            Patcher.EarlyPatch();
+
             if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
             {
                 InitializeMod();
@@ -231,7 +235,9 @@ namespace NetworkAnarchy
             if (NetworkAnarchy.instance != null)
             {
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel);
+                NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel = null;
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton);
+                NetworkAnarchy.m_toolOptionButton = null;
                 NetworkAnarchy.instance.enabled = false;
                 GameObject.Destroy(NetworkAnarchy.instance);
                 NetworkAnarchy.instance = null;
@@ -259,25 +265,31 @@ namespace NetworkAnarchy
     {
         private const string HarmonyId = "quboid.csl_mods.networkanarchy";
         private static bool patched = false;
+        internal static Harmony Instance;
+
+        public static void EarlyPatch()
+        {
+            Instance = new Harmony(HarmonyId);
+            EarlyPatches.Deploy();
+        }
 
         public static void PatchAll()
         {
             if (patched) return;
 
             patched = true;
-            var harmony = new Harmony(HarmonyId);
 #if DEBUG
             //Harmony.DEBUG = true;
 #endif
-            harmony.PatchAll();
+            Instance.PatchAll();
         }
 
         public static void UnpatchAll()
         {
             if (!patched) return;
 
-            var harmony = new Harmony(HarmonyId);
-            harmony.UnpatchAll(HarmonyId);
+            Instance.UnpatchAll(HarmonyId);
+            EarlyPatches.Revert();
             patched = false;
         }
     }

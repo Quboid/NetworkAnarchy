@@ -1,9 +1,7 @@
-﻿using UnityEngine;
-
+﻿using ColossalFramework.UI;
 using System;
 using System.Reflection;
-
-using ColossalFramework.UI;
+using UnityEngine;
 
 namespace NetworkAnarchy
 {

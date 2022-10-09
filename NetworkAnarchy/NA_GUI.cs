@@ -8,11 +8,26 @@ namespace NetworkAnarchy
 {
     public partial class NetworkAnarchy : MonoBehaviour
     {
+        //KeyCode wasKeyCode = KeyCode.None;
+        //bool wasControl = false, wasAlt = false, wasShift = false;
+
         public void OnGUI()
         {
             try
             {
                 Event e = Event.current;
+
+                //if (!DebugUtils.hideDebugMessages && e.keyCode != KeyCode.None && (e.keyCode != wasKeyCode || e.control != wasControl || e.alt != wasAlt || e.shift != wasShift))
+                //{
+                //    if (e.control || e.alt || e.shift || !(e.keyCode == KeyCode.W || e.keyCode == KeyCode.A || e.keyCode == KeyCode.S || e.keyCode == KeyCode.D))
+                //    {
+                //        Debug.Log($"Key: {e.keyCode} (c:{e.control}, a:{e.alt}, s:{e.shift})");
+                //        wasKeyCode = e.keyCode;
+                //        wasControl = e.control;
+                //        wasAlt = e.alt;
+                //        wasShift = e.shift;
+                //    }
+                //}
 
                 //Debug.Log($"AAA {e.keyCode} Ctrl:{e.control}, Alt:{e.alt}, Shift:{e.shift}\n" +
                 //    $"Ctrl:{OptionsKeymapping.toggleAnarchy.Control}, key:{OptionsKeymapping.toggleAnarchy.Key}, up:{OptionsKeymapping.toggleAnarchy.IsKeyUp()}\n" +
@@ -21,19 +36,21 @@ namespace NetworkAnarchy
                 // Allow Anarchy and Collision shortcuts even if the panel isn't visible
                 if (!UIView.HasModalInput() && OptionsKeymapping.toggleAnarchy.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: toggleAnarchy (was:{Anarchy})");
                     ToggleAnarchy();
                 }
                 else if (!UIView.HasModalInput() && OptionsKeymapping.toggleCollision.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: toggleCollision (was:{Collision})");
                     ToggleCollision();
                 }
 
-                if (m_buildingTool.enabled && RoadPrefab.singleMode)
+                if (m_buildingTool.enabled && NetPrefab.SingleMode)
                 {
                     // Checking key presses
                     if (OptionsKeymapping.elevationUp.IsPressed(e) || OptionsKeymapping.elevationDown.IsPressed(e))
                     {
-                        RoadPrefab.singleMode = false;
+                        NetPrefab.SingleMode = false;
                         BuildingInfo info = m_buildingTool.m_prefab;
                         if (info != null)
                         {
@@ -60,7 +77,7 @@ namespace NetworkAnarchy
                     m_buildingElevationField.SetValue(m_buildingTool, 0);
                 }
 
-                if (!isActive)
+                if (!IsActive)
                 {
                     return;
                 }
@@ -83,16 +100,19 @@ namespace NetworkAnarchy
                 // Checking key presses
                 if (OptionsKeymapping.elevationUp.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: elevationUp (was:{m_elevation})");
                     m_elevation += Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
                 }
                 else if (OptionsKeymapping.elevationDown.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: elevationDown (was:{m_elevation})");
                     m_elevation -= Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
                 }
                 else if (OptionsKeymapping.elevationStepUp.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: elevationStepUp (was:{elevationStep})");
                     if (elevationStep < 12)
                     {
                         elevationStep++;
@@ -101,6 +121,7 @@ namespace NetworkAnarchy
                 }
                 else if (OptionsKeymapping.elevationStepDown.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: elevationStepDown (was:{elevationStep})");
                     if (elevationStep > 1)
                     {
                         elevationStep--;
@@ -109,6 +130,7 @@ namespace NetworkAnarchy
                 }
                 else if (OptionsKeymapping.modesCycleRight.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: modesCycleRight (was:{m_mode})");
                     if (m_mode < Mode.Tunnel)
                     {
                         mode++;
@@ -122,6 +144,7 @@ namespace NetworkAnarchy
                 }
                 else if (OptionsKeymapping.modesCycleLeft.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: modesCycleLeft (was:{m_mode})");
                     if (m_mode > Mode.Normal)
                     {
                         mode--;
@@ -135,25 +158,30 @@ namespace NetworkAnarchy
                 }
                 else if (OptionsKeymapping.elevationReset.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: elevationReset (was:{m_elevation})");
                     m_elevation = 0;
                     UpdateElevation();
                     m_toolOptionButton.UpdateInfo();
                 }
                 else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: toggleStraightSlope (was:{StraightSlope})");
                     StraightSlope = !StraightSlope;
                     m_toolOptionButton.UpdateInfo();
                 }
                 else if (OptionsKeymapping.toggleBending.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: toggleBending (was:{Bending})");
                     ToggleBending();
                 }
                 else if (OptionsKeymapping.toggleSnapping.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: toggleSnapping (was:{NodeSnapping})");
                     ToggleSnapping();
                 }
                 else if (OptionsKeymapping.toggleGrid.IsPressed(e))
                 {
+                    DebugUtils.Log($"Hotkey: toggleGrid (was:{Grid})");
                     ToggleGrid();
                 }
 
@@ -229,9 +257,9 @@ namespace NetworkAnarchy
             }
         }
 
-        private void AttachToolOptionsButton(RoadPrefab prefab)
+        private void AttachToolOptionsButton(NetPrefab prefab)
         {
-            doesVanillaElevationButtonExit = false;
+            DoesVanillaElevationButtonExist = false;
 
             RoadsOptionPanel[] panels = GameObject.FindObjectsOfType<RoadsOptionPanel>();
 
@@ -248,9 +276,9 @@ namespace NetworkAnarchy
 
                     // Put the main button in ElevationStep
                     m_toolOptionButton.transform.SetParent(button.transform);
-                    isButtonInOptionsBar = false;
+                    IsButtonInOptionsBar = false;
                     button.tooltip = null;
-                    doesVanillaElevationButtonExit = true;
+                    DoesVanillaElevationButtonExist = true;
 
                     // Add Upgrade button if needed
                     var list = new List<NetTool.Mode>(panel.m_Modes);
@@ -281,7 +309,7 @@ namespace NetworkAnarchy
                 return;
             }
             m_toolOptionButton.transform.SetParent(optionBar.transform);
-            isButtonInOptionsBar = true;
+            IsButtonInOptionsBar = true;
         }
 
         public static UITextureAtlas GetAtlas(string name)

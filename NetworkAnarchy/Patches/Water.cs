@@ -1,25 +1,9 @@
 ﻿using ColossalFramework.PlatformServices;
 using HarmonyLib;
+using UnityEngine;
 
 namespace NetworkAnarchy.Patches
 {
-    class Utils
-    {
-        internal static ToolBase.ToolErrors YeetLimits(ToolBase.ToolErrors errors)
-        {
-            if (NetworkAnarchy.Anarchy)
-            {
-                errors &= ~ToolBase.ToolErrors.CanalTooClose;
-                errors &= ~ToolBase.ToolErrors.CannotBuildOnWater;
-                errors &= ~ToolBase.ToolErrors.HeightTooHigh;
-                errors &= ~ToolBase.ToolErrors.ShoreNotFound;
-                errors &= ~ToolBase.ToolErrors.SlopeTooSteep;
-                errors &= ~ToolBase.ToolErrors.WaterNotFound;
-            }
-            return errors;
-        }
-    }
-
     [HarmonyPatch(typeof(ShipPathAI))]
     [HarmonyPatch("CheckBuildPosition")]
     class SPAI_CheckBuildPosition

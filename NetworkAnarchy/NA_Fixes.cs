@@ -16,8 +16,8 @@ namespace NetworkAnarchy
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
 
-            bool singleMode = RoadPrefab.singleMode;
-            RoadPrefab.singleMode = false;
+            bool singleMode = NetPrefab.SingleMode;
+            NetPrefab.SingleMode = false;
 
             uint max = NetManager.instance.m_nodes.m_size;
             for (int i = m_fixNodesCount; i < max; i++)
@@ -30,7 +30,7 @@ namespace NetworkAnarchy
                 if (m_stopWatch.ElapsedMilliseconds >= 1 && i > m_fixNodesCount + 16)
                 {
                     m_fixNodesCount = i;
-                    RoadPrefab.singleMode = singleMode;
+                    NetPrefab.SingleMode = singleMode;
                     return;
                 }
 
@@ -40,7 +40,7 @@ namespace NetworkAnarchy
                     continue;
                 }
 
-                var prefab = RoadPrefab.GetPrefab(info);
+                var prefab = NetPrefab.GetPrefab(info);
                 if ((nodes[i].m_flags & NetNode.Flags.Underground) == NetNode.Flags.Underground)
                 {
                     if (prefab == null)
@@ -48,7 +48,7 @@ namespace NetworkAnarchy
                         continue;
                     }
 
-                    if ((info.m_setVehicleFlags & Vehicle.Flags.Underground) == 0 && info != prefab.roadAI.tunnel && info != prefab.roadAI.slope && !info.m_netAI.IsUnderground())
+                    if ((info.m_setVehicleFlags & Vehicle.Flags.Underground) == 0 && info != prefab.netAI.Tunnel && info != prefab.netAI.Slope && !info.m_netAI.IsUnderground())
                     {
                         // Fix by Algernon
                         int tempI = i;
@@ -58,7 +58,7 @@ namespace NetworkAnarchy
                             nodes[tempI].m_elevation = 0;
                             nodes[tempI].m_flags = nodes[tempI].m_flags & ~NetNode.Flags.Underground;
 
-                            if (info != prefab.roadAI.elevated && info != tempPrefab.roadAI.bridge)
+                            if (info != prefab.netAI.Elevated && info != tempPrefab.netAI.Bridge)
                             {
                                 nodes[tempI].m_flags = nodes[tempI].m_flags | NetNode.Flags.OnGround;
                             }
@@ -71,7 +71,7 @@ namespace NetworkAnarchy
                         });
                     }
                 }
-                else if ((info != prefab.roadAI.elevated && info != prefab.roadAI.bridge) || ((nodes[i].m_flags & (NetNode.Flags.Transition | NetNode.Flags.End)) != 0 && nodes[i].m_elevation == 0))
+                else if ((info != prefab.netAI.Elevated && info != prefab.netAI.Bridge) || ((nodes[i].m_flags & (NetNode.Flags.Transition | NetNode.Flags.End)) != 0 && nodes[i].m_elevation == 0))
                 {
                     nodes[i].m_flags = nodes[i].m_flags | NetNode.Flags.OnGround;
                 }
@@ -81,7 +81,7 @@ namespace NetworkAnarchy
                 }
             }
 
-            RoadPrefab.singleMode = singleMode;
+            NetPrefab.SingleMode = singleMode;
             m_fixNodesCount = 0;
         }
 
@@ -90,8 +90,8 @@ namespace NetworkAnarchy
             m_stopWatch.Reset();
             m_stopWatch.Start();
 
-            bool singleMode = RoadPrefab.singleMode;
-            RoadPrefab.singleMode = false;
+            bool singleMode = NetPrefab.SingleMode;
+            NetPrefab.SingleMode = false;
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
             NetSegment[] segments = NetManager.instance.m_segments.m_buffer;
@@ -107,7 +107,7 @@ namespace NetworkAnarchy
                 if (m_stopWatch.ElapsedMilliseconds >= 1 && i > m_fixTunnelsCount + 16)
                 {
                     m_fixTunnelsCount = i;
-                    RoadPrefab.singleMode = singleMode;
+                    NetPrefab.SingleMode = singleMode;
                     return;
                 }
 
@@ -116,14 +116,14 @@ namespace NetworkAnarchy
                 ushort startNode = segments[i].m_startNode;
                 ushort endNode = segments[i].m_endNode;
 
-                var prefab = RoadPrefab.GetPrefab(info);
+                var prefab = NetPrefab.GetPrefab(info);
                 if (prefab == null)
                 {
                     continue;
                 }
 
                 // Is it a tunnel?
-                if (info == prefab.roadAI.tunnel)
+                if (info == prefab.netAI.Tunnel)
                 {
                     nodes[startNode].m_flags = nodes[startNode].m_flags & ~NetNode.Flags.OnGround;
                     // Make sure tunnels have underground flag
@@ -137,7 +137,7 @@ namespace NetworkAnarchy
                         nodes[endNode].m_flags = nodes[endNode].m_flags | NetNode.Flags.Underground;
                     }
 
-                    if (prefab.roadAI.slope == null)
+                    if (prefab.netAI.Slope == null)
                     {
                         continue;
                     }
@@ -159,7 +159,7 @@ namespace NetworkAnarchy
                         segments[i].CalculateSegment(i);
 
                         // Make it a slope
-                        segments[i].Info = prefab.roadAI.slope;
+                        segments[i].Info = prefab.netAI.Slope;
                         NetManager.instance.UpdateSegment(i);
 
                         if ((nodes[startNode].m_flags & NetNode.Flags.Untouchable) == NetNode.Flags.None)
@@ -170,7 +170,7 @@ namespace NetworkAnarchy
                     else if (IsEndTunnel(ref nodes[endNode]))
                     {
                         // Make it a slope
-                        segments[i].Info = prefab.roadAI.slope;
+                        segments[i].Info = prefab.netAI.Slope;
                         NetManager.instance.UpdateSegment(i);
 
                         if ((nodes[endNode].m_flags & NetNode.Flags.Untouchable) == NetNode.Flags.None)
@@ -180,9 +180,9 @@ namespace NetworkAnarchy
                     }
                 }
                 // Is it a slope?
-                else if (info == prefab.roadAI.slope)
+                else if (info == prefab.netAI.Slope)
                 {
-                    if (prefab.roadAI.tunnel == null)
+                    if (prefab.netAI.Tunnel == null)
                     {
                         continue;
                     }
@@ -201,7 +201,7 @@ namespace NetworkAnarchy
                         }
 
                         // Make it a tunnel
-                        segments[i].Info = prefab.roadAI.tunnel;
+                        segments[i].Info = prefab.netAI.Tunnel;
                         segments[i].UpdateBounds(i);
 
                         // Updating terrain
@@ -229,7 +229,7 @@ namespace NetworkAnarchy
                 }
             }
 
-            RoadPrefab.singleMode = singleMode;
+            NetPrefab.SingleMode = singleMode;
             m_fixTunnelsCount = 0;
         }
 
@@ -297,13 +297,13 @@ namespace NetworkAnarchy
 
                 NetInfo info = NetManager.instance.m_segments.m_buffer[segment].Info;
 
-                var prefab = RoadPrefab.GetPrefab(info);
+                var prefab = NetPrefab.GetPrefab(info);
                 if (prefab == null)
                 {
                     return true;
                 }
 
-                if (info != prefab.roadAI.tunnel && info != prefab.roadAI.slope)
+                if (info != prefab.netAI.Tunnel && info != prefab.netAI.Slope)
                 {
                     return true;
                 }
