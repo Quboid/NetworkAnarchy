@@ -215,6 +215,9 @@
     <value>Шаг подъема:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Макс длина сегмента:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Туннель: использовать туннель, при наличии</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Прямой склон</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Заставить дорогу идти прямо из точки А в точку Б вместо того чтобы следовать изгибам рельефа.
-
-{0} Для Вкл/Выкл прямой склон.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Вкл/Выкл анархию</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Вкл/Выкл коллизию</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Вкл/Выкл сетку</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle staight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Вкл/Выкл привязку</value>
