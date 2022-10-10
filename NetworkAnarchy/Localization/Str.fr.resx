@@ -163,10 +163,10 @@
     <value>Plus d'options d'outil pour les routes et les autres réseaux</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>Activer les messages de débogage</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>Si coché, les messages de débogage supplémentaires seront enregistrés.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Angle de virage maximal</value>
@@ -255,7 +255,7 @@
     <value>Activer/Désactiver la collision</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle staight slope (don't follow terrain shape)</value>
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Activer/Désactiver l'ancrage aux nœuds</value>
