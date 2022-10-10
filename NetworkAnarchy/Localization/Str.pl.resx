@@ -215,6 +215,9 @@
     <value>Stopień ukształtowania terenu:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Maksymalna długość odcinka:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Tunel – wymusza użycie elementów tunelu, jeśli są one dostępne</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Proste nachylenie</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Sprawia, że droga biegnie prosto od A do B, zamiast podążać za terenem.
-
-{0} aby przełączyć proste nachylenie.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Włącz / Wyłącz anarchię</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Włącz / Wyłącz kolizję</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Włącz / Wyłącz siatkę edytora</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle staight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Włącz / Wyłącz przyciąganie węzłów</value>
