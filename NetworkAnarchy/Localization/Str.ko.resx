@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>디버그 메시지 기록 비활성화</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>선택하면 디버그 메시지가 기록되지 않습니다.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>최대 회전 각도</value>
