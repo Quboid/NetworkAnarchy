@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Mais opções de ferramentas para estradas e redes de segmentos em geral</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Desabilitar registro de mensagens de depuração</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>Se ativado, as mensagens de depuração não serão registradas em log.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Ângulo de curva máximo</value>
