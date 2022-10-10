@@ -17,7 +17,7 @@ namespace NetworkAnarchy
             {
                 Event e = Event.current;
 
-                //if (!DebugUtils.hideDebugMessages && e.keyCode != KeyCode.None && (e.keyCode != wasKeyCode || e.control != wasControl || e.alt != wasAlt || e.shift != wasShift))
+                //if (DebugUtils.showDebugMessages && e.keyCode != KeyCode.None && (e.keyCode != wasKeyCode || e.control != wasControl || e.alt != wasAlt || e.shift != wasShift))
                 //{
                 //    if (e.control || e.alt || e.shift || !(e.keyCode == KeyCode.W || e.keyCode == KeyCode.A || e.keyCode == KeyCode.S || e.keyCode == KeyCode.D))
                 //    {

@@ -8,11 +8,11 @@ namespace NetworkAnarchy
     {
         public static readonly string modPrefix = "[Network Anarchy " + ModInfo.Version + "] ";
 
-        public static SavedBool hideDebugMessages = new SavedBool("hideDebugMessages", NetworkAnarchy.settingsFileName, true, true);
+        public static SavedBool showDebugMessages = new SavedBool("showDebugMessages", NetworkAnarchy.settingsFileName, false, true);
 
         public static void Log(string message)
         {
-            if (hideDebugMessages.value)
+            if (!showDebugMessages.value)
             {
                 return;
             }

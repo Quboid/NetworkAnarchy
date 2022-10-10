@@ -196,20 +196,20 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable debug messages logging.
+        ///   Looks up a localized string similar to Enable debug messages logging.
         /// </summary>
-        internal static string options_disableDebugLogging {
+        internal static string options_enableDebugLogging {
             get {
-                return ResourceManager.GetString("options_disableDebugLogging", resourceCulture);
+                return ResourceManager.GetString("options_enableDebugLogging", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If checked, debug messages won&apos;t be logged..
+        ///   Looks up a localized string similar to If checked, additional debug messages will be logged..
         /// </summary>
-        internal static string options_disableDebugLoggingTooltip {
+        internal static string options_enableDebugLoggingTooltip {
             get {
-                return ResourceManager.GetString("options_disableDebugLoggingTooltip", resourceCulture);
+                return ResourceManager.GetString("options_enableDebugLoggingTooltip", resourceCulture);
             }
         }
         

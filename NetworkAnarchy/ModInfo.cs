@@ -140,11 +140,11 @@ namespace NetworkAnarchy
 
                 group.AddSpace(10);
 
-                checkBox = (UICheckBox)group.AddCheckbox(Str.options_disableDebugLogging, DebugUtils.hideDebugMessages.value, (b) =>
+                checkBox = (UICheckBox)group.AddCheckbox(Str.options_enableDebugLogging, DebugUtils.showDebugMessages.value, (b) =>
                 {
-                    DebugUtils.hideDebugMessages.value = b;
+                    DebugUtils.showDebugMessages.value = b;
                 });
-                checkBox.tooltip = Str.options_disableDebugLoggingTooltip;
+                checkBox.tooltip = Str.options_enableDebugLoggingTooltip;
             }
             catch (Exception e)
             {
