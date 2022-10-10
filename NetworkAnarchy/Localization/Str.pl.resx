@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Więcej opcji narzędzia dla dróg i innych sieci</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Wyłącz logowanie komunikatów debugowania</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>Jeśli zaznaczone, komunikaty debugowania nie będą logowane.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Maksymalny kąt skrętu</value>
