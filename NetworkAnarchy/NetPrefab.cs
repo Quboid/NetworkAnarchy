@@ -11,8 +11,7 @@ namespace NetworkAnarchy
         Ground,
         Elevated,
         Bridge,
-        Tunnel,
-        Single
+        Tunnel
     }
 
     public class NetPrefab
@@ -29,6 +28,9 @@ namespace NetworkAnarchy
 
         private float m_defaultMaxTurnAngle;
 
+        /// <summary>
+        /// Dictionary of base-game prefab to Network Anarchy wrapper
+        /// </summary>
         public static Dictionary<NetInfo, NetPrefab> m_netPrefabs;
         private static bool m_singleMode;
 
@@ -38,7 +40,8 @@ namespace NetworkAnarchy
 
             m_prefab = prefab;
 
-            if (m_hasElevation = m_netAI.HasElevation)
+            m_hasElevation = m_netAI.HasElevation;
+            if (m_hasElevation)
             {
                 m_elevated = m_netAI.Elevated;
                 m_bridge = m_netAI.Bridge;
@@ -105,7 +108,7 @@ namespace NetworkAnarchy
                 }
             }
 
-            DebugUtils.Log($"Registered roads: {m_netPrefabs.Count}\n{prefabsAdded}");
+            DebugUtils.Log($"Registered networks: {m_netPrefabs.Count}\n{prefabsAdded}");
         }
 
         public static NetPrefab GetPrefab(NetInfo info)
@@ -115,6 +118,9 @@ namespace NetworkAnarchy
             return null;
         }
 
+        /// <summary>
+        /// Is the player placing a single object (rather than a draggable network)?
+        /// </summary>
         public static bool SingleMode
         {
             get { return m_singleMode; }
@@ -127,12 +133,11 @@ namespace NetworkAnarchy
                 {
                     if (value)
                     {
-                        prefab.mode = Mode.Single;
                         prefab.Update();
                     }
                     else
                     {
-                        prefab.Restore(false);
+                        prefab.Restore();
                     }
                 }
 
@@ -178,7 +183,10 @@ namespace NetworkAnarchy
             return m_slope != null || m_tunnel == null;
         }
 
-        public void Restore(bool revertDetour)
+        /// <summary>
+        /// Restore prefab wrapper to original settings
+        /// </summary>
+        public void Restore()
         {
             if (m_prefab == null) return;
 
@@ -198,6 +206,9 @@ namespace NetworkAnarchy
             }
         }
 
+        /// <summary>
+        /// The placement mode for this specific prefab
+        /// </summary>
         public Mode mode
         {
             get { return m_mode; }
@@ -209,40 +220,64 @@ namespace NetworkAnarchy
             }
         }
 
+        /// <summary>
+        /// The base-game prefab
+        /// </summary>
         public NetInfo prefab
         {
             get { return m_prefab; }
         }
 
+        /// <summary>
+        /// The base-game prefab's AI
+        /// </summary>
         public NetAIWrapper netAI
         {
             get { return m_netAI; }
         }
 
+        /// <summary>
+        /// Does network have placement modes other than on-ground?
+        /// </summary>
         public bool hasElevation
         {
             get { return m_hasElevation; }
         }
 
-        public bool hasVariation
-        {
-            get { return m_elevated != null || m_bridge != null || m_slope != null || m_tunnel != null; }
-        }
+        /// <summary>
+        /// Does network have placement modes other than on-ground?
+        /// </summary>
+        //public bool hasVariation
+        //{
+        //    get { return m_elevated != null || m_bridge != null || m_slope != null || m_tunnel != null; }
+        //}
 
-        public bool LinearMiddleHeight()
-        {
-            return true;
-        }
+        //public bool LinearMiddleHeight()
+        //{
+        //    return true;
+        //}
 
+        /// <summary>
+        /// Set the prefab wrapper to the selected placement mode
+        /// </summary>
         public void Update()
         {
             if (m_prefab == null) return;
 
-            Restore(!NetworkAnarchy.instance.StraightSlope);
+            Restore();
 
             Mods.NetworkSkins.ForceUpdate();
 
             if (!hasElevation) return;
+
+            if (SingleMode)
+            {
+                m_netAI.Elevated = null;
+                m_netAI.Bridge = null;
+                m_netAI.Slope = null;
+                m_netAI.Tunnel = null;
+                return;
+            }
 
             switch (m_mode)
             {
@@ -278,12 +313,6 @@ namespace NetworkAnarchy
                         m_netAI.Bridge = null;
                         m_netAI.Slope = m_tunnel;
                     }
-                    break;
-                case Mode.Single:
-                    m_netAI.Elevated = null;
-                    m_netAI.Bridge = null;
-                    m_netAI.Slope = null;
-                    m_netAI.Tunnel = null;
                     break;
             }
         }

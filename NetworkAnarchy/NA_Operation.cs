@@ -151,16 +151,18 @@ namespace NetworkAnarchy
                 // Has the prefab/tool changed?
                 if (prefab != m_current || IsNetToolEnabled != m_netTool.enabled)
                 {
-                    IsNetToolEnabled = m_netTool.enabled;
-
                     if (prefab == null)
                     {
+                        DebugUtils.Log($"Deactivating in Update because prefab is null.\n" +
+                            $"netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}, current:{m_current}, INTE:{IsNetToolEnabled}");
                         Deactivate();
                     }
                     else
                     {
                         Activate(prefab);
                     }
+
+                    IsNetToolEnabled = m_netTool.enabled;
 
                     if (m_toolOptionButton != null)
                     {
@@ -199,6 +201,7 @@ namespace NetworkAnarchy
 
         public void OnDisable()
         {
+            DebugUtils.Log("Deactivating because OnDisable");
             Deactivate();
             NetPrefab.SingleMode = false;
         }
@@ -267,7 +270,7 @@ namespace NetworkAnarchy
                 var prefab = NetPrefab.GetPrefab(m_current);
                 if (prefab != null)
                 {
-                    prefab.Restore(false);
+                    prefab.Restore();
                 }
 
                 if (m_fixTunnelsCount != 0)
@@ -300,7 +303,7 @@ namespace NetworkAnarchy
                 var prefab = NetPrefab.GetPrefab(m_current);
                 if (prefab != null)
                 {
-                    prefab.Restore(false);
+                    prefab.Restore();
                 }
 
                 m_fixTunnelsCount = 0;
@@ -354,7 +357,7 @@ namespace NetworkAnarchy
             var prefab = NetPrefab.GetPrefab(m_current);
             if (prefab != null)
             {
-                prefab.Restore(true);
+                prefab.Restore();
             }
 
             m_current = info;
@@ -368,6 +371,8 @@ namespace NetworkAnarchy
             //if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
             if (m_bulldozeTool.enabled && !DoesVanillaElevationButtonExist)
             {
+                DebugUtils.Log($"Deactivating because Activation issue.\n" +
+                    $"bulldoze:{m_bulldozeTool.enabled}, DVEBE:{DoesVanillaElevationButtonExist}");
                 Deactivate();
                 return;
             }
@@ -402,7 +407,7 @@ namespace NetworkAnarchy
             var prefab = NetPrefab.GetPrefab(m_current);
             if (prefab != null)
             {
-                prefab.Restore(true);
+                prefab.Restore();
             }
 
             m_current = null;

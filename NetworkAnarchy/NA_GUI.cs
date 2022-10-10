@@ -202,7 +202,7 @@ namespace NetworkAnarchy
             }
             catch (Exception e)
             {
-                DebugUtils.Log("OnGUI failed");
+                DebugUtils.Log("OnGUI failed [NA19]");
                 DebugUtils.LogException(e);
             }
         }
@@ -282,7 +282,11 @@ namespace NetworkAnarchy
 
                     // Add Upgrade button if needed
                     var list = new List<NetTool.Mode>(panel.m_Modes);
-                    if (m_upgradeButtonTemplate != null && prefab != null && prefab.hasVariation && !list.Contains(NetTool.Mode.Upgrade))
+                    if (!list.Contains(NetTool.Mode.Upgrade))
+                    {
+                        Debug.Log($"AAA Adding Upgrade button");
+                    }
+                    if (m_upgradeButtonTemplate != null && prefab != null && prefab.hasElevation && !list.Contains(NetTool.Mode.Upgrade)) // hasElevation was hasVariation
                     {
                         UITabstrip toolMode = panel.component.Find<UITabstrip>("ToolMode");
                         if (toolMode != null)
@@ -292,7 +296,7 @@ namespace NetworkAnarchy
 
                             toolMode.AddTab("Upgrade", m_upgradeButtonTemplate, false);
 
-                            DebugUtils.Log("Upgrade button added.");
+                            DebugUtils.Log("Upgrade button added. [NA17]");
                         }
                     }
 
@@ -305,7 +309,7 @@ namespace NetworkAnarchy
 
             if (optionBar == null)
             {
-                DebugUtils.Log("OptionBar not found!");
+                DebugUtils.Log("OptionBar not found! [NA18]");
                 return;
             }
             m_toolOptionButton.transform.SetParent(optionBar.transform);

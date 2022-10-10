@@ -132,12 +132,15 @@ namespace NetworkAnarchy
         internal const int SegmentLengthCeiling = 256;
         internal const int SegmentLengthInterval = 2;
 
-        public bool SingleMode
-        {
-            get => NetPrefab.SingleMode;
-            set => NetPrefab.SingleMode = value;
-        }
+        //public bool SingleMode
+        //{
+        //    get => NetPrefab.SingleMode;
+        //    set => NetPrefab.SingleMode = value;
+        //}
 
+        /// <summary>
+        /// The selected placement mode, regardless of prefab
+        /// </summary>
         public Mode mode
         {
             get => m_mode;
