@@ -457,7 +457,7 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toggle staight slope (don&apos;t follow terrain shape).
+        ///   Looks up a localized string similar to Toggle straight slope (don&apos;t follow terrain shape).
         /// </summary>
         internal static string ui_toggleSlope {
             get {
