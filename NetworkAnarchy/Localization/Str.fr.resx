@@ -215,6 +215,9 @@
     <value>Incrément d'élévation :</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Longueur max du segment :</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Tunnel : Force l'utilisation des tunnels si possible</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Pente constante</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Ceci permet que la route aille directement de A à B sans suivre le terrain.
-
-{0} pour basculer en mode pente droite.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Activer/Désactiver l'anarchie</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Activer/Désactiver la collision</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Afficher/Masquer la grille de l'éditeur</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle staight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Activer/Désactiver l'ancrage aux nœuds</value>
