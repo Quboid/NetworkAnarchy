@@ -163,10 +163,10 @@
     <value>道路やネットワークのためのより多くのツール</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>デバッグメッセージのログを有効化</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>チェック時は追加のデバッグメッセージをログします。</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>最大回転角度</value>
@@ -216,7 +216,7 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Show Editor Grid</value>
+    <value>エディタのグリッドを表示</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>セグメントの最大長:</value>
@@ -255,7 +255,7 @@
     <value>衝突判定の切替</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle staight slope (don't follow terrain shape)</value>
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>ノードスナップの切替</value>
