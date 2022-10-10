@@ -163,10 +163,10 @@
     <value>Weitere Werkzeugoptionen für Straßen und andere Netzwerke</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>Protokollieren von Debugmeldungen aktivieren</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>Wenn aktiviert, werden Debug-Meldungen protokolliert.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Maximaler Kurvenwinkel</value>
@@ -255,7 +255,7 @@
     <value>Kollision ein/aus</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle staight slope (don't follow terrain shape)</value>
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Einrasten ein/aus</value>
