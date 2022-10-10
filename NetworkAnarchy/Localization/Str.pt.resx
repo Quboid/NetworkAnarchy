@@ -255,7 +255,7 @@
     <value>Alternar colisão</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle staight slope (don't follow terrain shape)</value>
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Alternar encaixe</value>
