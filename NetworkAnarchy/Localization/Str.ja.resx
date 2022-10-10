@@ -215,6 +215,9 @@
     <value>高さの変更量:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>セグメントの最大長:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>トンネル: 可能であればトンネルを使用する</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>直線スロープ</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>道路を地形に沿わせず、AからBまでまっすぐにします。
-
-{0} で直線スロープを切替。</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>アナーキーの切替</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>衝突判定の切替</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>グリッド表示の切替</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle staight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>ノードスナップの切替</value>
