@@ -215,6 +215,9 @@
     <value>Elevation Step:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Max Segment Length:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Tunnel: Forces the use of tunnel pieces if available</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Straight Slope</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Makes the road go straight from A to B instead of following the terrain.
-
-{0} to toggle straight slope.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Toggle anarchy</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Toggle collision</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Toggle editor grid</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle staight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Toggle node snapping</value>
