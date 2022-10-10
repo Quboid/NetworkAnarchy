@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>道路やネットワークのためのより多くのツール</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>デバッグメッセージの出力を無効化</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>チェックするとデバッグログが出力されません。</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>最大回転角度</value>
