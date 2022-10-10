@@ -166,8 +166,7 @@ namespace NetworkAnarchy
                 else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e))
                 {
                     DebugUtils.Log($"Hotkey: toggleStraightSlope (was:{StraightSlope})");
-                    StraightSlope = !StraightSlope;
-                    m_toolOptionButton.UpdateInfo();
+                    ToggleStraightSlope();
                 }
                 else if (OptionsKeymapping.toggleBending.IsPressed(e))
                 {
@@ -182,7 +181,8 @@ namespace NetworkAnarchy
                 else if (OptionsKeymapping.toggleGrid.IsPressed(e))
                 {
                     DebugUtils.Log($"Hotkey: toggleGrid (was:{Grid})");
-                    ToggleGrid();
+                    Grid = !Grid;
+                    m_toolOptionButton.UpdateInfo();
                 }
 
                 if (m_mode == Mode.Tunnel && InfoManager.instance.CurrentMode != InfoManager.InfoMode.Traffic)

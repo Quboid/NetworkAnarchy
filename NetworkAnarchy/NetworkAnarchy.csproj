@@ -225,6 +225,7 @@
     <EmbeddedResource Include="Localization\Str.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Str.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\Str.ru.resx" />
     <EmbeddedResource Include="Localization\Str.th.resx" />
@@ -285,7 +286,13 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\StraightSlope.png" />
+    <EmbeddedResource Include="Icons\StraightSlopeDisabled.png" />
+    <EmbeddedResource Include="Icons\StraightSlopeFocused.png" />
+    <EmbeddedResource Include="Icons\StraightSlopeHovered.png" />
+    <EmbeddedResource Include="Icons\StraightSlopePressed.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>set "ModDir=%25LOCALAPPDATA%25\Colossal Order\Cities_Skylines\Addons\Mods\$(SolutionName)\"

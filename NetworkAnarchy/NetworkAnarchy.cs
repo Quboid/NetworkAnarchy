@@ -325,13 +325,10 @@ namespace NetworkAnarchy
             Collision = !Collision;
             UpdateAnarchyButton(m_toolOptionButton.m_collisionBtn, "Collision", Collision);
         }
-        public void ToggleGrid()
+        public void ToggleStraightSlope()
         {
-            if (m_toolOptionButton.m_gridBtn != null)
-            {
-                Grid = !Grid;
-                UpdateAnarchyButton(m_toolOptionButton.m_gridBtn, "Grid", Grid);
-            }
+            StraightSlope = !StraightSlope;
+            UpdateAnarchyButton(m_toolOptionButton.m_straightSlopeBtn, "StraightSlope", StraightSlope);
         }
     }
 }

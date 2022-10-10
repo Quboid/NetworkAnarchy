@@ -349,6 +349,15 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show Editor Grid.
+        /// </summary>
+        internal static string ui_grid {
+            get {
+                return ResourceManager.GetString("ui_grid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Max Segment Length:.
         /// </summary>
         internal static string ui_maxSegmentLength {
@@ -421,26 +430,6 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Straight Slope.
-        /// </summary>
-        internal static string ui_straightSlope {
-            get {
-                return ResourceManager.GetString("ui_straightSlope", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Makes the road go straight from A to B instead of following the terrain.
-        ///
-        ///{0} to toggle straight slope..
-        /// </summary>
-        internal static string ui_straightSlopeTooltip {
-            get {
-                return ResourceManager.GetString("ui_straightSlopeTooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Toggle anarchy.
         /// </summary>
         internal static string ui_toggleAnarchy {
@@ -468,11 +457,11 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toggle editor grid.
+        ///   Looks up a localized string similar to Toggle staight slope (don&apos;t follow terrain shape).
         /// </summary>
-        internal static string ui_toggleGrid {
+        internal static string ui_toggleSlope {
             get {
-                return ResourceManager.GetString("ui_toggleGrid", resourceCulture);
+                return ResourceManager.GetString("ui_toggleSlope", resourceCulture);
             }
         }
         

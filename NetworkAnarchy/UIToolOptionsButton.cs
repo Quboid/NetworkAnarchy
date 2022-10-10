@@ -3,7 +3,6 @@ using ColossalFramework.UI;
 using NetworkAnarchy.Localization;
 using QCommonLib;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -24,13 +23,13 @@ namespace NetworkAnarchy
         private UICheckBox m_bridgeModeButton;
         private UICheckBox m_tunnelModeButton;
 
-        private UICheckBox m_straightSlope;
-
         public UICheckBox m_anarchyBtn;
         public UICheckBox m_bendingBtn;
         public UICheckBox m_snappingBtn;
         public UICheckBox m_collisionBtn;
-        public UICheckBox m_gridBtn;
+        public UICheckBox m_straightSlopeBtn;
+        
+        public UICheckBox m_grid;
 
         private UITextureAtlas m_atlas;
 
@@ -99,7 +98,6 @@ namespace NetworkAnarchy
                 m_elevationStepLabel.text = NetworkAnarchy.instance.elevationStep + "m\n";
                 m_elevationStepSlider.value = NetworkAnarchy.instance.elevationStep;
             }
-            m_straightSlope.isChecked = NetworkAnarchy.instance.StraightSlope;
             UpdateSlider();
 
             m_button.normalFgSprite = NetworkAnarchy.instance.StraightSlope ? "ToolbarIconGroup1Hovered" : null;
@@ -286,26 +284,10 @@ namespace NetworkAnarchy
             m_elevatedModeButton = CreateModeCheckBox(modePanel, "ElevatedMode", Str.ui_modeElevated);
             m_bridgeModeButton = CreateModeCheckBox(modePanel, "BridgeMode", Str.ui_modeBridge);
             m_tunnelModeButton = CreateModeCheckBox(modePanel, "TunnelMode", Str.ui_modeTunnel);
+            m_normalModeButton.isChecked = true;
 
             modePanel.autoLayout = true;
             ExpandY(ref yPos, 60u);
-
-            // Straight Slope
-            m_straightSlope = CreateCheckBox(m_toolOptionsPanel);
-            m_straightSlope.name = "NA_StraightSlope";
-            m_straightSlope.label.text = Str.ui_straightSlope;
-            m_straightSlope.tooltip = String.Format(Str.ui_straightSlopeTooltip, OptionsKeymapping.toggleStraightSlope.ToLocalizedString("KEYNAME"));
-            m_straightSlope.isChecked = NetworkAnarchy.saved_smoothSlope;
-            m_straightSlope.relativePosition = new Vector3(8, yPos);
-            m_straightSlope.width = m_toolOptionsPanel.width - 16;
-
-            m_straightSlope.eventCheckChanged += (c, state) =>
-            {
-                NetworkAnarchy.instance.StraightSlope = state;
-            };
-
-            m_normalModeButton.isChecked = true;
-            ExpandY(ref yPos, 24u);
 
             // Anarchy buttons
             UIPanel anarchyPanel = m_toolOptionsPanel.AddUIComponent<UIPanel>();
@@ -325,14 +307,28 @@ namespace NetworkAnarchy
             m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", Str.ui_toggleBending, NetworkAnarchy.saved_bending, NetworkAnarchy.instance.ToggleBending);
             m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", Str.ui_toggleSnapping, NetworkAnarchy.saved_nodeSnapping, NetworkAnarchy.instance.ToggleSnapping);
             m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", Str.ui_toggleCollision, NetworkAnarchy.Collision, NetworkAnarchy.instance.ToggleCollision);
-
-            if ((ToolManager.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None)
-            {
-                m_gridBtn = CreateAnarchyCheckBox(anarchyPanel, "Grid", Str.ui_toggleGrid, true, NetworkAnarchy.instance.ToggleGrid);
-            }
+            m_straightSlopeBtn = CreateAnarchyCheckBox(anarchyPanel, "StraightSlope", Str.ui_toggleSlope, NetworkAnarchy.saved_smoothSlope, NetworkAnarchy.instance.ToggleStraightSlope);
 
             anarchyPanel.autoLayout = true;
             ExpandY(ref yPos, 58u);
+
+            // Show Grid in Editor
+            if (QCommon.Scene == QCommon.SceneTypes.AssetEditor)
+            {
+                ExpandY(ref yPos, 2u);
+                m_grid = CreateCheckBox(m_toolOptionsPanel);
+                m_grid.name = "NA_Grid";
+                m_grid.label.text = Str.ui_grid;
+                m_grid.isChecked = NetworkAnarchy.Grid;
+                m_grid.relativePosition = new Vector3(8, yPos);
+                m_grid.width = m_toolOptionsPanel.width - 16;
+
+                m_grid.eventCheckChanged += (c, state) =>
+                {
+                    NetworkAnarchy.Grid = state;
+                };
+                ExpandY(ref yPos, 24u);
+            }
 
             // Node spacing
             if (showMaxSegmentLengthSlider)
@@ -442,7 +438,7 @@ namespace NetworkAnarchy
             m_maxSegmentLengthLabel.size = new Vector2(38, 15);
             m_maxSegmentLengthLabel.relativePosition = new Vector2(sliderPanel.width - m_maxSegmentLengthLabel.width - 8, 10);
 
-            UISlider slider = CreateMaxSegmentLengthSlider(sliderPanel, parent.width - 20 - m_maxSegmentLengthLabel.width - 8);
+            UISlider slider = CreateMaxSegmentLengthSlider(sliderPanel, sliderPanel.width - 20 - m_maxSegmentLengthLabel.width - 8);
 
             UISlicedSprite bgSlider = slider.AddUIComponent<UISlicedSprite>();
             bgSlider.atlas = parent.atlas;
@@ -677,11 +673,11 @@ namespace NetworkAnarchy
                 "CollisionFocused",
                 "CollisionHovered",
                 "CollisionPressed",
-                "Grid",
-                "GridDisabled",
-                "GridFocused",
-                "GridHovered",
-                "GridPressed"
+                "StraightSlope",
+                "StraightSlopeDisabled",
+                "StraightSlopeFocused",
+                "StraightSlopeHovered",
+                "StraightSlopePressed"
             };
 
             m_atlas = QTextures.CreateTextureAtlas(typeof(ModInfo).Assembly, "NetworkAnarchy", spriteNames, "NetworkAnarchy.Icons.");
