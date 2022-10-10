@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>更多的道路及其他网络工具选项</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>禁用调试消息日志记录</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>如果选中该选项，则不会记录调试信息。</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>最大转角</value>
