@@ -215,6 +215,9 @@
     <value>Höhenschritt:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Maximale Segmentlänge:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Tunnel: Erzwingt die Verwendung von Tunnelteilen, falls verfügbar</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Begradigte Verbindung</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Lässt die Straße direkt von A nach B gehen, anstatt dem Gelände zu folgen.
-
-{0} schaltet Begradigen ein/aus.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Anarchie ein/aus</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Kollision ein/aus</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Editor-Raster ein/aus</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle staight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Einrasten ein/aus</value>
