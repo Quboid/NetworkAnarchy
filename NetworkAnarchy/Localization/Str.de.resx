@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Weitere Werkzeugoptionen für Straßen und andere Netzwerke</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Protokollieren von Debugmeldungen deaktivieren</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>Wenn aktiviert, werden Debug-Meldungen nicht protokolliert.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Maximaler Kurvenwinkel</value>
