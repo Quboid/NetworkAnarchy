@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Больше возможностей для дорог и других сетевых объектов</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Выключить сообщения отладки</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>Если выбрано, сообщения отладки не будут писаться в лог.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Макс. угол поворота</value>
