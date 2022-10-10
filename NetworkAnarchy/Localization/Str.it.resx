@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Più opzioni di strumenti per strade e altre reti</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Disattivare il salvataggio dei messaggi di debug</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>Se selezionato, i messaggi di debug non verranno salvati.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Angolo di rotazione massimo</value>
