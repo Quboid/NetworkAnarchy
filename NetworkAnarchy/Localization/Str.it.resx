@@ -216,7 +216,7 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Show Editor Grid</value>
+    <value>Mostra Griglia Editor</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Lunghezza massima del segmento:</value>
