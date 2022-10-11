@@ -216,7 +216,7 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Show Editor Grid</value>
+    <value>Editier-Raster anzeigen</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Maximale Segmentlänge:</value>
@@ -255,7 +255,7 @@
     <value>Kollision ein/aus</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>Geradlinig bauen umschalten (Geländeform nicht folgen)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Einrasten ein/aus</value>
