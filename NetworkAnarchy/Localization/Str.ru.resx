@@ -163,10 +163,10 @@
     <value>Больше возможностей для дорог и других сетевых объектов</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>Включить отладочные сообщения</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>Если выбрано, сообщения отладки будут писаться в лог.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Макс. угол поворота</value>
@@ -216,7 +216,7 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Show Editor Grid</value>
+    <value>Показать сетку редактора</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Макс длина сегмента:</value>
@@ -255,7 +255,7 @@
     <value>Вкл/Выкл коллизию</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>Вкл/выкл Прямой уклон (соответствие ландшафту)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Вкл/Выкл привязку</value>
