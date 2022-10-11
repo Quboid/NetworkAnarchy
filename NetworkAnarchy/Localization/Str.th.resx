@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>TH: More tool options for roads and other networks</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>ปิดการบันทึกข้อความการทำงาน (Debug)</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>ถ้าเลือกตัวเลือกนี้ ระบบจะไม่บันทึกข้อความการทำงาน (Debug messages)</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>มุมการเลี้ยวสูงสุด</value>
@@ -215,6 +215,9 @@
     <value>ขั้นของการยกระดับ</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>ความยาวสูงสุดของเซ็กเมนต์</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,14 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>บังคับให้เป็นอุโมงค์ (ถ้ามี)</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>ทางลาดตรง</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>ทำให้ถนนวิ่งตรง พร้อมปรับทางลาดจากจุดหนึ่งไปยังอีกจุดหนึ่ง แทนการไปตามภูมิประเทศ
-{0} เพื่อเปิดโหมดปรับทางลาดตรง</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>เปิดโหมดอิสระ (Anarchy)</value>
   </data>
@@ -259,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>เปิดการป้องกันการซ้อนกัน</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>เปิดแสดงเส้นตาราง</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>เปิดโหมดการยึดติด</value>

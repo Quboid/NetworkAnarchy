@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>更多的道路及其他网络工具选项</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>禁用调试消息日志记录</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>如果选中该选项，则不会记录调试信息。</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>最大转角</value>
@@ -215,6 +215,9 @@
     <value>单次调整高度：</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>最大路段长度：</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>隧道：如果开启，道路将在任何地形强制使用隧道模式</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>平直的斜坡</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>不跟随地形，让道路从A点直接到B点。
-
-按 {0} 以切换斜坡是否平直。</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>切换无碰撞状态</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>切换碰撞</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>切换编辑器网格</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>切换捕捉吸附</value>

@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Más opciones de herramientas para carreteras y otras redes</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Desactivar el registro de mensajes de depuración</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>Si está activado, no se registrarán los mensajes de depuración.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Ángulo máximo de giro</value>
@@ -215,6 +215,9 @@
     <value>Desplazamiento vertical:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Longitud máxima de segmento:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Túnel: Fuerza el uso de segmentos de túnel si están disponibles</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Pendiente uniforme</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Fuerza los segmentos a tener pendiente uniforme en vez de seguir el terreno.
-
-{0} para forzar la pendiente uniforme.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Apagar/encender anarquía</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Apagar/encender colisión</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Apagar/encender cuadrícula del editor</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Apagar/encender ajuste a nodos</value>

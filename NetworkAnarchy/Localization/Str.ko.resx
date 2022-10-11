@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>디버그 메시지 기록 비활성화</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>디버그 메시지 기록 활성화</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>선택하면 디버그 메시지가 기록되지 않습니다.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>선택하면 추가 디버그 메시지가 기록될 것입니다.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>최대 회전 각도</value>
@@ -215,6 +215,9 @@
     <value>고도 단계:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>에디터 그리드 보기</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>최대 세그먼트 길이:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>터널: 사용 가능하다면 터널 부분을 강제로 사용합니다.</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>직선 경사</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>도로가 지형을 따르지 않고 일직선으로 A에서 B로 짓게 합니다.
-
-{0}(으)로 직선 경사 전환.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>아나키 전환</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>충돌 전환</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>에디터 그리드 전환</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>직선 경사 전환 (지형 모양을 따르지 않기)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>노드 스냅핑 전환</value>

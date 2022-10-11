@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Mais opções de ferramentas para estradas e redes de segmentos em geral</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Desabilitar registro de mensagens de depuração</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Ativar o registro de mensagens the depuração</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>Se ativado, as mensagens de depuração não serão registradas em log.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>Se ativado, mensagens the depuração adicionais serão registradas.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Ângulo de curva máximo</value>
@@ -215,6 +215,9 @@
     <value>Passo de elevação:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Mostrar Grade</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Comprimento máximo do segmento:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Túnel: Forçar uso do modelo para túneis se disponível</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Elevação uniforme</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Fazer o segmento seguir uma elevação uniforme de A até B ao invés de seguir o terreno.
-
-{0} para alternar o modo de elevação uniforme.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Alternar anarquia</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Alternar colisão</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Alternar grade do editor</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Alternar elevação uniforme (não segue o formato do terreno)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Alternar encaixe</value>

@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Plus d'options d'outil pour les routes et les autres réseaux</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Désactiver la mémorisation des messages de débogage</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Activer les messages de débogage</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>Si coché, les messages de débogage ne seront pas enregistrés.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>Si coché, les messages de débogage supplémentaires seront enregistrés.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Angle de virage maximal</value>
@@ -215,6 +215,9 @@
     <value>Incrément d'élévation :</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Afficher la grille de l'éditeur</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Longueur max du segment :</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Tunnel : Force l'utilisation des tunnels si possible</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Pente constante</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Ceci permet que la route aille directement de A à B sans suivre le terrain.
-
-{0} pour basculer en mode pente droite.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Activer/Désactiver l'anarchie</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Activer/Désactiver la collision</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Afficher/Masquer la grille de l'éditeur</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Activer/désactiver la pente droite (ne suis pas la forme du terrain)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Activer/Désactiver l'ancrage aux nœuds</value>

@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Più opzioni di strumenti per strade e altre reti</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Disattivare il salvataggio dei messaggi di debug</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Abilita registrazione messaggi di debug</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>Se selezionato, i messaggi di debug non verranno salvati.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>Se selezionato, verranno registrati messaggi di debug aggiuntivi.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Angolo di rotazione massimo</value>
@@ -215,6 +215,9 @@
     <value>Incremento dell'elevazione:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Mostra Griglia Editor</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Lunghezza massima del segmento:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,14 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Galleria: se possibile forza l'uso di gallerie</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Pendio rettilineo</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Fa si che la strada rimanga dritta da A a B invece di seguire il terreno.
-{0} Attivare/Disattivare pendio rettilineo.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Attivare/Disattivare l'anarchia</value>
   </data>
@@ -259,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Attivare/Disattivare la collisione</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Attivare/Disattivare la griglia dell'editor</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Attiva/Disattiva pendenza diretta (non segue la forma del terreno)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Attivare/Disattivare l'aggancio ai nodi</value>

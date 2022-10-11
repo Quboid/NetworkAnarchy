@@ -162,11 +162,11 @@
   <data name="mod_Description" xml:space="preserve">
     <value>More tool options for roads and other networks</value>
   </data>
-  <data name="options_disableDebugLogging" xml:space="preserve">
-    <value>Disable debug messages logging</value>
+  <data name="options_enableDebugLogging" xml:space="preserve">
+    <value>Enable debug messages logging</value>
   </data>
-  <data name="options_disableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, debug messages won't be logged.</value>
+  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Max turn angle</value>
@@ -215,6 +215,9 @@
     <value>Elevation Step:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
+  <data name="ui_grid" xml:space="preserve">
+    <value>Show Editor Grid</value>
+  </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Max Segment Length:</value>
     <comment>Keep the ":" if used in your language</comment>
@@ -242,15 +245,6 @@
   <data name="ui_modeTunnel" xml:space="preserve">
     <value>Tunnel: Forces the use of tunnel pieces if available</value>
   </data>
-  <data name="ui_straightSlope" xml:space="preserve">
-    <value>Straight Slope</value>
-  </data>
-  <data name="ui_straightSlopeTooltip" xml:space="preserve">
-    <value>Makes the road go straight from A to B instead of following the terrain.
-
-{0} to toggle straight slope.</value>
-    <comment>{0} will be replaced by the keybinding for straight slope toggle</comment>
-  </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Toggle anarchy</value>
   </data>
@@ -260,8 +254,8 @@
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Toggle collision</value>
   </data>
-  <data name="ui_toggleGrid" xml:space="preserve">
-    <value>Toggle editor grid</value>
+  <data name="ui_toggleSlope" xml:space="preserve">
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Toggle node snapping</value>
