@@ -255,7 +255,7 @@
     <value>Activer/Désactiver la collision</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>Activer/désactiver la pente droite (ne suis pas la forme du terrain)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Activer/Désactiver l'ancrage aux nœuds</value>
