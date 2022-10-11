@@ -255,7 +255,7 @@
     <value>衝突判定の切替</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>直線スロープの切替 (地形に追従しない)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>ノードスナップの切替</value>
