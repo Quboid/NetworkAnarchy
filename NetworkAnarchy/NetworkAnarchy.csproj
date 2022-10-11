@@ -80,7 +80,7 @@
     <Compile Include="Patches\Collision.cs" />
     <Compile Include="Patches\Misc.cs" />
     <Compile Include="Patches\LeftHandTraffic.cs" />
-    <Compile Include="Patches\MaxSegmentLength.cs" />
+    <Compile Include="Patches\NetTool.cs" />
     <Compile Include="Patches\Networks.cs" />
     <Compile Include="Patches\EarlyPatches.cs" />
     <Compile Include="Patches\Water.cs" />
