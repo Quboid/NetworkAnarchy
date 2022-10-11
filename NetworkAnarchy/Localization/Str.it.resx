@@ -163,10 +163,10 @@
     <value>Più opzioni di strumenti per strade e altre reti</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>Abilita registrazione messaggi di debug</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>Se selezionato, verranno registrati messaggi di debug aggiuntivi.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Angolo di rotazione massimo</value>
@@ -255,7 +255,7 @@
     <value>Attivare/Disattivare la collisione</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>Attiva/Disattiva pendenza diretta (non segue la forma del terreno)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Attivare/Disattivare l'aggancio ai nodi</value>
