@@ -279,7 +279,7 @@ namespace NetworkAnarchy
 
             patched = true;
 #if DEBUG
-            //Harmony.DEBUG = true;
+            Harmony.DEBUG = true;
 #endif
             Instance.PatchAll();
         }
