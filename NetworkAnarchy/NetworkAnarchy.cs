@@ -335,5 +335,10 @@ namespace NetworkAnarchy
             StraightSlope = !StraightSlope;
             UpdateAnarchyButton(m_toolOptionButton.m_straightSlopeBtn, "StraightSlope", StraightSlope);
         }
+
+        public void ToggleGrid() {
+            Grid = !Grid;
+            m_toolOptionButton.UpdateButton();
+        }
     }
 }

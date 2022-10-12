@@ -3,13 +3,45 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnifiedUI.Helpers;
+using ColossalFramework;
 
 namespace NetworkAnarchy
 {
     public partial class NetworkAnarchy : MonoBehaviour
     {
-        //KeyCode wasKeyCode = KeyCode.None;
-        //bool wasControl = false, wasAlt = false, wasShift = false;
+
+        public void RegisterUUIHotkeys() {
+            bool GetIsActive() => IsActive;
+
+            Dictionary<SavedInputKey, Func<bool>> intoolKeys = new Dictionary<SavedInputKey, Func<bool>>();
+            // use UUI to resolve hotkey collisions
+            intoolKeys.Add(OptionsKeymapping.elevationUp, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.elevationDown, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.elevationReset, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.elevationStepUp, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.elevationStepDown, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.modesCycleRight, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.modesCycleLeft, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.toggleStraightSlope, GetIsActive);
+
+            UUIHelpers.RegisterHotkeys(
+                activationKey: OptionsKeymapping.toggleAnarchy,
+                activeKeys: intoolKeys,
+                onToggle: () => ToggleAnarchy());
+            UUIHelpers.RegisterHotkeys(
+                activationKey: OptionsKeymapping.toggleCollision,
+                onToggle: () => ToggleCollision());
+            UUIHelpers.RegisterHotkeys(
+                activationKey: OptionsKeymapping.toggleBending,
+                onToggle: () => ToggleBending());
+            UUIHelpers.RegisterHotkeys(
+                activationKey: OptionsKeymapping.toggleSnapping,
+                onToggle: () => ToggleSnapping());
+            UUIHelpers.RegisterHotkeys(
+                activationKey: OptionsKeymapping.toggleGrid,
+                onToggle: () => ToggleGrid());
+        }
 
         public void OnGUI()
         {
@@ -31,18 +63,20 @@ namespace NetworkAnarchy
 
                 //Debug.Log($"AAA {e.keyCode} Ctrl:{e.control}, Alt:{e.alt}, Shift:{e.shift}\n" +
                 //    $"Ctrl:{OptionsKeymapping.toggleAnarchy.Control}, key:{OptionsKeymapping.toggleAnarchy.Key}, up:{OptionsKeymapping.toggleAnarchy.IsKeyUp()}\n" +
-                //    $"pressed:{OptionsKeymapping.toggleAnarchy.IsPressed()}, pressedE:{OptionsKeymapping.toggleAnarchy.IsPressed(e)}, pressedEv:{OptionsKeymapping.toggleAnarchy.IsPressed(Event.current)}");
+                //    $"pressed:{OptionsKeymapping.toggleAnarchy.IsPressed()}, pressedE:{OptionsKeymapping.toggleAnarchy.IsPressed(e)}, pressedEv:{OptionsKeymapping.toggleAnarchy.IsPressed(e)}");
 
-                // Allow Anarchy and Collision shortcuts even if the panel isn't visible
-                if (!UIView.HasModalInput() && OptionsKeymapping.toggleAnarchy.IsPressed(e))
-                {
-                    Log.Debug($"Hotkey: toggleAnarchy (was:{Anarchy})");
-                    ToggleAnarchy();
-                }
-                else if (!UIView.HasModalInput() && OptionsKeymapping.toggleCollision.IsPressed(e))
-                {
-                    Log.Debug($"Hotkey: toggleCollision (was:{Collision})");
-                    ToggleCollision();
+                // Allow Anarchy and Collision shortcuts even if the panel isn't visible (not handled by UUI)
+                if(!UIView.HasModalInput() && UIView.HasInputFocus()) {
+                    if (OptionsKeymapping.toggleAnarchy.IsPressed(e)) {
+                        Log.Debug($"Hotkey: toggleAnarchy (was:{Anarchy})");
+                        ToggleAnarchy();
+                        e.Use();
+                    }
+                    if (OptionsKeymapping.toggleCollision.IsPressed(e)) {
+                        Log.Debug($"Hotkey: toggleCollision (was:{Collision})");
+                        ToggleCollision();
+                        e.Use();
+                    }
                 }
 
                 if (IsBuildingIntersection())
@@ -68,10 +102,9 @@ namespace NetworkAnarchy
                         Log.Debug($"AAA02 {min}, {max}");
 
                         int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
-                        elevation += OptionsKeymapping.elevationUp.IsPressed(Event.current) ? 1 : -1;
+                        elevation += OptionsKeymapping.elevationUp.IsPressed(e) ? 1 : -1;
 
                         m_buildingElevationField.SetValue(m_buildingTool, Mathf.Clamp(elevation, min, max));
-
                         e.Use();
                     }
                     return;
@@ -79,6 +112,7 @@ namespace NetworkAnarchy
                 else if (m_buildingTool.enabled && OptionsKeymapping.elevationReset.IsPressed())
                 {
                     m_buildingElevationField.SetValue(m_buildingTool, 0);
+                    e.Use();
                 }
 
                 if (!IsActive)
@@ -102,91 +136,60 @@ namespace NetworkAnarchy
                 }
 
                 // Checking key presses
-                if (OptionsKeymapping.elevationUp.IsPressed(e))
-                {
+                if (OptionsKeymapping.elevationUp.IsPressed(e)) {
                     Log.Debug($"Hotkey: elevationUp (was:{m_elevation})");
                     m_elevation += Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
-                }
-                else if (OptionsKeymapping.elevationDown.IsPressed(e))
-                {
+                    e.Use();
+                } else if (OptionsKeymapping.elevationDown.IsPressed(e)) {
                     Log.Debug($"Hotkey: elevationDown (was:{m_elevation})");
                     m_elevation -= Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
-                }
-                else if (OptionsKeymapping.elevationStepUp.IsPressed(e))
-                {
+                    e.Use();
+                } else if (OptionsKeymapping.elevationStepUp.IsPressed(e)) {
                     Log.Debug($"Hotkey: elevationStepUp (was:{elevationStep})");
-                    if (elevationStep < 12)
-                    {
+                    if (elevationStep < 12) {
                         elevationStep++;
                         m_toolOptionButton.UpdateButton();
                     }
-                }
-                else if (OptionsKeymapping.elevationStepDown.IsPressed(e))
-                {
+                    e.Use();
+                } else if (OptionsKeymapping.elevationStepDown.IsPressed(e)) {
                     Log.Debug($"Hotkey: elevationStepDown (was:{elevationStep})");
-                    if (elevationStep > 1)
-                    {
+                    if (elevationStep > 1) {
                         elevationStep--;
                         m_toolOptionButton.UpdateButton();
                     }
-                }
-                else if (OptionsKeymapping.modesCycleRight.IsPressed(e))
-                {
+                    e.Use();
+                } else if (OptionsKeymapping.modesCycleRight.IsPressed(e)) {
                     Log.Debug($"Hotkey: modesCycleRight (was:{m_mode})");
-                    if (m_mode < Mode.Tunnel)
-                    {
+                    if (m_mode < Mode.Tunnel) {
                         mode++;
-                    }
-                    else
-                    {
+                    } else {
                         mode = Mode.Normal;
                     }
 
                     m_toolOptionButton.UpdateButton();
-                }
-                else if (OptionsKeymapping.modesCycleLeft.IsPressed(e))
-                {
+                    e.Use();
+                } else if (OptionsKeymapping.modesCycleLeft.IsPressed(e)) {
                     Log.Debug($"Hotkey: modesCycleLeft (was:{m_mode})");
-                    if (m_mode > Mode.Normal)
-                    {
+                    if (m_mode > Mode.Normal) {
                         mode--;
-                    }
-                    else
-                    {
+                    } else {
                         mode = Mode.Tunnel;
                     }
 
                     m_toolOptionButton.UpdateButton();
-                }
-                else if (OptionsKeymapping.elevationReset.IsPressed(e))
-                {
+                    e.Use();
+                } else if (OptionsKeymapping.elevationReset.IsPressed(e)) {
                     Log.Debug($"Hotkey: elevationReset (was:{m_elevation})");
                     m_elevation = 0;
                     UpdateElevation();
                     m_toolOptionButton.UpdateButton();
-                }
-                else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e))
-                {
+                    e.Use();
+                } else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e)) {
                     Log.Debug($"Hotkey: toggleStraightSlope (was:{StraightSlope})");
                     ToggleStraightSlope();
-                }
-                else if (OptionsKeymapping.toggleBending.IsPressed(e))
-                {
-                    Log.Debug($"Hotkey: toggleBending (was:{Bending})");
-                    ToggleBending();
-                }
-                else if (OptionsKeymapping.toggleSnapping.IsPressed(e))
-                {
-                    Log.Debug($"Hotkey: toggleSnapping (was:{NodeSnapping})");
-                    ToggleSnapping();
-                }
-                else if (OptionsKeymapping.toggleGrid.IsPressed(e))
-                {
-                    Log.Debug($"Hotkey: toggleGrid (was:{Grid})");
-                    Grid = !Grid;
-                    m_toolOptionButton.UpdateButton();
+                    e.Use();
                 }
 
                 if (m_mode == Mode.Tunnel && InfoManager.instance.CurrentMode != InfoManager.InfoMode.Traffic)
