@@ -30,7 +30,7 @@ namespace NetworkAnarchy.Mods
             {
                 m_UINetworkSkinsPanel = null;
                 m_instance = null;
-                DebugUtils.LogException(e);
+                NetworkAnarchy.Log.Error(e, "[NA45]");
             }
         }
 
@@ -57,25 +57,25 @@ namespace NetworkAnarchy.Mods
 
                     if (m_selectedPrefab != null && m_update != null)
                     {
-                        DebugUtils.Log("NetworkAnarchy: Network Skins loaded [NA07]");
+                        NetworkAnarchy.Log.Info("NetworkAnarchy: Network Skins loaded", "[NA07]");
                     }
                     else
                     {
                         m_UINetworkSkinsPanel = null;
                         m_selectedPrefab = null;
                         m_update = null;
-                        DebugUtils.Log("NetworkAnarchy: Network Skins not loaded [NA08]");
+                        NetworkAnarchy.Log.Info("NetworkAnarchy: Network Skins not loaded", "[NA08]");
                     }
                 }
                 else
                 {
-                    DebugUtils.Log("NetworkAnarchy: Network Skins not found [NA09]");
+                    NetworkAnarchy.Log.Info("NetworkAnarchy: Network Skins not found", "[NA09]");
                 }
             }
             catch (Exception e)
             {
                 m_UINetworkSkinsPanel = null;
-                DebugUtils.LogException(e);
+                NetworkAnarchy.Log.Error(e, "[NA34]");
             }
         }
 
@@ -99,7 +99,7 @@ namespace NetworkAnarchy.Mods
             {
                 m_UINetworkSkinsPanel = null;
                 m_instance = null;
-                DebugUtils.LogException(e);
+                NetworkAnarchy.Log.Error(e, "[NA35]");
                 return false;
             }
         }

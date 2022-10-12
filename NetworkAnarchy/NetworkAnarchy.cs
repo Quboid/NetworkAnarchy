@@ -22,6 +22,7 @@ namespace NetworkAnarchy
         public static SavedBool saved_nodeSnapping = new SavedBool("nodeSnapping", settingsFileName, true, true);
         public static SavedBool saved_collision = new SavedBool("collision", settingsFileName, true, true);
         public static SavedInt saved_segmentLength = new SavedInt("saved_segmentLength", settingsFileName, 96, true);
+        public static SavedBool showDebugMessages = new SavedBool("showDebugMessages", settingsFileName, false, true);
 
         private int m_elevation = 0;
         private readonly SavedInt m_elevationStep = new SavedInt("elevationStep", settingsFileName, 3, true);
@@ -127,16 +128,19 @@ namespace NetworkAnarchy
 
         public static ChirperManager chirperManager;
 
+        internal static QLogger Log;
+
         // Max Segment Length settings
         internal const int SegmentLengthFloor = 4;
         internal const int SegmentLengthCeiling = 256;
         internal const int SegmentLengthInterval = 2;
 
-        //public bool SingleMode
-        //{
-        //    get => NetPrefab.SingleMode;
-        //    set => NetPrefab.SingleMode = value;
-        //}
+        private int? m_maxSegmentLength = null;
+        public int MaxSegmentLength
+        {
+            get => m_maxSegmentLength == null ? saved_segmentLength : (int)m_maxSegmentLength;
+            set => m_maxSegmentLength = Mathf.Clamp(value, SegmentLengthFloor, SegmentLengthCeiling);
+        }
 
         /// <summary>
         /// The selected placement mode, regardless of prefab
@@ -179,7 +183,7 @@ namespace NetworkAnarchy
             {
                 if (value != _straightSlope)
                 {
-                    DebugUtils.Log($"Setting StraightSlope to {(value ? "enabled" : "disabled")}");
+                    Log.Debug($"Setting StraightSlope to {(value ? "enabled" : "disabled")}", "[NA47]");
 
                     _straightSlope = value;
 
@@ -210,7 +214,7 @@ namespace NetworkAnarchy
             {
                 if (_anarchy != value)
                 {
-                    DebugUtils.Log($"Setting Anarchy to {(value ? "enabled" : "disabled")}");
+                    Log.Debug($"Setting Anarchy to {(value ? "enabled" : "disabled")}", "[NA40]");
 
                     _anarchy = value;
                     saved_anarchy.value = value;
@@ -231,7 +235,7 @@ namespace NetworkAnarchy
             {
                 if (_bending != value)
                 {
-                    DebugUtils.Log($"Setting Bending to {(value ? "enabled" : "disabled")}");
+                    Log.Debug($"Setting Bending to {(value ? "enabled" : "disabled")}", "[NA41]");
 
                     for (int i = 0; i < bendingPrefabs.m_size; i++)
                     {
@@ -256,7 +260,7 @@ namespace NetworkAnarchy
             {
                 if (_snapping != value)
                 {
-                    DebugUtils.Log($"Setting NodeSnapping to {(value ? "enabled" : "disabled")}");
+                    Log.Debug($"Setting NodeSnapping to {(value ? "enabled" : "disabled")}", "[NA42]");
 
                     _snapping = value;
 
@@ -277,7 +281,7 @@ namespace NetworkAnarchy
             {
                 if (value != _collision)
                 {
-                    DebugUtils.Log($"Setting Collision to {(value ? "enabled" : "disabled")}");
+                    Log.Debug($"Setting Collision to {(value ? "enabled" : "disabled")}", "[NA43]");
 
                     _collision = value;
                     saved_collision.value = value;
@@ -294,6 +298,7 @@ namespace NetworkAnarchy
 
             set
             {
+                Log.Debug($"Setting Editor Grid to {(value ? "enabled" : "disabled")}", "[NA44]");
                 if (value)
                 {
                     ToolManager.instance.m_properties.m_mode = ToolManager.instance.m_properties.m_mode | ItemClass.Availability.AssetEditor;

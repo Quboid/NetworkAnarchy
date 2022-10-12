@@ -62,7 +62,7 @@ namespace NetworkAnarchy
                 m_parent = parent;
 
                 UpdateInfo();
-                DebugUtils.Log("Tool button parent changed: " + parent.name);
+                NetworkAnarchy.Log.Debug("Tool button parent changed: " + parent.name, "[NA39]");
             }
 
             if (m_toolOptionsPanel != null)
@@ -76,7 +76,7 @@ namespace NetworkAnarchy
             if (NetworkAnarchy.instance == null) return;
             if (parent == null)
             {
-                DebugUtils.Log($"Button parent is null (m_parent is {m_parent})");
+                NetworkAnarchy.Log.Debug($"Button parent is null (m_parent is {(m_parent == null ? "<null>" : m_parent.ToString())})", "[NA38]");
                 isVisible = false;
                 return;
             }

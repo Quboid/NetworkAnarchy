@@ -318,5 +318,39 @@ namespace NetworkAnarchy
 
             return count == 1;
         }
+
+        public void UpdateCatenary()
+        {
+            int probability = reduceCatenary.value ? 0 : 100;
+
+            for (uint i = 0; i < PrefabCollection<NetInfo>.PrefabCount(); i++)
+            {
+                NetInfo info = PrefabCollection<NetInfo>.GetPrefab(i);
+                if (info == null)
+                {
+                    continue;
+                }
+
+                for (int j = 0; j < info.m_lanes.Length; j++)
+                {
+                    if (info.m_lanes[j] != null && info.m_lanes[j].m_laneProps != null)
+                    {
+                        NetLaneProps.Prop[] props = info.m_lanes[j].m_laneProps.m_props;
+                        if (props == null)
+                        {
+                            continue;
+                        }
+
+                        for (int k = 0; k < props.Length; k++)
+                        {
+                            if (props[k] != null && props[k].m_prop != null && props[k].m_segmentOffset == 0f && props[k].m_prop.name.ToLower().Contains("powerline"))
+                            {
+                                props[k].m_probability = probability;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

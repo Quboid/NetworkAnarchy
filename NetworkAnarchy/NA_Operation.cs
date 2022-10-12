@@ -14,6 +14,12 @@ namespace NetworkAnarchy
     {
         public void Start()
         {
+#if DEBUG
+            Log = new QLogger(typeof(ModInfo).Assembly, true);
+#else
+            Log = new QLogger(typeof(ModInfo).Assembly, showDebugMessages);
+#endif
+
             Mods.NetworkSkins.Init();
             Mods.NetworkMultitool.Initialise();
             Mods.ZoningAdjuster.Initialise();
@@ -22,7 +28,7 @@ namespace NetworkAnarchy
             m_netTool = GameObject.FindObjectsOfType<NetTool>().Where(x => x.GetType() == typeof(NetTool)).FirstOrDefault();
             if (m_netTool == null)
             {
-                DebugUtils.Warning("NetTool not found.");
+                Log.Warning("NetTool not found.", "[NA26]");
                 enabled = false;
                 return;
             }
@@ -31,7 +37,7 @@ namespace NetworkAnarchy
             m_bulldozeTool = GameObject.FindObjectsOfType<BulldozeTool>().Where(x => x.GetType() == typeof(BulldozeTool)).FirstOrDefault();
             if (m_bulldozeTool == null)
             {
-                DebugUtils.Warning("BulldozeTool not found.");
+                Log.Warning("BulldozeTool not found.", "[NA27]");
                 enabled = false;
                 return;
             }
@@ -40,7 +46,7 @@ namespace NetworkAnarchy
             m_buildingTool = GameObject.FindObjectsOfType<BuildingTool>().Where(x => x.GetType() == typeof(BuildingTool)).FirstOrDefault();
             if (m_buildingTool == null)
             {
-                DebugUtils.Warning("BuildingTool not found.");
+                Log.Warning("BuildingTool not found.", "[NA28]");
                 enabled = false;
                 return;
             }
@@ -56,7 +62,7 @@ namespace NetworkAnarchy
 
             if (m_elevationField == null || m_elevationUpField == null || m_elevationDownField == null || m_buildingElevationField == null || m_controlPointCountField == null || m_upgradingField == null || m_placementErrorsField == null)
             {
-                DebugUtils.Warning("NetTool fields not found");
+                Log.Warning("NetTool fields not found", "[NA25]");
                 m_netTool = null;
                 enabled = false;
                 return;
@@ -85,7 +91,7 @@ namespace NetworkAnarchy
             }
             catch
             {
-                DebugUtils.Warning("Upgrade button template not found");
+                Log.Warning("Upgrade button template not found", "[NA24]");
             }
 
             // Creating UI
@@ -102,7 +108,7 @@ namespace NetworkAnarchy
             }
             catch
             {
-                DebugUtils.Warning("ControlPoints not found");
+                Log.Warning("ControlPoints not found", "[NA21]");
             }
 
             // Init dictionary
@@ -130,7 +136,7 @@ namespace NetworkAnarchy
             StraightSlope = saved_smoothSlope.value;
             ChirperManager.UpdateAtlas();
 
-            DebugUtils.Log("Initialized");
+            Log.Info("NetworkAnarchy Initialized", "[NA22]");
         }
 
         public void Update()
@@ -154,7 +160,7 @@ namespace NetworkAnarchy
                 {
                     if (prefab == null)
                     {
-                        DebugUtils.Log($"Deactivating in Update because prefab is null.\n" +
+                        Log.Debug($"Deactivating in Update because prefab is null.\n" +
                             $"netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}, current:{m_current}, INTE:{IsNetToolEnabled}");
                         Deactivate();
                     }
@@ -188,8 +194,7 @@ namespace NetworkAnarchy
             }
             catch (Exception e)
             {
-                DebugUtils.Log("Update failed");
-                DebugUtils.LogException(e);
+                Log.Error(e, "[NA46]");
 
                 try
                 {
@@ -202,16 +207,9 @@ namespace NetworkAnarchy
 
         public void OnDisable()
         {
-            DebugUtils.Log("Deactivating because OnDisable");
+            Log.Debug("Deactivating because OnDisable");
             Deactivate();
             NetPrefab.SingleMode = false;
-        }
-
-        private int? m_maxSegmentLength = null;
-        public int MaxSegmentLength
-        {
-            get => m_maxSegmentLength == null ? saved_segmentLength : (int)m_maxSegmentLength;
-            set => m_maxSegmentLength = Mathf.Clamp(value, SegmentLengthFloor, SegmentLengthCeiling);
         }
 
         public class AfterSimulationTick : ThreadingExtensionBase
@@ -229,8 +227,7 @@ namespace NetworkAnarchy
                 }
                 catch (Exception e)
                 {
-                    DebugUtils.Log("OnAfterSimulationTick failed");
-                    DebugUtils.LogException(e);
+                    Log.Error(e, "[NA23]");
                 }
             }
         }
@@ -348,7 +345,7 @@ namespace NetworkAnarchy
 
         private void Activate(NetInfo info)
         {
-            DebugUtils.Log($"Activated ({info})\n{new StackTrace().ToString()}");
+            Log.Debug($"Activated ({info})\n{new StackTrace().ToString()}", "[NA29]");
 
             if (info == null)
             {
@@ -372,7 +369,7 @@ namespace NetworkAnarchy
             //if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
             if (m_bulldozeTool.enabled && !DoesVanillaElevationButtonExist)
             {
-                DebugUtils.Log($"Deactivating because Activation issue.\n" +
+                Log.Debug($"Deactivating because Activation issue.\n" +
                     $"bulldoze:{m_bulldozeTool.enabled}, DVEBE:{DoesVanillaElevationButtonExist}");
                 Deactivate();
                 return;
@@ -387,7 +384,7 @@ namespace NetworkAnarchy
             }
             else
             {
-                DebugUtils.Log("Selected prefab not registered");
+                Log.Warning("Selected prefab not registered", "[NA30]");
             }
 
             m_segmentCount = NetManager.instance.m_segmentCount;
@@ -418,7 +415,7 @@ namespace NetworkAnarchy
             IsActive = false;
             m_toolOptionButton.isVisible = false;
 
-            DebugUtils.Log($"Deactivated \n {new StackTrace().ToString()}");
+            Log.Debug($"Deactivated \n {new StackTrace().ToString()}");
         }
 
         private void DisableDefaultKeys()
@@ -463,40 +460,6 @@ namespace NetworkAnarchy
             {
                 m_elevationField.SetValue(m_netTool, m_elevation);
                 m_toolOptionButton.UpdateInfo();
-            }
-        }
-
-        public void UpdateCatenary()
-        {
-            int probability = reduceCatenary.value ? 0 : 100;
-
-            for (uint i = 0; i < PrefabCollection<NetInfo>.PrefabCount(); i++)
-            {
-                NetInfo info = PrefabCollection<NetInfo>.GetPrefab(i);
-                if (info == null)
-                {
-                    continue;
-                }
-
-                for (int j = 0; j < info.m_lanes.Length; j++)
-                {
-                    if (info.m_lanes[j] != null && info.m_lanes[j].m_laneProps != null)
-                    {
-                        NetLaneProps.Prop[] props = info.m_lanes[j].m_laneProps.m_props;
-                        if (props == null)
-                        {
-                            continue;
-                        }
-
-                        for (int k = 0; k < props.Length; k++)
-                        {
-                            if (props[k] != null && props[k].m_prop != null && props[k].m_segmentOffset == 0f && props[k].m_prop.name.ToLower().Contains("powerline"))
-                            {
-                                props[k].m_probability = probability;
-                            }
-                        }
-                    }
-                }
             }
         }
     }

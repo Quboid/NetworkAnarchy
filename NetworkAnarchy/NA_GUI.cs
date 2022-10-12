@@ -36,12 +36,12 @@ namespace NetworkAnarchy
                 // Allow Anarchy and Collision shortcuts even if the panel isn't visible
                 if (!UIView.HasModalInput() && OptionsKeymapping.toggleAnarchy.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: toggleAnarchy (was:{Anarchy})");
+                    Log.Debug($"Hotkey: toggleAnarchy (was:{Anarchy})");
                     ToggleAnarchy();
                 }
                 else if (!UIView.HasModalInput() && OptionsKeymapping.toggleCollision.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: toggleCollision (was:{Collision})");
+                    Log.Debug($"Hotkey: toggleCollision (was:{Collision})");
                     ToggleCollision();
                 }
 
@@ -100,19 +100,19 @@ namespace NetworkAnarchy
                 // Checking key presses
                 if (OptionsKeymapping.elevationUp.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: elevationUp (was:{m_elevation})");
+                    Log.Debug($"Hotkey: elevationUp (was:{m_elevation})");
                     m_elevation += Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
                 }
                 else if (OptionsKeymapping.elevationDown.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: elevationDown (was:{m_elevation})");
+                    Log.Debug($"Hotkey: elevationDown (was:{m_elevation})");
                     m_elevation -= Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
                 }
                 else if (OptionsKeymapping.elevationStepUp.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: elevationStepUp (was:{elevationStep})");
+                    Log.Debug($"Hotkey: elevationStepUp (was:{elevationStep})");
                     if (elevationStep < 12)
                     {
                         elevationStep++;
@@ -121,7 +121,7 @@ namespace NetworkAnarchy
                 }
                 else if (OptionsKeymapping.elevationStepDown.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: elevationStepDown (was:{elevationStep})");
+                    Log.Debug($"Hotkey: elevationStepDown (was:{elevationStep})");
                     if (elevationStep > 1)
                     {
                         elevationStep--;
@@ -130,7 +130,7 @@ namespace NetworkAnarchy
                 }
                 else if (OptionsKeymapping.modesCycleRight.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: modesCycleRight (was:{m_mode})");
+                    Log.Debug($"Hotkey: modesCycleRight (was:{m_mode})");
                     if (m_mode < Mode.Tunnel)
                     {
                         mode++;
@@ -144,7 +144,7 @@ namespace NetworkAnarchy
                 }
                 else if (OptionsKeymapping.modesCycleLeft.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: modesCycleLeft (was:{m_mode})");
+                    Log.Debug($"Hotkey: modesCycleLeft (was:{m_mode})");
                     if (m_mode > Mode.Normal)
                     {
                         mode--;
@@ -158,29 +158,29 @@ namespace NetworkAnarchy
                 }
                 else if (OptionsKeymapping.elevationReset.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: elevationReset (was:{m_elevation})");
+                    Log.Debug($"Hotkey: elevationReset (was:{m_elevation})");
                     m_elevation = 0;
                     UpdateElevation();
                     m_toolOptionButton.UpdateInfo();
                 }
                 else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: toggleStraightSlope (was:{StraightSlope})");
+                    Log.Debug($"Hotkey: toggleStraightSlope (was:{StraightSlope})");
                     ToggleStraightSlope();
                 }
                 else if (OptionsKeymapping.toggleBending.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: toggleBending (was:{Bending})");
+                    Log.Debug($"Hotkey: toggleBending (was:{Bending})");
                     ToggleBending();
                 }
                 else if (OptionsKeymapping.toggleSnapping.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: toggleSnapping (was:{NodeSnapping})");
+                    Log.Debug($"Hotkey: toggleSnapping (was:{NodeSnapping})");
                     ToggleSnapping();
                 }
                 else if (OptionsKeymapping.toggleGrid.IsPressed(e))
                 {
-                    DebugUtils.Log($"Hotkey: toggleGrid (was:{Grid})");
+                    Log.Debug($"Hotkey: toggleGrid (was:{Grid})");
                     Grid = !Grid;
                     m_toolOptionButton.UpdateInfo();
                 }
@@ -202,8 +202,7 @@ namespace NetworkAnarchy
             }
             catch (Exception e)
             {
-                DebugUtils.Log("OnGUI failed [NA19]");
-                DebugUtils.LogException(e);
+                Log.Error(e, "[NA33]");
             }
         }
 
@@ -212,7 +211,7 @@ namespace NetworkAnarchy
             UIButton button = checkBox.Find<UIButton>("NA_" + name);
             if (button == null)
             {
-                DebugUtils.Log($"Failed to find anarchy button \"{name}\"!");
+                Log.Warning($"Failed to find anarchy button \"{name}\"!", "[NA32]");
                 return;
             }
             if (enabled)
@@ -240,7 +239,7 @@ namespace NetworkAnarchy
 
                 if (m_toolOptionButton == null)
                 {
-                    DebugUtils.Log("Couldn't create label");
+                    Log.Warning("Couldn't create label", "[NA31]");
                     return;
                 }
 
@@ -252,8 +251,7 @@ namespace NetworkAnarchy
             catch (Exception e)
             {
                 enabled = false;
-                DebugUtils.Log("CreateToolOptionsButton failed");
-                DebugUtils.LogException(e);
+                Log.Error(e, "[NA32]");
             }
         }
 
@@ -284,7 +282,7 @@ namespace NetworkAnarchy
                     var list = new List<NetTool.Mode>(panel.m_Modes);
                     if (!list.Contains(NetTool.Mode.Upgrade))
                     {
-                        Debug.Log($"AAA Adding Upgrade button");
+                        Log.Debug($"AAA Adding Upgrade button");
                     }
                     if (m_upgradeButtonTemplate != null && prefab != null && prefab.hasElevation && !list.Contains(NetTool.Mode.Upgrade)) // hasElevation was hasVariation
                     {
@@ -296,7 +294,7 @@ namespace NetworkAnarchy
 
                             toolMode.AddTab("Upgrade", m_upgradeButtonTemplate, false);
 
-                            DebugUtils.Log("Upgrade button added. [NA17]");
+                            Log.Debug("Upgrade button added.", "[NA17]");
                         }
                     }
 
@@ -309,7 +307,7 @@ namespace NetworkAnarchy
 
             if (optionBar == null)
             {
-                DebugUtils.Log("OptionBar not found! [NA18]");
+                Log.Warning("OptionBar not found!", "[NA18]");
                 return;
             }
             m_toolOptionButton.transform.SetParent(optionBar.transform);

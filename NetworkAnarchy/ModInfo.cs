@@ -28,8 +28,8 @@ namespace NetworkAnarchy
             }
             catch (Exception e)
             {
-                DebugUtils.Log("Couldn't load/create the setting file.");
-                DebugUtils.LogException(e);
+                UnityEngine.Debug.Log("Couldn't load/create the setting file.");
+                UnityEngine.Debug.LogException(e);
             }
         }
 
@@ -140,16 +140,22 @@ namespace NetworkAnarchy
 
                 group.AddSpace(10);
 
-                checkBox = (UICheckBox)group.AddCheckbox(Str.options_enableDebugLogging, DebugUtils.showDebugMessages.value, (b) =>
+                checkBox = (UICheckBox)group.AddCheckbox(Str.options_enableDebugLogging, NetworkAnarchy.showDebugMessages.value, (b) =>
                 {
-                    DebugUtils.showDebugMessages.value = b;
+                    NetworkAnarchy.showDebugMessages.value = b;
+#if DEBUG == false
+                    if (NetworkAnarchy.Log is QLogger)
+                    { 
+                        NetworkAnarchy.Log.IsDebug = b;
+                    }
+#endif
                 });
                 checkBox.tooltip = Str.options_enableDebugLoggingTooltip;
             }
             catch (Exception e)
             {
-                DebugUtils.Log("OnSettingsUI failed");
-                DebugUtils.LogException(e);
+                UnityEngine.Debug.Log("NetworkAnarchy OnSettingsUI failed [NA20]");
+                UnityEngine.Debug.LogException(e);
             }
         }
 

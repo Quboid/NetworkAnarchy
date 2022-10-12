@@ -51,7 +51,8 @@
       <HintPath>..\..\..\Managed DLLs\ICities.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="QCommon">
+    <Reference Include="QCommon, Version=0.0.1.38782, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\QCommon\Repo\QCommon\QCommon\bin\Release\QCommon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -67,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChirperManager.cs" />
-    <Compile Include="DebugUtils.cs" />
     <Compile Include="Integration\ZoningAdjuster.cs" />
     <Compile Include="Localization\Str.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -214,6 +214,7 @@
     <EmbeddedResource Include="ChirperAtlas\ThumbChirperTechFocused.png" />
     <EmbeddedResource Include="ChirperAtlas\ThumbChirperTechHovered.png" />
     <EmbeddedResource Include="ChirperAtlas\ThumbChirperTechPressed.png" />
+    <EmbeddedResource Include="Localization\Str.cs.resx" />
     <EmbeddedResource Include="Localization\Str.de.resx" />
     <EmbeddedResource Include="Localization\Str.es.resx" />
     <EmbeddedResource Include="Localization\Str.fr.resx" />

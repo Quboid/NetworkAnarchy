@@ -20,21 +20,20 @@ namespace NetworkAnarchy.Mods
             ModAssembly = QCommon.GetAssembly("mod", "zoningadjuster");
             if (ModAssembly == null)
             {
-                DebugUtils.Log($"NetworkAnarchy: Network Multitool not found [NA04]");
+                NetworkAnarchy.Log.Info($"NetworkAnarchy: Network Multitool not found", "[NA04]");
                 IsEnabled = false;
                 return;
             }
 
             toolClass = ModAssembly.GetType("NetworkMultitool.NetworkMultitoolTool");
-
             if (toolClass == null)
             {
-                DebugUtils.Log($"NetworkAnarchy: Network Multitool failed loading [NA05]");
+                NetworkAnarchy.Log.Info($"NetworkAnarchy: Network Multitool failed loading", "[NA05]");
                 IsEnabled = false;
                 return;
             }
 
-            DebugUtils.Log($"NetworkAnarchy: Network Multitool loaded [NA06]");
+            NetworkAnarchy.Log.Info($"NetworkAnarchy: Network Multitool loaded", "[NA06]");
             IsEnabled = true;
         }
 

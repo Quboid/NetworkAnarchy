@@ -108,7 +108,8 @@ namespace NetworkAnarchy
                 }
             }
 
-            DebugUtils.Log($"Registered networks: {m_netPrefabs.Count}\n{prefabsAdded}");
+            NetworkAnarchy.Log.Info($"Registered networks: {m_netPrefabs.Count}", "[NA36]");
+            NetworkAnarchy.Log.Debug($"\n{prefabsAdded}", "[NA37]");
         }
 
         public static NetPrefab GetPrefab(NetInfo info)
