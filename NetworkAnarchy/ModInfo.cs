@@ -1,16 +1,14 @@
 ﻿using ColossalFramework;
 using ColossalFramework.Globalization;
 using ColossalFramework.UI;
-using CitiesHarmony.API;
-using HarmonyLib;
 using ICities;
 using NetworkAnarchy.Localization;
+using NetworkAnarchy.Patches;
+using QCommonLib;
 using System;
 using System.Globalization;
+using System.Reflection;
 using UnityEngine;
-using System.Linq;
-using QCommonLib;
-using NetworkAnarchy.Patches;
 
 namespace NetworkAnarchy
 {
@@ -28,13 +26,17 @@ namespace NetworkAnarchy
             }
             catch (Exception e)
             {
-                UnityEngine.Debug.Log("Couldn't load/create the setting file.");
-                UnityEngine.Debug.LogException(e);
+                Debug.Log("Couldn't load/create the setting file.");
+                Debug.LogException(e);
             }
         }
 
-        public string Name => "Network Anarchy " + Version;
+        public string Name => "Network Anarchy " + QVersion.Version(typeof(ModInfo).Assembly);
         public string Description => Str.mod_Description;
+
+        internal static QLogger Log;
+        internal static QPatcher Patcher;
+        internal string HarmonyId = "quboid.csl_mods.networkanarchy";
 
         internal static CultureInfo Culture => QCommon.GetCultureInfo();
 
@@ -143,10 +145,10 @@ namespace NetworkAnarchy
                 checkBox = (UICheckBox)group.AddCheckbox(Str.options_enableDebugLogging, NetworkAnarchy.showDebugMessages.value, (b) =>
                 {
                     NetworkAnarchy.showDebugMessages.value = b;
-#if DEBUG == false
-                    if (NetworkAnarchy.Log is QLogger)
-                    { 
-                        NetworkAnarchy.Log.IsDebug = b;
+#if !DEBUG
+                    if (Log is QLogger)
+                    {
+                        Log.IsDebug = b;
                     }
 #endif
                 });
@@ -154,37 +156,20 @@ namespace NetworkAnarchy
             }
             catch (Exception e)
             {
-                UnityEngine.Debug.Log("NetworkAnarchy OnSettingsUI failed [NA20]");
-                UnityEngine.Debug.LogException(e);
-            }
-        }
-
-        public static string MinorVersion => MajorVersion + "." + typeof(ModInfo).Assembly.GetName().Version.Build;
-        public static string MajorVersion => typeof(ModInfo).Assembly.GetName().Version.Major + "." + typeof(ModInfo).Assembly.GetName().Version.Minor;
-        public static string FullVersion => MinorVersion + " r" + typeof(ModInfo).Assembly.GetName().Version.Revision;
-
-        public static string Version
-        {
-            get
-            {
-                if (typeof(ModInfo).Assembly.GetName().Version.Minor == 0 && typeof(ModInfo).Assembly.GetName().Version.Build == 0)
-                {
-                    return typeof(ModInfo).Assembly.GetName().Version.Major.ToString() + ".0";
-                }
-                if (typeof(ModInfo).Assembly.GetName().Version.Build > 0)
-                {
-                    return MinorVersion;
-                }
-                else
-                {
-                    return MajorVersion;
-                }
+                Debug.Log("NetworkAnarchy OnSettingsUI failed [NA20]");
+                Debug.LogException(e);
             }
         }
 
         public void OnEnabled()
         {
-            Patcher.EarlyPatch();
+#if DEBUG
+            Log = new QLogger(typeof(ModInfo).Assembly, true);
+            Patcher = new QPatcher(HarmonyId, true);
+#else
+            Log = new QLogger(typeof(ModInfo).Assembly, NetworkAnarchy.showDebugMessages);
+            Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
+#endif
 
             if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
             {
@@ -198,6 +183,8 @@ namespace NetworkAnarchy
             {
                 DestroyMod();
             }
+
+            Log = null;
         }
 
         public override void OnLevelLoaded(LoadMode mode)
@@ -231,12 +218,12 @@ namespace NetworkAnarchy
                 NetworkAnarchy.instance.enabled = true;
             }
 
-            HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
+            Patcher.PatchAll();
         }
 
         public void DestroyMod()
         {
-            HarmonyHelper.DoOnHarmonyReady(() => Patcher.UnpatchAll());
+            Patcher.UnpatchAll();
 
             if (NetworkAnarchy.instance != null)
             {
@@ -264,39 +251,6 @@ namespace NetworkAnarchy
 
             Debug.Log($"Network Anarchy Locale changed {Str.Culture?.Name}->{ModInfo.Culture.Name}");
             Str.Culture = ModInfo.Culture;
-        }
-    }
-
-    public static class Patcher
-    {
-        private const string HarmonyId = "quboid.csl_mods.networkanarchy";
-        private static bool patched = false;
-        internal static Harmony Instance;
-
-        public static void EarlyPatch()
-        {
-            Instance = new Harmony(HarmonyId);
-            EarlyPatches.Deploy();
-        }
-
-        public static void PatchAll()
-        {
-            if (patched) return;
-
-            patched = true;
-#if DEBUG
-            Harmony.DEBUG = true;
-#endif
-            Instance.PatchAll();
-        }
-
-        public static void UnpatchAll()
-        {
-            if (!patched) return;
-
-            Instance.UnpatchAll(HarmonyId);
-            EarlyPatches.Revert();
-            patched = false;
         }
     }
 }

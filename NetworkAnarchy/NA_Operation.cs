@@ -14,12 +14,6 @@ namespace NetworkAnarchy
     {
         public void Start()
         {
-#if DEBUG
-            Log = new QLogger(typeof(ModInfo).Assembly, true);
-#else
-            Log = new QLogger(typeof(ModInfo).Assembly, showDebugMessages);
-#endif
-
             Mods.NetworkSkins.Init();
             Mods.NetworkMultitool.Initialise();
             Mods.ZoningAdjuster.Initialise();
@@ -207,7 +201,10 @@ namespace NetworkAnarchy
 
         public void OnDisable()
         {
-            Log.Debug("Deactivating because OnDisable");
+            if (Log != null)
+                Log.Debug("Deactivating because OnDisable");
+            else
+                UnityEngine.Debug.Log($"Network Anarchy: Deactivating because OnDisable");
             Deactivate();
             NetPrefab.SingleMode = false;
         }

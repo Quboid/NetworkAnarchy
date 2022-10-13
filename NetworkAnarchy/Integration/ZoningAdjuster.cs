@@ -20,7 +20,7 @@ namespace NetworkAnarchy.Mods
             ModAssembly = QCommon.GetAssembly("mod", "zoningadjuster");
             if (ModAssembly == null)
             {
-                NetworkAnarchy.Log.Info($"NetworkAnarchy: Zoning Adjuster not found", "[NA01]");
+                ModInfo.Log.Info($"NetworkAnarchy: Zoning Adjuster not found", "[NA01]");
                 IsEnabled = false;
                 return;
             }
@@ -29,12 +29,12 @@ namespace NetworkAnarchy.Mods
 
             if (toolClass == null)
             {
-                NetworkAnarchy.Log.Info($"NetworkAnarchy: Zoning Adjuster failed loading", "[NA02]");
+                ModInfo.Log.Info($"NetworkAnarchy: Zoning Adjuster failed loading", "[NA02]");
                 IsEnabled = false;
                 return;
             }
 
-            NetworkAnarchy.Log.Info($"NetworkAnarchy: Zoning Adjuster loaded", "[NA03]");
+            ModInfo.Log.Info($"NetworkAnarchy: Zoning Adjuster loaded", "[NA03]");
             IsEnabled = true;
         }
 

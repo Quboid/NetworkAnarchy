@@ -8,35 +8,41 @@ namespace NetworkAnarchy.Patches
 {
     public static class EarlyPatches
     {
-        public static void Deploy()
+        public static void Deploy(QPatcher Patcher)
         {
             Type self = typeof(EarlyPatches);
             try
             {
-                Patcher.Instance.Patch(typeof(NetInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(self.GetMethod("NetInfo_InitializePrefab_Postfix")));
-                Patcher.Instance.Patch(typeof(TransportInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(self.GetMethod("TransportInfo_InitializePrefab_Postfix")));
-                Patcher.Instance.Patch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), prefix: new HarmonyMethod(self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix")));
-                Debug.Log($"NetworkAnarchy: Deployed early patches [NA13]");
+                Patcher.Postfix(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
+                Patcher.Postfix(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
+                Patcher.Prefix(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
+                //Patcher.Instance.Patch(typeof(NetInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(self.GetMethod("NetInfo_InitializePrefab_Postfix")));
+                //Patcher.Instance.Patch(typeof(TransportInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(self.GetMethod("TransportInfo_InitializePrefab_Postfix")));
+                //Patcher.Instance.Patch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), prefix: new HarmonyMethod(self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix")));
+                ModInfo.Log.Info($"NetworkAnarchy: Deployed early patches", "[NA13]");
             }
             catch (Exception e)
             {
-                Debug.Log($"NetworkAnarchy: Failed to deploy early patches [NA14]\n{e}");
+                ModInfo.Log.Warning($"NetworkAnarchy: Failed to deploy early patches\n{e}", "[NA14]");
             }
         }
 
-        public static void Revert()
+        public static void Revert(QPatcher Patcher)
         {
+            Type self = typeof(EarlyPatches);
             try
             { 
-                Type self = typeof(EarlyPatches);
-                Patcher.Instance.Unpatch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport"), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
-                Patcher.Instance.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("TransportInfo_InitializePrefab_Postfix"));
-                Patcher.Instance.Unpatch(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
-                Debug.Log($"NetworkAnarchy: Reverted early patches [NA15]");
+                Patcher.Unpatch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
+                Patcher.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
+                Patcher.Unpatch(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
+                //Patcher.Instance.Unpatch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
+                //Patcher.Instance.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("TransportInfo_InitializePrefab_Postfix"));
+                //Patcher.Instance.Unpatch(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
+                ModInfo.Log.Info($"NetworkAnarchy: Reverted early patches", "[NA15]");
             }
             catch (Exception e)
             {
-                Debug.Log($"NetworkAnarchy: Failed to revert early patches [NA16]\n{e}");
+                ModInfo.Log.Warning($"NetworkAnarchy: Failed to revert early patches\n{e}", "[NA16]");
             }
         }
 
