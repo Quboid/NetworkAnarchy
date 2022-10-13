@@ -163,10 +163,10 @@
     <value>更多的道路及其他网络工具选项</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>启用调试信息日志记录</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>如果选中该选项，则将会记录额外的调试信息。</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>最大转角</value>
@@ -216,7 +216,7 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Show Editor Grid</value>
+    <value>显示编辑器网格</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>最大路段长度：</value>
@@ -255,7 +255,7 @@
     <value>切换碰撞</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>切换平直的斜坡（不跟随地形）</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>切换捕捉吸附</value>

@@ -163,10 +163,10 @@
     <value>Más opciones de herramientas para carreteras y otras redes</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>Activar el registro de mensajes de depuración</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>Si está activado, se registrarán mensajes adicionales de depuración.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Ángulo máximo de giro</value>
@@ -216,7 +216,7 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Show Editor Grid</value>
+    <value>Mostrar cuadrícula del editor</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Longitud máxima de segmento:</value>
@@ -255,7 +255,7 @@
     <value>Apagar/encender colisión</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>Alternar pendiente recta (no seguir la forma del terreno)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Apagar/encender ajuste a nodos</value>
