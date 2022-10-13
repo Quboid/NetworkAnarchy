@@ -148,7 +148,7 @@ namespace NetworkAnarchy
             m_button.playAudioEvents = true;
             m_button.relativePosition = Vector2.zero;
 
-            m_button.tooltip = "Network Anarchy " + ModInfo.Version + "\n\n" + Str.ui_clickForToolOptions;
+            m_button.tooltip = "Network Anarchy " + QVersion.Version(typeof(ModInfo).Assembly) + "\n\n" + Str.ui_clickForToolOptions;
 
             m_button.textColor = Color.white;
             m_button.textScale = 0.7f;

@@ -14,6 +14,8 @@ namespace NetworkAnarchy
     {
         public void Start()
         {
+            Log = ModInfo.Log;
+
             Mods.NetworkSkins.Init();
             Mods.NetworkMultitool.Initialise();
             Mods.ZoningAdjuster.Initialise();
@@ -138,7 +140,6 @@ namespace NetworkAnarchy
             //UnityEngine.Debug.Log($"NAUpdate shouldShow:{(m_activated || !m_buttonInOptionsBar)} (activated:{m_activated}, inOptBar:{m_buttonInOptionsBar})\n" +
             //    $"prefab:{((m_netTool.enabled || m_bulldozeTool.enabled) ? m_netTool.m_prefab : null)}\n" +
             //    $"currentPref:{m_current} wasEnabled:{m_toolEnabled}, nowEnabled:{m_netTool.enabled}, buttonVis:{m_toolOptionButton.isVisible}, buttonChecked:{m_toolOptionButton.isChecked}");
-
             if (m_netTool == null)
             {
                 return;
@@ -342,7 +343,7 @@ namespace NetworkAnarchy
 
         private void Activate(NetInfo info)
         {
-            Log.Debug($"Activated ({info})\n{new StackTrace().ToString()}", "[NA29]");
+            Log.Debug($"Activated ({info})\n{new StackTrace()}", "[NA29]");
 
             if (info == null)
             {
