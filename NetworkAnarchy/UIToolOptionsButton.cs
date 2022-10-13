@@ -148,7 +148,7 @@ namespace NetworkAnarchy
             m_button.playAudioEvents = true;
             m_button.relativePosition = Vector2.zero;
 
-            m_button.tooltip = "Network Anarchy " + QVersion.Version(typeof(ModInfo).Assembly) + "\n\n" + Str.ui_clickForToolOptions;
+            m_button.tooltip = "Network Anarchy " + QVersion.Version() + "\n\n" + Str.ui_clickForToolOptions;
 
             m_button.textColor = Color.white;
             m_button.textScale = 0.7f;
@@ -680,7 +680,7 @@ namespace NetworkAnarchy
                 "StraightSlopePressed"
             };
 
-            m_atlas = QTextures.CreateTextureAtlas(typeof(ModInfo).Assembly, "NetworkAnarchy", spriteNames, "NetworkAnarchy.Icons.");
+            m_atlas = QTextures.CreateTextureAtlas("NetworkAnarchy", spriteNames, "NetworkAnarchy.Icons.");
 
             UITextureAtlas defaultAtlas = QTextures.GetAtlas("Ingame");
             Texture2D[] textures = new Texture2D[]

@@ -31,7 +31,7 @@ namespace NetworkAnarchy
             }
         }
 
-        public string Name => "Network Anarchy " + QVersion.Version(typeof(ModInfo).Assembly);
+        public string Name => "Network Anarchy " + QVersion.Version();
         public string Description => Str.mod_Description;
 
         internal static QLogger Log;
@@ -164,10 +164,10 @@ namespace NetworkAnarchy
         public void OnEnabled()
         {
 #if DEBUG
-            Log = new QLogger(typeof(ModInfo).Assembly, true);
+            Log = new QLogger(true);
             Patcher = new QPatcher(HarmonyId, true);
 #else
-            Log = new QLogger(typeof(ModInfo).Assembly, NetworkAnarchy.showDebugMessages);
+            Log = new QLogger(NetworkAnarchy.showDebugMessages);
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
 #endif
 
@@ -249,7 +249,7 @@ namespace NetworkAnarchy
                 }
             }
 
-            Debug.Log($"Network Anarchy Locale changed {Str.Culture?.Name}->{ModInfo.Culture.Name}");
+            Log.Info($"Network Anarchy Locale changed {Str.Culture?.Name}->{ModInfo.Culture.Name}", "[NA48]");
             Str.Culture = ModInfo.Culture;
         }
     }

@@ -176,7 +176,7 @@ namespace NetworkAnarchy
                 "ThumbChirperTechPressed"
             };
 
-            return QTextures.CreateTextureAtlas(typeof(ModInfo).Assembly, "ChirperAtlasAnarchy", spriteNames, "NetworkAnarchy.ChirperAtlas.");
+            return QTextures.CreateTextureAtlas("ChirperAtlasAnarchy", spriteNames, "NetworkAnarchy.ChirperAtlas.");
         }
     }
 
