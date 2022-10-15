@@ -147,16 +147,19 @@ namespace NetworkAnarchy
 
             try
             {
-                // Getting selected prefab
-                NetInfo prefab = (m_netTool.enabled || m_bulldozeTool.enabled || Mods.NetworkMultitool.IsToolActive() || Mods.ZoningAdjuster.IsToolActive()) ? m_netTool.m_prefab : null;
+                bool isRelevantToolActive = m_netTool.enabled || m_bulldozeTool.enabled || Mods.NetworkMultitool.IsToolActive() || Mods.ZoningAdjuster.IsToolActive();
 
-                // Has the prefab/tool changed?
-                if (prefab != m_current || IsNetToolEnabled != m_netTool.enabled)
+                // Getting selected prefab
+                NetInfo prefab = isRelevantToolActive ? m_netTool.m_prefab : null;
+
+                // Has the prefab or tool changed?
+                if (prefab != m_current || isRelevantToolActive != m_wasRelevantToolActive)
                 {
                     if (prefab == null)
                     {
                         Log.Debug($"Deactivating in Update because prefab is null.\n" +
-                            $"netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}, current:{m_current}, INTE:{IsNetToolEnabled}");
+                            $"  netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}\n" +
+                            $"  prefab:{prefab} (was:{m_current}), RelevantTool:{isRelevantToolActive} (was:{m_wasRelevantToolActive})");
                         Deactivate();
                     }
                     else
@@ -164,7 +167,7 @@ namespace NetworkAnarchy
                         Activate(prefab);
                     }
 
-                    IsNetToolEnabled = m_netTool.enabled;
+                    m_wasRelevantToolActive = isRelevantToolActive;
 
                     if (m_toolOptionButton != null)
                     {

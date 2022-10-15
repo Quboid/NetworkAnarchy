@@ -150,7 +150,6 @@ namespace NetworkAnarchy
                         segments[i].m_endNode = startNode;
 
                         Vector3 dir = segments[i].m_startDirection;
-
                         segments[i].m_startDirection = segments[i].m_endDirection;
                         segments[i].m_endDirection = dir;
 

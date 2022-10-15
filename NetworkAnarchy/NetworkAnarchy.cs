@@ -44,13 +44,13 @@ namespace NetworkAnarchy
         private bool m_keyDisabled;
 
         private NetInfo m_current;
+        private bool m_wasRelevantToolActive;
         private InfoManager.InfoMode m_infoMode = (InfoManager.InfoMode) (-1);
 
         private Mode m_mode;
 
         private bool _doesVanillaElevationButtonExist;
         private bool _activated;
-        private bool _isNetToolEnabled;
         private bool _isButtonInOptionsBar;
 
         /// <summary>
@@ -84,17 +84,17 @@ namespace NetworkAnarchy
         /// <summary>
         /// Is the vanilla NetTool active? To check if it has been toggled next tick
         /// </summary>
-        private bool IsNetToolEnabled
-        {
-            get
-            {
-                return _isNetToolEnabled;
-            }
-            set
-            {
-                _isNetToolEnabled = value;
-            }
-        }
+        //private bool IsNetToolEnabled
+        //{
+        //    get
+        //    {
+        //        return _isNetToolEnabled;
+        //    }
+        //    set
+        //    {
+        //        _isNetToolEnabled = value;
+        //    }
+        //}
         /// <summary>
         /// Is the NA button in the options bar instead of attached to the vanilla elevation button?
         /// </summary>
