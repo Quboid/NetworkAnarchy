@@ -161,7 +161,7 @@ namespace NetworkAnarchy
 
                     prefab.mode = m_mode;
                     prefab.Update();
-                    m_toolOptionButton.UpdateInfo();
+                    m_toolOptionButton.UpdateButton();
                 }
             }
         }
@@ -187,7 +187,7 @@ namespace NetworkAnarchy
 
                     _straightSlope = value;
 
-                    m_toolOptionButton.UpdateInfo();
+                    m_toolOptionButton.UpdateButton();
 
                     var prefab = NetPrefab.GetPrefab(m_current);
                     if (prefab == null)

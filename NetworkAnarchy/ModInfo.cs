@@ -10,6 +10,8 @@ using System.Globalization;
 using System.Reflection;
 using UnityEngine;
 
+// Error code max: 50
+
 namespace NetworkAnarchy
 {
     public class ModInfo : LoadingExtensionBase, IUserMod 
@@ -251,6 +253,12 @@ namespace NetworkAnarchy
 
             Log.Info($"Network Anarchy Locale changed {Str.Culture?.Name}->{ModInfo.Culture.Name}", "[NA48]");
             Str.Culture = ModInfo.Culture;
+        }
+
+        internal static string GetString(object o)
+        {
+            if (o == null) return "<null>";
+            return o.ToString();
         }
     }
 }

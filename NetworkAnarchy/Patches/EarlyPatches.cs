@@ -16,9 +16,6 @@ namespace NetworkAnarchy.Patches
                 Patcher.Postfix(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
                 Patcher.Postfix(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
                 Patcher.Prefix(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
-                //Patcher.Instance.Patch(typeof(NetInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(self.GetMethod("NetInfo_InitializePrefab_Postfix")));
-                //Patcher.Instance.Patch(typeof(TransportInfo).GetMethod("InitializePrefab"), postfix: new HarmonyMethod(self.GetMethod("TransportInfo_InitializePrefab_Postfix")));
-                //Patcher.Instance.Patch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), prefix: new HarmonyMethod(self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix")));
                 ModInfo.Log.Info($"NetworkAnarchy: Deployed early patches", "[NA13]");
             }
             catch (Exception e)
@@ -35,9 +32,6 @@ namespace NetworkAnarchy.Patches
                 Patcher.Unpatch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
                 Patcher.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
                 Patcher.Unpatch(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
-                //Patcher.Instance.Unpatch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
-                //Patcher.Instance.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("TransportInfo_InitializePrefab_Postfix"));
-                //Patcher.Instance.Unpatch(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
                 ModInfo.Log.Info($"NetworkAnarchy: Reverted early patches", "[NA15]");
             }
             catch (Exception e)

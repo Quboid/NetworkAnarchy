@@ -159,7 +159,7 @@ namespace NetworkAnarchy
                     {
                         Log.Debug($"Deactivating in Update because prefab is null.\n" +
                             $"  netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}\n" +
-                            $"  prefab:{(prefab == null ? "<null>" : prefab.ToString())} (was:{(m_current == null ? "<null>" : m_current.ToString())}), RelevantTool:{isRelevantToolActive} (was:{m_wasRelevantToolActive})");
+                            $"  prefab:{ModInfo.GetString(prefab)} (was:{ModInfo.GetString(m_current)}), RelevantTool:{isRelevantToolActive} (was:{m_wasRelevantToolActive})");
                         Deactivate();
                     }
                     else
@@ -332,7 +332,7 @@ namespace NetworkAnarchy
                     UpdateElevation();
                     if (m_toolOptionButton != null)
                     {
-                        m_toolOptionButton.UpdateInfo();
+                        m_toolOptionButton.UpdateButton();
                     }
                 }
             }
@@ -393,7 +393,7 @@ namespace NetworkAnarchy
 
             IsActive = true;
             m_toolOptionButton.isVisible = true;
-            m_toolOptionButton.UpdateInfo();
+            m_toolOptionButton.UpdateButton();
         }
 
         private void Deactivate()
@@ -460,7 +460,7 @@ namespace NetworkAnarchy
             if ((int)m_elevationField.GetValue(m_netTool) != m_elevation)
             {
                 m_elevationField.SetValue(m_netTool, m_elevation);
-                m_toolOptionButton.UpdateInfo();
+                m_toolOptionButton.UpdateButton();
             }
         }
     }

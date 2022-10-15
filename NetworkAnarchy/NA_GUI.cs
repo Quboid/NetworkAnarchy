@@ -89,7 +89,7 @@ namespace NetworkAnarchy
                     if (m_elevation != currentElevation)
                     {
                         m_elevation = currentElevation;
-                        m_toolOptionButton.UpdateInfo();
+                        m_toolOptionButton.UpdateButton();
                     }
                 }
                 else
@@ -116,7 +116,7 @@ namespace NetworkAnarchy
                     if (elevationStep < 12)
                     {
                         elevationStep++;
-                        m_toolOptionButton.UpdateInfo();
+                        m_toolOptionButton.UpdateButton();
                     }
                 }
                 else if (OptionsKeymapping.elevationStepDown.IsPressed(e))
@@ -125,7 +125,7 @@ namespace NetworkAnarchy
                     if (elevationStep > 1)
                     {
                         elevationStep--;
-                        m_toolOptionButton.UpdateInfo();
+                        m_toolOptionButton.UpdateButton();
                     }
                 }
                 else if (OptionsKeymapping.modesCycleRight.IsPressed(e))
@@ -140,7 +140,7 @@ namespace NetworkAnarchy
                         mode = Mode.Normal;
                     }
 
-                    m_toolOptionButton.UpdateInfo();
+                    m_toolOptionButton.UpdateButton();
                 }
                 else if (OptionsKeymapping.modesCycleLeft.IsPressed(e))
                 {
@@ -154,14 +154,14 @@ namespace NetworkAnarchy
                         mode = Mode.Tunnel;
                     }
 
-                    m_toolOptionButton.UpdateInfo();
+                    m_toolOptionButton.UpdateButton();
                 }
                 else if (OptionsKeymapping.elevationReset.IsPressed(e))
                 {
                     Log.Debug($"Hotkey: elevationReset (was:{m_elevation})");
                     m_elevation = 0;
                     UpdateElevation();
-                    m_toolOptionButton.UpdateInfo();
+                    m_toolOptionButton.UpdateButton();
                 }
                 else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e))
                 {
@@ -182,7 +182,7 @@ namespace NetworkAnarchy
                 {
                     Log.Debug($"Hotkey: toggleGrid (was:{Grid})");
                     Grid = !Grid;
-                    m_toolOptionButton.UpdateInfo();
+                    m_toolOptionButton.UpdateButton();
                 }
 
                 if (m_mode == Mode.Tunnel && InfoManager.instance.CurrentMode != InfoManager.InfoMode.Traffic)
@@ -298,6 +298,7 @@ namespace NetworkAnarchy
                         }
                     }
 
+                    Log.Debug($"Button placed on elevation button ({ModInfo.GetString(m_toolOptionButton.parent)})", "[NA49]");
                     return;
                 }
             }
@@ -311,6 +312,7 @@ namespace NetworkAnarchy
                 return;
             }
             m_toolOptionButton.transform.SetParent(optionBar.transform);
+            Log.Debug($"Button placed on main options bar ({m_toolOptionButton.parent})", "[NA50]");
             IsButtonInOptionsBar = true;
         }
 

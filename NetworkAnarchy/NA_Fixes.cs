@@ -53,7 +53,7 @@ namespace NetworkAnarchy
                         // Fix by Algernon
                         int tempI = i;
                         var tempPrefab = prefab;
-                        Singleton<SimulationManager>.instance.AddAction(() => 
+                        Singleton<SimulationManager>.instance.AddAction(() =>
                         {
                             nodes[tempI].m_elevation = 0;
                             nodes[tempI].m_flags = nodes[tempI].m_flags & ~NetNode.Flags.Underground;

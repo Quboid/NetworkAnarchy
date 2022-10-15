@@ -59,10 +59,10 @@ namespace NetworkAnarchy
         {
             if (parent != m_parent && parent != null)
             {
+                ModInfo.Log.Debug($"Tool button parent changed: {ModInfo.GetString(parent)} (was: {ModInfo.GetString(m_parent)}", "[NA39]");
                 m_parent = parent;
 
-                UpdateInfo();
-                ModInfo.Log.Debug("Tool button parent changed: " + parent.name, "[NA39]");
+                UpdateButton();
             }
 
             if (m_toolOptionsPanel != null)
@@ -71,17 +71,16 @@ namespace NetworkAnarchy
             }
         }
 
-        public void UpdateInfo()
+        public void UpdateButton()
         {
             if (NetworkAnarchy.instance == null) return;
             if (parent == null)
             {
-                ModInfo.Log.Debug($"Button parent is null (m_parent is {(m_parent == null ? "<null>" : m_parent.ToString())})", "[NA38]");
+                ModInfo.Log.Debug($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})", "[NA38]");
                 isVisible = false;
                 return;
             }
 
-            //if (parent.name == "OptionsBar")
             if (NetworkAnarchy.instance.IsButtonInOptionsBar)
             {
                 relativePosition = new Vector2(36, 0);
@@ -183,7 +182,6 @@ namespace NetworkAnarchy
                     m_button.normalBgSprite = "OptionBaseFocused";
 
                     m_toolOptionsPanel.BringToFront();
-                    UpdateInfo();
                     windowVisible.value = true;
                 }
                 else
@@ -191,7 +189,7 @@ namespace NetworkAnarchy
                     m_button.normalBgSprite = "OptionBase";
                     windowVisible.value = false;
                 }
-                UpdateInfo();
+                UpdateButton();
             };
         }
 
@@ -312,24 +310,6 @@ namespace NetworkAnarchy
             anarchyPanel.autoLayout = true;
             ExpandY(ref yPos, 58u);
 
-            // Show Grid in Editor
-            if (QCommon.Scene == QCommon.SceneTypes.AssetEditor)
-            {
-                ExpandY(ref yPos, 2u);
-                m_grid = CreateCheckBox(m_toolOptionsPanel);
-                m_grid.name = "NA_Grid";
-                m_grid.label.text = Str.ui_grid;
-                m_grid.isChecked = NetworkAnarchy.Grid;
-                m_grid.relativePosition = new Vector3(8, yPos);
-                m_grid.width = m_toolOptionsPanel.width - 16;
-
-                m_grid.eventCheckChanged += (c, state) =>
-                {
-                    NetworkAnarchy.Grid = state;
-                };
-                ExpandY(ref yPos, 24u);
-            }
-
             // Node spacing
             if (showMaxSegmentLengthSlider)
             {
@@ -352,6 +332,25 @@ namespace NetworkAnarchy
                 m_maxSegmentLengthSlider = CreateMaxSegmentLengthSlider(m_toolOptionsPanel, 0);
                 m_maxSegmentLengthSlider.isVisible = false;
             }
+
+            // Show Grid in Editor
+            if (QCommon.Scene == QCommon.SceneTypes.AssetEditor)
+            {
+                ExpandY(ref yPos, 2u);
+                m_grid = CreateCheckBox(m_toolOptionsPanel);
+                m_grid.name = "NA_Grid";
+                m_grid.label.text = Str.ui_grid;
+                m_grid.isChecked = NetworkAnarchy.Grid;
+                m_grid.relativePosition = new Vector3(8, yPos);
+                m_grid.width = m_toolOptionsPanel.width - 16;
+
+                m_grid.eventCheckChanged += (c, state) =>
+                {
+                    NetworkAnarchy.Grid = state;
+                };
+                ExpandY(ref yPos, 24u);
+            }
+
             ExpandY(ref yPos, 2u);
         }
 
@@ -410,7 +409,7 @@ namespace NetworkAnarchy
                 if (v != NetworkAnarchy.instance.elevationStep)
                 {
                     NetworkAnarchy.instance.elevationStep = (int)v;
-                    UpdateInfo();
+                    UpdateButton();
                 }
             };
 
@@ -592,37 +591,12 @@ namespace NetworkAnarchy
             checkBox.eventCheckChanged += (c, s) =>
             {
                 method();
-                //if (s)
-                //{
-                //    button.normalBgSprite = "OptionBaseFocused";
-                //    button.normalFgSprite = spriteName + "Focused";
-                //}
-                //else
-                //{
-                //    button.normalBgSprite = "OptionBase";
-                //    button.normalFgSprite = spriteName;
-                //}
-
-                //UpdateAnarchyOptions();
             };
 
             return checkBox;
         }
 
         delegate void ToggleAnarchyButton();
-
-        //private void UpdateAnarchyOptions()
-        //{
-        //    NetworkAnarchy.Anarchy = m_anarchyBtn.isChecked;
-        //    NetworkAnarchy.Bending = m_bendingBtn.isChecked;
-        //    NetworkAnarchy.NodeSnapping = m_snappingBtn.isChecked;
-        //    NetworkAnarchy.Collision = m_collisionBtn.isChecked;
-
-        //    if (m_gridBtn != null)
-        //    {
-        //        NetworkAnarchy.Grid = m_gridBtn.isChecked;
-        //    }
-        //}
 
         private void LoadResources()
         {
