@@ -159,7 +159,7 @@ namespace NetworkAnarchy
                     {
                         Log.Debug($"Deactivating in Update because prefab is null.\n" +
                             $"  netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}\n" +
-                            $"  prefab:{prefab} (was:{m_current}), RelevantTool:{isRelevantToolActive} (was:{m_wasRelevantToolActive})");
+                            $"  prefab:{(prefab == null ? "<null>" : prefab.ToString())} (was:{(m_current == null ? "<null>" : m_current.ToString())}), RelevantTool:{isRelevantToolActive} (was:{m_wasRelevantToolActive})");
                         Deactivate();
                     }
                     else
@@ -398,6 +398,8 @@ namespace NetworkAnarchy
 
         private void Deactivate()
         {
+            m_current = null;
+
             if (!IsActive)
             {
                 return;
@@ -408,8 +410,6 @@ namespace NetworkAnarchy
             {
                 prefab.Restore();
             }
-
-            m_current = null;
 
             RestoreDefaultKeys();
 
