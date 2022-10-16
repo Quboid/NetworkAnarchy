@@ -370,7 +370,7 @@ namespace NetworkAnarchy
             if (m_bulldozeTool.enabled && !DoesVanillaElevationButtonExist)
             {
                 Log.Debug($"Deactivating because bulldozing non-network issue.\n" +
-                    $"bulldoze:{m_bulldozeTool.enabled}, DVEBE:{DoesVanillaElevationButtonExist}");
+                    $"bulldoze:{m_bulldozeTool.enabled}, DoesVanillaElevationButtonExist:{DoesVanillaElevationButtonExist}");
                 Deactivate();
                 return;
             }

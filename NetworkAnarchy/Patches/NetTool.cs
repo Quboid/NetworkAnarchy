@@ -129,8 +129,13 @@ namespace NetworkAnarchy.Patches
     )]
     class NT_CreateNode
     {
-        public static void Postfix(ref ToolBase.ToolErrors __result)
+        public static void Postfix(ref ToolBase.ToolErrors __result, NetInfo info, ref ushort firstNode, ref ushort lastNode, bool test, bool testEnds, bool visualize, bool autoFix)
         {
+            if (!visualize && !test &&firstNode != 0 && lastNode != 0 && firstNode != lastNode)
+            {
+                NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
+                ModInfo.Log.Debug($"Created Node {info.name} testEnds:{testEnds}, autoFix:{autoFix}\n  {firstNode}:{nodes[firstNode].m_flags}\n  {lastNode}:{nodes[lastNode].m_flags}", "[NA52]");
+            }
             if (NetworkAnarchy.Anarchy)
             {
                 __result &= ~ToolBase.ToolErrors.InvalidShape;
