@@ -44,7 +44,7 @@ namespace NetworkAnarchy
         private bool m_keyDisabled;
 
         private NetInfo m_current;
-        private bool m_wasRelevantToolActive;
+        private ToolBase m_wasToolBase;
         private InfoManager.InfoMode m_infoMode = (InfoManager.InfoMode) (-1);
 
         private Mode m_mode;

@@ -1,8 +1,4 @@
 ﻿using ColossalFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -16,9 +12,6 @@ namespace NetworkAnarchy
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
 
-            bool singleMode = NetPrefab.SingleMode;
-            NetPrefab.SingleMode = false;
-
             uint max = NetManager.instance.m_nodes.m_size;
             for (int i = m_fixNodesCount; i < max; i++)
             {
@@ -30,7 +23,6 @@ namespace NetworkAnarchy
                 if (m_stopWatch.ElapsedMilliseconds >= 1 && i > m_fixNodesCount + 16)
                 {
                     m_fixNodesCount = i;
-                    NetPrefab.SingleMode = singleMode;
                     return;
                 }
 
@@ -81,7 +73,6 @@ namespace NetworkAnarchy
                 }
             }
 
-            NetPrefab.SingleMode = singleMode;
             m_fixNodesCount = 0;
         }
 
@@ -89,9 +80,6 @@ namespace NetworkAnarchy
         {
             m_stopWatch.Reset();
             m_stopWatch.Start();
-
-            bool singleMode = NetPrefab.SingleMode;
-            NetPrefab.SingleMode = false;
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
             NetSegment[] segments = NetManager.instance.m_segments.m_buffer;
@@ -107,7 +95,6 @@ namespace NetworkAnarchy
                 if (m_stopWatch.ElapsedMilliseconds >= 1 && i > m_fixTunnelsCount + 16)
                 {
                     m_fixTunnelsCount = i;
-                    NetPrefab.SingleMode = singleMode;
                     return;
                 }
 
@@ -228,7 +215,6 @@ namespace NetworkAnarchy
                 }
             }
 
-            NetPrefab.SingleMode = singleMode;
             m_fixTunnelsCount = 0;
         }
 

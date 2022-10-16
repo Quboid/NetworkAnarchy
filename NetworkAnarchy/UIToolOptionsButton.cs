@@ -59,7 +59,7 @@ namespace NetworkAnarchy
         {
             if (parent != m_parent && parent != null)
             {
-                ModInfo.Log.Debug($"Tool button parent changed: {ModInfo.GetString(parent)} (was: {ModInfo.GetString(m_parent)}", "[NA39]");
+                ModInfo.Log.Debug($"Tool button parent changed: {ModInfo.GetString(parent)} (was: {ModInfo.GetString(m_parent)})", "[NA39]");
                 m_parent = parent;
 
                 UpdateButton();

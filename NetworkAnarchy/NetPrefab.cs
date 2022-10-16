@@ -32,7 +32,6 @@ namespace NetworkAnarchy
         /// Dictionary of base-game prefab to Network Anarchy wrapper
         /// </summary>
         public static Dictionary<NetInfo, NetPrefab> m_netPrefabs;
-        private static bool m_singleMode;
 
         private NetPrefab(NetInfo prefab)
         {
@@ -122,29 +121,30 @@ namespace NetworkAnarchy
         /// <summary>
         /// Is the player placing a single object (rather than a draggable network)?
         /// </summary>
-        public static bool SingleMode
-        {
-            get { return m_singleMode; }
-            set
-            {
-                if (value == m_singleMode) return;
-                m_singleMode = false;
+        //private static bool m_singleMode;
+        //public static bool SingleMode
+        //{
+        //    get { return m_singleMode; }
+        //    set
+        //    {
+        //        if (value == m_singleMode) return;
+        //        m_singleMode = false;
 
-                foreach (NetPrefab prefab in m_netPrefabs.Values)
-                {
-                    if (value)
-                    {
-                        prefab.Update();
-                    }
-                    else
-                    {
-                        prefab.Restore();
-                    }
-                }
+        //        foreach (NetPrefab prefab in m_netPrefabs.Values)
+        //        {
+        //            if (value)
+        //            {
+        //                prefab.Update();
+        //            }
+        //            else
+        //            {
+        //                prefab.Restore();
+        //            }
+        //        }
 
-                m_singleMode = value;
-            }
-        }
+        //        m_singleMode = value;
+        //    }
+        //}
 
         public static void SetMaxTurnAngle(float angle)
         {
@@ -190,12 +190,7 @@ namespace NetworkAnarchy
         public void Restore()
         {
             if (m_prefab == null) return;
-
-            if (m_singleMode)
-            {
-                SingleMode = false;
-                return;
-            }
+            if (NetworkAnarchy.instance.IsBuildingIntersection()) return;
 
             if (m_hasElevation)
             {
@@ -271,7 +266,7 @@ namespace NetworkAnarchy
 
             if (!hasElevation) return;
 
-            if (SingleMode)
+            if (NetworkAnarchy.instance.IsBuildingIntersection())
             {
                 m_netAI.Elevated = null;
                 m_netAI.Bridge = null;

@@ -14,11 +14,11 @@ namespace NetworkAnarchy.Patches
         public static bool Prefix(out int min, out int max)
         {
             min = -3;
-            max = 0;
+            max = 5;
             if (NetworkAnarchy.Anarchy)
             {
-                min = int.MinValue / 256;
-                max = int.MaxValue / 256;
+                min = -999; // Base-game assumes anything beyond +/- 1000 is unset
+                max = 999;
 
                 return false;
             }
@@ -33,7 +33,7 @@ namespace NetworkAnarchy.Patches
             {
                 if (NetworkAnarchy.Anarchy)
                 {
-                    min = int.MinValue / 256;
+                    min = -999;
                 }
                 else
                 {
@@ -81,11 +81,11 @@ namespace NetworkAnarchy.Patches
         public static bool Prefix(out int min, out int max)
         {
             min = -3;
-            max = 0;
+            max = 5;
             if (NetworkAnarchy.Anarchy)
             {
-                min = int.MinValue / 256;
-                max = int.MaxValue / 256;
+                min = -999; // Base-game assumes anything beyond +/- 1000 is unset
+                max = 999;
 
                 return false;
             }
@@ -100,7 +100,7 @@ namespace NetworkAnarchy.Patches
             {
                 if (NetworkAnarchy.Anarchy)
                 {
-                    min = int.MinValue / 256;
+                    min = -999;
                 }
                 else
                 {
@@ -146,11 +146,11 @@ namespace NetworkAnarchy.Patches
         public static bool Prefix(out int min, out int max)
         {
             min = -3;
-            max = 0;
+            max = 5;
             if (NetworkAnarchy.Anarchy)
             {
-                min = int.MinValue / 256;
-                max = int.MaxValue / 256;
+                min = -999; // Base-game assumes anything beyond +/- 1000 is unset
+                max = 999;
 
                 return false;
             }
@@ -165,7 +165,7 @@ namespace NetworkAnarchy.Patches
             {
                 if (NetworkAnarchy.Anarchy)
                 {
-                    min = int.MinValue / 256;
+                    min = -999;
                 }
                 else
                 {
@@ -211,11 +211,11 @@ namespace NetworkAnarchy.Patches
         public static bool Prefix(out int min, out int max)
         {
             min = -3;
-            max = 0;
+            max = 5;
             if (NetworkAnarchy.Anarchy)
             {
-                min = int.MinValue / 256;
-                max = int.MaxValue / 256;
+                min = -999; // Base-game assumes anything beyond +/- 1000 is unset
+                max = 999;
 
                 return false;
             }
@@ -230,7 +230,7 @@ namespace NetworkAnarchy.Patches
             {
                 if (NetworkAnarchy.Anarchy)
                 {
-                    min = int.MinValue / 256;
+                    min = -999;
                 }
                 else
                 {

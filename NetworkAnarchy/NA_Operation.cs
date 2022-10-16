@@ -110,8 +110,6 @@ namespace NetworkAnarchy
             // Init dictionary
             NetPrefab.Initialize();
 
-            NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor);
-
             if (changeMaxTurnAngle.value)
             {
                 NetPrefab.SetMaxTurnAngle(maxTurnAngle.value);
@@ -147,19 +145,22 @@ namespace NetworkAnarchy
 
             try
             {
-                bool isRelevantToolActive = m_netTool.enabled || m_bulldozeTool.enabled || Mods.NetworkMultitool.IsToolActive() || Mods.ZoningAdjuster.IsToolActive();
+                bool isRelevantToolActive = m_netTool.enabled || m_bulldozeTool.enabled || Mods.NetworkMultitool.IsToolActive() || Mods.ZoningAdjuster.IsToolActive() || IsBuildingIntersection();
+                ToolBase toolBase = Singleton<ToolController>.instance.CurrentTool;
 
                 // Getting selected prefab
                 NetInfo prefab = isRelevantToolActive ? m_netTool.m_prefab : null;
 
                 // Has the prefab or tool changed?
-                if (prefab != m_current || isRelevantToolActive != m_wasRelevantToolActive)
+                if (prefab != m_current || toolBase != m_wasToolBase)
                 {
+                    Log.Debug($"Updating tool activation\n" +
+                        $"  netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}, Intersection:{IsBuildingIntersection()}\n" +
+                        $"  prefab:{ModInfo.GetString(prefab)} (was:{ModInfo.GetString(m_current)}), RelevantTool:{isRelevantToolActive} Tool:{toolBase?.GetType()} (was:{m_wasToolBase?.GetType()})");
+
                     if (prefab == null)
                     {
-                        Log.Debug($"Deactivating in Update because prefab is null.\n" +
-                            $"  netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}\n" +
-                            $"  prefab:{ModInfo.GetString(prefab)} (was:{ModInfo.GetString(m_current)}), RelevantTool:{isRelevantToolActive} (was:{m_wasRelevantToolActive})");
+                        Log.Debug($"Deactivating in Update because prefab is null");
                         Deactivate();
                     }
                     else
@@ -167,7 +168,7 @@ namespace NetworkAnarchy
                         Activate(prefab);
                     }
 
-                    m_wasRelevantToolActive = isRelevantToolActive;
+                    m_wasToolBase = toolBase;
 
                     if (m_toolOptionButton != null)
                     {
@@ -177,18 +178,18 @@ namespace NetworkAnarchy
                 }
 
                 // Plopping intersection?
-                if (m_buildingTool.enabled)
-                {
-                    if (!NetPrefab.SingleMode)
-                    {
-                        int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
-                        NetPrefab.SingleMode = (elevation == 0);
-                    }
-                }
-                else
-                {
-                    NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor) && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
-                }
+                //if (m_buildingTool.enabled)
+                //{
+                //    if (!NetPrefab.SingleMode)
+                //    {
+                //        int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
+                //        NetPrefab.SingleMode = (elevation == 0);
+                //    }
+                //}
+                //else
+                //{
+                //    NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor) && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
+                //}
             }
             catch (Exception e)
             {
@@ -197,7 +198,6 @@ namespace NetworkAnarchy
                 try
                 {
                     Deactivate();
-                    NetPrefab.SingleMode = false;
                 }
                 catch { }
             }
@@ -210,7 +210,6 @@ namespace NetworkAnarchy
             else
                 UnityEngine.Debug.Log($"Network Anarchy: Deactivating because OnDisable");
             Deactivate();
-            NetPrefab.SingleMode = false;
         }
 
         public class AfterSimulationTick : ThreadingExtensionBase
@@ -370,7 +369,7 @@ namespace NetworkAnarchy
             //if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
             if (m_bulldozeTool.enabled && !DoesVanillaElevationButtonExist)
             {
-                Log.Debug($"Deactivating because Activation issue.\n" +
+                Log.Debug($"Deactivating because bulldozing non-network issue.\n" +
                     $"bulldoze:{m_bulldozeTool.enabled}, DVEBE:{DoesVanillaElevationButtonExist}");
                 Deactivate();
                 return;
@@ -380,7 +379,7 @@ namespace NetworkAnarchy
             m_elevation = (int)m_elevationField.GetValue(m_netTool);
             if (prefab != null)
             {
-                prefab.mode = m_mode;
+                prefab.mode = mode;
                 prefab.Update();
             }
             else
@@ -417,6 +416,15 @@ namespace NetworkAnarchy
             m_toolOptionButton.isVisible = false;
 
             Log.Debug($"Deactivated \n {new StackTrace().ToString()}");
+        }
+
+        internal bool IsBuildingIntersection()
+        {
+            if (m_buildingTool == null) return false;
+            if (!m_buildingTool.enabled) return false;
+            if (m_buildingTool.m_prefab == null) return false;
+            if (!(m_buildingTool.m_prefab.GetAI() is IntersectionAI)) return false;
+            return true;
         }
 
         private void DisableDefaultKeys()

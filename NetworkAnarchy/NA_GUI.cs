@@ -45,29 +45,33 @@ namespace NetworkAnarchy
                     ToggleCollision();
                 }
 
-                if (m_buildingTool.enabled && NetPrefab.SingleMode)
+                if (IsBuildingIntersection())
                 {
                     // Checking key presses
                     if (OptionsKeymapping.elevationUp.IsPressed(e) || OptionsKeymapping.elevationDown.IsPressed(e))
                     {
-                        NetPrefab.SingleMode = false;
                         BuildingInfo info = m_buildingTool.m_prefab;
-                        if (info != null)
+
+                        // Reset cached value
+                        FieldInfo cachedMaxElevation = info.m_buildingAI.GetType().GetField("m_cachedMaxElevation", BindingFlags.NonPublic | BindingFlags.Instance);
+                        if (cachedMaxElevation != null)
                         {
-                            // Reset cached value
-                            FieldInfo cachedMaxElevation = info.m_buildingAI.GetType().GetField("m_cachedMaxElevation", BindingFlags.NonPublic | BindingFlags.Instance);
-                            if (cachedMaxElevation != null)
-                            {
-                                cachedMaxElevation.SetValue(info.m_buildingAI, -1);
-                            }
-
-                            info.m_buildingAI.GetElevationLimits(out int min, out int max);
-
-                            int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
-                            elevation += OptionsKeymapping.elevationUp.IsPressed(Event.current) ? 1 : -1;
-
-                            m_buildingElevationField.SetValue(m_buildingTool, Mathf.Clamp(elevation, min, max));
+                            cachedMaxElevation.SetValue(info.m_buildingAI, -1);
                         }
+
+                        info.m_buildingAI.GetElevationLimits(out int min, out int max);
+                        if (Anarchy)
+                        {
+                            min = -999;
+                            max = 999;
+                        }
+                        Log.Debug($"AAA02 {min}, {max}");
+
+                        int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
+                        elevation += OptionsKeymapping.elevationUp.IsPressed(Event.current) ? 1 : -1;
+
+                        m_buildingElevationField.SetValue(m_buildingTool, Mathf.Clamp(elevation, min, max));
+
                         e.Use();
                     }
                     return;
@@ -282,7 +286,7 @@ namespace NetworkAnarchy
                     var list = new List<NetTool.Mode>(panel.m_Modes);
                     if (!list.Contains(NetTool.Mode.Upgrade))
                     {
-                        Log.Debug($"AAA Adding Upgrade button");
+                        Log.Debug($"Adding upgrade button for {ModInfo.GetString(prefab)}", "[NA51]");
                     }
                     if (m_upgradeButtonTemplate != null && prefab != null && prefab.hasElevation && !list.Contains(NetTool.Mode.Upgrade)) // hasElevation was hasVariation
                     {
