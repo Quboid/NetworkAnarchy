@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Cycle Modes Left</value>
+    <value>Cyklovat režimy v levo</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Cycle Modes Right</value>
+    <value>Cyklovat režimy v pravo</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
     <value>Ubrat vyvýšení</value>
@@ -157,34 +157,34 @@
     <value>Přepnout přichytávání</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Toggle Straight Slopes</value>
+    <value>Přepínač přímého sklonu</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>Další možnosti nástroje pro silnice a ostatní sítě</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>Povolit protokolování ladících zpráv</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>Je-li zaškrtnuto, dalšś zprávy ladění nebudou zaznamenány.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Max turn angle</value>
+    <value>Maximální úhel zatočení</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Reduce rail catenary masts</value>
+    <value>Snížení počtu stožárů trakčního vedení</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Reduce the number of catenary mast of rail lines from 3 to 1 per segment.</value>
+    <value>Snížit počet trolejového vedení železniční tratě ze 3 na 1 za segment.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Reset tool window position</value>
+    <value>Obnovit pozici okena nástroje</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>Zobrazit posuvník kroku vyvýšení</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m.</value>
+    <value>Zobrazit posuvník pro změnu kroku vyvýšení od 1m do 12m.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
     <value>Zobrazit popisky</value>
@@ -196,19 +196,19 @@
     <value>Zobrazit posuvník maximální délky segmentu</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).</value>
+    <value>Zobrazit posuvník pro změnu maximální délky segmentu, od 4m do 256m (výchozí je 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Change max turn angle for more realistic tram tracks turns</value>
+    <value>Změňte maximální úhel zatáčení pro realističtější zatáčky kolejí</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
+    <value>Změňte maximální úhel zatočení všech silnic s tramvajovými kolejemi o níže uvedenou hodnotu, pokud je současná hodnota vyšší.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Klikněte zde pro možnosti nástrojů</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} and {1} to change elevation step</value>
+    <value>{0} a {1} pro změnu kroku vyvýšení</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
@@ -223,39 +223,39 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Bridge: Forces the use of bridge pieces if available</value>
+    <value>Most: Vynucuje použití mostních segmentů, jsou-li k dispozici</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} and {1} to cycle modes</value>
+    <value>{0} a {1} k cyklickému přepínání režimů</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Elevated: Forces the use of elevated pieces if available</value>
+    <value>Vyvýšené: Vynutí použití vyvýšených segmentů, pokud jsou k dispozici</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Ground: Forces the ground to follow the elevation of the road</value>
+    <value>Země: Vynucuje sledování terénu po zemi</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normal: Unmodded road placement behavior</value>
+    <value>Normální: chování při používání nemodované silnice</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
     <value>Režimy:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunnel: Forces the use of tunnel pieces if available</value>
+    <value>Tunel: Vynucuje použití tunelu, pokud je k dispozici</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
     <value>Přepnout anarchii</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Toggle road bending</value>
+    <value>Přepnout ohýbání silnice</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
     <value>Přepnout kolize</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>Přepínač přímého sklonu (nesledujte tvar terénu)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Přepnout přichytávání uzlů</value>
