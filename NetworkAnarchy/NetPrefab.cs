@@ -63,7 +63,7 @@ namespace NetworkAnarchy
                 NetPrefab prefab = new NetPrefab(info);
                 if (prefab.m_hasElevation && prefab.isValid() && !m_netPrefabs.ContainsKey(info))
                 {
-                    prefabsAdded += info.name + "\n";
+                    prefabsAdded += info.name;
                     m_netPrefabs.Add(info, prefab);
 
                     if (info.m_flattenTerrain &&
@@ -74,6 +74,7 @@ namespace NetworkAnarchy
                         info != prefab.netAI.Slope &&
                         info != prefab.netAI.Tunnel)
                     {
+                        prefabsAdded += " (FollowTerrain off)";
                         info.m_followTerrain = false;
                     }
 
@@ -87,6 +88,7 @@ namespace NetworkAnarchy
                         m_netPrefabs.Add(prefab.m_netAI.Tunnel, prefab);
 
                     prefab.m_defaultMaxTurnAngle = info.m_maxTurnAngle;
+                    prefabsAdded += "\n";
                 }
             }
 

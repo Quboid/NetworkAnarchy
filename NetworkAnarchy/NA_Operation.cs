@@ -154,9 +154,9 @@ namespace NetworkAnarchy
                 // Has the prefab or tool changed?
                 if (prefab != m_current || toolBase != m_wasToolBase)
                 {
-                    Log.Debug($"Updating tool activation\n" +
+                    Log.Debug($"Updating tool activation: RelevantTool:{isRelevantToolActive}\n" +
                         $"  netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}, Intersection:{IsBuildingIntersection()}\n" +
-                        $"  prefab:{ModInfo.GetString(prefab)} (was:{ModInfo.GetString(m_current)}), RelevantTool:{isRelevantToolActive} Tool:{toolBase?.GetType()} (was:{m_wasToolBase?.GetType()})");
+                        $"  prefab:{ModInfo.GetString(prefab)} (was:{ModInfo.GetString(m_current)} [{prefab == m_current}]) Tool:{toolBase?.GetType()} (was:{m_wasToolBase?.GetType()})");
 
                     if (prefab == null)
                     {
@@ -345,22 +345,23 @@ namespace NetworkAnarchy
 
         private void Activate(NetInfo info)
         {
-            Log.Debug($"Activated ({info})\n{new StackTrace()}", "[NA29]");
+            Log.Debug($"Activated with {info} (was:{m_current})", "[NA29]");
 
             if (info == null)
             {
                 return;
             }
 
+            // Clean up previous prefab
             var prefab = NetPrefab.GetPrefab(m_current);
             if (prefab != null)
             {
                 prefab.Restore();
             }
-
+            Log.Debug($"Activated with {info} (was:{m_current})", "[NA29.1]");
             m_current = info;
-            prefab = NetPrefab.GetPrefab(info);
 
+            prefab = NetPrefab.GetPrefab(info);
             AttachToolOptionsButton(prefab);
 
             // Is it a valid prefab?
@@ -372,6 +373,7 @@ namespace NetworkAnarchy
                 Log.Debug($"Deactivating because bulldozing non-network issue.\n" +
                     $"bulldoze:{m_bulldozeTool.enabled}, DoesVanillaElevationButtonExist:{DoesVanillaElevationButtonExist}");
                 Deactivate();
+                m_current = info;
                 return;
             }
 
@@ -397,17 +399,19 @@ namespace NetworkAnarchy
 
         private void Deactivate()
         {
-            m_current = null;
+            if (m_current != null)
+            { // Clean up previous prefab
+                var prefab = NetPrefab.GetPrefab(m_current);
+                if (prefab != null)
+                {
+                    prefab.Restore();
+                }
+                m_current = null;
+            }
 
             if (!IsActive)
             {
                 return;
-            }
-
-            var prefab = NetPrefab.GetPrefab(m_current);
-            if (prefab != null)
-            {
-                prefab.Restore();
             }
 
             RestoreDefaultKeys();
@@ -415,7 +419,7 @@ namespace NetworkAnarchy
             IsActive = false;
             m_toolOptionButton.isVisible = false;
 
-            Log.Debug($"Deactivated \n {new StackTrace().ToString()}");
+            Log.Debug($"Deactivated \n {new StackTrace().ToString()}", "[NA53]");
         }
 
         internal bool IsBuildingIntersection()

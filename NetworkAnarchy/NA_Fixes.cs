@@ -11,6 +11,7 @@ namespace NetworkAnarchy
             m_stopWatch.Start();
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
+            //string msg = "";
 
             uint max = NetManager.instance.m_nodes.m_size;
             for (int i = m_fixNodesCount; i < max; i++)
@@ -47,6 +48,7 @@ namespace NetworkAnarchy
                         var tempPrefab = prefab;
                         Singleton<SimulationManager>.instance.AddAction(() =>
                         {
+                            Log.Debug($"Fixing node {tempI} {info.m_setVehicleFlags} (underground:{(info.m_setVehicleFlags & Vehicle.Flags.Underground) != 0}, elevation:{nodes[tempI].m_elevation}, flags:{nodes[tempI].m_flags}", "[NA54]");
                             nodes[tempI].m_elevation = 0;
                             nodes[tempI].m_flags = nodes[tempI].m_flags & ~NetNode.Flags.Underground;
 
@@ -62,16 +64,26 @@ namespace NetworkAnarchy
                             catch { }
                         });
                     }
+                    //msg += $"\n  Node {i} is underground (info:{info}){nodes[i].m_flags}";
                 }
                 else if ((info != prefab.netAI.Elevated && info != prefab.netAI.Bridge) || ((nodes[i].m_flags & (NetNode.Flags.Transition | NetNode.Flags.End)) != 0 && nodes[i].m_elevation == 0))
                 {
-                    nodes[i].m_flags = nodes[i].m_flags | NetNode.Flags.OnGround;
+                    if ((nodes[i].m_flags & NetNode.Flags.OnGround) == 0)
+                    {
+                        //msg += $"\n  Node {i} is ground (info:{info}) {nodes[i].m_flags}";
+                        nodes[i].m_flags = nodes[i].m_flags | NetNode.Flags.OnGround;
+                    }
                 }
-                else
+                else if ((nodes[i].m_flags & NetNode.Flags.OnGround) != 0)
                 {
+                    //msg += $"\n  Node {i} is not ground (info:{info}) {nodes[i].m_flags}";
                     nodes[i].m_flags = nodes[i].m_flags & ~NetNode.Flags.OnGround;
                 }
             }
+            //if (msg != "")
+            //{
+            //    Log.Debug(msg, "[NA55]");
+            //}
 
             m_fixNodesCount = 0;
         }
