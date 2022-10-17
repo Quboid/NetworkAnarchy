@@ -131,6 +131,8 @@ namespace NetworkAnarchy
             ChirperManager.UpdateAtlas();
 
             Log.Info("NetworkAnarchy Initialized", "[NA22]");
+
+            RegisterUUIHotkeys();
         }
 
         public void Update()
