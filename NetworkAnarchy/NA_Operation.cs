@@ -132,7 +132,7 @@ namespace NetworkAnarchy
 
             Log.Info("NetworkAnarchy Initialized", "[NA22]");
 
-            RegisterUUIHotkeys();
+            OptionsKeymapping.RegisterUUIHotkeys();
         }
 
         public void Update()
@@ -360,7 +360,6 @@ namespace NetworkAnarchy
             {
                 prefab.Restore();
             }
-            Log.Debug($"Activated with {info} (was:{m_current})", "[NA29.1]");
             m_current = info;
 
             prefab = NetPrefab.GetPrefab(info);

@@ -49,10 +49,6 @@ namespace NetworkAnarchy
 
         private Mode m_mode;
 
-        private bool _doesVanillaElevationButtonExist;
-        private bool _activated;
-        private bool _isButtonInOptionsBar;
-
         /// <summary>
         /// Does the vanilla elevation button exist?
         /// </summary>
@@ -67,6 +63,8 @@ namespace NetworkAnarchy
                 _doesVanillaElevationButtonExist = value;
             }
         }
+        private bool _doesVanillaElevationButtonExist;
+
         /// <summary>
         /// Is NA active (valid NetTool prefab selected)
         /// </summary>
@@ -81,6 +79,8 @@ namespace NetworkAnarchy
                 _activated = value;
             }
         }
+        private bool _activated;
+
         /// <summary>
         /// Is the vanilla NetTool active? To check if it has been toggled next tick
         /// </summary>
@@ -95,6 +95,7 @@ namespace NetworkAnarchy
         //        _isNetToolEnabled = value;
         //    }
         //}
+
         /// <summary>
         /// Is the NA button in the options bar instead of attached to the vanilla elevation button?
         /// </summary>
@@ -109,6 +110,7 @@ namespace NetworkAnarchy
                 _isButtonInOptionsBar = value;
             }
         }
+        private bool _isButtonInOptionsBar;
 
         private int m_fixNodesCount = 0;
         private ushort m_fixTunnelsCount = 0;

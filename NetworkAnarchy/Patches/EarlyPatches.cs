@@ -1,8 +1,6 @@
-﻿using HarmonyLib;
-using QCommonLib;
+﻿using QCommonLib;
 using System;
 using System.Reflection;
-using UnityEngine;
 
 namespace NetworkAnarchy.Patches
 {
@@ -13,8 +11,8 @@ namespace NetworkAnarchy.Patches
             Type self = typeof(EarlyPatches);
             try
             {
-                Patcher.Postfix(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
-                Patcher.Postfix(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
+                Patcher.Postfix(typeof(NetInfo).GetMethod("InitializePrefab", BindingFlags.Public | BindingFlags.Instance), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
+                Patcher.Postfix(typeof(TransportInfo).GetMethod("InitializePrefab", BindingFlags.Public | BindingFlags.Instance), self.GetMethod("TransportInfo_InitializePrefab_Postfix"));
                 Patcher.Prefix(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
                 ModInfo.Log.Info($"NetworkAnarchy: Deployed early patches", "[NA13]");
             }
@@ -30,8 +28,8 @@ namespace NetworkAnarchy.Patches
             try
             { 
                 Patcher.Unpatch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
-                Patcher.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
-                Patcher.Unpatch(typeof(NetInfo).GetMethod("InitializePrefab"), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
+                Patcher.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab", BindingFlags.Public | BindingFlags.Instance), self.GetMethod("TransportInfo_InitializePrefab_Postfix"));
+                Patcher.Unpatch(typeof(NetInfo).GetMethod("InitializePrefab", BindingFlags.Public | BindingFlags.Instance), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
                 ModInfo.Log.Info($"NetworkAnarchy: Reverted early patches", "[NA15]");
             }
             catch (Exception e)

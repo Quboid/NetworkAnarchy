@@ -1,19 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <TargetFramework>net35</TargetFramework>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <Version>3.0.8</Version>
     <ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed/</ManagedDLLPath>
     <AssemblySearchPaths>
       $(AssemblySearchPaths);
       $(ManagedDLLPath);
-      ../libs/;
+      ../../../../Libraries/;
       ../../../../QCommon/Repo/QCommon/QCommon/bin/Release/;
     </AssemblySearchPaths>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Deterministic>False</Deterministic>
+	  <AssemblyVersion>3.0.8.*</AssemblyVersion>
+    <FileVersion>3.0.8.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CitiesHarmony.API" Version="2.1.0"/>
+    <PackageReference Include="CitiesHarmony.API" Version="2.1.0" />
     <PackageReference Include="UnifiedUILib" Version="2.2.12" />
     <Reference Include="QCommon">
       <Private>True</Private>
@@ -26,9 +29,6 @@
     </Reference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp-firstpass" />
-    <Reference Include="ICSharpCode.SharpZipLib" />
-    <Reference Include="PopsApiWrapper" />
     <Reference Include="Assembly-CSharp" />
     <Reference Include="ColossalManaged" />
     <Reference Include="ICities" />
@@ -37,16 +37,36 @@
   <ItemGroup>
     <EmbeddedResource Include="ChirperAtlas\*.png" />
     <EmbeddedResource Include="Icons\*.png" />
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <EmbeddedResource Update="Localization\Str.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Str.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <Target Name="DeployToModDirectory" AfterTargets="Build">
     <ItemGroup>
-      <FilesToCopy Include="$(TargetDir)**\*.*" Exclude="$(TargetDir)*.pdb" />
+      <FilesToCopy Include="$(TargetDir)**\*.*" Exclude="$(TargetDir)*.pdb;$(TargetDir)Assembly-CSharp-firstpass.dll;$(TargetDir)ICSharpCode.SharpZipLib.dll;$(TargetDir)PopsApiWrapper.dll" />
     </ItemGroup>
     <PropertyGroup>
       <DeployDir>$(LOCALAPPDATA)/Colossal Order/Cities_Skylines/Addons/Mods/$(SolutionName)/</DeployDir>

@@ -1,11 +1,9 @@
 ﻿using ColossalFramework;
-using ColossalFramework.Globalization;
-using ColossalFramework.UI;
 using NetworkAnarchy.Localization;
 using QCommonLib;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
+using UnifiedUI.Helpers;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -52,6 +50,43 @@ namespace NetworkAnarchy
             };
 
             AddKeymappingsList();
+        }
+
+        public static void RegisterUUIHotkeys()
+        {
+            bool GetIsActive() => NetworkAnarchy.instance.IsActive;
+
+            Dictionary<SavedInputKey, Func<bool>> intoolKeys = new Dictionary<SavedInputKey, Func<bool>>();
+            // use UUI to resolve hotkey collisions
+            intoolKeys.Add(OptionsKeymapping.elevationUp, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.elevationDown, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.elevationReset, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.elevationStepUp, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.elevationStepDown, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.modesCycleRight, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.modesCycleLeft, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.toggleStraightSlope, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.toggleBending, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.toggleSnapping, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.toggleGrid, GetIsActive);
+
+            UUIHelpers.RegisterHotkeys(
+                onToggle: () => { },
+                activationKey: OptionsKeymapping.toggleAnarchy,
+                activeKeys: intoolKeys);
+            UUIHelpers.RegisterHotkeys(
+                onToggle: () => { },
+                activationKey: OptionsKeymapping.toggleCollision);
+
+            //UUIHelpers.RegisterHotkeys(
+            //    activationKey: OptionsKeymapping.toggleBending,
+            //    onToggle: () => ToggleBending());
+            //UUIHelpers.RegisterHotkeys(
+            //    activationKey: OptionsKeymapping.toggleSnapping,
+            //    onToggle: () => ToggleSnapping());
+            //UUIHelpers.RegisterHotkeys(
+            //    activationKey: OptionsKeymapping.toggleGrid,
+            //    onToggle: () => ToggleGrid());
         }
     }
 }
