@@ -117,9 +117,8 @@ namespace NetworkAnarchy
 
             // Update Catenary
             UpdateCatenary();
-
-            // Fix nodes
             FixNodes();
+            ApplyNetworkTiling();
 
             // Load saved settings
             Anarchy = saved_anarchy.value;

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net35</TargetFramework>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-    <Version>3.0.8</Version>
+    <Version>3.0.9</Version>
     <ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed/</ManagedDLLPath>
     <AssemblySearchPaths>
       $(AssemblySearchPaths);
@@ -12,16 +12,12 @@
     </AssemblySearchPaths>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Deterministic>False</Deterministic>
-	  <AssemblyVersion>3.0.8.*</AssemblyVersion>
-    <FileVersion>3.0.8.0</FileVersion>
+	  <AssemblyVersion>3.0.9.*</AssemblyVersion>
+    <FileVersion>3.0.9.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CitiesHarmony.API" Version="2.1.0" />
     <PackageReference Include="UnifiedUILib" Version="2.2.12" />
-    <Reference Include="QCommon">
-      <Private>True</Private>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
   </ItemGroup>
   <ItemDefinitionGroup>
     <Reference>
@@ -32,6 +28,10 @@
     <Reference Include="Assembly-CSharp" />
     <Reference Include="ColossalManaged" />
     <Reference Include="ICities" />
+    <Reference Include="QCommon">
+      <HintPath>..\..\..\..\QCommon\Repo\QCommon\QCommon\bin\Release\QCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="UnityEngine" />
   </ItemGroup>
   <ItemGroup>

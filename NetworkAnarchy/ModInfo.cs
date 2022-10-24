@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Reflection;
 using UnityEngine;
 
-// Error code max: 55
+// Error code max: 56
 
 namespace NetworkAnarchy
 {

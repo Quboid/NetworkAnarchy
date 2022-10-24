@@ -1,10 +1,63 @@
 ﻿using ColossalFramework;
+using System;
 using UnityEngine;
 
 namespace NetworkAnarchy
 {
     public partial class NetworkAnarchy : MonoBehaviour
     {
+        internal void ApplyNetworkTiling()
+        {
+            int cSeg = 0, cNode = 0;
+
+            // Code by Ronyx69 (https://gist.github.com/ronyx69/4f06181c8082188418cd0c224f630a09)
+            for (uint i = 0; i < PrefabCollection<NetInfo>.LoadedCount(); i++)
+            {
+                var prefab = PrefabCollection<NetInfo>.GetLoaded(i);
+                if (prefab == null) continue;
+
+                if (prefab.m_segments != null)
+                {
+                    for (uint j = 0; j < prefab.m_segments.Length; j++)
+                    {
+                        if (prefab.m_segments[j].m_material == null) continue;
+
+                        if (prefab.m_segments[j].m_material.name.Contains("NetworkTiling"))
+                        {
+                            cSeg++;
+                            string[] floats = prefab.m_segments[j].m_material.name.Split(' ');
+                            var tiling = Convert.ToSingle(floats[1]);
+                            prefab.m_segments[j].m_material.mainTextureScale = new Vector2(1, tiling);
+                            if (prefab.m_segments[j].m_segmentMaterial != null) prefab.m_segments[j].m_segmentMaterial.mainTextureScale = new Vector2(1, tiling);
+                            if (prefab.m_segments[j].m_lodMaterial != null) prefab.m_segments[j].m_lodMaterial.mainTextureScale = new Vector2(1, tiling);
+                            if (prefab.m_segments[j].m_combinedLod.m_material != null) prefab.m_segments[j].m_combinedLod.m_material.mainTextureScale = new Vector2(1, Math.Abs(tiling));
+                        }
+                    }
+                }
+
+                if (prefab.m_nodes != null)
+                {
+                    for (uint j = 0; j < prefab.m_nodes.Length; j++)
+                    {
+                        if (prefab.m_nodes[j].m_material == null) continue;
+
+                        if (prefab.m_nodes[j].m_material.name.Contains("NetworkTiling"))
+                        {
+                            cNode++;
+                            string[] floats = prefab.m_nodes[j].m_material.name.Split(' ');
+                            var tiling = Convert.ToSingle(floats[1]);
+                            prefab.m_nodes[j].m_material.mainTextureScale = new Vector2(1, tiling);
+                            if (prefab.m_nodes[j].m_nodeMaterial != null) prefab.m_nodes[j].m_nodeMaterial.mainTextureScale = new Vector2(1, tiling);
+                            if (prefab.m_nodes[j].m_lodMaterial != null) prefab.m_nodes[j].m_lodMaterial.mainTextureScale = new Vector2(1, tiling);
+                            if (prefab.m_nodes[j].m_combinedLod.m_material != null) prefab.m_nodes[j].m_combinedLod.m_material.mainTextureScale = new Vector2(1, Math.Abs(tiling));
+                        }
+                    }
+                }
+            }
+
+            Log.Info($"Applying Network Tiling ({cSeg} segments, {cNode} nodes)", "[NA56]");
+        }
+
         private void FixNodes()
         {
             m_stopWatch.Reset();
