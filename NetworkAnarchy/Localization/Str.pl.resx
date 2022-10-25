@@ -163,10 +163,10 @@
     <value>Więcej opcji narzędzia dla dróg i innych sieci</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>Włącz logowanie komunikatów debugowania</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>Jeśli zaznaczone, będą rejestrowane dodatkowe komunikaty debugowania.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>Maksymalny kąt skrętu</value>
@@ -216,7 +216,7 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Show Editor Grid</value>
+    <value>Pokaż siatkę edytora</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>Maksymalna długość odcinka:</value>
@@ -255,7 +255,7 @@
     <value>Włącz / Wyłącz kolizję</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>Włącz / Wyłącz proste nachylenie (nie podąża wzdłuż terenu)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Włącz / Wyłącz przyciąganie węzłów</value>

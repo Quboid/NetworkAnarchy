@@ -163,10 +163,10 @@
     <value>TH: More tool options for roads and other networks</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>เปิดใช้งานการบันทึกข้อความข้อบกพร่อง (Debug Logging)</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>หากเลือกไว้ ข้อความแสดงการทำงาน (Debug) เพิ่มเติมจะถูกบันทึกไว้</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
     <value>มุมการเลี้ยวสูงสุด</value>
@@ -216,7 +216,7 @@
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Show Editor Grid</value>
+    <value>แสดงเส้นตารางในโหมดแก้ไข (Editor)</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
     <value>ความยาวสูงสุดของเซ็กเมนต์</value>
@@ -255,7 +255,7 @@
     <value>เปิดการป้องกันการซ้อนกัน</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>เปิดโหมดลาดตรง (ไม่เป็นไปตามลักษณะภูมิประเทศ)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>เปิดโหมดการยึดติด</value>
