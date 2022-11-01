@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Reflection;
 using UnityEngine;
 
-// Error code max: 56
+// Error code max: 57
 
 namespace NetworkAnarchy
 {
@@ -90,7 +90,7 @@ namespace NetworkAnarchy
                      NetworkAnarchy.reduceCatenary.value = b;
                      if (NetworkAnarchy.instance != null)
                      {
-                         NetworkAnarchy.instance.UpdateCatenary();
+                         UpdateCatenaries.Apply();
                      }
                  });
                 checkBox.tooltip = Str.options_reduceCatenariesTooltip;
@@ -173,6 +173,7 @@ namespace NetworkAnarchy
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
 #endif
 
+            AnyRoadOutsideConnection.Reset();
             if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
             {
                 InitializeMod();

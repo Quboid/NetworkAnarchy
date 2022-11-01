@@ -303,7 +303,7 @@ namespace NetworkAnarchy
                         }
                     }
 
-                    Log.Debug($"Button placed on elevation button ({ModInfo.GetString(m_toolOptionButton.parent)})", "[NA49]");
+                    Log.Debug($"Button placed on elevation button (parent:{ModInfo.GetString(m_toolOptionButton.parent)}, transform.parent:{ModInfo.GetString(m_toolOptionButton.transform.parent)})", "[NA49]");
                     return;
                 }
             }

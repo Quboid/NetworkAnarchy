@@ -3,6 +3,7 @@ using ColossalFramework.UI;
 using NetworkAnarchy.Localization;
 using QCommonLib;
 using System;
+using System.Diagnostics;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -59,7 +60,8 @@ namespace NetworkAnarchy
         {
             if (parent != m_parent && parent != null)
             {
-                ModInfo.Log.Debug($"Tool button parent changed: {ModInfo.GetString(parent)} (was: {ModInfo.GetString(m_parent)})", "[NA39]");
+                string caller = new StackTrace().GetFrame(1).GetMethod().Name;
+                ModInfo.Log.Debug($"Tool button parent changed: {ModInfo.GetString(parent)} (was: {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA39]");
                 m_parent = parent;
 
                 UpdateButton();
@@ -76,7 +78,8 @@ namespace NetworkAnarchy
             if (NetworkAnarchy.instance == null) return;
             if (parent == null)
             {
-                ModInfo.Log.Debug($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})", "[NA38]");
+                string caller = new StackTrace().GetFrame(1)?.GetMethod()?.Name;
+                ModInfo.Log.Error($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA38]");
                 isVisible = false;
                 return;
             }

@@ -39,10 +39,12 @@ namespace NetworkAnarchy.Patches
         }
 
         /// <summary>
-        /// Make ship and airplane paths available in-game. Unneeded?
+        /// Allow any road to make an outside connection, and make ship and airplane paths available in-game
         /// </summary>
         public static void NetInfo_InitializePrefab_Postfix(ref NetInfo __instance)
         {
+            AnyRoadOutsideConnection.Apply(__instance);
+
             if (QCommon.Scene != QCommon.SceneTypes.Game) return;
 
             if (__instance.name == "Ship Path" || __instance.name == "Airplane Path")

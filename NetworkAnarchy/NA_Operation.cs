@@ -115,10 +115,11 @@ namespace NetworkAnarchy
                 NetPrefab.SetMaxTurnAngle(maxTurnAngle.value);
             }
 
-            // Update Catenary
-            UpdateCatenary();
+            // Apply loading functions
+            UpdateCatenaries.Apply();
+            NetworkTiling.Apply();
+            AnyRoadOutsideConnection.Finalise();
             FixNodes();
-            ApplyNetworkTiling();
 
             // Load saved settings
             Anarchy = saved_anarchy.value;
