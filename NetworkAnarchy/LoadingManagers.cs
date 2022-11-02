@@ -13,17 +13,27 @@ namespace NetworkAnarchy
         private static readonly Queue<RoadBaseAI> InfoQueue = new Queue<RoadBaseAI>();
         private static int count = 0;
 
-        public static void Reset()
+        /// <summary>
+        /// Clear the queue/template, needed for second-loads
+        /// </summary>
+        public static void Initialise()
         {
             connectionTemplate = null;
             InfoQueue.Clear();
         }
 
+        /// <summary>
+        /// Finish up the road AI conversion after the level has loaded
+        /// </summary>
         internal static void Finalise()
         { 
             ModInfo.Log.Info($"Enabled outside connections for {count} roads", "[NA57]");
         }
 
+        /// <summary>
+        /// Apply the conversion to roads that don't have the outsideConnection building set
+        /// </summary>
+        /// <param name="info">The network to check and, if needed, attached outside connection</param>
         internal static void Apply(NetInfo info)
         {
             if (info == null) 
@@ -62,11 +72,14 @@ namespace NetworkAnarchy
 
     internal class NetworkTiling
     {
+        /// <summary>
+        /// Search network prefabs for any which have "NetworkTiling" in their segment or node material name
+        /// Code by Ronyx69 (https://gist.github.com/ronyx69/4f06181c8082188418cd0c224f630a09)
+        /// </summary>
         internal static void Apply()
         {
             int cSeg = 0, cNode = 0;
 
-            // Code by Ronyx69 (https://gist.github.com/ronyx69/4f06181c8082188418cd0c224f630a09)
             for (uint i = 0; i < PrefabCollection<NetInfo>.LoadedCount(); i++)
             {
                 var prefab = PrefabCollection<NetInfo>.GetLoaded(i);
@@ -117,6 +130,9 @@ namespace NetworkAnarchy
 
     internal class UpdateCatenaries
     {
+        /// <summary>
+        /// Set the number of catenaries based on the player's choice
+        /// </summary>
         internal static void Apply()
         {
             int probability = NetworkAnarchy.reduceCatenary.value ? 0 : 100;

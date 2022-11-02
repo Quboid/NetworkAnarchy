@@ -167,13 +167,13 @@ namespace NetworkAnarchy
         {
 #if DEBUG
             Log = new QLogger(true);
-            Patcher = new QPatcher(HarmonyId, true);
+            Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert, true);
 #else
             Log = new QLogger(NetworkAnarchy.showDebugMessages);
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
 #endif
 
-            AnyRoadOutsideConnection.Reset();
+            AnyRoadOutsideConnection.Initialise();
             if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
             {
                 InitializeMod();

@@ -260,6 +260,25 @@ namespace NetworkAnarchy
             }
         }
 
+        //private void CheckElevationStep()
+        //{
+        //    RoadsOptionPanel[] panels = GameObject.FindObjectsOfType<RoadsOptionPanel>();
+
+        //    foreach (RoadsOptionPanel panel in panels)
+        //    {
+        //        // Find the visible RoadsOptionPanel
+        //        if (panel.component.isVisible)
+        //        {
+        //            UIComponent button = panel.component.Find<UIComponent>("ElevationStep");
+        //            if (button == null)
+        //            {
+        //                continue;
+        //            }
+        //            button.isVisible = false;
+        //        }
+        //    }
+        //}
+
         private void AttachToolOptionsButton(NetPrefab prefab)
         {
             DoesVanillaElevationButtonExist = false;
