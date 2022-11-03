@@ -91,7 +91,7 @@ namespace NetworkAnarchy
                 if (count > 9)
                 {
                     string caller = new StackTrace().GetFrame(1)?.GetMethod()?.Name;
-                    ModInfo.Log.Error($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA38]");
+                    ModInfo.Log.Info($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA38]");
                     yield break;
                 }
                 yield return new WaitForSeconds(0.05f);

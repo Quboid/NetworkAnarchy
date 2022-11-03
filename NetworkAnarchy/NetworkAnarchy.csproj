@@ -12,8 +12,8 @@
     </AssemblySearchPaths>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Deterministic>False</Deterministic>
-	  <AssemblyVersion>3.0.10.*</AssemblyVersion>
-    <FileVersion>3.0.10.0</FileVersion>
+	  <AssemblyVersion>3.0.11.*</AssemblyVersion>
+    <FileVersion>3.0.11.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CitiesHarmony.API" Version="2.1.0" />

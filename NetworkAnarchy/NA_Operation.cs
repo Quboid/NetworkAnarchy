@@ -87,7 +87,7 @@ namespace NetworkAnarchy
             }
             catch
             {
-                Log.Warning("Upgrade button template not found", "[NA24]");
+                Log.Info("Upgrade button template not found", "[NA24]");
             }
 
             // Creating UI
