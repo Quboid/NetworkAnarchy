@@ -302,7 +302,7 @@ namespace NetworkAnarchy
                     button.tooltip = null;
                     DoesVanillaElevationButtonExist = true;
 
-                    // Add Upgrade button if needed
+                    // Add Upgrade button if needed (e.g. powerlines)
                     var list = new List<NetTool.Mode>(panel.m_Modes);
                     if (!list.Contains(NetTool.Mode.Upgrade))
                     {
@@ -322,7 +322,7 @@ namespace NetworkAnarchy
                         }
                     }
 
-                    Log.Debug($"Button placed on elevation button (parent:{ModInfo.GetString(m_toolOptionButton.parent)}, transform.parent:{ModInfo.GetString(m_toolOptionButton.transform.parent)})", "[NA49]");
+                    Log.Debug($"ELEVATION STEP\nButton placed on elevation button (parent:{ModInfo.GetString(m_toolOptionButton.parent)}, transform.parent:{ModInfo.GetString(m_toolOptionButton.transform.parent)})", "[NA49]");
                     return;
                 }
             }
@@ -336,7 +336,7 @@ namespace NetworkAnarchy
                 return;
             }
             m_toolOptionButton.transform.SetParent(optionBar.transform);
-            Log.Debug($"Button placed on main options bar ({m_toolOptionButton.parent})", "[NA50]");
+            Log.Debug($"MAIN OPTIONS\nButton placed on main options bar ({m_toolOptionButton.parent})", "[NA50]");
             IsButtonInOptionsBar = true;
         }
 

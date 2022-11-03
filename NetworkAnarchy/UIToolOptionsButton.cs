@@ -3,6 +3,8 @@ using ColossalFramework.UI;
 using NetworkAnarchy.Localization;
 using QCommonLib;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
@@ -77,23 +79,28 @@ namespace NetworkAnarchy
         {
             if (NetworkAnarchy.instance == null) return;
 
-            int c = 0;
-            string msg = "\n";
-            foreach (var p in UIView.FindObjectsOfType<UIPanel>())
-            {
-                if (p.name == "OptionsBar")
-                {
-                    msg += $"  {c++}:{p.name}";
-                }
-            }
-            ModInfo.Log.Debug(msg);
+            StartCoroutine(UpdateButtonProcess());
+        }
 
-            if (parent == null)
+        private IEnumerator<object> UpdateButtonProcess()
+        {
+            int count = 0;
+            while (parent == null)
+            {
+                count++;
+                if (count > 9)
+                {
+                    string caller = new StackTrace().GetFrame(1)?.GetMethod()?.Name;
+                    ModInfo.Log.Error($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA38]");
+                    yield break;
+                }
+                yield return new WaitForSeconds(0.05f);
+            }
+
+            if (count > 0)
             {
                 string caller = new StackTrace().GetFrame(1)?.GetMethod()?.Name;
-                ModInfo.Log.Error($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA38]");
-                isVisible = false;
-                return;
+                ModInfo.Log.Info($"Button parent was hard to find (m_parent is {ModInfo.GetString(m_parent)}, attempts:{count})\n  Called by:{caller}", "[NA58]");
             }
 
             if (NetworkAnarchy.instance.IsButtonInOptionsBar)

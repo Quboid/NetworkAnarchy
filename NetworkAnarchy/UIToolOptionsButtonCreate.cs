@@ -11,13 +11,13 @@ namespace NetworkAnarchy
     {
         private void CreateButton()
         {
-            m_button = UIView.Find<UIPanel>("OptionsBar").AddUIComponent<UIButton>();
+            m_button = AddUIComponent<UIButton>();
             m_button.atlas = QTextures.GetAtlas("Ingame");
             m_button.name = "NA_MainButton";
             m_button.size = new Vector2(36, 36);
             m_button.textScale = 0.7f;
             m_button.playAudioEvents = true;
-            m_button.relativePosition = new Vector2(36, 0);
+            m_button.relativePosition = Vector2.zero;
 
             m_button.tooltip = "Network Anarchy " + QVersion.Version() + "\n\n" + Str.ui_clickForToolOptions;
 
