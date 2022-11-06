@@ -62,7 +62,7 @@ namespace NetworkAnarchy
         {
             if (parent != m_parent && parent != null)
             {
-                string caller = new StackTrace().GetFrame(1).GetMethod().Name;
+                string caller = new StackTrace()?.GetFrame(1)?.GetMethod()?.Name;
                 ModInfo.Log.Debug($"Tool button parent changed: {ModInfo.GetString(parent)} (was: {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA39]");
                 m_parent = parent;
 
@@ -79,29 +79,38 @@ namespace NetworkAnarchy
         {
             if (NetworkAnarchy.instance == null) return;
 
-            StartCoroutine(UpdateButtonProcess());
-        }
-
-        private IEnumerator<object> UpdateButtonProcess()
-        {
-            int count = 0;
-            while (parent == null)
+            if (parent == null)
             {
-                count++;
-                if (count > 9)
-                {
-                    string caller = new StackTrace().GetFrame(1)?.GetMethod()?.Name;
-                    ModInfo.Log.Info($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA38]");
-                    yield break;
-                }
-                yield return new WaitForSeconds(0.05f);
+                string caller = new StackTrace()?.GetFrame(1)?.GetMethod()?.Name;
+                ModInfo.Log.Info($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA38]");
+                isVisible = false;
+                return;
             }
 
-            if (count > 0)
-            {
-                string caller = new StackTrace().GetFrame(1)?.GetMethod()?.Name;
-                ModInfo.Log.Info($"Button parent was hard to find (m_parent is {ModInfo.GetString(m_parent)}, attempts:{count})\n  Called by:{caller}", "[NA58]");
-            }
+            //    StartCoroutine(UpdateButtonProcess());
+            //}
+
+            //private IEnumerator<object> UpdateButtonProcess()
+            //{
+            //    int count = 0;
+            //    while (parent == null)
+            //    {
+            //        count++;
+            //        if (count > 9)
+            //        {
+            //            string caller = new StackTrace()?.GetFrame(1)?.GetMethod()?.Name;
+            //            ModInfo.Log.Info($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA59]");
+            //            isVisible = false;
+            //            yield break;
+            //        }
+            //        yield return new WaitForSeconds(0.05f);
+            //    }
+
+            //    if (count > 0)
+            //    {
+            //        string caller = new StackTrace().GetFrame(1)?.GetMethod()?.Name;
+            //        ModInfo.Log.Info($"Button parent was hard to find (m_parent is {ModInfo.GetString(m_parent)}, attempts:{count})\n  Called by:{caller}", "[NA58]");
+            //    }
 
             if (NetworkAnarchy.instance.IsButtonInOptionsBar)
             {

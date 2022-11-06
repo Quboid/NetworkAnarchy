@@ -17,7 +17,7 @@ namespace NetworkAnarchy.Mods
 
         internal static void Initialise()
         {
-            ModAssembly = QCommon.GetAssembly("mod", "zoningadjuster");
+            ModAssembly = QCommon.GetAssembly("mod", "networkmultitool");
             if (ModAssembly == null)
             {
                 ModInfo.Log.Info($"NetworkAnarchy: Network Multitool not found", "[NA04]");
