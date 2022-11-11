@@ -47,8 +47,8 @@ namespace NetworkAnarchy.Patches
 
     /// <summary>
     /// Allow ship and airplane paths to be built outside the purchased tiles
+    /// Patch deployed by Mods.CrossTheLine
     /// </summary>
-    [HarmonyPatch(typeof(GameAreaManager), "QuadOutOfArea")]
     public static class GAM_QuadOutOfArea
     {
         public static bool Prefix(ref bool __result)

@@ -265,7 +265,6 @@ namespace NetworkAnarchy
                     Log.Debug($"Setting NodeSnapping to {(value ? "enabled" : "disabled")}", "[NA42]");
 
                     _snapping = value;
-
                     saved_nodeSnapping.value = value;
                 }
             }
@@ -287,6 +286,7 @@ namespace NetworkAnarchy
 
                     _collision = value;
                     saved_collision.value = value;
+                    ChirperManager.UpdateAtlas();
                 }
             }
         }

@@ -13,7 +13,7 @@ namespace NetworkAnarchy.Mods
     {
         private static bool IsEnabled;
         private static Assembly ModAssembly;
-        private static Type toolClass ;
+        private static Type toolClass;
 
         internal static void Initialise()
         {

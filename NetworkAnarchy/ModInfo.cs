@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Reflection;
 using UnityEngine;
 
-// Error code max: 59
+// Error code max: 62
 
 namespace NetworkAnarchy
 {
@@ -222,10 +222,12 @@ namespace NetworkAnarchy
             }
 
             Patcher.PatchAll();
+            Mods.CrossTheLine.Initialise(Patcher);
         }
 
         public void DestroyMod()
         {
+            Mods.CrossTheLine.Deactivate();
             Patcher.UnpatchAll();
 
             if (NetworkAnarchy.instance != null)
