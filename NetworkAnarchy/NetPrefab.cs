@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -266,6 +264,8 @@ namespace NetworkAnarchy
 
             Restore();
 
+            //ModInfo.Log.Debug($"{m_prefab},{m_netAI} hasElevation:{hasElevation} flatten:{m_prefab.m_flattenTerrain} mode:{m_mode}\n  Ground:{m_netAI.Info}\n  Elevated:{m_netAI.Elevated}\n  Bridge:{m_netAI.Bridge}\n  Tunnel:{m_netAI.Tunnel}");
+
             Mods.NetworkSkins.ForceUpdate();
 
             if (!hasElevation) return;
@@ -282,7 +282,7 @@ namespace NetworkAnarchy
             switch (m_mode)
             {
                 case Mode.Ground:
-                    if (m_prefab.m_flattenTerrain)
+                    //if (m_prefab.m_flattenTerrain) Commented to force pedestrian paths to use onGround
                     {
                         m_netAI.Elevated = m_prefab;
                         m_netAI.Bridge = null;
