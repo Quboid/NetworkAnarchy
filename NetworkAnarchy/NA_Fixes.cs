@@ -1,4 +1,5 @@
 ﻿using ColossalFramework;
+using QCommonLib;
 using System;
 using UnityEngine;
 
@@ -8,8 +9,7 @@ namespace NetworkAnarchy
     {
         private void FixNodes()
         {
-            m_stopWatch.Reset();
-            m_stopWatch.Start();
+            QTimer timer = new QTimer();
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
             //string msg = "";
@@ -22,7 +22,7 @@ namespace NetworkAnarchy
                     continue;
                 }
 
-                if (m_stopWatch.ElapsedMilliseconds >= 1 && i > m_fixNodesCount + 16)
+                if (timer.MS >= 1 && i > m_fixNodesCount + 16)
                 {
                     m_fixNodesCount = i;
                     return;
@@ -91,8 +91,7 @@ namespace NetworkAnarchy
 
         private void FixTunnels()
         {
-            m_stopWatch.Reset();
-            m_stopWatch.Start();
+            QTimer timer = new QTimer();
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
             NetSegment[] segments = NetManager.instance.m_segments.m_buffer;
@@ -105,7 +104,7 @@ namespace NetworkAnarchy
                     continue;
                 }
 
-                if (m_stopWatch.ElapsedMilliseconds >= 1 && i > m_fixTunnelsCount + 16)
+                if (timer.MS >= 1 && i > m_fixTunnelsCount + 16)
                 {
                     m_fixTunnelsCount = i;
                     return;

@@ -114,7 +114,7 @@ namespace NetworkAnarchy
 
         private int m_fixNodesCount = 0;
         private ushort m_fixTunnelsCount = 0;
-        private readonly Stopwatch m_stopWatch = new Stopwatch();
+        //private readonly Stopwatch m_stopWatch = new Stopwatch();
 
         private int m_segmentCount;
         private int m_controlPointCount;
