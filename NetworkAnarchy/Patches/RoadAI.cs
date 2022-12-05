@@ -1,8 +1,5 @@
-﻿using ColossalFramework;
-using HarmonyLib;
+﻿using HarmonyLib;
 using QCommonLib;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace NetworkAnarchy.Patches
 {
