@@ -164,8 +164,15 @@ namespace NetworkAnarchy
             if (!showMaxSegmentLengthSlider || m_maxSegmentLengthSlider == null) return;
 
             NetworkAnarchy.saved_segmentLength.value = NetworkAnarchy.instance.MaxSegmentLength;
-            m_maxSegmentLengthLabel.text = NetworkAnarchy.instance.MaxSegmentLength + "m";
-            m_maxSegmentLengthLabel.tooltip = (Mathf.RoundToInt(NetworkAnarchy.instance.MaxSegmentLength / 8f * 100) / 100f).ToString() + "u";
+            try
+            {
+                m_maxSegmentLengthLabel.text = NetworkAnarchy.instance.MaxSegmentLength + "m";
+                m_maxSegmentLengthLabel.tooltip = (Mathf.RoundToInt(NetworkAnarchy.instance.MaxSegmentLength / 8f * 100) / 100f).ToString() + "u";
+            }
+            catch (StackOverflowException e)
+            {
+                ModInfo.Log.Error(e);
+            }
         }
 
         private void UpdateMode()

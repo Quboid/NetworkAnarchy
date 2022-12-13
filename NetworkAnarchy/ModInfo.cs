@@ -169,7 +169,7 @@ namespace NetworkAnarchy
             Log = new QLogger(true);
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert, true);
 #else
-            Log = new QLogger(NetworkAnarchy.showDebugMessages);
+            Log = new QLogger(true);// NetworkAnarchy.showDebugMessages); // Always log stuff while mod is in beta
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
 #endif
 

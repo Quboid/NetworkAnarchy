@@ -303,11 +303,18 @@ namespace NetworkAnarchy
             m_maxSegmentLengthLabel.verticalAlignment = UIVerticalAlignment.Bottom;
             m_maxSegmentLengthLabel.textAlignment = UIHorizontalAlignment.Center;
             m_maxSegmentLengthLabel.textScale = 0.65f;
-            m_maxSegmentLengthLabel.text = "96m";
             m_maxSegmentLengthLabel.autoSize = false;
             m_maxSegmentLengthLabel.color = new Color32(91, 97, 106, 255);
             m_maxSegmentLengthLabel.size = new Vector2(38, 15);
             m_maxSegmentLengthLabel.relativePosition = new Vector2(sliderPanel.width - m_maxSegmentLengthLabel.width - 8, 10);
+            try
+            {
+                m_maxSegmentLengthLabel.text = "96m";
+            }
+            catch (StackOverflowException e)
+            {
+                ModInfo.Log.Error(e);
+            }
 
             UISlider slider = CreateMaxSegmentLengthSlider(sliderPanel, sliderPanel.width - 20 - m_maxSegmentLengthLabel.width - 8);
 
