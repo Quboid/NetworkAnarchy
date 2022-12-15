@@ -14,6 +14,9 @@ namespace NetworkAnarchy
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
             //string msg = "";
 
+            bool singleMode = NetPrefab.SingleMode;
+            NetPrefab.SingleMode = false;
+
             uint max = NetManager.instance.m_nodes.m_size;
             for (int i = m_fixNodesCount; i < max; i++)
             {
@@ -25,6 +28,7 @@ namespace NetworkAnarchy
                 if (timer.MS >= 1 && i > m_fixNodesCount + 16)
                 {
                     m_fixNodesCount = i;
+                    NetPrefab.SingleMode = singleMode;
                     return;
                 }
 
@@ -86,6 +90,7 @@ namespace NetworkAnarchy
             //    Log.Debug(msg, "[NA55]");
             //}
 
+            NetPrefab.SingleMode = singleMode;
             m_fixNodesCount = 0;
         }
 
@@ -95,6 +100,9 @@ namespace NetworkAnarchy
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
             NetSegment[] segments = NetManager.instance.m_segments.m_buffer;
+
+            bool singleMode = NetPrefab.SingleMode;
+            NetPrefab.SingleMode = false;
 
             uint max = NetManager.instance.m_segments.m_size;
             for (ushort i = m_fixTunnelsCount; i < max; i++)
@@ -107,6 +115,7 @@ namespace NetworkAnarchy
                 if (timer.MS >= 1 && i > m_fixTunnelsCount + 16)
                 {
                     m_fixTunnelsCount = i;
+                    NetPrefab.SingleMode = singleMode;
                     return;
                 }
 
@@ -227,6 +236,7 @@ namespace NetworkAnarchy
                 }
             }
 
+            NetPrefab.SingleMode = singleMode;
             m_fixTunnelsCount = 0;
         }
 

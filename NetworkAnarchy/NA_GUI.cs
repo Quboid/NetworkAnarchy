@@ -51,6 +51,7 @@ namespace NetworkAnarchy
                     // Checking key presses
                     if (OptionsKeymapping.elevationUp.IsPressed(e) || OptionsKeymapping.elevationDown.IsPressed(e))
                     {
+                        NetPrefab.SingleMode = false;
                         BuildingInfo info = m_buildingTool.m_prefab;
 
                         // Reset cached value
@@ -106,14 +107,14 @@ namespace NetworkAnarchy
                     var was = m_elevation;
                     m_elevation += Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
-                    Log.Debug($"Hotkey: elevationUp {m_elevation} (was:{was})");
+                    //Log.Debug($"Hotkey: elevationUp {m_elevation} (was:{was})");
                     e.Use();
                 } else if (OptionsKeymapping.elevationDown.IsPressed(e))
                 {
                     var was = m_elevation;
                     m_elevation -= Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
-                    Log.Debug($"Hotkey: elevationDown {m_elevation} (was:{was})");
+                    //Log.Debug($"Hotkey: elevationDown {m_elevation} (was:{was})");
                     e.Use();
                 } else if (OptionsKeymapping.elevationStepUp.IsPressed(e))
                 {
@@ -122,7 +123,7 @@ namespace NetworkAnarchy
                         elevationStep++;
                         m_toolOptionButton.UpdateButton();
                     }
-                    Log.Debug($"Hotkey: elevationStepUp {elevationStep} (was:{was})");
+                    //Log.Debug($"Hotkey: elevationStepUp {elevationStep} (was:{was})");
                     e.Use();
                 } else if (OptionsKeymapping.elevationStepDown.IsPressed(e)) {
                     var was = elevationStep;
@@ -130,7 +131,7 @@ namespace NetworkAnarchy
                         elevationStep--;
                         m_toolOptionButton.UpdateButton();
                     }
-                    Log.Debug($"Hotkey: elevationStepDown {elevationStep} (was:{was})");
+                    //Log.Debug($"Hotkey: elevationStepDown {elevationStep} (was:{was})");
                     e.Use();
                 } else if (OptionsKeymapping.modesCycleRight.IsPressed(e)) {
                     var was = m_mode;
@@ -141,7 +142,7 @@ namespace NetworkAnarchy
                     }
 
                     m_toolOptionButton.UpdateButton();
-                    Log.Debug($"Hotkey: modesCycleRight {m_mode} (was:{was})");
+                    //Log.Debug($"Hotkey: modesCycleRight {m_mode} (was:{was})");
                     e.Use();
                 } else if (OptionsKeymapping.modesCycleLeft.IsPressed(e))
                 {
@@ -153,40 +154,40 @@ namespace NetworkAnarchy
                     }
 
                     m_toolOptionButton.UpdateButton();
-                    Log.Debug($"Hotkey: modesCycleLeft {m_mode} (was:{was})");
+                    //Log.Debug($"Hotkey: modesCycleLeft {m_mode} (was:{was})");
                     e.Use();
                 } else if (OptionsKeymapping.elevationReset.IsPressed(e)) {
                     var was = m_elevation;
                     m_elevation = 0;
                     UpdateElevation();
                     m_toolOptionButton.UpdateButton();
-                    Log.Debug($"Hotkey: elevationReset {m_elevation} (was:{was})");
+                    //Log.Debug($"Hotkey: elevationReset {m_elevation} (was:{was})");
                     e.Use();
                 } else if (OptionsKeymapping.toggleBending.IsPressed(e)) {
                     var was = Bending;
                     ToggleBending();
-                    Log.Debug($"Hotkey: toggleBending {Bending} (was:{was})");
+                    //Log.Debug($"Hotkey: toggleBending {Bending} (was:{was})");
                     e.Use();
                 }
                 else if (OptionsKeymapping.toggleSnapping.IsPressed(e))
                 {
                     var was = NodeSnapping;
                     ToggleSnapping();
-                    Log.Debug($"Hotkey: toggleSnapping {NodeSnapping} (was:{was})");
+                    //Log.Debug($"Hotkey: toggleSnapping {NodeSnapping} (was:{was})");
                     e.Use();
                 }
                 else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e))
                 {
                     var was = StraightSlope;
                     ToggleStraightSlope();
-                    Log.Debug($"Hotkey: toggleStraightSlope {StraightSlope} (was:{was})");
+                    //Log.Debug($"Hotkey: toggleStraightSlope {StraightSlope} (was:{was})");
                     e.Use();
                 }
                 else if (OptionsKeymapping.toggleGrid.IsPressed(e))
                 {
                     var was = Grid;
                     ToggleGrid();
-                    Log.Debug($"Hotkey: toggleGrid {Grid} (was:{was})");
+                    //Log.Debug($"Hotkey: toggleGrid {Grid} (was:{was})");
                     e.Use();
                 }
 

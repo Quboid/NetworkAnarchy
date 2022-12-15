@@ -9,7 +9,8 @@ namespace NetworkAnarchy
         Ground,
         Elevated,
         Bridge,
-        Tunnel
+        Tunnel,
+        Single
     }
 
     public class NetPrefab
@@ -123,30 +124,31 @@ namespace NetworkAnarchy
         /// <summary>
         /// Is the player placing a single object (rather than a draggable network)?
         /// </summary>
-        //private static bool m_singleMode;
-        //public static bool SingleMode
-        //{
-        //    get { return m_singleMode; }
-        //    set
-        //    {
-        //        if (value == m_singleMode) return;
-        //        m_singleMode = false;
+        private static bool m_singleMode;
+        public static bool SingleMode
+        {
+            get { return m_singleMode; }
+            set
+            {
+                if (value == m_singleMode) return;
+                m_singleMode = false;
 
-        //        foreach (NetPrefab prefab in m_netPrefabs.Values)
-        //        {
-        //            if (value)
-        //            {
-        //                prefab.Update();
-        //            }
-        //            else
-        //            {
-        //                prefab.Restore();
-        //            }
-        //        }
+                foreach (NetPrefab prefab in m_netPrefabs.Values)
+                {
+                    if (value)
+                    {
+                        prefab.m_mode = Mode.Single;
+                        prefab.Update();
+                    }
+                    else
+                    {
+                        prefab.Restore();
+                    }
+                }
 
-        //        m_singleMode = value;
-        //    }
-        //}
+                m_singleMode = value;
+            }
+        }
 
         public static void SetMaxTurnAngle(float angle)
         {
@@ -193,6 +195,12 @@ namespace NetworkAnarchy
         {
             if (m_prefab == null) return;
             if (NetworkAnarchy.instance.IsBuildingIntersection()) return;
+
+            if (m_singleMode)
+            {
+                SingleMode = false;
+                return;
+            }
 
             if (m_hasElevation)
             {
@@ -260,6 +268,7 @@ namespace NetworkAnarchy
         /// </summary>
         public void Update()
         {
+            //ModInfo.Log.Debug($"Update {m_netAI},{m_prefab} intersection:{NetworkAnarchy.instance.IsBuildingIntersection()}");
             if (m_prefab == null) return;
 
             Restore();
@@ -272,13 +281,16 @@ namespace NetworkAnarchy
 
             if (NetworkAnarchy.instance.IsBuildingIntersection())
             {
+                //ModInfo.Log.Debug($"Update2.0 {m_netAI},{m_prefab} intersection\n{m_netAI.Info},{m_netAI.Elevated},{m_netAI.Bridge},{m_netAI.Slope},{m_netAI.Tunnel}");
                 m_netAI.Elevated = null;
                 m_netAI.Bridge = null;
                 m_netAI.Slope = null;
                 m_netAI.Tunnel = null;
+                //ModInfo.Log.Debug($"Update2.1 {m_netAI},{m_prefab} intersection\n{m_netAI.Info},{m_netAI.Elevated},{m_netAI.Bridge},{m_netAI.Slope},{m_netAI.Tunnel}");
                 return;
             }
 
+            //ModInfo.Log.Debug($"Update3.0 {m_netAI},{m_prefab} notIntersection {m_mode}\n{m_netAI.Info},{m_netAI.Elevated},{m_netAI.Bridge},{m_netAI.Slope},{m_netAI.Tunnel}");
             switch (m_mode)
             {
                 case Mode.Ground:
@@ -314,7 +326,14 @@ namespace NetworkAnarchy
                         m_netAI.Slope = m_tunnel;
                     }
                     break;
+                case Mode.Single:
+                    m_netAI.Elevated = null;
+                    m_netAI.Bridge = null;
+                    m_netAI.Slope = null;
+                    m_netAI.Tunnel = null;
+                    break;
             }
+            //ModInfo.Log.Debug($"Update3.1 {m_netAI},{m_prefab} notIntersection {m_mode}\n{m_netAI.Info},{m_netAI.Elevated},{m_netAI.Bridge},{m_netAI.Slope},{m_netAI.Tunnel}");
         }
     }
 }

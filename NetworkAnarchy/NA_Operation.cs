@@ -1,5 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+using QCommonLib;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -178,18 +179,18 @@ namespace NetworkAnarchy
                 }
 
                 // Plopping intersection?
-                //if (m_buildingTool.enabled)
-                //{
-                //    if (!NetPrefab.SingleMode)
-                //    {
-                //        int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
-                //        NetPrefab.SingleMode = (elevation == 0);
-                //    }
-                //}
-                //else
-                //{
-                //    NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor) && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
-                //}
+                if (m_buildingTool.enabled)
+                {
+                    if (!NetPrefab.SingleMode)
+                    {
+                        int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
+                        NetPrefab.SingleMode = (elevation == 0);
+                    }
+                }
+                else
+                {
+                    NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor) && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
+                }
             }
             catch (Exception e)
             {
@@ -198,6 +199,7 @@ namespace NetworkAnarchy
                 try
                 {
                     Deactivate();
+                    NetPrefab.SingleMode = false;
                 }
                 catch { }
             }
@@ -210,6 +212,7 @@ namespace NetworkAnarchy
             else
                 UnityEngine.Debug.Log($"Network Anarchy: Deactivating because OnDisable");
             Deactivate();
+            NetPrefab.SingleMode = false;
         }
 
         private void Activate(NetInfo info)
@@ -270,10 +273,7 @@ namespace NetworkAnarchy
             if (m_current != null)
             { // Clean up previous prefab
                 var prefab = NetPrefab.GetPrefab(m_current);
-                if (prefab != null)
-                {
-                    prefab.Restore();
-                }
+                prefab?.Restore();
                 m_current = null;
             }
 
@@ -287,7 +287,8 @@ namespace NetworkAnarchy
             IsActive = false;
             m_toolOptionButton.isVisible = false;
 
-            Log.Debug($"Deactivated \n {new StackTrace().ToString()}", "[NA53]");
+           // Log.Debug($"Deactivated\n{new StackTrace()}", "[NA53]");
+            Log.Debug($"Deactivated", "[NA53]");
         }
 
         internal bool IsBuildingIntersection()

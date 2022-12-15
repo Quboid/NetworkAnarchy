@@ -10,14 +10,11 @@ namespace NetworkAnarchy
         {
             public override void OnAfterSimulationTick()
             {
-                if (NetworkAnarchy.instance == null || !NetworkAnarchy.instance.enabled)
-                {
-                    return;
-                }
+                if (instance == null || !instance.enabled) return;
 
                 try
                 {
-                    NetworkAnarchy.instance.OnAfterSimulationTick();
+                    instance.OnAfterSimulationTick();
                 }
                 catch (Exception e)
                 {
@@ -60,10 +57,7 @@ namespace NetworkAnarchy
             if (m_fixNodesCount != 0 || m_fixTunnelsCount != 0)
             {
                 var prefab = NetPrefab.GetPrefab(m_current);
-                if (prefab != null)
-                {
-                    prefab.Restore();
-                }
+                prefab?.Restore();
 
                 if (m_fixTunnelsCount != 0)
                 {
@@ -75,10 +69,7 @@ namespace NetworkAnarchy
                     FixNodes();
                 }
 
-                if (prefab != null)
-                {
-                    prefab.Update();
-                }
+                prefab?.Update();
             }
 
             // Stop here if neither active nor bulldozer tool enabled
@@ -93,10 +84,7 @@ namespace NetworkAnarchy
                 m_segmentCount = NetManager.instance.m_segmentCount;
 
                 var prefab = NetPrefab.GetPrefab(m_current);
-                if (prefab != null)
-                {
-                    prefab.Restore();
-                }
+                prefab?.Restore();
 
                 m_fixTunnelsCount = 0;
                 m_fixNodesCount = 0;
@@ -104,10 +92,7 @@ namespace NetworkAnarchy
                 FixTunnels();
                 FixNodes();
 
-                if (prefab != null)
-                {
-                    prefab.Update();
-                }
+                prefab?.Update();
             }
 
             if (!IsActive)
