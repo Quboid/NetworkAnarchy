@@ -178,7 +178,7 @@
     <value>Snížit počet trolejového vedení železniční tratě ze 3 na 1 za segment.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Obnovit pozici okena nástroje</value>
+    <value>Obnovit pozici okna nástroje</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
     <value>Zobrazit posuvník kroku vyvýšení</value>
