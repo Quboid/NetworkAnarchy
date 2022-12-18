@@ -28,10 +28,6 @@
     <Reference Include="Assembly-CSharp" />
     <Reference Include="ColossalManaged" />
     <Reference Include="ICities" />
-    <Reference Include="QCommon">
-      <HintPath>..\..\..\..\QCommon\Repo\QCommon\QCommon\bin\Release\QCommon.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="UnityEngine" />
   </ItemGroup>
   <ItemGroup>
@@ -75,4 +71,5 @@
     <RemoveDir Directories="$(TargetDir)" />
     <RemoveDir Directories="$(DeployDir)" />
   </Target>
+  <Import Project="..\..\..\..\QCommon\Repo\QCommon\QCommon\QCommon Shared.projitems" Label="Shared" />
 </Project>

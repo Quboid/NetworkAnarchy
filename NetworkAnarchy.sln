@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkAnarchy", "NetworkAnarchy\NetworkAnarchy.csproj", "{291D9EA9-6945-4EA3-8756-37464D40FF00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCommon", "..\..\..\QCommon\Repo\QCommon\QCommon\QCommon.csproj", "{6246F91E-8994-495B-A832-25B71B15E061}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "QCommon Shared", "..\..\..\QCommon\Repo\QCommon\QCommon\QCommon Shared.shproj", "{233B2695-91AD-4B85-A778-1FFF467FAE35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,15 +17,15 @@ Global
 		{291D9EA9-6945-4EA3-8756-37464D40FF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{291D9EA9-6945-4EA3-8756-37464D40FF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{291D9EA9-6945-4EA3-8756-37464D40FF00}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6246F91E-8994-495B-A832-25B71B15E061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6246F91E-8994-495B-A832-25B71B15E061}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6246F91E-8994-495B-A832-25B71B15E061}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6246F91E-8994-495B-A832-25B71B15E061}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52D8687F-6BFB-4D01-9E1E-AC85E69AB925}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\QCommon\Repo\QCommon\QCommon\QCommon Shared.projitems*{233b2695-91ad-4b85-a778-1fff467fae35}*SharedItemsImports = 13
+		..\..\..\QCommon\Repo\QCommon\QCommon\QCommon Shared.projitems*{291d9ea9-6945-4ea3-8756-37464d40ff00}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
