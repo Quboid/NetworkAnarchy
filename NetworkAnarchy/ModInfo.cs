@@ -229,6 +229,7 @@ namespace NetworkAnarchy
         {
             Mods.CrossTheLine.Deactivate();
             Patcher.UnpatchAll();
+            NetworkAnarchy.instance.RestoreDefaultKeys();
 
             if (NetworkAnarchy.instance != null)
             {

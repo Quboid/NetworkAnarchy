@@ -252,7 +252,7 @@ namespace NetworkAnarchy
             m_elevation = (int)m_elevationField.GetValue(m_netTool);
             if (prefab != null)
             {
-                prefab.mode = mode;
+                prefab.Mode = mode;
                 prefab.Update();
             }
             else
@@ -300,6 +300,14 @@ namespace NetworkAnarchy
             return true;
         }
 
+        internal bool IsBuildingGroundIntersection()
+        {
+            if (!IsBuildingIntersection()) return false;
+            int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
+            if (elevation == 0) return false;
+            return true;
+        }
+
         private void DisableDefaultKeys()
         {
             if (m_keyDisabled)
@@ -315,7 +323,7 @@ namespace NetworkAnarchy
             m_keyDisabled = true;
         }
 
-        private void RestoreDefaultKeys()
+        internal void RestoreDefaultKeys()
         {
             if (!m_keyDisabled)
             {

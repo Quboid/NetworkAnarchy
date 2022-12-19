@@ -51,6 +51,7 @@ namespace NetworkAnarchy
                     // Checking key presses
                     if (OptionsKeymapping.elevationUp.IsPressed(e) || OptionsKeymapping.elevationDown.IsPressed(e))
                     {
+                        int delta = OptionsKeymapping.elevationUp.IsPressed(e) ? 1 : -1;
                         NetPrefab.SingleMode = false;
                         BuildingInfo info = m_buildingTool.m_prefab;
 
@@ -69,10 +70,11 @@ namespace NetworkAnarchy
                         }
 
                         int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
-                        elevation += OptionsKeymapping.elevationUp.IsPressed(e) ? 1 : -1;
+                        elevation += delta;
 
                         m_buildingElevationField.SetValue(m_buildingTool, Mathf.Clamp(elevation, min, max));
                         e.Use();
+                        Log.Debug($"Intersection El: {(delta == 1 ? "Up" : "Down")} {elevation - delta}->{elevation} ({m_buildingElevationField.GetValue(m_buildingTool)})");
                     }
                     return;
                 }

@@ -161,7 +161,7 @@ namespace NetworkAnarchy
                         return;
                     }
 
-                    prefab.mode = m_mode;
+                    prefab.Mode = m_mode;
                     prefab.Update();
                     m_toolOptionButton.UpdateButton();
                 }

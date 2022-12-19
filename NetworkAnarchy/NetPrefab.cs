@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using QCommonLib;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -22,10 +23,11 @@ namespace NetworkAnarchy
         private NetInfo m_tunnel;
 
         private NetAIWrapper m_netAI;
-        private Mode m_mode;
         private bool m_hasElevation;
 
         private float m_defaultMaxTurnAngle;
+
+        internal static QLogger Log;
 
         /// <summary>
         /// Dictionary of base-game prefab to Network Anarchy wrapper
@@ -34,6 +36,8 @@ namespace NetworkAnarchy
 
         private NetPrefab(NetInfo prefab)
         {
+            Log = ModInfo.Log;
+
             m_netAI = new NetAIWrapper(prefab.m_netAI);
 
             m_prefab = prefab;
@@ -137,7 +141,7 @@ namespace NetworkAnarchy
                 {
                     if (value)
                     {
-                        prefab.m_mode = Mode.Single;
+                        prefab.Mode = Mode.Single;
                         prefab.Update();
                     }
                     else
@@ -149,6 +153,59 @@ namespace NetworkAnarchy
                 m_singleMode = value;
             }
         }
+
+        /// <summary>
+        /// The placement mode for this specific prefab
+        /// </summary>
+        private Mode m_mode;
+        public Mode Mode
+        {
+            get { return m_mode; }
+            set
+            {
+                //if (prefab.name == "Highway") Log.Debug($"Set Mode {NetworkAnarchy.instance.IsBuildingIntersection()}/{Mode}", "[T01]");
+                if (m_prefab == null || !m_hasElevation) return;
+
+                m_mode = value;
+            }
+        }
+
+        /// <summary>
+        /// The base-game prefab
+        /// </summary>
+        public NetInfo prefab
+        {
+            get { return m_prefab; }
+        }
+
+        /// <summary>
+        /// The base-game prefab's AI
+        /// </summary>
+        public NetAIWrapper netAI
+        {
+            get { return m_netAI; }
+        }
+
+        /// <summary>
+        /// Does network have placement modes other than on-ground?
+        /// </summary>
+        public bool hasElevation
+        {
+            get { return m_hasElevation; }
+        }
+
+        /// <summary>
+        /// Does network have placement modes other than on-ground?
+        /// </summary>
+        //public bool hasVariation
+        //{
+        //    get { return m_elevated != null || m_bridge != null || m_slope != null || m_tunnel != null; }
+        //}
+
+        //public bool LinearMiddleHeight()
+        //{
+        //    return true;
+        //}
 
         public static void SetMaxTurnAngle(float angle)
         {
@@ -194,7 +251,8 @@ namespace NetworkAnarchy
         public void Restore()
         {
             if (m_prefab == null) return;
-            if (NetworkAnarchy.instance.IsBuildingIntersection()) return;
+            //if (prefab.name == "Highway") Log.Debug($"Restore {NetworkAnarchy.instance.IsBuildingIntersection()}/{Mode}", "[T04]");
+            if (NetworkAnarchy.instance.IsBuildingGroundIntersection()) return;
 
             if (m_singleMode)
             {
@@ -213,57 +271,6 @@ namespace NetworkAnarchy
         }
 
         /// <summary>
-        /// The placement mode for this specific prefab
-        /// </summary>
-        public Mode mode
-        {
-            get { return m_mode; }
-            set
-            {
-                if (m_prefab == null || !m_hasElevation) return;
-
-                m_mode = value;
-            }
-        }
-
-        /// <summary>
-        /// The base-game prefab
-        /// </summary>
-        public NetInfo prefab
-        {
-            get { return m_prefab; }
-        }
-
-        /// <summary>
-        /// The base-game prefab's AI
-        /// </summary>
-        public NetAIWrapper netAI
-        {
-            get { return m_netAI; }
-        }
-
-        /// <summary>
-        /// Does network have placement modes other than on-ground?
-        /// </summary>
-        public bool hasElevation
-        {
-            get { return m_hasElevation; }
-        }
-
-        /// <summary>
-        /// Does network have placement modes other than on-ground?
-        /// </summary>
-        //public bool hasVariation
-        //{
-        //    get { return m_elevated != null || m_bridge != null || m_slope != null || m_tunnel != null; }
-        //}
-
-        //public bool LinearMiddleHeight()
-        //{
-        //    return true;
-        //}
-
-        /// <summary>
         /// Set the prefab wrapper to the selected placement mode
         /// </summary>
         public void Update()
@@ -275,26 +282,24 @@ namespace NetworkAnarchy
 
             //ModInfo.Log.Debug($"{m_prefab},{m_netAI} hasElevation:{hasElevation} flatten:{m_prefab.m_flattenTerrain} mode:{m_mode}\n  Ground:{m_netAI.Info}\n  Elevated:{m_netAI.Elevated}\n  Bridge:{m_netAI.Bridge}\n  Tunnel:{m_netAI.Tunnel}");
 
+            //if (prefab.name == "Highway") Log.Debug($"Update {NetworkAnarchy.instance.IsBuildingIntersection()}/{Mode} hasEl:{hasElevation}", "[T03]");
+
             Mods.NetworkSkins.ForceUpdate();
 
             if (!hasElevation) return;
 
-            if (NetworkAnarchy.instance.IsBuildingIntersection())
-            {
-                //ModInfo.Log.Debug($"Update2.0 {m_netAI},{m_prefab} intersection\n{m_netAI.Info},{m_netAI.Elevated},{m_netAI.Bridge},{m_netAI.Slope},{m_netAI.Tunnel}");
-                m_netAI.Elevated = null;
-                m_netAI.Bridge = null;
-                m_netAI.Slope = null;
-                m_netAI.Tunnel = null;
-                //ModInfo.Log.Debug($"Update2.1 {m_netAI},{m_prefab} intersection\n{m_netAI.Info},{m_netAI.Elevated},{m_netAI.Bridge},{m_netAI.Slope},{m_netAI.Tunnel}");
-                return;
-            }
+            //if (NetworkAnarchy.instance.IsBuildingIntersection())
+            //{
+            //    m_netAI.Elevated = null;
+            //    m_netAI.Bridge = null;
+            //    m_netAI.Slope = null;
+            //    m_netAI.Tunnel = null;
+            //    return;
+            //}
 
-            //ModInfo.Log.Debug($"Update3.0 {m_netAI},{m_prefab} notIntersection {m_mode}\n{m_netAI.Info},{m_netAI.Elevated},{m_netAI.Bridge},{m_netAI.Slope},{m_netAI.Tunnel}");
-            switch (m_mode)
+            switch (Mode)
             {
                 case Mode.Ground:
-                    //if (m_prefab.m_flattenTerrain) Commented to force pedestrian paths to use onGround
                     {
                         m_netAI.Elevated = m_prefab;
                         m_netAI.Bridge = null;
@@ -333,7 +338,6 @@ namespace NetworkAnarchy
                     m_netAI.Tunnel = null;
                     break;
             }
-            //ModInfo.Log.Debug($"Update3.1 {m_netAI},{m_prefab} notIntersection {m_mode}\n{m_netAI.Info},{m_netAI.Elevated},{m_netAI.Bridge},{m_netAI.Slope},{m_netAI.Tunnel}");
         }
     }
 }
