@@ -5,7 +5,7 @@
     <Version>3.0.11</Version>
     <ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed/</ManagedDLLPath>
     <AssemblySearchPaths>
-      $(AssemblySearchPaths);
+	  $(AssemblySearchPaths);
       $(ManagedDLLPath);
       ../../../../Libraries/;
       ../../../../QCommon/Repo/QCommon/QCommon/bin/Release/;
@@ -71,5 +71,6 @@
     <RemoveDir Directories="$(TargetDir)" />
     <RemoveDir Directories="$(DeployDir)" />
   </Target>
-  <Import Project="..\..\..\..\QCommon\Repo\QCommon\QCommon\QCommon Shared.projitems" Label="Shared" />
+  <Import Project="..\..\..\..\QCommon\Repo\QCommon\QCommon\Harmony\QCommon Harmony.projitems" Label="Shared" />
+  <Import Project="..\..\..\..\QCommon\Repo\QCommon\QCommon\Shared\QCommon Shared.projitems" Label="Shared" />
 </Project>
