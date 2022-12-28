@@ -243,7 +243,7 @@ namespace NetworkAnarchy
 
             try
             {
-                m_toolOptionButton = UIView.GetAView().AddUIComponent(typeof(UIToolOptionsButton)) as UIToolOptionsButton;
+                m_toolOptionButton = UIView.GetAView().AddUIComponent(typeof(UI.ToolOptionsButton)) as UI.ToolOptionsButton;
 
                 if (m_toolOptionButton == null)
                 {
@@ -301,6 +301,7 @@ namespace NetworkAnarchy
 
                     // Put the main button in ElevationStep
                     m_toolOptionButton.transform.SetParent(button.transform);
+
                     IsButtonInOptionsBar = false;
                     button.tooltip = null;
                     DoesVanillaElevationButtonExist = true;
@@ -325,7 +326,10 @@ namespace NetworkAnarchy
                         }
                     }
 
-                    Log.Debug($"ELEVATION STEP\nButton placed on elevation button (parent:{ModInfo.GetString(m_toolOptionButton.parent)}, transform.parent:{ModInfo.GetString(m_toolOptionButton.transform.parent)})", "[NA49]");
+                    Log.Debug($"ELEVATION STEP - Button placed on elevation button\n" +
+                        $"      button:{ModInfo.GetString(button)}\n" +
+                        $"      parent:{ModInfo.GetString(m_toolOptionButton.parent)}\n" +
+                        $" tfrm.parent:{ModInfo.GetString(m_toolOptionButton.transform.parent)})", "[NA49]");
                     return;
                 }
             }

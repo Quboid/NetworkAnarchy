@@ -5,9 +5,9 @@ using QCommonLib;
 using System;
 using UnityEngine;
 
-namespace NetworkAnarchy
+namespace NetworkAnarchy.UI
 {
-    public partial class UIToolOptionsButton : UICheckBox
+    public partial class ToolOptionsButton : UICheckBox
     {
         private void CreateButton()
         {
@@ -176,7 +176,7 @@ namespace NetworkAnarchy
             m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", Str.ui_toggleAnarchy, NetworkAnarchy.saved_anarchy, NetworkAnarchy.instance.ToggleAnarchy);
             m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", Str.ui_toggleBending, NetworkAnarchy.saved_bending, NetworkAnarchy.instance.ToggleBending);
             m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", Str.ui_toggleSnapping, NetworkAnarchy.saved_nodeSnapping, NetworkAnarchy.instance.ToggleSnapping);
-            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", Str.ui_toggleCollision, NetworkAnarchy.Collision, NetworkAnarchy.instance.ToggleCollision);
+            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", Str.ui_toggleZoneOverride, NetworkAnarchy.Collision, NetworkAnarchy.instance.ToggleCollision);
             m_straightSlopeBtn = CreateAnarchyCheckBox(anarchyPanel, "StraightSlope", Str.ui_toggleSlope, NetworkAnarchy.saved_smoothSlope, NetworkAnarchy.instance.ToggleStraightSlope);
 
             anarchyPanel.autoLayout = true;

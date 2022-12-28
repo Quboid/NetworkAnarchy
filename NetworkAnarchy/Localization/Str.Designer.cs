@@ -322,6 +322,17 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Collision has been combined with Anarchy mode.
+        ///
+        ///In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created..
+        /// </summary>
+        internal static string popup_collisionRemoved {
+            get {
+                return ResourceManager.GetString("popup_collisionRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Click here for Tool Options.
         /// </summary>
         internal static string ui_clickForToolOptions {
@@ -471,6 +482,15 @@ namespace NetworkAnarchy.Localization {
         internal static string ui_toggleSnapping {
             get {
                 return ResourceManager.GetString("ui_toggleSnapping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Override zone collision.
+        /// </summary>
+        internal static string ui_toggleZoneOverride {
+            get {
+                return ResourceManager.GetString("ui_toggleZoneOverride", resourceCulture);
             }
         }
     }

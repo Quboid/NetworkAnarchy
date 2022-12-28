@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Reflection;
 using UnityEngine;
 
-// Error code max: 62
+// Error code max: 65
 
 namespace NetworkAnarchy
 {
@@ -53,9 +53,9 @@ namespace NetworkAnarchy
                 var group = helper.AddGroup(Name) as UIHelper;
                 var panel = group.self as UIPanel;
 
-                var checkBox = (UICheckBox)group.AddCheckbox(Str.options_showLabels, UIToolOptionsButton.showLabels.value, (b) =>
+                var checkBox = (UICheckBox)group.AddCheckbox(Str.options_showLabels, UI.ToolOptionsButton.showLabels.value, (b) =>
                 {
-                    UIToolOptionsButton.showLabels.value = b;
+                    UI.ToolOptionsButton.showLabels.value = b;
                     if (NetworkAnarchy.instance != null)
                     {
                         NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
@@ -63,9 +63,9 @@ namespace NetworkAnarchy
                 });
                 checkBox.tooltip = Str.options_showLabelsTooltip;
 
-                checkBox = (UICheckBox)group.AddCheckbox(Str.options_showElevationStepSlider, UIToolOptionsButton.showElevationSlider.value, (b) =>
+                checkBox = (UICheckBox)group.AddCheckbox(Str.options_showElevationStepSlider, UI.ToolOptionsButton.showElevationSlider.value, (b) =>
                 {
-                    UIToolOptionsButton.showElevationSlider.value = b;
+                    UI.ToolOptionsButton.showElevationSlider.value = b;
                     if (NetworkAnarchy.instance != null)
                     {
                         NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
@@ -73,9 +73,9 @@ namespace NetworkAnarchy
                 });
                 checkBox.tooltip = Str.options_showElevationStepSliderTooltip;
 
-                checkBox = (UICheckBox)group.AddCheckbox(Str.options_showMaxSegmentLengthSlider, UIToolOptionsButton.showMaxSegmentLengthSlider.value, (b) =>
+                checkBox = (UICheckBox)group.AddCheckbox(Str.options_showMaxSegmentLengthSlider, UI.ToolOptionsButton.showMaxSegmentLengthSlider.value, (b) =>
                 {
-                    UIToolOptionsButton.showMaxSegmentLengthSlider.value = b;
+                    UI.ToolOptionsButton.showMaxSegmentLengthSlider.value = b;
                     if (NetworkAnarchy.instance != null)
                     {
                         NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
@@ -133,12 +133,12 @@ namespace NetworkAnarchy
 
                 group.AddButton(Str.options_resetToolWindowPosition, () =>
                 {
-                    UIToolOptionsButton.savedWindowX.Delete();
-                    UIToolOptionsButton.savedWindowY.Delete();
+                    UI.ToolOptionsButton.savedWindowX.Delete();
+                    UI.ToolOptionsButton.savedWindowY.Delete();
 
-                    if (UIToolOptionsButton.toolOptionsPanel)
+                    if (UI.ToolOptionsButton.toolOptionsPanel)
                     {
-                        UIToolOptionsButton.toolOptionsPanel.absolutePosition = new Vector3(-1000, -1000);
+                        UI.ToolOptionsButton.toolOptionsPanel.absolutePosition = new Vector3(-1000, -1000);
                     }
                 });
 

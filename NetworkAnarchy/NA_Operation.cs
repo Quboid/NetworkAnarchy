@@ -1,8 +1,8 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
 using QCommonLib;
+using QCommonLib.UI;
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -161,7 +161,7 @@ namespace NetworkAnarchy
 
                     if (prefab == null)
                     {
-                        Log.Debug($"Deactivating in Update because prefab is null");
+                        Log.Debug($"Deactivating in Update because prefab is null", "[NA63]");
                         Deactivate();
                     }
                     else
@@ -208,7 +208,7 @@ namespace NetworkAnarchy
         public void OnDisable()
         {
             if (Log != null)
-                Log.Debug("Deactivating because OnDisable");
+                Log.Debug("Deactivating because OnDisable", "[NA64]");
             else
                 UnityEngine.Debug.Log($"Network Anarchy: Deactivating because OnDisable");
             Deactivate();
@@ -223,6 +223,8 @@ namespace NetworkAnarchy
             {
                 return;
             }
+
+            CollisionRemovalWarning = QPopup.Open(typeof(UI.CollisionFeatureRemovalPanel));
 
             // Clean up previous prefab
             var prefab = NetPrefab.GetPrefab(m_current);
@@ -242,7 +244,7 @@ namespace NetworkAnarchy
             if (m_bulldozeTool.enabled && !DoesVanillaElevationButtonExist)
             {
                 Log.Debug($"Deactivating because bulldozing non-network issue.\n" +
-                    $"bulldoze:{m_bulldozeTool.enabled}, DoesVanillaElevationButtonExist:{DoesVanillaElevationButtonExist}");
+                    $"bulldoze:{m_bulldozeTool.enabled}, DoesVanillaElevationButtonExist:{DoesVanillaElevationButtonExist}", "[NA65]");
                 Deactivate();
                 m_current = info;
                 return;
@@ -270,6 +272,8 @@ namespace NetworkAnarchy
 
         private void Deactivate()
         {
+            Log.Debug($"Deactivated {IsActive} m_current:{m_current} prefab:{ModInfo.GetString(NetPrefab.GetPrefab(m_current))}", "[NA53.1]");
+
             if (m_current != null)
             { // Clean up previous prefab
                 var prefab = NetPrefab.GetPrefab(m_current);
@@ -287,8 +291,7 @@ namespace NetworkAnarchy
             IsActive = false;
             m_toolOptionButton.isVisible = false;
 
-           // Log.Debug($"Deactivated\n{new StackTrace()}", "[NA53]");
-            Log.Debug($"Deactivated", "[NA53]");
+            Log.Debug($"Deactivated\n", "[NA53.2]");
         }
 
         internal bool IsBuildingIntersection()

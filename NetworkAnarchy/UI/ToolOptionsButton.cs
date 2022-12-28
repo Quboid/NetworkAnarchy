@@ -1,16 +1,12 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
-using NetworkAnarchy.Localization;
-using QCommonLib;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-namespace NetworkAnarchy
+namespace NetworkAnarchy.UI
 {
-    public partial class UIToolOptionsButton : UICheckBox
+    public partial class ToolOptionsButton : UICheckBox
     {
         private UIButton m_button;
         internal UIPanel m_toolOptionsPanel;
