@@ -157,7 +157,7 @@
     <value>直線スロープの切替</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>ゾーニングの上書きを切り替え</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>道路やネットワークのためのより多くのツール</value>
@@ -205,9 +205,9 @@
     <value>現在の最大角のほうが大きい場合、トラム線路のある全ての道路の最大角が変更されます。</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
+    <value>衝突判定は、アナーキーモードと統合されました。
 
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+代わりに「ゾーニングの衝突判定を上書き」ボタンは、パスやフェンスが付近のゾーニング生成の有無を制御します。</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>クリックでオプションを表示</value>
@@ -266,6 +266,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>ノードスナップの切替</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>ゾーニングの衝突判定を上書き</value>
   </data>
 </root>
