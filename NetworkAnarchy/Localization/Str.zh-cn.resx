@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>切换弯曲</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>切换碰撞</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>切换编辑器网格</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>切换平直坡道</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>更多的道路及其他网络工具选项</value>
