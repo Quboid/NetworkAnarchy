@@ -205,9 +205,8 @@
     <value>如果当前值较高，则将所有有轨电车轨道最大转弯角度的道路更改为以下值。</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
-
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+    <value>碰撞功能已经和无碰撞模式相结合。
+在它所在位置，覆盖区域碰撞功能按钮以控制路径/围栏是否会阻止周围的分区地块的生成。</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>点击此处查看工具选项</value>
@@ -266,6 +265,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>切换捕捉吸附</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>覆盖区域碰撞</value>
   </data>
 </root>
