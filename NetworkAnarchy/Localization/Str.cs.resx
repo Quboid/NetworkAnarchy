@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>Přepnout ohyb</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>Přepnout kolize</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Přepnout editor mřížky</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Přepínač přímého sklonu</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Další možnosti nástroje pro silnice a ostatní sítě</value>
