@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>Biegen ein/aus</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>Kollision ein/aus</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Editor-Raster ein/aus</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Begradigen ein/aus</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Weitere Werkzeugoptionen für Straßen und andere Netzwerke</value>
