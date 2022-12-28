@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
     <value>เปลี่ยนโหมดการทำงาน (วนไปทางซ้ายมือ)</value>
@@ -204,6 +204,11 @@
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>เปลี่ยนถนนทุกสายที่มีรางรางให้มีมุมเลี้ยวสูงสุด ตามการตั้งค่าด้านล่าง (หากค่าปัจจุบันสูงกว่า)</value>
   </data>
+  <data name="popup_collisionRemoved" xml:space="preserve">
+    <value>Collision has been combined with Anarchy mode.
+
+In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+  </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
   </data>
@@ -259,5 +264,8 @@
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>เปิดโหมดการยึดติด</value>
+  </data>
+  <data name="ui_toggleZoneOverride" xml:space="preserve">
+    <value>Override zone collision</value>
   </data>
 </root>
