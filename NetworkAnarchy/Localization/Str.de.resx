@@ -157,7 +157,7 @@
     <value>Begradigen ein/aus</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>Zonenüberschreibung umschalten</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Weitere Werkzeugoptionen für Straßen und andere Netzwerke</value>
