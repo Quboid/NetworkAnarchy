@@ -205,9 +205,9 @@
     <value>Ändert alle Strassen mit Tramspuren auf den maximalen Kurvenwinkel des unten angegebenen Wertes, wenn der aktuelle Wert höher ist.</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
+    <value>Kollision wurde mit dem Anarchie-Modus kombiniert.
 
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+An seiner Stelle kontrolliert der Knopf zum Zone Kollision überschreiben, ob Pfade/Zäune die Erstellung von Kacheln in der Nähe verhindern.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Hier klicken für Werkzeugoptionen</value>
@@ -266,6 +266,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>Einrasten ein/aus</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>Zonen-Kollision überschreiben</value>
   </data>
 </root>
