@@ -205,9 +205,7 @@
     <value>Изменить максимальный угол поворота для всех дорог с трамвайными рельсами, если их значение меньше указанного.</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
-
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+    <value>При включенной "Переопределить коллизию зон", пешеходные дорожки и заборы не будут препятствовать созданию зон.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Нажмите здесь для открытия опций</value>
@@ -266,6 +264,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>Вкл/Выкл привязку</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>Переопределить коллизию зон</value>
   </data>
 </root>
