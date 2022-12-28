@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>Activer/Désactiver la courbure</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>Activer/Désactiver la collision</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Afficher/Masquer la grille de l'éditeur</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Activer/Désactiver les pentes constantes</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Plus d'options d'outil pour les routes et les autres réseaux</value>
