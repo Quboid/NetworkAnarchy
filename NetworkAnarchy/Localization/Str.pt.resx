@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>Alternar curvatura automática</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>Alternar colisão</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Alternar grade</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Alternar elevação uniforme</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Mais opções de ferramentas para estradas e redes de segmentos em geral</value>
