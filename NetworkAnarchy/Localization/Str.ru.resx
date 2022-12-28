@@ -157,7 +157,7 @@
     <value>Вкл/Выкл прямой склон</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>Переключить переопределение зон</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Больше возможностей для дорог и других сетевых объектов</value>
