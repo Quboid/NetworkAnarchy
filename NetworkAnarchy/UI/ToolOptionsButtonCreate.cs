@@ -5,9 +5,9 @@ using QCommonLib;
 using System;
 using UnityEngine;
 
-namespace NetworkAnarchy.UI
+namespace NetworkAnarchy
 {
-    public partial class ToolOptionsButton : UICheckBox
+    public partial class UIToolOptionsButton : UICheckBox
     {
         private void CreateButton()
         {

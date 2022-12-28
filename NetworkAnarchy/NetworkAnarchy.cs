@@ -1,9 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
-using ICities;
 using QCommonLib;
-using QCommonLib.UI;
-using System.Diagnostics;
 using System.Reflection;
 using UnityEngine;
 
@@ -26,7 +23,7 @@ namespace NetworkAnarchy
         public static SavedBool showDebugMessages = new SavedBool("showDebugMessages", settingsFileName, false, true);
 
         public static SavedBool showCollisionRemoval = new SavedBool("showCollisionRemoval", settingsFileName, true, true);
-        internal QPopup CollisionRemovalWarning;
+        internal QCommonLib.UI.QPopup CollisionRemovalWarning;
 
         private int m_elevation = 0;
         private readonly SavedInt m_elevationStep = new SavedInt("elevationStep", settingsFileName, 3, true);
@@ -127,7 +124,7 @@ namespace NetworkAnarchy
 
         public static NetworkAnarchy instance;
 
-        internal static UI.ToolOptionsButton m_toolOptionButton;
+        internal static UIToolOptionsButton m_toolOptionButton;
         private static UIButton m_upgradeButtonTemplate;
 
         public static FastList<NetInfo> bendingPrefabs = new FastList<NetInfo>();

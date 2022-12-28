@@ -243,7 +243,7 @@ namespace NetworkAnarchy
 
             try
             {
-                m_toolOptionButton = UIView.GetAView().AddUIComponent(typeof(UI.ToolOptionsButton)) as UI.ToolOptionsButton;
+                m_toolOptionButton = UIView.GetAView().AddUIComponent(typeof(UIToolOptionsButton)) as UIToolOptionsButton;
 
                 if (m_toolOptionButton == null)
                 {

@@ -4,9 +4,9 @@ using System;
 using System.Diagnostics;
 using UnityEngine;
 
-namespace NetworkAnarchy.UI
+namespace NetworkAnarchy
 {
-    public partial class ToolOptionsButton : UICheckBox
+    public partial class UIToolOptionsButton : UICheckBox
     {
         private UIButton m_button;
         internal UIPanel m_toolOptionsPanel;
