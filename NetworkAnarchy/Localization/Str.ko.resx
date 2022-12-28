@@ -157,7 +157,7 @@
     <value>직선 경사 전환</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>구역 무시 전환</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
