@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>Toggle Bending</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>Toggle Collision</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Toggle Editor Grid</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Toggle Straight Slopes</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>More tool options for roads and other networks</value>
