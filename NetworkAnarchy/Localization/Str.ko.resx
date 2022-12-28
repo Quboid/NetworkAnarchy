@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>벤딩 전환</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>충돌 전환</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>에디터 그리드 전환</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>직선 경사 전환</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
