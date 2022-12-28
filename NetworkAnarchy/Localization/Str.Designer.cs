@@ -151,15 +151,6 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toggle Collision.
-        /// </summary>
-        internal static string key_toggleCollision {
-            get {
-                return ResourceManager.GetString("key_toggleCollision", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Toggle Editor Grid.
         /// </summary>
         internal static string key_toggleGrid {
@@ -183,6 +174,15 @@ namespace NetworkAnarchy.Localization {
         internal static string key_toggleStraightSlopes {
             get {
                 return ResourceManager.GetString("key_toggleStraightSlopes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle Zone Override.
+        /// </summary>
+        internal static string key_toggleZoneOverride {
+            get {
+                return ResourceManager.GetString("key_toggleZoneOverride", resourceCulture);
             }
         }
         

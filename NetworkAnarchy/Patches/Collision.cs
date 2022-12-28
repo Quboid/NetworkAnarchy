@@ -11,7 +11,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(ref bool __result)
         {
-            if (!NetworkAnarchy.Collision)
+            if (NetworkAnarchy.Anarchy)
             {
                 __result = false;
                 return false;
@@ -28,7 +28,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(ref bool __result)
         {
-            if (!NetworkAnarchy.Collision)
+            if (NetworkAnarchy.Anarchy)
             {
                 __result = false;
                 return false;
@@ -44,7 +44,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(ref bool __result)
         {
-            if (!NetworkAnarchy.Collision)
+            if (NetworkAnarchy.Anarchy)
             {
                 __result = true;
                 return false;
@@ -64,7 +64,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(ref NetSegment data)
         {
-            if (NetworkAnarchy.Collision || data.Info.m_flattenTerrain)
+            if (NetworkAnarchy.ZoneOverride || data.Info.m_flattenTerrain)
             {
                 return true;
             }

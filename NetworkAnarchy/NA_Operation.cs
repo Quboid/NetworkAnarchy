@@ -125,7 +125,7 @@ namespace NetworkAnarchy
             Bending = !saved_bending.value; // Toggle value to force prefab updates
             Bending = saved_bending.value;
             NodeSnapping = saved_nodeSnapping.value;
-            Collision = saved_collision.value;
+            ZoneOverride = saved_collision.value;
             StraightSlope = saved_smoothSlope.value;
             ChirperManager.UpdateAtlas();
 

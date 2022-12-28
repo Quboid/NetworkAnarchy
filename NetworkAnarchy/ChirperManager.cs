@@ -52,7 +52,7 @@ namespace NetworkAnarchy
                 chirperButton.pressedBgSprite = pressedSprite;
             }
 
-            if (!NetworkAnarchy.Collision)
+            if (!NetworkAnarchy.ZoneOverride)
             {
                 chirperButton.opacity = 0.6f;
             }

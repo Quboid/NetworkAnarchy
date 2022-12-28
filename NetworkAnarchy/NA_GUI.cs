@@ -39,10 +39,10 @@ namespace NetworkAnarchy
                     Log.Debug($"Hotkey: toggleAnarchy {Anarchy} (was:{was})");
                     e.Use();
                 }
-                if (OptionsKeymapping.toggleCollision.IsPressed(e)) {
-                    var was = Collision;
+                if (OptionsKeymapping.toggleZoneOverride.IsPressed(e)) {
+                    var was = ZoneOverride;
                     ToggleCollision();
-                    Log.Debug($"Hotkey: toggleCollision (was:{Collision})");
+                    Log.Debug($"Hotkey: toggleCollision (was:{ZoneOverride})");
                     e.Use();
                 }
 

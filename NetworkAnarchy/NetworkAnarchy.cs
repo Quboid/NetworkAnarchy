@@ -18,7 +18,7 @@ namespace NetworkAnarchy
         public static SavedBool saved_anarchy = new SavedBool("anarchy", settingsFileName, false, true);
         public static SavedBool saved_bending = new SavedBool("bending", settingsFileName, true, true);
         public static SavedBool saved_nodeSnapping = new SavedBool("nodeSnapping", settingsFileName, true, true);
-        public static SavedBool saved_collision = new SavedBool("collision", settingsFileName, true, true);
+        public static SavedBool saved_zoneOverride = new SavedBool("zoneOverride", settingsFileName, true, true);
         public static SavedInt saved_segmentLength = new SavedInt("saved_segmentLength", settingsFileName, 96, true);
         public static SavedBool showDebugMessages = new SavedBool("showDebugMessages", settingsFileName, false, true);
 
@@ -271,22 +271,22 @@ namespace NetworkAnarchy
             }
         }
 
-        private static bool _collision = saved_collision.value;
-        public static bool Collision
+        private static bool _zoneOverride = saved_zoneOverride.value;
+        public static bool ZoneOverride
         {
             get
             {
-                return _collision;
+                return _zoneOverride;
             }
 
             set
             {
-                if (value != _collision)
+                if (value != _zoneOverride)
                 {
-                    Log.Debug($"Setting Collision to {(value ? "enabled" : "disabled")}", "[NA43]");
+                    Log.Debug($"Setting Zone Override to {(value ? "enabled" : "disabled")}", "[NA43]");
 
-                    _collision = value;
-                    saved_collision.value = value;
+                    _zoneOverride = value;
+                    saved_zoneOverride.value = value;
                     ChirperManager.UpdateAtlas();
                 }
             }
@@ -330,8 +330,8 @@ namespace NetworkAnarchy
         }
         public void ToggleCollision()
         {
-            Collision = !Collision;
-            UpdateAnarchyButton(m_toolOptionButton.m_collisionBtn, "Collision", Collision);
+            ZoneOverride = !ZoneOverride;
+            UpdateAnarchyButton(m_toolOptionButton.m_collisionBtn, "Collision", ZoneOverride);
         }
         public void ToggleStraightSlope()
         {
