@@ -157,7 +157,7 @@
     <value>Activer/Désactiver les pentes constantes</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>Activer / Désactiver le zonage forcé</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Plus d'options d'outil pour les routes et les autres réseaux</value>
@@ -205,9 +205,9 @@
     <value>Change toutes les routes avec des voies de tramway avec un angle de rotation maximum par la valeur ci-dessous, si la valeur actuelle est plus élevée.</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
+    <value>Du nouveau : le mode Collision est maintenant combiné au mode Anarchie.
 
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+Vous trouverez à sa place le mode Zonage Forcé. Ce nouveau mode permet de forcer le jeu à créer du zonage le long des routes même si des sentiers, clôtures ou autres réseaux s'y trouvent.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Cliquez ici pour les options de l'outil</value>
@@ -266,6 +266,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>Activer/Désactiver l'ancrage aux nœuds</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>Zonage forcé</value>
   </data>
 </root>
