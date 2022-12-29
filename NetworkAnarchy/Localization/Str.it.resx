@@ -157,7 +157,7 @@
     <value>Attivare/Disattivare le pendenze rettilinee</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>Attiva/Disattiva Sovrascrivi Zona</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Più opzioni di strumenti per strade e altre reti</value>
@@ -205,9 +205,9 @@
     <value>Cambia tutte le strade con binari del tram con angolo di rotazione massimo con il valore sottostante se quello attuale è maggiore.</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
+    <value>La collisione è stata combinata con la modalità Anarchia.
 
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+Al suo posto, il pulsante Sovrascrivi Collisione Zona controlla se i sentieri/recinti impediscono la zonatura.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Fare clic qui per le opzioni degli strumenti</value>
@@ -266,6 +266,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>Attivare/Disattivare l'aggancio ai nodi</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>Sovrascrivi collisione zona</value>
   </data>
 </root>
