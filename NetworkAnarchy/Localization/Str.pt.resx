@@ -157,7 +157,7 @@
     <value>Alternar elevação uniforme</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>Alternar Substituição de Zona</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Mais opções de ferramentas para estradas e redes de segmentos em geral</value>
@@ -205,9 +205,9 @@
     <value>Forçar o ângulo máximo definido em todas as estradas com trilhos de bonde se o valor atual for maior.</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
+    <value>Colisão foi combinada com o modo de Anarquia.
 
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+Em seu lugar, o botão Substituir Colisão de Zonas controla se caminhos/cercas impedem que os blocos próximos sejam criados.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Clique aqui para as Opções de Ferramenta</value>
@@ -266,6 +266,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>Alternar encaixe</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>Substituir zona de colisão</value>
   </data>
 </root>
