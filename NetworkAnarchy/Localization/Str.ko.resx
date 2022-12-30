@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
     <value>모드를 왼쪽으로 순환</value>
@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>벤딩 전환</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>충돌 전환</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>에디터 그리드 전환</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>직선 경사 전환</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>구역 무시 전환</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
@@ -203,6 +203,11 @@
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>트램 트랙이 있는 모든 도로 중 사용되는 최대 회전 각도의 값이 밑의 값보다 큰 도로를 밑의 값으로 변경합니다.</value>
+  </data>
+  <data name="popup_collisionRemoved" xml:space="preserve">
+    <value>충돌 모드가 아나키 모드와 합쳐졌습니다.
+
+그 자리에 이제부터는 구역 충돌 무시하기 버튼이 있고 경로/펜스 주변으로 구역 타일이 생성되는 것을 막을 지 제어합니다.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>여기를 클릭해 툴 옵션 보기</value>
@@ -259,5 +264,8 @@
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>노드 스냅핑 전환</value>
+  </data>
+  <data name="ui_toggleZoneOverride" xml:space="preserve">
+    <value>구역 충돌 무시하기</value>
   </data>
 </root>

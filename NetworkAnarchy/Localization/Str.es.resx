@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
     <value>Cambio de modo hacia la izquierda</value>
@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>Activar Autocurva</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>Activar Colisión</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Activar la cuadrícula del editor</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Activar cuestas rectas</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Alternar Anulación de Zona</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Más opciones de herramientas para carreteras y otras redes</value>
@@ -203,6 +203,11 @@
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>Cambia el ángulo de giro máximo de todas las redes con tranvía si el valor actual es más alto.</value>
+  </data>
+  <data name="popup_collisionRemoved" xml:space="preserve">
+    <value>La colisión se ha combinado con el modo Anarquía.
+
+En su lugar, el botón Anular Colisión de Zona controla si las rutas/vallas impiden la creación de baldosas de zonificación cercanas.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Haz clic aquí para opciones de herramienta</value>
@@ -259,5 +264,8 @@
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Apagar/encender ajuste a nodos</value>
+  </data>
+  <data name="ui_toggleZoneOverride" xml:space="preserve">
+    <value>Sobrescribir colisión de zona</value>
   </data>
 </root>

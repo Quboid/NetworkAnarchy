@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
     <value>モードを左に移る</value>
@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>湾曲の切り替え</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>衝突判定の切り替え</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>グリッド表示の切替</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>直線スロープの切替</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>ゾーニングの上書きを切り替え</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>道路やネットワークのためのより多くのツール</value>
@@ -203,6 +203,11 @@
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>現在の最大角のほうが大きい場合、トラム線路のある全ての道路の最大角が変更されます。</value>
+  </data>
+  <data name="popup_collisionRemoved" xml:space="preserve">
+    <value>衝突判定は、アナーキーモードと統合されました。
+
+代わりに「ゾーニングの衝突判定を上書き」ボタンは、パスやフェンスが付近のゾーニング生成の有無を制御します。</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>クリックでオプションを表示</value>
@@ -259,5 +264,8 @@
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>ノードスナップの切替</value>
+  </data>
+  <data name="ui_toggleZoneOverride" xml:space="preserve">
+    <value>ゾーニングの衝突判定を上書き</value>
   </data>
 </root>

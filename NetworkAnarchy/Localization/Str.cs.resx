@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
     <value>Cyklovat režimy v levo</value>
@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>Přepnout ohyb</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>Přepnout kolize</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Přepnout editor mřížky</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Přepínač přímého sklonu</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Další možnosti nástroje pro silnice a ostatní sítě</value>
@@ -178,7 +178,7 @@
     <value>Snížit počet trolejového vedení železniční tratě ze 3 na 1 za segment.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Obnovit pozici okena nástroje</value>
+    <value>Obnovit pozici okna nástroje</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
     <value>Zobrazit posuvník kroku vyvýšení</value>
@@ -203,6 +203,11 @@
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>Změňte maximální úhel zatočení všech silnic s tramvajovými kolejemi o níže uvedenou hodnotu, pokud je současná hodnota vyšší.</value>
+  </data>
+  <data name="popup_collisionRemoved" xml:space="preserve">
+    <value>Collision has been combined with Anarchy mode.
+
+In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Klikněte zde pro možnosti nástrojů</value>
@@ -259,5 +264,8 @@
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Přepnout přichytávání uzlů</value>
+  </data>
+  <data name="ui_toggleZoneOverride" xml:space="preserve">
+    <value>Override zone collision</value>
   </data>
 </root>
