@@ -328,10 +328,10 @@ namespace NetworkAnarchy
             NodeSnapping = !NodeSnapping;
             UpdateAnarchyButton(m_toolOptionButton.m_snappingBtn, "Snapping", NodeSnapping);
         }
-        public void ToggleCollision()
+        public void ToggleZoneOverride()
         {
             ZoneOverride = !ZoneOverride;
-            UpdateAnarchyButton(m_toolOptionButton.m_collisionBtn, "Collision", ZoneOverride);
+            UpdateAnarchyButton(m_toolOptionButton.m_zoneOverrideBtn, "ZoneOverride", ZoneOverride);
         }
         public void ToggleStraightSlope()
         {

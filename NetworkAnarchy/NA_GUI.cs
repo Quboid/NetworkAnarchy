@@ -41,7 +41,7 @@ namespace NetworkAnarchy
                 }
                 if (OptionsKeymapping.toggleZoneOverride.IsPressed(e)) {
                     var was = ZoneOverride;
-                    ToggleCollision();
+                    ToggleZoneOverride();
                     Log.Debug($"Hotkey: toggleCollision (was:{ZoneOverride})");
                     e.Use();
                 }

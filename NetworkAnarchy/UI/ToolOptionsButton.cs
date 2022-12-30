@@ -25,7 +25,7 @@ namespace NetworkAnarchy
         public UICheckBox m_anarchyBtn;
         public UICheckBox m_bendingBtn;
         public UICheckBox m_snappingBtn;
-        public UICheckBox m_collisionBtn;
+        public UICheckBox m_zoneOverrideBtn;
         public UICheckBox m_straightSlopeBtn;
         
         public UICheckBox m_grid;
