@@ -46,7 +46,7 @@ namespace NetworkAnarchy
                         continue;
                     }
 
-                    if ((info.m_setVehicleFlags & Vehicle.Flags.Underground) == 0 && info != prefab.netAI.Tunnel && info != prefab.netAI.Slope && !info.m_netAI.IsUnderground())
+                    if ((info.m_setVehicleFlags & Vehicle.Flags.Underground) == 0 && info != prefab.NetAI.Tunnel && info != prefab.NetAI.Slope && !info.m_netAI.IsUnderground())
                     {
                         // Fix by Algernon
                         int tempI = i;
@@ -57,7 +57,7 @@ namespace NetworkAnarchy
                             nodes[tempI].m_elevation = 0;
                             nodes[tempI].m_flags = nodes[tempI].m_flags & ~NetNode.Flags.Underground;
 
-                            if (info != prefab.netAI.Elevated && info != tempPrefab.netAI.Bridge)
+                            if (info != prefab.NetAI.Elevated && info != tempPrefab.NetAI.Bridge)
                             {
                                 nodes[tempI].m_flags = nodes[tempI].m_flags | NetNode.Flags.OnGround;
                             }
@@ -71,7 +71,7 @@ namespace NetworkAnarchy
                     }
                     //msg += $"\n  Node {i} is underground (info:{info}){nodes[i].m_flags}";
                 }
-                else if ((info != prefab.netAI.Elevated && info != prefab.netAI.Bridge) || ((nodes[i].m_flags & (NetNode.Flags.Transition | NetNode.Flags.End)) != 0 && nodes[i].m_elevation == 0))
+                else if ((info != prefab.NetAI.Elevated && info != prefab.NetAI.Bridge) || ((nodes[i].m_flags & (NetNode.Flags.Transition | NetNode.Flags.End)) != 0 && nodes[i].m_elevation == 0))
                 {
                     if ((nodes[i].m_flags & NetNode.Flags.OnGround) == 0)
                     {
@@ -131,7 +131,7 @@ namespace NetworkAnarchy
                 }
 
                 // Is it a tunnel?
-                if (info == prefab.netAI.Tunnel)
+                if (info == prefab.NetAI.Tunnel)
                 {
                     nodes[startNode].m_flags = nodes[startNode].m_flags & ~NetNode.Flags.OnGround;
                     // Make sure tunnels have underground flag
@@ -145,7 +145,7 @@ namespace NetworkAnarchy
                         nodes[endNode].m_flags = nodes[endNode].m_flags | NetNode.Flags.Underground;
                     }
 
-                    if (prefab.netAI.Slope == null)
+                    if (prefab.NetAI.Slope == null)
                     {
                         continue;
                     }
@@ -166,7 +166,7 @@ namespace NetworkAnarchy
                         segments[i].CalculateSegment(i);
 
                         // Make it a slope
-                        segments[i].Info = prefab.netAI.Slope;
+                        segments[i].Info = prefab.NetAI.Slope;
                         NetManager.instance.UpdateSegment(i);
 
                         if ((nodes[startNode].m_flags & NetNode.Flags.Untouchable) == NetNode.Flags.None)
@@ -177,7 +177,7 @@ namespace NetworkAnarchy
                     else if (IsEndTunnel(ref nodes[endNode]))
                     {
                         // Make it a slope
-                        segments[i].Info = prefab.netAI.Slope;
+                        segments[i].Info = prefab.NetAI.Slope;
                         NetManager.instance.UpdateSegment(i);
 
                         if ((nodes[endNode].m_flags & NetNode.Flags.Untouchable) == NetNode.Flags.None)
@@ -187,9 +187,9 @@ namespace NetworkAnarchy
                     }
                 }
                 // Is it a slope?
-                else if (info == prefab.netAI.Slope)
+                else if (info == prefab.NetAI.Slope)
                 {
-                    if (prefab.netAI.Tunnel == null)
+                    if (prefab.NetAI.Tunnel == null)
                     {
                         continue;
                     }
@@ -208,7 +208,7 @@ namespace NetworkAnarchy
                         }
 
                         // Make it a tunnel
-                        segments[i].Info = prefab.netAI.Tunnel;
+                        segments[i].Info = prefab.NetAI.Tunnel;
                         segments[i].UpdateBounds(i);
 
                         // Updating terrain
@@ -310,7 +310,7 @@ namespace NetworkAnarchy
                     return true;
                 }
 
-                if (info != prefab.netAI.Tunnel && info != prefab.netAI.Slope)
+                if (info != prefab.NetAI.Tunnel && info != prefab.NetAI.Slope)
                 {
                     return true;
                 }

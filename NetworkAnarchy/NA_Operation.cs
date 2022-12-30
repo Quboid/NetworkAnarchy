@@ -146,7 +146,7 @@ namespace NetworkAnarchy
 
             try
             {
-                bool isRelevantToolActive = m_netTool.enabled || m_bulldozeTool.enabled || Mods.NetworkMultitool.IsToolActive() || Mods.ZoningAdjuster.IsToolActive() || IsBuildingIntersection();
+                bool isRelevantToolActive = IsNetToolEnabled() || IsBulldozeToolEnabled() || Mods.NetworkMultitool.IsToolActive() || Mods.ZoningAdjuster.IsToolActive() || IsBuildingIntersection();
                 ToolBase toolBase = Singleton<ToolController>.instance.CurrentTool;
 
                 // Getting selected prefab
@@ -156,7 +156,7 @@ namespace NetworkAnarchy
                 if (prefab != m_current || toolBase != m_wasToolBase)
                 {
                     Log.Debug($"Updating tool activation: RelevantTool:{isRelevantToolActive}\n" +
-                        $"  netTool:{m_netTool.enabled}, bulldoze:{m_bulldozeTool.enabled}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}, Intersection:{IsBuildingIntersection()}\n" +
+                        $"  netTool:{IsNetToolEnabled()}, bulldoze:{IsBulldozeToolEnabled()}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}, Intersection:{IsBuildingIntersection()}\n" +
                         $"  prefab:{ModInfo.GetString(prefab)} (was:{ModInfo.GetString(m_current)} [{prefab == m_current}]) Tool:{toolBase?.GetType()} (was:{m_wasToolBase?.GetType()})");
 
                     if (prefab == null)
@@ -179,7 +179,7 @@ namespace NetworkAnarchy
                 }
 
                 // Plopping intersection?
-                if (m_buildingTool.enabled)
+                if (IsBuildingToolEnabled())
                 {
                     if (!NetPrefab.SingleMode)
                     {
@@ -189,7 +189,7 @@ namespace NetworkAnarchy
                 }
                 else
                 {
-                    NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor) && !UIView.HasModalInput() && !m_netTool.enabled && !m_bulldozeTool.enabled;
+                    NetPrefab.SingleMode = (QCommon.Scene == QCommon.SceneTypes.AssetEditor) && !UIView.HasModalInput() && !IsNetToolEnabled() && !IsBulldozeToolEnabled();
                 }
             }
             catch (Exception e)
@@ -241,10 +241,10 @@ namespace NetworkAnarchy
             //m_current.m_netAI.GetElevationLimits(out int min, out int max);
 
             //if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
-            if (m_bulldozeTool.enabled && !DoesVanillaElevationButtonExist)
+            if (IsBulldozeToolEnabled() && !DoesVanillaElevationButtonExist)
             {
                 Log.Debug($"Deactivating because bulldozing non-network issue.\n" +
-                    $"bulldoze:{m_bulldozeTool.enabled}, DoesVanillaElevationButtonExist:{DoesVanillaElevationButtonExist}", "[NA65]");
+                    $"bulldoze:{IsBulldozeToolEnabled()}, DoesVanillaElevationButtonExist:{DoesVanillaElevationButtonExist}", "[NA65]");
                 Deactivate();
                 m_current = info;
                 return;
@@ -296,8 +296,7 @@ namespace NetworkAnarchy
 
         internal bool IsBuildingIntersection()
         {
-            if (m_buildingTool == null) return false;
-            if (!m_buildingTool.enabled) return false;
+            if (!IsBuildingToolEnabled()) return false;
             if (m_buildingTool.m_prefab == null) return false;
             if (!(m_buildingTool.m_prefab.GetAI() is IntersectionAI)) return false;
             return true;
@@ -354,6 +353,24 @@ namespace NetworkAnarchy
                 m_elevationField.SetValue(m_netTool, m_elevation);
                 m_toolOptionButton.UpdateButton();
             }
+        }
+
+        internal bool IsNetToolEnabled()
+        {
+            if (m_netTool == null) return false;
+            return m_netTool.enabled;
+        }
+
+        internal bool IsBulldozeToolEnabled()
+        {
+            if (m_bulldozeTool == null) return false;
+            return m_bulldozeTool.enabled;
+        }
+
+        internal bool IsBuildingToolEnabled()
+        {
+            if (m_buildingTool == null) return false;
+            return m_buildingTool.enabled;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace NetworkAnarchy
             }
 
             // Removes HeightTooHigh & TooShort errors
-            if (m_buildingTool.enabled)
+            if (IsBuildingToolEnabled())
             {
                 var errors = (ToolBase.ToolErrors)m_placementErrorsField.GetValue(m_buildingTool);
                 if ((errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
@@ -73,7 +73,7 @@ namespace NetworkAnarchy
             }
 
             // Stop here if neither active nor bulldozer tool enabled
-            if (!IsActive && !m_bulldozeTool.enabled)
+            if (!IsActive && !IsBulldozeToolEnabled())
             {
                 return;
             }

@@ -73,4 +73,37 @@ namespace NetworkAnarchy.Patches
             return true;
         }
     }
+
+    /// <summary>
+    /// Override the InfoMode underground view
+    /// </summary>
+    [HarmonyPatch(typeof(InfoManager), "SetCurrentMode")]
+    public static class IM_SetCurrentMode
+    {
+        public static void Prefix(ref InfoManager.InfoMode mode, InfoManager.SubInfoMode subMode)
+        {
+            if (NetworkAnarchy.instance == null) return;
+            NetworkAnarchy inst = NetworkAnarchy.instance;
+            if (!inst.IsActive || !inst.IsNetToolEnabled()) return;
+            if (mode != InfoManager.InfoMode.Underground) return;
+            if (inst.mode == Modes.Tunnel) return;
+
+            var prefab = NetPrefab.GetPrefab(inst.m_current);
+            if (prefab == null) return;
+
+            if (inst.mode == Modes.Ground)
+            {
+                mode = InfoManager.InfoMode.None;
+            }
+            else if (inst.mode == Modes.Elevated || inst.mode == Modes.Bridge || inst.mode == Modes.Normal)
+            {
+                if (inst.elevation > -8)
+                {
+                    mode = InfoManager.InfoMode.None;
+                }
+            }
+
+            ModInfo.Log.Debug($"IM_SetCurrentMode: \"{prefab.Prefab.name}\" {inst.elevation} ({inst.mode},{prefab.Mode})");
+        }
+    }
 }

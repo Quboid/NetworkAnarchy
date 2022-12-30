@@ -1,10 +1,11 @@
 ﻿using QCommonLib;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace NetworkAnarchy
 {
-    public enum Mode
+    public enum Modes
     {
         Normal,
         Ground,
@@ -16,14 +17,14 @@ namespace NetworkAnarchy
 
     public class NetPrefab
     {
-        private NetInfo m_prefab;
-        private NetInfo m_elevated;
-        private NetInfo m_bridge;
-        private NetInfo m_slope;
-        private NetInfo m_tunnel;
+        private readonly NetInfo m_prefab;
+        private readonly NetInfo m_elevated;
+        private readonly NetInfo m_bridge;
+        private readonly NetInfo m_slope;
+        private readonly NetInfo m_tunnel;
 
-        private NetAIWrapper m_netAI;
-        private bool m_hasElevation;
+        private readonly NetAIWrapper m_netAI;
+        private readonly bool m_hasElevation;
 
         private float m_defaultMaxTurnAngle;
 
@@ -72,10 +73,10 @@ namespace NetworkAnarchy
                     if (info.m_flattenTerrain &&
                         !info.m_netAI.IsUnderground() &&
                         !prefab.m_netAI.IsInvisible() &&
-                        info != prefab.netAI.Elevated &&
-                        info != prefab.netAI.Bridge &&
-                        info != prefab.netAI.Slope &&
-                        info != prefab.netAI.Tunnel)
+                        info != prefab.NetAI.Elevated &&
+                        info != prefab.NetAI.Bridge &&
+                        info != prefab.NetAI.Slope &&
+                        info != prefab.NetAI.Tunnel)
                     {
                         prefabsAdded += " (FollowTerrain off)";
                         info.m_followTerrain = false;
@@ -141,7 +142,7 @@ namespace NetworkAnarchy
                 {
                     if (value)
                     {
-                        prefab.Mode = Mode.Single;
+                        prefab.Mode = Modes.Single;
                         prefab.Update();
                     }
                     else
@@ -157,8 +158,8 @@ namespace NetworkAnarchy
         /// <summary>
         /// The placement mode for this specific prefab
         /// </summary>
-        private Mode m_mode;
-        public Mode Mode
+        private Modes m_mode;
+        public Modes Mode
         {
             get { return m_mode; }
             set
@@ -173,7 +174,7 @@ namespace NetworkAnarchy
         /// <summary>
         /// The base-game prefab
         /// </summary>
-        public NetInfo prefab
+        public NetInfo Prefab
         {
             get { return m_prefab; }
         }
@@ -181,7 +182,7 @@ namespace NetworkAnarchy
         /// <summary>
         /// The base-game prefab's AI
         /// </summary>
-        public NetAIWrapper netAI
+        public NetAIWrapper NetAI
         {
             get { return m_netAI; }
         }
@@ -189,7 +190,7 @@ namespace NetworkAnarchy
         /// <summary>
         /// Does network have placement modes other than on-ground?
         /// </summary>
-        public bool hasElevation
+        public bool HasElevation
         {
             get { return m_hasElevation; }
         }
@@ -197,10 +198,10 @@ namespace NetworkAnarchy
         /// <summary>
         /// Does network have placement modes other than on-ground?
         /// </summary>
-        //public bool hasVariation
-        //{
-        //    get { return m_elevated != null || m_bridge != null || m_slope != null || m_tunnel != null; }
-        //}
+        public bool HasVariation
+        {
+            get { return m_elevated != null || m_bridge != null || m_slope != null || m_tunnel != null; }
+        }
 
         //public bool LinearMiddleHeight()
         //{
@@ -213,17 +214,17 @@ namespace NetworkAnarchy
 
             foreach (NetPrefab road in m_netPrefabs.Values)
             {
-                if ((road.prefab.m_connectGroup & (NetInfo.ConnectGroup.CenterTram | NetInfo.ConnectGroup.NarrowTram | NetInfo.ConnectGroup.SingleTram | NetInfo.ConnectGroup.WideTram)) != NetInfo.ConnectGroup.None)
+                if ((road.Prefab.m_connectGroup & (NetInfo.ConnectGroup.CenterTram | NetInfo.ConnectGroup.NarrowTram | NetInfo.ConnectGroup.SingleTram | NetInfo.ConnectGroup.WideTram)) != NetInfo.ConnectGroup.None)
                 {
                     //DebugUtils.Log("SetMaxTurnAngle on " + road.prefab.name);
 
-                    road.prefab.m_maxTurnAngle = road.m_defaultMaxTurnAngle;
-                    road.prefab.m_maxTurnAngleCos = Mathf.Cos(Mathf.Deg2Rad * road.m_defaultMaxTurnAngle);
+                    road.Prefab.m_maxTurnAngle = road.m_defaultMaxTurnAngle;
+                    road.Prefab.m_maxTurnAngleCos = Mathf.Cos(Mathf.Deg2Rad * road.m_defaultMaxTurnAngle);
 
                     if (road.m_defaultMaxTurnAngle > angle)
                     {
-                        road.prefab.m_maxTurnAngle = angle;
-                        road.prefab.m_maxTurnAngleCos = Mathf.Cos(Mathf.Deg2Rad * angle);
+                        road.Prefab.m_maxTurnAngle = angle;
+                        road.Prefab.m_maxTurnAngleCos = Mathf.Cos(Mathf.Deg2Rad * angle);
                     }
                 }
             }
@@ -235,8 +236,8 @@ namespace NetworkAnarchy
 
             foreach (NetPrefab road in m_netPrefabs.Values)
             {
-                road.prefab.m_maxTurnAngle = road.m_defaultMaxTurnAngle;
-                road.prefab.m_maxTurnAngleCos = Mathf.Cos(Mathf.Deg2Rad * road.m_defaultMaxTurnAngle);
+                road.Prefab.m_maxTurnAngle = road.m_defaultMaxTurnAngle;
+                road.Prefab.m_maxTurnAngleCos = Mathf.Cos(Mathf.Deg2Rad * road.m_defaultMaxTurnAngle);
             }
         }
 
@@ -286,7 +287,7 @@ namespace NetworkAnarchy
 
             Mods.NetworkSkins.ForceUpdate();
 
-            if (!hasElevation) return;
+            if (!HasElevation) return;
 
             //if (NetworkAnarchy.instance.IsBuildingIntersection())
             //{
@@ -299,7 +300,7 @@ namespace NetworkAnarchy
 
             switch (Mode)
             {
-                case Mode.Ground:
+                case Modes.Ground:
                     {
                         m_netAI.Elevated = m_prefab;
                         m_netAI.Bridge = null;
@@ -307,7 +308,7 @@ namespace NetworkAnarchy
                         m_netAI.Tunnel = m_prefab;
                     }
                     break;
-                case Mode.Elevated:
+                case Modes.Elevated:
                     if (m_elevated != null)
                     {
                         m_netAI.Info = m_elevated;
@@ -315,14 +316,14 @@ namespace NetworkAnarchy
                         m_netAI.Bridge = null;
                     }
                     break;
-                case Mode.Bridge:
+                case Modes.Bridge:
                     if (m_bridge != null)
                     {
                         m_netAI.Info = m_bridge;
                         m_netAI.Elevated = m_bridge;
                     }
                     break;
-                case Mode.Tunnel:
+                case Modes.Tunnel:
                     if (m_tunnel != null && m_slope != null)
                     {
                         m_netAI.Info = m_tunnel;
@@ -331,7 +332,7 @@ namespace NetworkAnarchy
                         m_netAI.Slope = m_tunnel;
                     }
                     break;
-                case Mode.Single:
+                case Modes.Single:
                     m_netAI.Elevated = null;
                     m_netAI.Bridge = null;
                     m_netAI.Slope = null;

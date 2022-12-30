@@ -78,7 +78,7 @@ namespace NetworkAnarchy
                     }
                     return;
                 }
-                else if (m_buildingTool.enabled && OptionsKeymapping.elevationReset.IsPressed())
+                else if (IsBuildingToolEnabled() && OptionsKeymapping.elevationReset.IsPressed())
                 {
                     m_buildingElevationField.SetValue(m_buildingTool, 0);
                     e.Use();
@@ -137,10 +137,10 @@ namespace NetworkAnarchy
                     e.Use();
                 } else if (OptionsKeymapping.modesCycleRight.IsPressed(e)) {
                     var was = m_mode;
-                    if (m_mode < Mode.Tunnel) {
+                    if (m_mode < Modes.Tunnel) {
                         mode++;
                     } else {
-                        mode = Mode.Normal;
+                        mode = Modes.Normal;
                     }
 
                     m_toolOptionButton.UpdateButton();
@@ -149,10 +149,10 @@ namespace NetworkAnarchy
                 } else if (OptionsKeymapping.modesCycleLeft.IsPressed(e))
                 {
                     var was = m_mode;
-                    if (m_mode > Mode.Normal) {
+                    if (m_mode > Modes.Normal) {
                         mode--;
                     } else {
-                        mode = Mode.Tunnel;
+                        mode = Modes.Tunnel;
                     }
 
                     m_toolOptionButton.UpdateButton();
@@ -193,7 +193,7 @@ namespace NetworkAnarchy
                     e.Use();
                 }
 
-                if (m_mode == Mode.Tunnel && InfoManager.instance.CurrentMode != InfoManager.InfoMode.Traffic)
+                if (m_mode == Modes.Tunnel && InfoManager.instance.CurrentMode != InfoManager.InfoMode.Traffic)
                 {
                     if (m_infoMode == (InfoManager.InfoMode)(-1))
                     {
@@ -202,7 +202,7 @@ namespace NetworkAnarchy
 
                     InfoManager.instance.SetCurrentMode(InfoManager.InfoMode.Traffic, InfoManager.SubInfoMode.Default);
                 }
-                else if (m_mode != Mode.Tunnel && m_infoMode != (InfoManager.InfoMode)(-1))
+                else if (m_mode != Modes.Tunnel && m_infoMode != (InfoManager.InfoMode)(-1))
                 {
                     InfoManager.instance.SetCurrentMode(m_infoMode, InfoManager.SubInfoMode.Default);
                     m_infoMode = (InfoManager.InfoMode)(-1);
@@ -312,7 +312,7 @@ namespace NetworkAnarchy
                     {
                         Log.Debug($"Adding upgrade button for {ModInfo.GetString(prefab)}", "[NA51]");
                     }
-                    if (m_upgradeButtonTemplate != null && prefab != null && prefab.hasElevation && !list.Contains(NetTool.Mode.Upgrade)) // hasElevation was hasVariation
+                    if (m_upgradeButtonTemplate != null && prefab != null && prefab.HasVariation && !list.Contains(NetTool.Mode.Upgrade)) // hasElevation was hasVariation
                     {
                         UITabstrip toolMode = panel.component.Find<UITabstrip>("ToolMode");
                         if (toolMode != null)

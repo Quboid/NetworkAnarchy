@@ -44,11 +44,9 @@ namespace NetworkAnarchy
 
         private bool m_keyDisabled;
 
-        private NetInfo m_current;
+        internal NetInfo m_current;
         private ToolBase m_wasToolBase;
         private InfoManager.InfoMode m_infoMode = (InfoManager.InfoMode) (-1);
-
-        private Mode m_mode;
 
         /// <summary>
         /// Does the vanilla elevation button exist?
@@ -148,7 +146,8 @@ namespace NetworkAnarchy
         /// <summary>
         /// The selected placement mode, regardless of prefab
         /// </summary>
-        public Mode mode
+        private Modes m_mode;
+        public Modes mode
         {
             get => m_mode;
             set {

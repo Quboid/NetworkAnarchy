@@ -130,23 +130,23 @@ namespace NetworkAnarchy
 
             switch (NetworkAnarchy.instance.mode)
             {
-                case Mode.Normal:
+                case Modes.Normal:
                     m_button.text += "Nrm\n";
                     m_normalModeButton.SimulateClick();
                     break;
-                case Mode.Ground:
+                case Modes.Ground:
                     m_button.text += "Gnd\n";
                     m_groundModeButton.SimulateClick();
                     break;
-                case Mode.Elevated:
+                case Modes.Elevated:
                     m_button.text += "Elv\n";
                     m_elevatedModeButton.SimulateClick();
                     break;
-                case Mode.Bridge:
+                case Modes.Bridge:
                     m_button.text += "Bdg\n";
                     m_bridgeModeButton.SimulateClick();
                     break;
-                case Mode.Tunnel:
+                case Modes.Tunnel:
                     m_button.text += "Tnl\n";
                     m_tunnelModeButton.SimulateClick();
                     break;
@@ -174,15 +174,15 @@ namespace NetworkAnarchy
         private void UpdateMode()
         {
             if (m_normalModeButton.isChecked)
-                NetworkAnarchy.instance.mode = Mode.Normal;
+                NetworkAnarchy.instance.mode = Modes.Normal;
             if (m_groundModeButton.isChecked)
-                NetworkAnarchy.instance.mode = Mode.Ground;
+                NetworkAnarchy.instance.mode = Modes.Ground;
             if (m_elevatedModeButton.isChecked)
-                NetworkAnarchy.instance.mode = Mode.Elevated;
+                NetworkAnarchy.instance.mode = Modes.Elevated;
             if (m_bridgeModeButton.isChecked)
-                NetworkAnarchy.instance.mode = Mode.Bridge;
+                NetworkAnarchy.instance.mode = Modes.Bridge;
             if (m_tunnelModeButton.isChecked)
-                NetworkAnarchy.instance.mode = Mode.Tunnel;
+                NetworkAnarchy.instance.mode = Modes.Tunnel;
         }
 
         delegate void ToggleAnarchyButton();
