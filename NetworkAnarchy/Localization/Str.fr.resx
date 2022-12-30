@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
     <value>Parcourir les modes vers la gauche</value>
@@ -147,9 +147,6 @@
   <data name="key_toggleBending" xml:space="preserve">
     <value>Activer/Désactiver la courbure</value>
   </data>
-  <data name="key_toggleCollision" xml:space="preserve">
-    <value>Activer/Désactiver la collision</value>
-  </data>
   <data name="key_toggleGrid" xml:space="preserve">
     <value>Afficher/Masquer la grille de l'éditeur</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
     <value>Activer/Désactiver les pentes constantes</value>
+  </data>
+  <data name="key_toggleZoneOverride" xml:space="preserve">
+    <value>Activer / Désactiver le zonage forcé</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Plus d'options d'outil pour les routes et les autres réseaux</value>
@@ -203,6 +203,11 @@
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>Change toutes les routes avec des voies de tramway avec un angle de rotation maximum par la valeur ci-dessous, si la valeur actuelle est plus élevée.</value>
+  </data>
+  <data name="popup_collisionRemoved" xml:space="preserve">
+    <value>Du nouveau : le mode Collision est maintenant combiné au mode Anarchie.
+
+Vous trouverez à sa place le mode Zonage Forcé. Ce nouveau mode permet de forcer le jeu à créer du zonage le long des routes même si des sentiers, clôtures ou autres réseaux s'y trouvent.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Cliquez ici pour les options de l'outil</value>
@@ -259,5 +264,8 @@
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
     <value>Activer/Désactiver l'ancrage aux nœuds</value>
+  </data>
+  <data name="ui_toggleZoneOverride" xml:space="preserve">
+    <value>Zonage forcé</value>
   </data>
 </root>
