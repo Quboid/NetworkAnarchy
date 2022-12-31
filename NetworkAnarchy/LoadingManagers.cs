@@ -27,7 +27,7 @@ namespace NetworkAnarchy
         /// </summary>
         internal static void Finalise()
         { 
-            ModInfo.Log.Info($"Enabled outside connections for {count} roads", "[NA57]");
+            Log.Info($"Enabled outside connections for {count} roads", "[NA57]");
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace NetworkAnarchy
                 }
             }
 
-            ModInfo.Log.Info($"Applying Network Tiling ({cSeg} segments, {cNode} nodes)", "[NA56]");
+            Log.Info($"Applying Network Tiling ({cSeg} segments, {cNode} nodes)", "[NA56]");
         }
     }
 

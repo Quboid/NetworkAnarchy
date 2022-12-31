@@ -16,7 +16,7 @@ namespace NetworkAnarchy.Mods
             ModAssembly = QCommon.GetAssembly("mod", "networkmultitool");
             if (ModAssembly == null)
             {
-                ModInfo.Log.Info($"NetworkAnarchy: Network Multitool not found", "[NA04]");
+                Log.Info($"NetworkAnarchy: Network Multitool not found", "[NA04]");
                 IsEnabled = false;
                 return;
             }
@@ -24,12 +24,12 @@ namespace NetworkAnarchy.Mods
             toolClass = ModAssembly.GetType("NetworkMultitool.NetworkMultitoolTool");
             if (toolClass == null)
             {
-                ModInfo.Log.Info($"NetworkAnarchy: Network Multitool failed loading", "[NA05]");
+                Log.Info($"NetworkAnarchy: Network Multitool failed loading", "[NA05]");
                 IsEnabled = false;
                 return;
             }
 
-            ModInfo.Log.Info($"NetworkAnarchy: Network Multitool loaded", "[NA06]");
+            Log.Info($"NetworkAnarchy: Network Multitool loaded", "[NA06]");
             IsEnabled = true;
         }
 

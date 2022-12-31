@@ -313,7 +313,7 @@ namespace NetworkAnarchy
             }
             catch (StackOverflowException e)
             {
-                ModInfo.Log.Error(e);
+                Log.Error(e);
             }
 
             UISlider slider = CreateMaxSegmentLengthSlider(sliderPanel, sliderPanel.width - 20 - m_maxSegmentLengthLabel.width - 8);

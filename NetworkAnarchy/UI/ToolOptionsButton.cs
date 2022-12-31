@@ -59,7 +59,7 @@ namespace NetworkAnarchy
             if (parent != m_parent && parent != null)
             {
                 string caller = new StackTrace()?.GetFrame(1)?.GetMethod()?.Name;
-                ModInfo.Log.Debug($"Tool button parent changed: {ModInfo.GetString(parent)} (was: {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA39]");
+                Log.Debug($"Tool button parent changed: {ModInfo.GetString(parent)} (was: {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA39]");
                 m_parent = parent;
 
                 UpdateButton();
@@ -78,7 +78,7 @@ namespace NetworkAnarchy
             if (parent == null)
             {
                 string caller = new StackTrace()?.GetFrame(1)?.GetMethod()?.Name;
-                ModInfo.Log.Info($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA38]");
+                Log.Info($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA38]");
                 isVisible = false;
                 return;
             }
@@ -167,7 +167,7 @@ namespace NetworkAnarchy
             }
             catch (StackOverflowException e)
             {
-                ModInfo.Log.Error(e);
+                Log.Error(e);
             }
         }
 

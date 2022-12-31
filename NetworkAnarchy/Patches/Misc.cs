@@ -103,7 +103,7 @@ namespace NetworkAnarchy.Patches
                 }
             }
 
-            ModInfo.Log.Debug($"IM_SetCurrentMode: \"{prefab.Prefab.name}\" {inst.elevation} ({inst.mode},{prefab.Mode})");
+            //Log.Debug($"IM_SetCurrentMode: \"{prefab.Prefab.name}\" {inst.elevation} ({inst.mode},{prefab.Mode})");
         }
     }
 }

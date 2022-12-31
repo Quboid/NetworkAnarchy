@@ -28,7 +28,7 @@ namespace NetworkAnarchy
 
         private float m_defaultMaxTurnAngle;
 
-        internal static QLogger Log;
+        //internal static QLogger Log;
 
         /// <summary>
         /// Dictionary of base-game prefab to Network Anarchy wrapper
@@ -37,7 +37,7 @@ namespace NetworkAnarchy
 
         private NetPrefab(NetInfo prefab)
         {
-            Log = ModInfo.Log;
+            //Log = ModInfo.Log;
 
             m_netAI = new NetAIWrapper(prefab.m_netAI);
 
@@ -113,9 +113,9 @@ namespace NetworkAnarchy
                 }
             }
 
-            ModInfo.Log.Info($"Registered networks: {m_netPrefabs.Count}", "[NA36]");
+            Log.Info($"Registered networks: {m_netPrefabs.Count}", "[NA36]");
 #if DEBUG
-            ModInfo.Log.Debug($"\n{prefabsAdded}", "[NA37]");
+            Log.Debug($"\n{prefabsAdded}", "[NA37]");
 #endif
         }
 

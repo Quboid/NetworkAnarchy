@@ -20,7 +20,7 @@ namespace NetworkAnarchy.Mods
             ModAssembly = QCommon.GetAssembly("mod", "buildanywhere");
             if (ModAssembly != null)
             {
-                ModInfo.Log.Info($"NetworkAnarchy: Cross The Line found, skipping patch", "[NA60]");
+                Log.Info($"NetworkAnarchy: Cross The Line found, skipping patch", "[NA60]");
                 _IsEnabled = true;
                 return;
             }
@@ -31,7 +31,7 @@ namespace NetworkAnarchy.Mods
             {
                 Patcher.Prefix(typeof(GameAreaManager).GetMethod("QuadOutOfArea"), typeof(GAM_QuadOutOfArea).GetMethod("Prefix"));
                 IsPatched = true;
-                ModInfo.Log.Info($"NetworkAnarchy: Cross The Line not found, patch applied", "[NA61]");
+                Log.Info($"NetworkAnarchy: Cross The Line not found, patch applied", "[NA61]");
             }
         }
 
@@ -41,7 +41,7 @@ namespace NetworkAnarchy.Mods
             {
                 Patcher.Unpatch(typeof(GameAreaManager).GetMethod("QuadOutOfArea"), typeof(GAM_QuadOutOfArea).GetMethod("Prefix"));
                 IsPatched = false;
-                ModInfo.Log.Info($"NetworkAnarchy: Cross The Line unpatched", "[NA62]");
+                Log.Info($"NetworkAnarchy: Cross The Line unpatched", "[NA62]");
             }
         }
     }

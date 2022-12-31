@@ -14,11 +14,11 @@ namespace NetworkAnarchy.Patches
                 Patcher.Postfix(typeof(NetInfo).GetMethod("InitializePrefab", BindingFlags.Public | BindingFlags.Instance), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
                 Patcher.Postfix(typeof(TransportInfo).GetMethod("InitializePrefab", BindingFlags.Public | BindingFlags.Instance), self.GetMethod("TransportInfo_InitializePrefab_Postfix"));
                 Patcher.Prefix(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
-                ModInfo.Log.Info($"NetworkAnarchy: Deployed early patches", "[NA13]");
+                Log.Info($"NetworkAnarchy: Deployed early patches", "[NA13]");
             }
             catch (Exception e)
             {
-                ModInfo.Log.Warning($"NetworkAnarchy: Failed to deploy early patches\n{e}", "[NA14]");
+                Log.Warning($"NetworkAnarchy: Failed to deploy early patches\n{e}", "[NA14]");
             }
         }
 
@@ -30,11 +30,11 @@ namespace NetworkAnarchy.Patches
                 Patcher.Unpatch(typeof(PublicTransportPanel).GetMethod("IsRoadEligibleToPublicTransport", BindingFlags.NonPublic | BindingFlags.Instance), self.GetMethod("PublicTransportPanel_IsRoadEligibleToPublicTransport_Prefix"));
                 Patcher.Unpatch(typeof(TransportInfo).GetMethod("InitializePrefab", BindingFlags.Public | BindingFlags.Instance), self.GetMethod("TransportInfo_InitializePrefab_Postfix"));
                 Patcher.Unpatch(typeof(NetInfo).GetMethod("InitializePrefab", BindingFlags.Public | BindingFlags.Instance), self.GetMethod("NetInfo_InitializePrefab_Postfix"));
-                ModInfo.Log.Info($"NetworkAnarchy: Reverted early patches", "[NA15]");
+                Log.Info($"NetworkAnarchy: Reverted early patches", "[NA15]");
             }
             catch (Exception e)
             {
-                ModInfo.Log.Warning($"NetworkAnarchy: Failed to revert early patches\n{e}", "[NA16]");
+                Log.Warning($"NetworkAnarchy: Failed to revert early patches\n{e}", "[NA16]");
             }
         }
 

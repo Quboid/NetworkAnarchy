@@ -7,7 +7,6 @@ using NetworkAnarchy.Patches;
 using QCommonLib;
 using System;
 using System.Globalization;
-using System.Reflection;
 using UnityEngine;
 
 // Error code max: 65
@@ -36,7 +35,7 @@ namespace NetworkAnarchy
         public string Name => "Network Anarchy " + QVersion.Version();
         public string Description => Str.mod_Description;
 
-        internal static QLogger Log;
+        //internal static QLogger Log;
         internal static QPatcher Patcher;
         internal string HarmonyId = "quboid.csl_mods.networkanarchy";
 
@@ -148,10 +147,7 @@ namespace NetworkAnarchy
                 {
                     NetworkAnarchy.showDebugMessages.value = b;
 #if !DEBUG
-                    if (Log is QLogger)
-                    {
-                        Log.IsDebug = b;
-                    }
+                    Log.IsDebug = b;
 #endif
                 });
                 checkBox.tooltip = Str.options_enableDebugLoggingTooltip;
@@ -166,10 +162,10 @@ namespace NetworkAnarchy
         public void OnEnabled()
         {
 #if DEBUG
-            Log = new QLogger(true);
+            //Log = new QLogger(true);
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert, true);
 #else
-            Log = new QLogger(true);// NetworkAnarchy.showDebugMessages); // Always log stuff while mod is in beta
+            //Log = new QLogger(true);// NetworkAnarchy.showDebugMessages); // Always log stuff while mod is in beta
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
 #endif
 
@@ -187,7 +183,7 @@ namespace NetworkAnarchy
                 DestroyMod();
             }
 
-            Log = null;
+            //Log = null;
         }
 
         public override void OnLevelLoaded(LoadMode mode)
@@ -265,4 +261,7 @@ namespace NetworkAnarchy
             return o.ToString();
         }
     }
+
+    public class Log : QLoggerStatic { }
+
 }

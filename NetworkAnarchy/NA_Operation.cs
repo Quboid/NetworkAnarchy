@@ -13,7 +13,7 @@ namespace NetworkAnarchy
     {
         public void Start()
         {
-            Log = ModInfo.Log;
+            //Log = ModInfo.Log;
 
             Mods.NetworkSkins.Init();
             Mods.NetworkMultitool.Initialise();
@@ -207,10 +207,7 @@ namespace NetworkAnarchy
 
         public void OnDisable()
         {
-            if (Log != null)
-                Log.Debug("Deactivating because OnDisable", "[NA64]");
-            else
-                UnityEngine.Debug.Log($"Network Anarchy: Deactivating because OnDisable");
+            Log.Debug("Deactivating because OnDisable", "[NA64]");
             Deactivate();
             NetPrefab.SingleMode = false;
         }

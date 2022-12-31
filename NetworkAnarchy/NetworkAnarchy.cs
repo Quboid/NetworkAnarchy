@@ -129,7 +129,7 @@ namespace NetworkAnarchy
 
         public static ChirperManager chirperManager;
 
-        internal static QLogger Log;
+        //internal static QLogger Log;
 
         // Max Segment Length settings
         internal const int SegmentLengthFloor = 4;
