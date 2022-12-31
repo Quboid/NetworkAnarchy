@@ -51,15 +51,6 @@ namespace NetworkAnarchy
                 chirperButton.normalBgSprite = normalSprite;
                 chirperButton.pressedBgSprite = pressedSprite;
             }
-
-            if (!NetworkAnarchy.ZoneOverride)
-            {
-                chirperButton.opacity = 0.6f;
-            }
-            else
-            {
-                chirperButton.opacity = 1f;
-            }
         }
 
         public static UITextureAtlas GetChirperAtlas()

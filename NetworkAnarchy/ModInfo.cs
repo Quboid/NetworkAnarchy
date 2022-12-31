@@ -167,6 +167,7 @@ namespace NetworkAnarchy
 #else
             //Log = new QLogger(true);// NetworkAnarchy.showDebugMessages); // Always log stuff while mod is in beta
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
+            Log.IsDebug = true;
 #endif
 
             AnyRoadOutsideConnection.Initialise();
