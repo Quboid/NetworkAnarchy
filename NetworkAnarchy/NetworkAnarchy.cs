@@ -1,6 +1,5 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
-using QCommonLib;
 using System.Reflection;
 using UnityEngine;
 
@@ -28,9 +27,21 @@ namespace NetworkAnarchy
         private int m_elevation = 0;
         private readonly SavedInt m_elevationStep = new SavedInt("elevationStep", settingsFileName, 3, true);
 
-        private NetTool m_netTool;
-        private BulldozeTool m_bulldozeTool;
-        private BuildingTool m_buildingTool;
+        private static NetTool m_netTool;
+        internal static NetTool ToolNet
+        {
+            get => m_netTool;
+        }
+        private static BulldozeTool m_bulldozeTool;
+        internal static BulldozeTool ToolBulldoze
+        {
+            get => m_bulldozeTool;
+        }
+        private static BuildingTool m_buildingTool;
+        internal static BuildingTool ToolBuilding
+        {
+            get => m_buildingTool;
+        }
 
         #region Reflection to private field/methods
         private FieldInfo m_elevationField;
@@ -155,14 +166,6 @@ namespace NetworkAnarchy
                 {
                     m_mode = value;
 
-                    var prefab = NetPrefab.GetPrefab(m_current);
-                    if (prefab == null)
-                    {
-                        return;
-                    }
-
-                    prefab.Mode = m_mode;
-                    prefab.Update();
                     m_toolOptionButton.UpdateButton();
                 }
             }
@@ -188,17 +191,7 @@ namespace NetworkAnarchy
                     Log.Debug($"Setting StraightSlope to {(value ? "enabled" : "disabled")}", "[NA47]");
 
                     _straightSlope = value;
-
                     m_toolOptionButton.UpdateButton();
-
-                    var prefab = NetPrefab.GetPrefab(m_current);
-                    if (prefab == null)
-                    {
-                        return;
-                    }
-
-                    prefab.Update();
-
                     saved_smoothSlope.value = value;
                 }
             }

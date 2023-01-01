@@ -106,9 +106,6 @@ namespace NetworkAnarchy
                 Log.Warning("ControlPoints not found", "[NA21]");
             }
 
-            // Init dictionary
-            NetPrefab.Initialize();
-
             if (changeMaxTurnAngle.value)
             {
                 NetPrefab.SetMaxTurnAngle(maxTurnAngle.value);
@@ -223,19 +220,9 @@ namespace NetworkAnarchy
 
             CollisionRemovalWarning = QPopup.Open(typeof(UI.CollisionFeatureRemovalPanel));
 
-            // Clean up previous prefab
-            var prefab = NetPrefab.GetPrefab(m_current);
-            if (prefab != null)
-            {
-                prefab.Restore();
-            }
             m_current = info;
-
-            prefab = NetPrefab.GetPrefab(info);
+            NetPrefab prefab = NetPrefab.Factory(info);
             AttachToolOptionsButton(prefab);
-
-            // Is it a valid prefab?
-            //m_current.m_netAI.GetElevationLimits(out int min, out int max);
 
             //if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
             if (IsBulldozeToolEnabled() && !DoesVanillaElevationButtonExist)
@@ -249,15 +236,6 @@ namespace NetworkAnarchy
 
             DisableDefaultKeys();
             m_elevation = (int)m_elevationField.GetValue(m_netTool);
-            if (prefab != null)
-            {
-                prefab.Mode = mode;
-                prefab.Update();
-            }
-            else
-            {
-                Log.Warning("Selected prefab not registered", "[NA30]");
-            }
 
             m_segmentCount = NetManager.instance.m_segmentCount;
             m_controlPointCount = 0;
@@ -269,14 +247,9 @@ namespace NetworkAnarchy
 
         private void Deactivate()
         {
-            Log.Debug($"Deactivated {IsActive} m_current:{m_current} prefab:{ModInfo.GetString(NetPrefab.GetPrefab(m_current))}", "[NA53.1]");
+            Log.Debug($"Deactivated {IsActive} m_current:{m_current}", "[NA53.1]");
 
-            if (m_current != null)
-            { // Clean up previous prefab
-                var prefab = NetPrefab.GetPrefab(m_current);
-                prefab?.Restore();
-                m_current = null;
-            }
+            m_current = null;
 
             if (!IsActive)
             {

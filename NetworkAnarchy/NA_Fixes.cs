@@ -38,7 +38,7 @@ namespace NetworkAnarchy
                     continue;
                 }
 
-                var prefab = NetPrefab.GetPrefab(info);
+                var prefab = NetPrefab.Factory(info);
                 if ((nodes[i].m_flags & NetNode.Flags.Underground) == NetNode.Flags.Underground)
                 {
                     if (prefab == null)
@@ -124,7 +124,7 @@ namespace NetworkAnarchy
                 ushort startNode = segments[i].m_startNode;
                 ushort endNode = segments[i].m_endNode;
 
-                var prefab = NetPrefab.GetPrefab(info);
+                var prefab = NetPrefab.Factory(info);
                 if (prefab == null)
                 {
                     continue;
@@ -133,6 +133,7 @@ namespace NetworkAnarchy
                 // Is it a tunnel?
                 if (info == prefab.NetAI.Tunnel)
                 {
+                    Log.Debug($"AAA Tunnel {i}:{info.name}");
                     nodes[startNode].m_flags = nodes[startNode].m_flags & ~NetNode.Flags.OnGround;
                     // Make sure tunnels have underground flag
                     if ((nodes[startNode].m_flags & NetNode.Flags.Untouchable) == NetNode.Flags.None)
@@ -189,6 +190,7 @@ namespace NetworkAnarchy
                 // Is it a slope?
                 else if (info == prefab.NetAI.Slope)
                 {
+                    Log.Debug($"AAA Slope {i}:{info.name}");
                     if (prefab.NetAI.Tunnel == null)
                     {
                         continue;
@@ -304,7 +306,7 @@ namespace NetworkAnarchy
 
                 NetInfo info = NetManager.instance.m_segments.m_buffer[segment].Info;
 
-                var prefab = NetPrefab.GetPrefab(info);
+                var prefab = NetPrefab.Factory(info);
                 if (prefab == null)
                 {
                     return true;

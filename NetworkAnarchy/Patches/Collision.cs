@@ -46,7 +46,7 @@ namespace NetworkAnarchy.Patches
     {
         public static bool Prefix(ref NetSegment data)
         {
-            if (NetworkAnarchy.ZoneOverride || data.Info.m_flattenTerrain)
+            if (!NetworkAnarchy.ZoneOverride || data.Info.m_flattenTerrain)
             {
                 return true;
             }

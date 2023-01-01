@@ -58,26 +58,6 @@ namespace NetworkAnarchy.Patches
             return true;
         }
     }
-
-    // NetInfo GetInfo(float minElevation, float maxElevation, float length, bool incoming, bool outgoing, bool curved, bool enableDouble, ref ToolBase.ToolErrors errors)
-    [HarmonyPatch(typeof(RoadAI), "GetInfo")]
-    class RAI_GetInfo
-    {
-        public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
-        {
-            //NetTool netTool = GameObject.FindObjectsOfType<NetTool>().Where(x => x.GetType() == typeof(NetTool)).FirstOrDefault();
-            //RoadAI roadAI = netTool.m_prefab.m_netAI as RoadAI;
-            //Log.Debug($"RAI_GetInfo1 \"{__result.name}\" ({netTool.m_prefab.name})");
-            //Log.Debug($"RAI_GetInfo2 {roadAI.name}: {(roadAI.m_bridgeInfo is null ? "<null>" : roadAI.m_bridgeInfo.name)}");
-
-            if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
-            {
-                errors ^= ToolBase.ToolErrors.HeightTooHigh;
-            }
-
-            //__result = roadAI.m_bridgeInfo;
-        }
-    }
     #endregion
 
     #region PedestrianPathAI
@@ -129,18 +109,6 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
-        }
-    }
-
-    [HarmonyPatch(typeof(PedestrianPathAI), "GetInfo")]
-    class PPAI_GetInfo
-    {
-        public static void Postfix(ref ToolBase.ToolErrors errors)
-        {
-            if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
-            {
-                errors ^= ToolBase.ToolErrors.HeightTooHigh;
-            }
         }
     }
     #endregion
@@ -196,18 +164,6 @@ namespace NetworkAnarchy.Patches
             return true;
         }
     }
-
-    [HarmonyPatch(typeof(PedestrianWayAI), "GetInfo")]
-    class PWAI_GetInfo
-    {
-        public static void Postfix(ref ToolBase.ToolErrors errors)
-        {
-            if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
-            {
-                errors ^= ToolBase.ToolErrors.HeightTooHigh;
-            }
-        }
-    }
     #endregion
 
     #region TrainTrackAI
@@ -259,18 +215,6 @@ namespace NetworkAnarchy.Patches
             }
 
             return true;
-        }
-    }
-
-    [HarmonyPatch(typeof(TrainTrackAI), "GetInfo")]
-    class TTAI_GetInfo
-    {
-        public static void Postfix(ref ToolBase.ToolErrors errors)
-        {
-            if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
-            {
-                errors ^= ToolBase.ToolErrors.HeightTooHigh;
-            }
         }
     }
     #endregion

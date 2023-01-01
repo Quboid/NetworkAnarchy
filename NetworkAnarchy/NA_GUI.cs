@@ -312,7 +312,7 @@ namespace NetworkAnarchy
                     {
                         Log.Debug($"Adding upgrade button for {ModInfo.GetString(prefab)}", "[NA51]");
                     }
-                    if (m_upgradeButtonTemplate != null && prefab != null && prefab.HasVariation && !list.Contains(NetTool.Mode.Upgrade)) // hasElevation was hasVariation
+                    if (m_upgradeButtonTemplate != null && prefab != null && prefab.HasVariation && !list.Contains(NetTool.Mode.Upgrade))
                     {
                         UITabstrip toolMode = panel.component.Find<UITabstrip>("ToolMode");
                         if (toolMode != null)

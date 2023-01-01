@@ -88,9 +88,6 @@ namespace NetworkAnarchy.Patches
             if (mode != InfoManager.InfoMode.Underground) return;
             if (inst.mode == Modes.Tunnel) return;
 
-            var prefab = NetPrefab.GetPrefab(inst.m_current);
-            if (prefab == null) return;
-
             if (inst.mode == Modes.Ground)
             {
                 mode = InfoManager.InfoMode.None;

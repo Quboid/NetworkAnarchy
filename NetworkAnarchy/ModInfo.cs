@@ -252,8 +252,8 @@ namespace NetworkAnarchy
                 }
             }
 
-            Log.Info($"Network Anarchy Locale changed {Str.Culture?.Name}->{ModInfo.Culture.Name}", "[NA48]");
-            Str.Culture = ModInfo.Culture;
+            Log.Info($"Network Anarchy Locale changed {Str.Culture?.Name}->{Culture.Name}", "[NA48]");
+            Str.Culture = Culture;
         }
 
         internal static string GetString(object o)

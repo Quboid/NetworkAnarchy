@@ -56,9 +56,6 @@ namespace NetworkAnarchy
             // Resume fixes
             if (m_fixNodesCount != 0 || m_fixTunnelsCount != 0)
             {
-                var prefab = NetPrefab.GetPrefab(m_current);
-                prefab?.Restore();
-
                 if (m_fixTunnelsCount != 0)
                 {
                     FixTunnels();
@@ -68,8 +65,6 @@ namespace NetworkAnarchy
                 {
                     FixNodes();
                 }
-
-                prefab?.Update();
             }
 
             // Stop here if neither active nor bulldozer tool enabled
@@ -83,16 +78,11 @@ namespace NetworkAnarchy
             {
                 m_segmentCount = NetManager.instance.m_segmentCount;
 
-                var prefab = NetPrefab.GetPrefab(m_current);
-                prefab?.Restore();
-
                 m_fixTunnelsCount = 0;
                 m_fixNodesCount = 0;
 
                 FixTunnels();
                 FixNodes();
-
-                prefab?.Update();
             }
 
             if (!IsActive)
