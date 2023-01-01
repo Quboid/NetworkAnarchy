@@ -12,16 +12,7 @@ namespace NetworkAnarchy.Patches
     {
         public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
-            NetTool netTool = NetworkAnarchy.ToolNet;
-            RoadAI ai = netTool.m_prefab.m_netAI as RoadAI;
-            Log.Debug($"RAI_GetInfo1 \"{__result.name}\" ({netTool.m_prefab.name}) - {GetInfo.Get(ai, __result)}");
-
-            if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
-            {
-                errors ^= ToolBase.ToolErrors.HeightTooHigh;
-            }
-
-            __result = GetInfo.Get(ai, __result);
+            __result = GetInfoUtils.GetResult(__result, ref errors);
         }
     }
 
@@ -30,15 +21,7 @@ namespace NetworkAnarchy.Patches
     {
         public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
-            NetTool netTool = NetworkAnarchy.ToolNet;
-            PedestrianPathAI ai = netTool.m_prefab.m_netAI as PedestrianPathAI;
-
-            if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
-            {
-                errors ^= ToolBase.ToolErrors.HeightTooHigh;
-            }
-
-            __result = GetInfo.Get(ai, __result);
+            __result = GetInfoUtils.GetResult(__result, ref errors);
         }
     }
 
@@ -47,15 +30,7 @@ namespace NetworkAnarchy.Patches
     {
         public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
-            NetTool netTool = NetworkAnarchy.ToolNet;
-            PedestrianWayAI ai = netTool.m_prefab.m_netAI as PedestrianWayAI;
-
-            if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
-            {
-                errors ^= ToolBase.ToolErrors.HeightTooHigh;
-            }
-
-            __result = GetInfo.Get(ai, __result);
+            __result = GetInfoUtils.GetResult(__result, ref errors);
         }
     }
 
@@ -64,15 +39,7 @@ namespace NetworkAnarchy.Patches
     {
         public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
-            NetTool netTool = NetworkAnarchy.ToolNet;
-            TrainTrackAI ai = netTool.m_prefab.m_netAI as TrainTrackAI;
-
-            if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
-            {
-                errors ^= ToolBase.ToolErrors.HeightTooHigh;
-            }
-
-            __result = GetInfo.Get(ai, __result);
+            __result = GetInfoUtils.GetResult(__result, ref errors);
         }
     }
 
@@ -81,20 +48,27 @@ namespace NetworkAnarchy.Patches
     {
         public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
+            __result = GetInfoUtils.GetResult(__result, ref errors);
+        }
+    }
+
+    internal static class GetInfoUtils
+    {
+        internal static NetInfo GetResult(NetInfo result, ref ToolBase.ToolErrors errors)
+        {
+            if (NetworkAnarchy.instance == null || !NetworkAnarchy.instance.IsActive) return result;
+            if (NetworkAnarchy.instance.IsBuildingIntersection()) return result;
             NetTool netTool = NetworkAnarchy.ToolNet;
-            MetroTrackAI ai = netTool.m_prefab.m_netAI as MetroTrackAI;
+            NetAI ai = netTool.m_prefab.m_netAI;
 
             if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
             {
                 errors ^= ToolBase.ToolErrors.HeightTooHigh;
             }
 
-            __result = GetInfo.Get(ai, __result);
+            return Get(ai, result);
         }
-    }
 
-    internal static class GetInfo
-    {
         internal static NetInfo Get(NetAI ai, NetInfo normal)
         {
             NetAIWrapper wrapper = new NetAIWrapper(ai);

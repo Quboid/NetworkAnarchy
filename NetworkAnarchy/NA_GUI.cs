@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using UnifiedUI.Helpers;
-using ColossalFramework;
 
 namespace NetworkAnarchy
 {
@@ -39,12 +37,6 @@ namespace NetworkAnarchy
                     Log.Debug($"Hotkey: toggleAnarchy {Anarchy} (was:{was})");
                     e.Use();
                 }
-                if (OptionsKeymapping.toggleZoneOverride.IsPressed(e)) {
-                    var was = ZoneOverride;
-                    ToggleZoneOverride();
-                    Log.Debug($"Hotkey: toggleCollision (was:{ZoneOverride})");
-                    e.Use();
-                }
 
                 if (IsBuildingIntersection())
                 {
@@ -57,10 +49,7 @@ namespace NetworkAnarchy
 
                         // Reset cached value
                         FieldInfo cachedMaxElevation = info.m_buildingAI.GetType().GetField("m_cachedMaxElevation", BindingFlags.NonPublic | BindingFlags.Instance);
-                        if (cachedMaxElevation != null)
-                        {
-                            cachedMaxElevation.SetValue(info.m_buildingAI, -1);
-                        }
+                        cachedMaxElevation?.SetValue(info.m_buildingAI, -1);
 
                         info.m_buildingAI.GetElevationLimits(out int min, out int max);
                         if (Anarchy)
@@ -111,15 +100,13 @@ namespace NetworkAnarchy
                     UpdateElevation();
                     //Log.Debug($"Hotkey: elevationUp {m_elevation} (was:{was})");
                     e.Use();
-                } else if (OptionsKeymapping.elevationDown.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.elevationDown.IsPressed(e)) {
                     var was = m_elevation;
                     m_elevation -= Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
                     //Log.Debug($"Hotkey: elevationDown {m_elevation} (was:{was})");
                     e.Use();
-                } else if (OptionsKeymapping.elevationStepUp.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.elevationStepUp.IsPressed(e)) {
                     var was = elevationStep;
                     if (elevationStep < 12) {
                         elevationStep++;
@@ -146,8 +133,7 @@ namespace NetworkAnarchy
                     m_toolOptionButton.UpdateButton();
                     //Log.Debug($"Hotkey: modesCycleRight {m_mode} (was:{was})");
                     e.Use();
-                } else if (OptionsKeymapping.modesCycleLeft.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.modesCycleLeft.IsPressed(e)) {
                     var was = m_mode;
                     if (m_mode > Modes.Normal) {
                         mode--;
@@ -170,23 +156,22 @@ namespace NetworkAnarchy
                     ToggleBending();
                     //Log.Debug($"Hotkey: toggleBending {Bending} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.toggleSnapping.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.toggleSnapping.IsPressed(e)) {
                     var was = NodeSnapping;
                     ToggleSnapping();
                     //Log.Debug($"Hotkey: toggleSnapping {NodeSnapping} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.toggleZoneOverride.IsPressed(e)) {
+                    var was = ZoneOverride;
+                    ToggleZoneOverride();
+                    Log.Debug($"Hotkey: toggleCollision (was:{ZoneOverride})");
+                    e.Use();
+                } else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e)) {
                     var was = StraightSlope;
                     ToggleStraightSlope();
                     //Log.Debug($"Hotkey: toggleStraightSlope {StraightSlope} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.toggleGrid.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.toggleGrid.IsPressed(e)) {
                     var was = Grid;
                     ToggleGrid();
                     //Log.Debug($"Hotkey: toggleGrid {Grid} (was:{was})");
