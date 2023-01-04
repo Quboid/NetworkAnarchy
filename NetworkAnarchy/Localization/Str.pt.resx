@@ -204,6 +204,9 @@
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>Forçar o ângulo máximo definido em todas as estradas com trilhos de bonde se o valor atual for maior.</value>
   </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Click this button to show Network Anarchy</value>
+  </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>Colisão foi combinada com o modo de Anarquia.
 
