@@ -205,7 +205,7 @@
     <value>เปลี่ยนถนนทุกสายที่มีรางรางให้มีมุมเลี้ยวสูงสุด ตามการตั้งค่าด้านล่าง (หากค่าปัจจุบันสูงกว่า)</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Click this button to show Network Anarchy</value>
+    <value>คลิกที่ปุ่มนี้เพื่อแสดง Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>Collision has been combined with Anarchy mode.
