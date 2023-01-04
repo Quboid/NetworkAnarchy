@@ -205,7 +205,7 @@
     <value>如果当前值较高，则将所有有轨电车轨道最大转弯角度的道路更改为以下值。</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Click this button to show Network Anarchy</value>
+    <value>点击此按钮显示 Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>碰撞功能已经和无碰撞模式相结合。
