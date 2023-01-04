@@ -204,6 +204,9 @@
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>트램 트랙이 있는 모든 도로 중 사용되는 최대 회전 각도의 값이 밑의 값보다 큰 도로를 밑의 값으로 변경합니다.</value>
   </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Click this button to show Network Anarchy</value>
+  </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>충돌 모드가 아나키 모드와 합쳐졌습니다.
 
