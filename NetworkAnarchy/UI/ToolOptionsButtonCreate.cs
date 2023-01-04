@@ -61,6 +61,7 @@ namespace NetworkAnarchy
                     m_button.normalBgSprite = "OptionBase";
                     windowVisible.value = false;
                 }
+                NetworkAnarchy.instance.ButtonReminderToast?.CloseOnce();
                 UpdateButton();
             };
         }

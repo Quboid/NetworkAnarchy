@@ -1,5 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+using NetworkAnarchy.UI;
 using QCommonLib;
 using QCommonLib.UI;
 using System;
@@ -170,8 +171,14 @@ namespace NetworkAnarchy
 
                     if (m_toolOptionButton != null)
                     {
-                        //UnityEngine.Debug.Log($"WasVis:{m_toolOptionButton.isVisible}, NowVis:{m_activated || !m_buttonInOptionsBar} ({m_activated}, {m_buttonInOptionsBar})");
-                        m_toolOptionButton.isVisible = IsActive;// || !m_buttonInOptionsBar;
+                        m_toolOptionButton.isVisible = IsActive;
+
+                        CollisionRemovalWarning = (CollisionFeatureRemovalPanel)QPopup.Open(typeof(CollisionFeatureRemovalPanel));
+                        if (IsActive)
+                        {
+                            ButtonReminderToast = (ButtonReminderToastPanel)QPopup.Open(typeof(ButtonReminderToastPanel));
+                            m_firstRun = false;
+                        }
                     }
                 }
 
@@ -218,8 +225,6 @@ namespace NetworkAnarchy
                 return;
             }
 
-            CollisionRemovalWarning = QPopup.Open(typeof(UI.CollisionFeatureRemovalPanel));
-
             m_current = info;
             NetPrefab prefab = NetPrefab.Factory(info);
             AttachToolOptionsButton(prefab);
@@ -248,6 +253,9 @@ namespace NetworkAnarchy
         private void Deactivate()
         {
             Log.Debug($"Deactivated {IsActive} m_current:{m_current}", "[NA53.1]");
+
+            ButtonReminderToast?.CloseOnce();
+            ButtonReminderToast = null;
 
             m_current = null;
 

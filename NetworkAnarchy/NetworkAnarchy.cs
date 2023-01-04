@@ -1,5 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+using NetworkAnarchy.UI;
 using System.Reflection;
 using UnityEngine;
 
@@ -22,7 +23,11 @@ namespace NetworkAnarchy
         public static SavedBool showDebugMessages = new SavedBool("showDebugMessages", settingsFileName, false, true);
 
         public static SavedBool showCollisionRemoval = new SavedBool("showCollisionRemoval", settingsFileName, true, true);
-        internal QCommonLib.UI.QPopup CollisionRemovalWarning;
+        public static SavedBool showButtonReminder = new SavedBool("showButtonReminder", settingsFileName, true, true);
+        internal CollisionFeatureRemovalPanel CollisionRemovalWarning;
+        internal ButtonReminderToastPanel ButtonReminderToast;
+
+        internal bool m_firstRun = true;
 
         private int m_elevation = 0;
         private readonly SavedInt m_elevationStep = new SavedInt("elevationStep", settingsFileName, 3, true);

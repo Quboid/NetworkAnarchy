@@ -322,6 +322,15 @@ namespace NetworkAnarchy.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click this button to show Network Anarchy.
+        /// </summary>
+        internal static string popup_buttonReminder {
+            get {
+                return ResourceManager.GetString("popup_buttonReminder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Collision has been combined with Anarchy mode.
         ///
         ///In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created..

@@ -83,31 +83,6 @@ namespace NetworkAnarchy
                 return;
             }
 
-            //    StartCoroutine(UpdateButtonProcess());
-            //}
-
-            //private IEnumerator<object> UpdateButtonProcess()
-            //{
-            //    int count = 0;
-            //    while (parent == null)
-            //    {
-            //        count++;
-            //        if (count > 9)
-            //        {
-            //            string caller = new StackTrace()?.GetFrame(1)?.GetMethod()?.Name;
-            //            ModInfo.Log.Info($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA59]");
-            //            isVisible = false;
-            //            yield break;
-            //        }
-            //        yield return new WaitForSeconds(0.05f);
-            //    }
-
-            //    if (count > 0)
-            //    {
-            //        string caller = new StackTrace().GetFrame(1)?.GetMethod()?.Name;
-            //        ModInfo.Log.Info($"Button parent was hard to find (m_parent is {ModInfo.GetString(m_parent)}, attempts:{count})\n  Called by:{caller}", "[NA58]");
-            //    }
-
             if (NetworkAnarchy.instance.IsButtonInOptionsBar)
             {
                 relativePosition = new Vector2(36, 0);
