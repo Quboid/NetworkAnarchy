@@ -204,6 +204,9 @@
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>Ändert alle Strassen mit Tramspuren auf den maximalen Kurvenwinkel des unten angegebenen Wertes, wenn der aktuelle Wert höher ist.</value>
   </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Click this button to show Network Anarchy</value>
+  </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>Kollision wurde mit dem Anarchie-Modus kombiniert.
 
