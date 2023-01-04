@@ -205,7 +205,7 @@
     <value>Изменить максимальный угол поворота для всех дорог с трамвайными рельсами, если их значение меньше указанного.</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Click this button to show Network Anarchy</value>
+    <value>Нажмите эту кнопку, чтобы показать Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>При включенной "Переопределить коллизию зон", пешеходные дорожки и заборы не будут препятствовать созданию зон.</value>
