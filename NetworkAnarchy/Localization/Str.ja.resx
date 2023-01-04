@@ -204,6 +204,9 @@
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>現在の最大角のほうが大きい場合、トラム線路のある全ての道路の最大角が変更されます。</value>
   </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Click this button to show Network Anarchy</value>
+  </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>衝突判定は、アナーキーモードと統合されました。
 
