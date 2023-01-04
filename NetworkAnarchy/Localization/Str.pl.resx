@@ -157,7 +157,7 @@
     <value>Włącz / Wyłącz proste nachylenia</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>Przełącz nadpisywanie stref</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Więcej opcji narzędzia dla dróg i innych sieci</value>
@@ -205,9 +205,9 @@
     <value>Zmień wszystkie drogi z torami tramwajowymi z maksymalnym kątem skrętu o wartość poniżej, jeśli bieżąca wartość jest wyższa.</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
+    <value>Kolizja została połączona z trybem Anarchii.
 
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+Przycisk Nadpisz kolizję stref, kontroluje czy ścieżki/ogrodzenia blokują tworzenie pobliskich kafelków strefy.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Kliknij tutaj, aby wyświetlić opcje narzędzia</value>
@@ -266,6 +266,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>Włącz / Wyłącz przyciąganie węzłów</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>Nadpisz kolizję stref</value>
   </data>
 </root>
