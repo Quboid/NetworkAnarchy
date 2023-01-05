@@ -205,7 +205,7 @@
     <value>Change toutes les routes avec des voies de tramway avec un angle de rotation maximum par la valeur ci-dessous, si la valeur actuelle est plus élevée.</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Afficher Network Anarchy</value>
+    <value>Cliquez sur ce bouton pour afficher Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>Du nouveau : le mode Collision est maintenant combiné au mode Anarchie.
