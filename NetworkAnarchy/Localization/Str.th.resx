@@ -208,9 +208,9 @@
     <value>คลิกที่ปุ่มนี้เพื่อแสดง Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
+    <value>การซ้อนทับได้ถูกรวมเข้าไปอยู่ในโหมดอิสระแล้ว
 
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+ในที่ส่วนนั้น ปุ่มการซ้อนทับโซนจะควบคุมว่าเส้นทาง หรือรั้วจะหยุดการสร้างตารางการแบ่งโซนในบริเวณใกล้เคียงหรือไม่</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
@@ -269,6 +269,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>เปิดโหมดการยึดติด</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>การซ้อนทับโซน</value>
   </data>
 </root>
