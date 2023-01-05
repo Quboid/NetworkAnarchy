@@ -138,6 +138,14 @@ namespace NetworkAnarchy
             try
             {
                 m_maxSegmentLengthLabel.text = NetworkAnarchy.instance.MaxSegmentLength + "m";
+                if (NetworkAnarchy.instance.MaxSegmentLength > 128)
+                {
+                    m_maxSegmentLengthLabel.textColor = new Color32(255, 191, 0, 255);
+                }
+                else
+                {
+                    m_maxSegmentLengthLabel.textColor = Color.white;
+                }
                 m_maxSegmentLengthLabel.tooltip = (Mathf.RoundToInt(NetworkAnarchy.instance.MaxSegmentLength / 8f * 100) / 100f).ToString() + "u";
             }
             catch (StackOverflowException e)
