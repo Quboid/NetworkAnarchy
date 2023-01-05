@@ -205,7 +205,7 @@
     <value>Cambia el ángulo de giro máximo de todas las redes con tranvía si el valor actual es más alto.</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Click this button to show Network Anarchy</value>
+    <value>Haga clic en este botón para mostrar Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>La colisión se ha combinado con el modo Anarquía.
