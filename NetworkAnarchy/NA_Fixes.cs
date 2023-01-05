@@ -9,6 +9,7 @@ namespace NetworkAnarchy
     {
         private void FixNodes()
         {
+            Log.Debug($"AAA01");
             QTimer timer = new QTimer();
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
@@ -16,6 +17,7 @@ namespace NetworkAnarchy
 
             bool singleMode = NetPrefab.SingleMode;
             NetPrefab.SingleMode = false;
+            Log.Debug($"AAA02");
 
             uint max = NetManager.instance.m_nodes.m_size;
             for (int i = m_fixNodesCount; i < max; i++)
@@ -31,21 +33,27 @@ namespace NetworkAnarchy
                     NetPrefab.SingleMode = singleMode;
                     return;
                 }
+                Log.Debug($"AAA03 {i}");
 
                 NetInfo info = nodes[i].Info;
                 if (info == null || info.m_netAI == null)
                 {
                     continue;
                 }
+                Log.Debug($"AAA04.0 {i}");
 
                 var prefab = NetPrefab.GetPrefab(info);
+                Log.Debug($"AAA04.1 {info}");
+                Log.Debug($"AAA04.2 {nodes[i]}");
                 if ((nodes[i].m_flags & NetNode.Flags.Underground) == NetNode.Flags.Underground)
                 {
+                    Log.Debug($"AAA05.0 {i}");
                     if (prefab == null)
                     {
                         continue;
                     }
 
+                    Log.Debug($"AAA05.1 {i}");
                     if ((info.m_setVehicleFlags & Vehicle.Flags.Underground) == 0 && info != prefab.NetAI.Tunnel && info != prefab.NetAI.Slope && !info.m_netAI.IsUnderground())
                     {
                         // Fix by Algernon
@@ -70,25 +78,31 @@ namespace NetworkAnarchy
                         });
                     }
                     //msg += $"\n  Node {i} is underground (info:{info}){nodes[i].m_flags}";
+                    Log.Debug($"AAA05.2 {i}");
                 }
                 else if ((info != prefab.NetAI.Elevated && info != prefab.NetAI.Bridge) || ((nodes[i].m_flags & (NetNode.Flags.Transition | NetNode.Flags.End)) != 0 && nodes[i].m_elevation == 0))
                 {
+                    Log.Debug($"AAA06.1 {i}");
                     if ((nodes[i].m_flags & NetNode.Flags.OnGround) == 0)
                     {
                         //msg += $"\n  Node {i} is ground (info:{info}) {nodes[i].m_flags}";
                         nodes[i].m_flags = nodes[i].m_flags | NetNode.Flags.OnGround;
                     }
+                    Log.Debug($"AAA06.2 {i}");
                 }
                 else if ((nodes[i].m_flags & NetNode.Flags.OnGround) != 0)
                 {
+                    Log.Debug($"AAA07.1 {i}");
                     //msg += $"\n  Node {i} is not ground (info:{info}) {nodes[i].m_flags}";
                     nodes[i].m_flags = nodes[i].m_flags & ~NetNode.Flags.OnGround;
+                    Log.Debug($"AAA07.2 {i}");
                 }
             }
             //if (msg != "")
             //{
             //    Log.Debug(msg, "[NA55]");
             //}
+            Log.Debug($"AAA08");
 
             NetPrefab.SingleMode = singleMode;
             m_fixNodesCount = 0;
