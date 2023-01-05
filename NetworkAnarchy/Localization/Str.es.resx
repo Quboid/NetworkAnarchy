@@ -204,6 +204,9 @@
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>Cambia el ángulo de giro máximo de todas las redes con tranvía si el valor actual es más alto.</value>
   </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Haga clic en este botón para mostrar Network Anarchy</value>
+  </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>La colisión se ha combinado con el modo Anarquía.
 
