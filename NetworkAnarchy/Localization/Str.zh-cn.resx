@@ -204,6 +204,9 @@
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>如果当前值较高，则将所有有轨电车轨道最大转弯角度的道路更改为以下值。</value>
   </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>点击此按钮显示 Network Anarchy</value>
+  </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>碰撞功能已经和无碰撞模式相结合。
 在它所在位置，覆盖区域碰撞功能按钮以控制路径/围栏是否会阻止周围的分区地块的生成。</value>

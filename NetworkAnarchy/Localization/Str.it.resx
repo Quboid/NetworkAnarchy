@@ -204,6 +204,9 @@
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
     <value>Cambia tutte le strade con binari del tram con angolo di rotazione massimo con il valore sottostante se quello attuale è maggiore.</value>
   </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Clicca il pulsante per mostrare Network Anarchy</value>
+  </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
     <value>La collisione è stata combinata con la modalità Anarchia.
 
