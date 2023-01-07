@@ -12,6 +12,8 @@ namespace NetworkAnarchy
             QTimer timer = new QTimer();
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
+            NetNode.Flags fUnder = NetNode.Flags.Underground;
+            NetNode.Flags fUntouch = NetNode.Flags.Untouchable;
             //string msg = "";
 
             bool singleMode = NetPrefab.SingleMode;
@@ -20,7 +22,26 @@ namespace NetworkAnarchy
             uint max = NetManager.instance.m_nodes.m_size;
             for (int i = m_fixNodesCount; i < max; i++)
             {
-                if (nodes[i].m_flags == NetNode.Flags.None || (nodes[i].m_flags & NetNode.Flags.Untouchable) == NetNode.Flags.Untouchable)
+                if (nodes[i].m_flags == NetNode.Flags.None)
+                {
+                    continue;
+                }
+
+                NetInfo info = nodes[i].Info;
+                if (info == null || info.m_netAI == null)
+                {
+                    continue;
+                }
+
+                // Fix for underground metro stations
+                if ((nodes[i].m_flags & fUnder) != fUnder && (info.m_setVehicleFlags & Vehicle.Flags.Underground) == Vehicle.Flags.Underground && info.m_netAI.IsUnderground() && (nodes[i].m_flags & fUntouch) == fUntouch)
+                {
+                    nodes[i].m_flags |= fUnder;
+                    nodes[i].m_flags &= ~NetNode.Flags.OnGround;
+                    Log.Debug($"AAA Found bugged node #{i} {info.name}:{nodes[i].m_flags}");
+                }
+
+                if ((nodes[i].m_flags & fUntouch) == fUntouch)
                 {
                     continue;
                 }
@@ -32,20 +53,14 @@ namespace NetworkAnarchy
                     return;
                 }
 
-                NetInfo info = nodes[i].Info;
-                if (info == null || info.m_netAI == null)
+                var prefab = NetPrefab.Factory(info);
+                if (prefab == null)
                 {
                     continue;
                 }
 
-                var prefab = NetPrefab.Factory(info);
-                if ((nodes[i].m_flags & NetNode.Flags.Underground) == NetNode.Flags.Underground)
+                if ((nodes[i].m_flags & fUnder) == fUnder)
                 {
-                    if (prefab == null)
-                    {
-                        continue;
-                    }
-
                     if ((info.m_setVehicleFlags & Vehicle.Flags.Underground) == 0 && info != prefab.NetAI.Tunnel && info != prefab.NetAI.Slope && !info.m_netAI.IsUnderground())
                     {
                         // Fix by Algernon
@@ -55,7 +70,7 @@ namespace NetworkAnarchy
                         {
                             Log.Debug($"Fixing node {tempI} {info.m_setVehicleFlags} (underground:{(info.m_setVehicleFlags & Vehicle.Flags.Underground) != 0}, elevation:{nodes[tempI].m_elevation}, flags:{nodes[tempI].m_flags}", "[NA54]");
                             nodes[tempI].m_elevation = 0;
-                            nodes[tempI].m_flags = nodes[tempI].m_flags & ~NetNode.Flags.Underground;
+                            nodes[tempI].m_flags = nodes[tempI].m_flags & ~fUnder;
 
                             if (info != prefab.NetAI.Elevated && info != tempPrefab.NetAI.Bridge)
                             {
