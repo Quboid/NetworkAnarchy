@@ -64,6 +64,8 @@ namespace NetworkAnarchy
                 return;
             }
 
+            NetPrefab.CreateToGroundMap();
+
             bendingPrefabs.Clear();
             int count = PrefabCollection<NetInfo>.PrefabCount();
             for (uint i = 0; i < count; i++)

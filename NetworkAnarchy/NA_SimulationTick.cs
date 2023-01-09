@@ -94,10 +94,7 @@ namespace NetworkAnarchy
                 {
                     m_elevation = Mathf.RoundToInt(Mathf.RoundToInt(m_controlPoints[0].m_elevation / elevationStep) * elevationStep * 256f / 12f);
                     UpdateElevation();
-                    if (m_toolOptionButton != null)
-                    {
-                        m_toolOptionButton.UpdateButton();
-                    }
+                    m_toolOptionButton?.UpdateButton();
                 }
             }
             // Fix last control point elevation
