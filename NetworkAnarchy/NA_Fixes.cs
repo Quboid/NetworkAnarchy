@@ -12,8 +12,9 @@ namespace NetworkAnarchy
             QTimer timer = new QTimer();
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
-            NetNode.Flags fUnder = NetNode.Flags.Underground;
-            NetNode.Flags fUntouch = NetNode.Flags.Untouchable;
+            NetNode.Flags fNUnder = NetNode.Flags.Underground;
+            NetNode.Flags fNUntouch = NetNode.Flags.Untouchable;
+            Vehicle.Flags fVUnder = Vehicle.Flags.Underground;
             //string msg = "";
 
             bool singleMode = NetPrefab.SingleMode;
@@ -34,14 +35,14 @@ namespace NetworkAnarchy
                 }
 
                 // Fix for underground metro stations
-                if ((nodes[i].m_flags & fUnder) != fUnder && (info.m_setVehicleFlags & Vehicle.Flags.Underground) == Vehicle.Flags.Underground && info.m_netAI.IsUnderground() && (nodes[i].m_flags & fUntouch) == fUntouch)
+                if ((nodes[i].m_flags & fNUnder) != fNUnder && (info.m_setVehicleFlags & fVUnder) == fVUnder && info.m_netAI.IsUnderground() && (nodes[i].m_flags & fNUntouch) == fNUntouch)
                 {
-                    nodes[i].m_flags |= fUnder;
+                    nodes[i].m_flags |= fNUnder;
                     nodes[i].m_flags &= ~NetNode.Flags.OnGround;
-                    Log.Debug($"AAA Found bugged node #{i} {info.name}:{nodes[i].m_flags}");
+                    Log.Debug($"Fixed bugged node #{i} {info.name}:{nodes[i].m_flags}", "[NA66]");
                 }
 
-                if ((nodes[i].m_flags & fUntouch) == fUntouch)
+                if ((nodes[i].m_flags & fNUntouch) == fNUntouch)
                 {
                     continue;
                 }
@@ -59,18 +60,18 @@ namespace NetworkAnarchy
                     continue;
                 }
 
-                if ((nodes[i].m_flags & fUnder) == fUnder)
+                if ((nodes[i].m_flags & fNUnder) == fNUnder)
                 {
-                    if ((info.m_setVehicleFlags & Vehicle.Flags.Underground) == 0 && info != prefab.NetAI.Tunnel && info != prefab.NetAI.Slope && !info.m_netAI.IsUnderground())
+                    if ((info.m_setVehicleFlags & fVUnder) == 0 && info != prefab.NetAI.Tunnel && info != prefab.NetAI.Slope && !info.m_netAI.IsUnderground())
                     {
                         // Fix by Algernon
                         int tempI = i;
                         var tempPrefab = prefab;
                         Singleton<SimulationManager>.instance.AddAction(() =>
                         {
-                            Log.Debug($"Fixing node {tempI} {info.m_setVehicleFlags} (underground:{(info.m_setVehicleFlags & Vehicle.Flags.Underground) != 0}, elevation:{nodes[tempI].m_elevation}, flags:{nodes[tempI].m_flags}", "[NA54]");
+                            Log.Debug($"Fixing node {tempI} {info.m_setVehicleFlags} (underground:{(info.m_setVehicleFlags & fVUnder) != 0}, elevation:{nodes[tempI].m_elevation}, flags:{nodes[tempI].m_flags}", "[NA54]");
                             nodes[tempI].m_elevation = 0;
-                            nodes[tempI].m_flags = nodes[tempI].m_flags & ~fUnder;
+                            nodes[tempI].m_flags = nodes[tempI].m_flags & ~fNUnder;
 
                             if (info != prefab.NetAI.Elevated && info != tempPrefab.NetAI.Bridge)
                             {
@@ -148,7 +149,6 @@ namespace NetworkAnarchy
                 // Is it a tunnel?
                 if (info == prefab.NetAI.Tunnel)
                 {
-                    Log.Debug($"AAA Tunnel {i}:{info.name}");
                     nodes[startNode].m_flags = nodes[startNode].m_flags & ~NetNode.Flags.OnGround;
                     // Make sure tunnels have underground flag
                     if ((nodes[startNode].m_flags & NetNode.Flags.Untouchable) == NetNode.Flags.None)
@@ -205,7 +205,6 @@ namespace NetworkAnarchy
                 // Is it a slope?
                 else if (info == prefab.NetAI.Slope)
                 {
-                    Log.Debug($"AAA Slope {i}:{info.name}");
                     if (prefab.NetAI.Tunnel == null)
                     {
                         continue;
@@ -242,7 +241,6 @@ namespace NetworkAnarchy
                         segments[i].m_endNode = startNode;
 
                         Vector3 dir = segments[i].m_startDirection;
-
                         segments[i].m_startDirection = segments[i].m_endDirection;
                         segments[i].m_endDirection = dir;
 
