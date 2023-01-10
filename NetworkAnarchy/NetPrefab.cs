@@ -152,9 +152,8 @@ namespace NetworkAnarchy
 
         public static NetInfo GetOnGround(NetInfo info)
         {
-            if (QCommon.Scene == QCommon.SceneTypes.AssetEditor)
+            if (QCommon.Scene == QCommon.SceneTypes.AssetEditor && ToolManager.instance.m_properties.m_editPrefabInfo is NetInfo editPrefab)
             {
-                NetInfo editPrefab = (NetInfo)ToolManager.instance.m_properties.m_editPrefabInfo;
                 NetAIWrapper editAI = new NetAIWrapper(editPrefab.m_netAI);
                 if (info == editPrefab || info == editAI.Elevated || info == editAI.Bridge || info == editAI.Tunnel || info == editAI.Slope)
                 {
