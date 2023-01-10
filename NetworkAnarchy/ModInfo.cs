@@ -219,7 +219,19 @@ namespace NetworkAnarchy
             }
 
             Patcher.PatchAll();
-            Mods.CrossTheLine.Initialise(Patcher);
+            if (QCommon.Scene != QCommon.SceneTypes.AssetEditor)
+            {
+                Mods.CrossTheLine.Initialise(Patcher);
+            }
+            else
+            {
+                GameAreaManager.instance.m_maxAreaCount = GameAreaManager.AREAGRID_RESOLUTION * GameAreaManager.AREAGRID_RESOLUTION;
+                for (int i = 0; i < GameAreaManager.instance.m_maxAreaCount; i++)
+                {
+                    GameAreaManager.instance.m_areaGrid[i] = i + 1;
+                }
+                GameAreaManager.instance.m_areaCount = GameAreaManager.instance.m_maxAreaCount;
+            }
         }
 
         public void DestroyMod()

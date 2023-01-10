@@ -126,6 +126,7 @@ namespace NetworkAnarchy
                     nodes[i].m_flags = nodes[i].m_flags & ~NetNode.Flags.OnGround;
                 }
             }
+
             if (msg == "")
             {
                 m_fixExecutions++;

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using QCommonLib;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -151,7 +152,19 @@ namespace NetworkAnarchy
 
         public static NetInfo GetOnGround(NetInfo info)
         {
-            if (s_toGroundMap.ContainsKey(info)) return s_toGroundMap[info];
+            if (QCommon.Scene == QCommon.SceneTypes.AssetEditor)
+            {
+                NetInfo editPrefab = (NetInfo)ToolManager.instance.m_properties.m_editPrefabInfo;
+                NetAIWrapper editAI = new NetAIWrapper(editPrefab.m_netAI);
+                if (info == editPrefab || info == editAI.Elevated || info == editAI.Bridge || info == editAI.Tunnel || info == editAI.Slope)
+                {
+                    info = editPrefab;
+                }
+            }
+            else if (s_toGroundMap.ContainsKey(info))
+            {
+                info = s_toGroundMap[info];
+            }
             return info;
         }
     }
