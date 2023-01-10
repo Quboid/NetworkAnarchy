@@ -1,5 +1,7 @@
 ﻿using ColossalFramework.Math;
 using HarmonyLib;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace NetworkAnarchy.Patches
 {
@@ -12,6 +14,16 @@ namespace NetworkAnarchy.Patches
         {
             if (NetworkAnarchy.Anarchy)
             {
+                StackFrame frame = new StackTrace()?.GetFrame(3);
+                if (frame != null)
+                {
+                    MethodBase method = frame.GetMethod();
+                    if ("TreeInstance.CheckOverlap" == method.DeclaringType.ToString() + "." + method.Name)
+                    {
+                        if (!NetworkAnarchy.ZoneOverride) return true;
+                    }
+                }
+
                 __result = false;
                 return false;
             }
