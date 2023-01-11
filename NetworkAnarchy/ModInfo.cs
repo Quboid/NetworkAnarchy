@@ -6,6 +6,7 @@ using NetworkAnarchy.Localization;
 using NetworkAnarchy.Patches;
 using QCommonLib;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
@@ -159,18 +160,33 @@ namespace NetworkAnarchy
             }
         }
 
+        /// <summary>
+        /// Executes at main menu
+        /// </summary>
         public void OnEnabled()
         {
 #if DEBUG
-            //Log = new QLogger(true);
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert, true);
-#else
-            //Log = new QLogger(true);// NetworkAnarchy.showDebugMessages); // Always log stuff while mod is in beta
-            Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
             Log.IsDebug = true;
+#else
+            //Log = new QLogger(true);// NetworkAnarchy.showDebugMessages); 
+            Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
+            Log.IsDebug = true; // Always log stuff for now
 #endif
 
             AnyRoadOutsideConnection.Initialise();
+
+            // Game loaded to main menu
+            if (UIView.GetAView() == null)
+            {
+                LoadingManager.instance.m_introLoaded += CheckIncompatibleMods;
+            }
+            else
+            {
+                CheckIncompatibleMods();
+            }
+
+            // Hot reload
             if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
             {
                 InitializeMod();
@@ -189,11 +205,6 @@ namespace NetworkAnarchy
 
         public override void OnLevelLoaded(LoadMode mode)
         {
-            //if (!(mode == LoadMode.LoadGame || mode == LoadMode.NewGame || mode == LoadMode.NewGameFromScenario))
-            //{
-            //    return;
-            //}
-
             InitializeMod();
         }
 
@@ -252,6 +263,25 @@ namespace NetworkAnarchy
             }
 
             LocaleManager.eventLocaleChanged -= LocaleChanged;
+        }
+
+        public void CheckIncompatibleMods()
+        {
+            Dictionary<ulong, string> incompatbleMods = new Dictionary<ulong, string>
+            {
+                { 1844442251,   "Fine Road Tool" },
+                { 1844440354,   "Fine Road Anarchy" },
+                { 2847163882,   "Any Road Outside Connections Revisited" },
+                { 883332136,    "Any Road Outside Connections" },
+                { 2558311605,   "Left-Hand Network Fix" },
+                { 1274199764,   "Network Tiling" },
+                { 2085018096,   "Node Spacer" },
+                { 650436109,    "Quay Anarchy" },
+                { 707759735,    "Ship Path Anarchy" },
+                { 1586027591,   "Tiny Segments - Extra Anarchy" },
+            };
+
+            QIncompatible checker = new QIncompatible(incompatbleMods, Log.instance);
         }
 
         internal static void LocaleChanged()

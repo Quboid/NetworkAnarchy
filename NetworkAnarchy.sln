@@ -24,11 +24,11 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_NeutralResourcesLanguage = en-GB
-		SolutionGuid = {52D8687F-6BFB-4D01-9E1E-AC85E69AB925}
-		RESX_Rules = {"EnabledRules":["StringFormat","WhiteSpaceLead","WhiteSpaceTail","PunctuationLead"]}
-		RESX_SaveFilesImmediatelyUponChange = True
 		RESX_ShowErrorsInErrorList = False
+		RESX_SaveFilesImmediatelyUponChange = True
+		RESX_Rules = {"EnabledRules":["StringFormat","WhiteSpaceLead","WhiteSpaceTail","PunctuationLead"]}
+		SolutionGuid = {52D8687F-6BFB-4D01-9E1E-AC85E69AB925}
+		RESX_NeutralResourcesLanguage = en-GB
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\..\..\QCommon\Repo\QCommon\QCommon\Shared\QCommon Shared.projitems*{233b2695-91ad-4b85-a778-1fff467fae35}*SharedItemsImports = 13
