@@ -23,7 +23,7 @@ namespace NetworkAnarchy
         public static readonly SavedInputKey toggleAnarchy = new SavedInputKey("toggleAnarchy", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.A, true, false, false), true);
         public static readonly SavedInputKey toggleBending = new SavedInputKey("toggleBending", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.B, true, false, false), true);
         public static readonly SavedInputKey toggleSnapping = new SavedInputKey("toggleSnapping", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.S, true, false, false), true);
-        public static readonly SavedInputKey toggleZoneOverride = new SavedInputKey("toggleZoneOverride", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.None, false, false, false), true);
+        public static readonly SavedInputKey toggleCollision = new SavedInputKey("toggleCollision", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.None, false, false, false), true);
         public static readonly SavedInputKey toggleGrid = new SavedInputKey("toggleGrid", NetworkAnarchy.settingsFileName, SavedInputKey.Encode(KeyCode.G, false, false, true), true);
 
         protected override void Awake()
@@ -45,7 +45,7 @@ namespace NetworkAnarchy
                 { Str.key_toggleAnarchy, toggleAnarchy },
                 { Str.key_toggleBending, toggleBending },
                 { Str.key_toggleSnapping, toggleSnapping },
-                { Str.key_toggleZoneOverride, toggleZoneOverride },
+                { Str.ui_toggleCollision, toggleCollision },
                 { Str.key_toggleGrid, toggleGrid }
             };
 
@@ -68,7 +68,7 @@ namespace NetworkAnarchy
             intoolKeys.Add(OptionsKeymapping.toggleStraightSlope, GetIsActive);
             intoolKeys.Add(OptionsKeymapping.toggleBending, GetIsActive);
             intoolKeys.Add(OptionsKeymapping.toggleSnapping, GetIsActive);
-            intoolKeys.Add(OptionsKeymapping.toggleZoneOverride, GetIsActive);
+            intoolKeys.Add(OptionsKeymapping.toggleCollision, GetIsActive);
             intoolKeys.Add(OptionsKeymapping.toggleGrid, GetIsActive);
 
             UUIHelpers.RegisterHotkeys(

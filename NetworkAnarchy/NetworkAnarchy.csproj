@@ -43,6 +43,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <EmbeddedResource Update="Icons\Collision.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Update="Localization\Str.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Str.Designer.cs</LastGenOutput>

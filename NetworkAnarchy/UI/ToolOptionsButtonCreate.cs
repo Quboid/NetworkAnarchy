@@ -61,7 +61,7 @@ namespace NetworkAnarchy
                     m_button.normalBgSprite = "OptionBase";
                     windowVisible.value = false;
                 }
-                NetworkAnarchy.instance.ButtonReminderToast?.CloseOnce();
+                //NetworkAnarchy.instance.ButtonReminderToast?.CloseOnce();
                 UpdateButton();
             };
         }
@@ -177,7 +177,7 @@ namespace NetworkAnarchy
             m_anarchyBtn = CreateAnarchyCheckBox(anarchyPanel, "Anarchy", Str.ui_toggleAnarchy, NetworkAnarchy.saved_anarchy, NetworkAnarchy.instance.ToggleAnarchy);
             m_bendingBtn = CreateAnarchyCheckBox(anarchyPanel, "Bending", Str.ui_toggleBending, NetworkAnarchy.saved_bending, NetworkAnarchy.instance.ToggleBending);
             m_snappingBtn = CreateAnarchyCheckBox(anarchyPanel, "Snapping", Str.ui_toggleSnapping, NetworkAnarchy.saved_nodeSnapping, NetworkAnarchy.instance.ToggleSnapping);
-            m_zoneOverrideBtn = CreateAnarchyCheckBox(anarchyPanel, "ZoneOverride", Str.ui_toggleZoneOverride + " (and trees)", NetworkAnarchy.ZoneOverride, NetworkAnarchy.instance.ToggleZoneOverride);
+            m_collisionBtn = CreateAnarchyCheckBox(anarchyPanel, "Collision", Str.ui_toggleCollision, NetworkAnarchy.Collision, NetworkAnarchy.instance.ToggleCollision);
             m_straightSlopeBtn = CreateAnarchyCheckBox(anarchyPanel, "StraightSlope", Str.ui_toggleSlope, NetworkAnarchy.saved_smoothSlope, NetworkAnarchy.instance.ToggleStraightSlope);
 
             anarchyPanel.autoLayout = true;
@@ -501,16 +501,16 @@ namespace NetworkAnarchy
                 "BendingFocused",
                 "BendingHovered",
                 "BendingPressed",
+                "Collision",
+                "CollisionDisabled",
+                "CollisionFocused",
+                "CollisionHovered",
+                "CollisionPressed",
                 "Snapping",
                 "SnappingDisabled",
                 "SnappingFocused",
                 "SnappingHovered",
                 "SnappingPressed",
-                "ZoneOverride",
-                "ZoneOverrideDisabled",
-                "ZoneOverrideFocused",
-                "ZoneOverrideHovered",
-                "ZoneOverridePressed",
                 "StraightSlope",
                 "StraightSlopeDisabled",
                 "StraightSlopeFocused",

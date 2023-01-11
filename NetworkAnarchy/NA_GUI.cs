@@ -161,10 +161,10 @@ namespace NetworkAnarchy
                     ToggleSnapping();
                     //Log.Debug($"Hotkey: toggleSnapping {NodeSnapping} (was:{was})");
                     e.Use();
-                } else if (OptionsKeymapping.toggleZoneOverride.IsPressed(e)) {
-                    var was = ZoneOverride;
-                    ToggleZoneOverride();
-                    Log.Debug($"Hotkey: toggleCollision (was:{ZoneOverride})");
+                } else if (OptionsKeymapping.toggleCollision.IsPressed(e)) {
+                    var was = Collision;
+                    ToggleCollision();
+                    Log.Debug($"Hotkey: toggleCollision (was:{Collision})");
                     e.Use();
                 } else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e)) {
                     var was = StraightSlope;

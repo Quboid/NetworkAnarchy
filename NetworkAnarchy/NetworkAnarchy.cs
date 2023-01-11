@@ -18,14 +18,14 @@ namespace NetworkAnarchy
         public static SavedBool saved_anarchy = new SavedBool("anarchy", settingsFileName, false, true);
         public static SavedBool saved_bending = new SavedBool("bending", settingsFileName, true, true);
         public static SavedBool saved_nodeSnapping = new SavedBool("nodeSnapping", settingsFileName, true, true);
-        public static SavedBool saved_zoneOverride = new SavedBool("zoneOverride", settingsFileName, true, true);
+        public static SavedBool saved_collision = new SavedBool("collision", settingsFileName, true, true);
         public static SavedInt saved_segmentLength = new SavedInt("saved_segmentLength", settingsFileName, 96, true);
         public static SavedBool showDebugMessages = new SavedBool("showDebugMessages", settingsFileName, false, true);
 
-        public static SavedBool showCollisionRemoval = new SavedBool("showCollisionRemoval", settingsFileName, true, true);
-        public static SavedBool showButtonReminder = new SavedBool("showButtonReminder", settingsFileName, true, true);
-        internal CollisionFeatureRemovalPanel CollisionRemovalWarning;
-        internal ButtonReminderToastPanel ButtonReminderToast;
+        //public static SavedBool showCollisionRemoval = new SavedBool("showCollisionRemoval", settingsFileName, true, true);
+        //public static SavedBool showButtonReminder = new SavedBool("showButtonReminder", settingsFileName, true, true);
+        //internal CollisionFeatureRemovalPanel CollisionRemovalWarning;
+        //internal ButtonReminderToastPanel ButtonReminderToast;
 
         internal bool m_firstRun = true;
 
@@ -268,22 +268,22 @@ namespace NetworkAnarchy
             }
         }
 
-        private static bool _zoneOverride = saved_zoneOverride.value;
-        public static bool ZoneOverride
+        private static bool _collision = saved_collision.value;
+        public static bool Collision
         {
             get
             {
-                return _zoneOverride;
+                return _collision;
             }
 
             set
             {
-                if (value != _zoneOverride)
+                if (value != _collision)
                 {
-                    Log.Debug($"Setting Zone Override to {(value ? "enabled" : "disabled")}", "[NA43]");
+                    Log.Debug($"Setting Collision to {(value ? "enabled" : "disabled")}", "[NA43]");
 
-                    _zoneOverride = value;
-                    saved_zoneOverride.value = value;
+                    _collision = value;
+                    saved_collision.value = value;
                     ChirperManager.UpdateAtlas();
                 }
             }
@@ -325,10 +325,10 @@ namespace NetworkAnarchy
             NodeSnapping = !NodeSnapping;
             UpdateAnarchyButton(m_toolOptionButton.m_snappingBtn, "Snapping", NodeSnapping);
         }
-        public void ToggleZoneOverride()
+        public void ToggleCollision()
         {
-            ZoneOverride = !ZoneOverride;
-            UpdateAnarchyButton(m_toolOptionButton.m_zoneOverrideBtn, "ZoneOverride", ZoneOverride);
+            Collision = !Collision;
+            UpdateAnarchyButton(m_toolOptionButton.m_collisionBtn, "Collision", Collision);
         }
         public void ToggleStraightSlope()
         {

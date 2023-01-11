@@ -9,7 +9,7 @@ using System;
 using System.Globalization;
 using UnityEngine;
 
-// Error code max: 66
+// Error code max: 67
 
 namespace NetworkAnarchy
 {

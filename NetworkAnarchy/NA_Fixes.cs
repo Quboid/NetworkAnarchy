@@ -7,14 +7,14 @@ namespace NetworkAnarchy
 {
     public partial class NetworkAnarchy : MonoBehaviour
     {
-        private int m_fixExecutions = 0;
+        //private int m_fixExecutions = 0;
 
         private void FixNodes()
         {
             uint max = NetManager.instance.m_nodes.m_size;
             if (m_fixNodesCount == max) return;
 
-            if (m_fixNodesCount == 0) Log.Debug($"Starting FixNodes cycle");
+            //if (m_fixNodesCount == 0) Log.Debug($"Starting FixNodes cycle");
 
             QTimer timer = new QTimer();
 
@@ -22,7 +22,7 @@ namespace NetworkAnarchy
             NetNode.Flags fNUnder = NetNode.Flags.Underground;
             NetNode.Flags fNUntouch = NetNode.Flags.Untouchable;
             Vehicle.Flags fVUnder = Vehicle.Flags.Underground;
-            string msg = "";
+            //string msg = "";
 
             bool singleMode = NetPrefab.SingleMode;
             NetPrefab.SingleMode = false;
@@ -57,15 +57,15 @@ namespace NetworkAnarchy
                 {
                     m_fixNodesCount = i;
                     NetPrefab.SingleMode = singleMode;
-                    if (msg == "")
-                    {
-                        m_fixExecutions++;
-                    }
-                    else
-                    {
-                        Log.Debug($"Empty executions:{m_fixExecutions}, fixNodesCount:{m_fixNodesCount}{msg}", "[NA55.1]");
-                        m_fixExecutions = 0;
-                    }
+                    //if (msg == "")
+                    //{
+                    //    m_fixExecutions++;
+                    //}
+                    //else
+                    //{
+                    //    Log.Debug($"Empty executions:{m_fixExecutions}, fixNodesCount:{m_fixNodesCount}{msg}", "[NA55.1]");
+                    //    m_fixExecutions = 0;
+                    //}
                     return;
                 }
 
@@ -100,14 +100,14 @@ namespace NetworkAnarchy
                             catch { }
                         });
                     }
-                    msg += $"\n  Node {i} is underground (info:{info}, {nodes[i].m_flags})";
+                    //msg += $"\n  Node {i} is underground (info:{info}, {nodes[i].m_flags})";
                 }
                 else if (info != prefab.NetAI.Elevated && info != prefab.NetAI.Bridge)
                 {
                     if ((nodes[i].m_flags & NetNode.Flags.OnGround) == 0)
                     {
-                        msg += $"\n  [1] Node {i} is ground (info:{info}, prefab:{prefab}, {nodes[i].m_flags})\n" +
-                            $"      G: {prefab.NetAI.Info.name}\n      E: {prefab.NetAI.Elevated.name}\n      B: {prefab.NetAI.Bridge.name}";
+                        //msg += $"\n  [1] Node {i} is ground (info:{info}, prefab:{prefab}, {nodes[i].m_flags})\n" +
+                        //    $"      G: {prefab.NetAI.Info.name}\n      E: {prefab.NetAI.Elevated.name}\n      B: {prefab.NetAI.Bridge.name}";
                         nodes[i].m_flags = nodes[i].m_flags | NetNode.Flags.OnGround;
                     }
                 }
@@ -115,27 +115,27 @@ namespace NetworkAnarchy
                 {
                     if ((nodes[i].m_flags & NetNode.Flags.OnGround) == 0)
                     {
-                        msg += $"\n  [2] Node {i} is ground (info:{info}, prefab:{prefab}, {nodes[i].m_flags})\n" +
-                            $"      G: {prefab.NetAI.Info.name}\n      E: {prefab.NetAI.Elevated.name}\n      B: {prefab.NetAI.Bridge.name}";
+                        //msg += $"\n  [2] Node {i} is ground (info:{info}, prefab:{prefab}, {nodes[i].m_flags})\n" +
+                        //    $"      G: {prefab.NetAI.Info.name}\n      E: {prefab.NetAI.Elevated.name}\n      B: {prefab.NetAI.Bridge.name}";
                         nodes[i].m_flags = nodes[i].m_flags | NetNode.Flags.OnGround;
                     }
                 }
                 else if ((nodes[i].m_flags & NetNode.Flags.OnGround) != 0)
                 {
-                    msg += $"\n  Node {i} is not ground (info:{info}, {nodes[i].m_flags})";
+                    //msg += $"\n  Node {i} is not ground (info:{info}, {nodes[i].m_flags})";
                     nodes[i].m_flags = nodes[i].m_flags & ~NetNode.Flags.OnGround;
                 }
             }
 
-            if (msg == "")
-            {
-                m_fixExecutions++;
-            }
-            else
-            {
-                Log.Debug($"Empty executions:{m_fixExecutions}, fixNodesCount:{m_fixNodesCount}{msg}", "[NA55.2]");
-                m_fixExecutions = 0;
-            }
+            //if (msg == "")
+            //{
+            //    m_fixExecutions++;
+            //}
+            //else
+            //{
+            //    Log.Debug($"Empty executions:{m_fixExecutions}, fixNodesCount:{m_fixNodesCount}{msg}", "[NA55.2]");
+            //    m_fixExecutions = 0;
+            //}
 
             NetPrefab.SingleMode = singleMode;
             m_fixNodesCount = 0;

@@ -125,7 +125,7 @@ namespace NetworkAnarchy
             Bending = !saved_bending.value; // Toggle value to force prefab updates
             Bending = saved_bending.value;
             NodeSnapping = saved_nodeSnapping.value;
-            ZoneOverride = saved_zoneOverride.value;
+            Collision = saved_collision.value;
             StraightSlope = saved_smoothSlope.value;
             ChirperManager.UpdateAtlas();
 
@@ -175,12 +175,12 @@ namespace NetworkAnarchy
                     {
                         m_toolOptionButton.isVisible = IsActive;
 
-                        CollisionRemovalWarning = (CollisionFeatureRemovalPanel)QPopup.Open(typeof(CollisionFeatureRemovalPanel));
-                        if (IsActive)
-                        {
-                            ButtonReminderToast = (ButtonReminderToastPanel)QPopup.Open(typeof(ButtonReminderToastPanel));
-                            m_firstRun = false;
-                        }
+                        //CollisionRemovalWarning = (CollisionFeatureRemovalPanel)QPopup.Open(typeof(CollisionFeatureRemovalPanel));
+                        //if (IsActive)
+                        //{
+                        //    ButtonReminderToast = (ButtonReminderToastPanel)QPopup.Open(typeof(ButtonReminderToastPanel));
+                        //    m_firstRun = false;
+                        //}
                     }
                 }
 
@@ -256,8 +256,8 @@ namespace NetworkAnarchy
         {
             Log.Debug($"Deactivated {IsActive} m_current:{m_current}", "[NA53.1]");
 
-            ButtonReminderToast?.CloseOnce();
-            ButtonReminderToast = null;
+            //ButtonReminderToast?.CloseOnce();
+            //ButtonReminderToast = null;
 
             m_current = null;
 

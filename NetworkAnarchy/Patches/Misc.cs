@@ -2,6 +2,8 @@
 using HarmonyLib;
 using QCommonLib;
 using System;
+using System.Diagnostics;
+using System.Reflection;
 using UnityEngine;
 
 namespace NetworkAnarchy.Patches
@@ -26,6 +28,33 @@ namespace NetworkAnarchy.Patches
             }
             return errors;
         }
+
+        /// <summary>
+        /// Check if this collision check is being run for a tree
+        /// </summary>
+        /// <returns>Whether or not a tree is colliding</returns>
+        //internal static bool IsTreeOverlap()
+        //{
+        //    StackTrace trace = new StackTrace();
+        //    if (trace == null) return false;
+
+        //    for (int i = 2; i < trace.FrameCount; i++)
+        //    {
+        //        Log.Debug($"AAA01 {i}");
+        //        StackFrame frame = trace.GetFrame(i);
+        //        if (frame == null) return false;
+
+        //        MethodBase method = frame.GetMethod();
+        //        Log.Debug($"AAA02 {i} ({method.DeclaringType.ToString() + "." + method.Name})");
+        //        if ("TreeInstance.CheckOverlap" == method.DeclaringType.ToString() + "." + method.Name)
+        //        {
+        //            Log.Debug($"Tree overlap found!", "[NA67]");
+        //            return true;
+        //        }
+        //    }
+
+        //    return false;
+        //}
     }
 
     /// <summary>
@@ -68,7 +97,7 @@ namespace NetworkAnarchy.Patches
             }
             catch (NullReferenceException e)
             {
-                Debug.Log($"Failed to enable placing transport paths outside purchased tiles\n{e}");
+                UnityEngine.Debug.Log($"Failed to enable placing transport paths outside purchased tiles\n{e}");
             }
             return true;
         }
