@@ -36,6 +36,9 @@ namespace NetworkAnarchy
         public string Name => "Network Anarchy " + QVersion.Version();
         public string Description => Str.mod_Description;
 
+        internal static GameObject DebugGO;
+        internal static DebugPanel s_debugPanel;
+
         //internal static QLogger Log;
         internal static QPatcher Patcher;
         internal string HarmonyId = "quboid.csl_mods.networkanarchy";
@@ -176,6 +179,8 @@ namespace NetworkAnarchy
 
             AnyRoadOutsideConnection.Initialise();
 
+
+
             // Game loaded to main menu
             if (UIView.GetAView() == null)
             {
@@ -243,6 +248,10 @@ namespace NetworkAnarchy
                 }
                 GameAreaManager.instance.m_areaCount = GameAreaManager.instance.m_maxAreaCount;
             }
+
+            //DebugGO = new GameObject("MIT_DebugPanel");
+            //DebugGO.AddComponent<DebugPanel>();
+            //s_debugPanel = DebugGO.GetComponent<DebugPanel>();
         }
 
         public void DestroyMod()
@@ -250,6 +259,12 @@ namespace NetworkAnarchy
             Mods.CrossTheLine.Deactivate();
             Patcher.UnpatchAll();
             NetworkAnarchy.instance.RestoreDefaultKeys();
+
+            if (s_debugPanel != null)
+            {
+                GameObject.Destroy(s_debugPanel);
+                s_debugPanel = null;
+            }
 
             if (NetworkAnarchy.instance != null)
             {
@@ -305,6 +320,38 @@ namespace NetworkAnarchy
         }
     }
 
-    public class Log : QLoggerStatic { }
+    internal class DebugPanel : MonoBehaviour
+    {
+        internal UIPanel m_panel;
+        internal UILabel m_label;
 
+        internal DebugPanel()
+        {
+            m_panel = UIView.GetAView().AddUIComponent(typeof(UIPanel)) as UIPanel;
+            m_panel.name = "NetworkAnarchy_DebugPanel";
+            m_panel.atlas = QTextures.GetAtlas("Ingame");
+            m_panel.backgroundSprite = "SubcategoriesPanel";
+            m_panel.size = new Vector2(400, 200);
+            m_panel.absolutePosition = new Vector3(400, 50);
+            m_panel.clipChildren = true;
+            m_panel.isVisible = true;
+
+            m_label = m_panel.AddUIComponent<UILabel>();
+            m_label.text = "Debug";
+            m_label.relativePosition = new Vector3(5, 5);
+            m_label.size = m_panel.size - new Vector2(10, 10);
+        }
+
+        internal void Text(string text)
+        {
+            Singleton<SimulationManager>.instance.m_ThreadingWrapper.QueueMainThread(() => {
+                if (m_label != null)
+                {
+                    m_label.text = text;
+                }
+            });
+        }
+    }
+
+    public class Log : QLoggerStatic { }
 }

@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using QCommonLib;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 
@@ -12,7 +13,9 @@ namespace NetworkAnarchy.Patches
     {
         public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
+            NetInfo info = __result;
             __result = GetInfoUtils.GetResult(__result, ref errors);
+            ModInfo.s_debugPanel?.Text($"AAA {info.name} -> {__result.name}");
         }
     }
 
@@ -56,8 +59,8 @@ namespace NetworkAnarchy.Patches
     {
         internal static NetInfo GetResult(NetInfo result, ref ToolBase.ToolErrors errors)
         {
-            if (NetworkAnarchy.instance == null || !NetworkAnarchy.instance.IsActive) return result;
-            if (NetworkAnarchy.instance.IsBuildingIntersection()) return result;
+            if (NetworkAnarchy.instance == null || !NetworkAnarchy.instance.IsActive) { return result; }
+            if (NetworkAnarchy.instance.IsBuildingIntersection()) { return result; }
             NetTool netTool = NetworkAnarchy.ToolNet;
             NetAI ai = netTool.m_prefab.m_netAI;
 

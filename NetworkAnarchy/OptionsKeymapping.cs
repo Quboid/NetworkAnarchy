@@ -68,13 +68,15 @@ namespace NetworkAnarchy
             intoolKeys.Add(OptionsKeymapping.toggleStraightSlope, GetIsActive);
             intoolKeys.Add(OptionsKeymapping.toggleBending, GetIsActive);
             intoolKeys.Add(OptionsKeymapping.toggleSnapping, GetIsActive);
-            intoolKeys.Add(OptionsKeymapping.toggleCollision, GetIsActive);
             intoolKeys.Add(OptionsKeymapping.toggleGrid, GetIsActive);
 
             UUIHelpers.RegisterHotkeys(
                 onToggle: () => { },
                 activationKey: OptionsKeymapping.toggleAnarchy,
                 activeKeys: intoolKeys);
+            UUIHelpers.RegisterHotkeys(
+                onToggle: () => { },
+                activationKey: OptionsKeymapping.toggleCollision);
         }
     }
 }

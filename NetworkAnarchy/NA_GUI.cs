@@ -37,6 +37,13 @@ namespace NetworkAnarchy
                     Log.Debug($"Hotkey: toggleAnarchy {Anarchy} (was:{was})");
                     e.Use();
                 }
+                else if (OptionsKeymapping.toggleCollision.IsPressed(e))
+                {
+                    var was = Collision;
+                    ToggleCollision();
+                    Log.Debug($"Hotkey: toggleCollision (was:{Collision})");
+                    e.Use();
+                }
 
                 if (IsBuildingIntersection())
                 {
@@ -160,11 +167,6 @@ namespace NetworkAnarchy
                     var was = NodeSnapping;
                     ToggleSnapping();
                     //Log.Debug($"Hotkey: toggleSnapping {NodeSnapping} (was:{was})");
-                    e.Use();
-                } else if (OptionsKeymapping.toggleCollision.IsPressed(e)) {
-                    var was = Collision;
-                    ToggleCollision();
-                    Log.Debug($"Hotkey: toggleCollision (was:{Collision})");
                     e.Use();
                 } else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e)) {
                     var was = StraightSlope;
