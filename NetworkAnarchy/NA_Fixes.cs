@@ -171,7 +171,7 @@ namespace NetworkAnarchy
                 ushort startNode = segments[i].m_startNode;
                 ushort endNode = segments[i].m_endNode;
 
-                var prefab = NetPrefab.Factory(info);
+                NetPrefab prefab = NetPrefab.Factory(info);
                 if (prefab == null)
                 {
                     continue;

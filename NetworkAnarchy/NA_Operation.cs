@@ -66,19 +66,23 @@ namespace NetworkAnarchy
 
             NetPrefab.CreateToGroundMap();
 
-            bendingPrefabs.Clear();
-            int count = PrefabCollection<NetInfo>.PrefabCount();
-            for (uint i = 0; i < count; i++)
+            try
             {
-                NetInfo prefab = PrefabCollection<NetInfo>.GetPrefab(i);
-                if (prefab != null)
+                bendingPrefabs.Clear();
+                int count = PrefabCollection<NetInfo>.PrefabCount();
+                for (uint i = 0; i < count; i++)
                 {
-                    if (prefab.m_enableBendingSegments)
+                    NetInfo prefab = PrefabCollection<NetInfo>.GetPrefab(i);
+                    if (prefab != null)
                     {
-                        bendingPrefabs.Add(prefab);
+                        if (prefab.m_enableBendingSegments)
+                        {
+                            bendingPrefabs.Add(prefab);
+                        }
                     }
                 }
             }
+            catch (Exception e) { Log.Warning("Failed Initialising BendingPrefabs\n" + e, "[NA68]"); }
 
             ChirperManager.Initialise();
 
@@ -87,13 +91,14 @@ namespace NetworkAnarchy
             {
                 m_upgradeButtonTemplate = GameObject.Find("RoadsSmallPanel").GetComponent<GeneratedScrollPanel>().m_OptionsBar.Find<UIButton>("Upgrade");
             }
-            catch
-            {
-                Log.Info("Upgrade button template not found", "[NA24]");
-            }
+            catch { Log.Info("Upgrade button template not found", "[NA24]"); }
 
             // Creating UI
-            CreateToolOptionsButton();
+            try
+            {
+                CreateToolOptionsButton();
+            }
+            catch (Exception e) { Log.Warning("Failed Initialising ToolOptionsButton\n" + e, "[NA69]"); }
 
             // Store segment count
             m_segmentCount = NetManager.instance.m_segmentCount;
@@ -104,21 +109,32 @@ namespace NetworkAnarchy
                 m_controlPoints = m_netTool.GetType().GetField("m_controlPoints", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(m_netTool) as NetTool.ControlPoint[];
                 m_cachedControlPoints = m_netTool.GetType().GetField("m_cachedControlPoints", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(m_netTool) as NetTool.ControlPoint[];
             }
-            catch
-            {
-                Log.Warning("ControlPoints not found", "[NA21]");
-            }
+            catch { Log.Warning("ControlPoints not found", "[NA21]"); }
 
-            if (changeMaxTurnAngle.value)
+            try
             {
-                NetPrefab.SetMaxTurnAngle(maxTurnAngle.value);
+                if (changeMaxTurnAngle.value)
+                {
+                    NetPrefab.SetMaxTurnAngle(maxTurnAngle.value);
+                }
             }
+            catch (Exception e) { Log.Warning("Failed Initialising MaxTurnAngle\n" + e, "[NA70]"); }
 
             // Apply loading functions
-            UpdateCatenaries.Apply();
-            NetworkTiling.Apply();
-            AnyRoadOutsideConnection.Finalise();
-            FixNodes();
+            try
+            {
+                UpdateCatenaries.Apply();
+                NetworkTiling.Apply();
+                AnyRoadOutsideConnection.Finalise();
+            }
+            catch (Exception e) { Log.Warning("Failed Initialising Loading Functions\n" + e, "[NA71]"); }
+
+            // Apply initial node fixes
+            try
+            {
+                FixNodes();
+            }
+            catch (Exception e) { Log.Warning("Failed Initialising FixNodes\n" + e, "[NA72]"); }
 
             // Load saved settings
             Anarchy = saved_anarchy.value;
@@ -127,7 +143,12 @@ namespace NetworkAnarchy
             NodeSnapping = saved_nodeSnapping.value;
             Collision = saved_collision.value;
             StraightSlope = saved_smoothSlope.value;
-            ChirperManager.UpdateAtlas();
+
+            try
+            {
+                ChirperManager.UpdateAtlas();
+            }
+            catch (Exception e) { Log.Warning("Failed Initialising Chirper Manager\n" + e, "[NA73]"); }
 
             Log.Info("NetworkAnarchy Initialized", "[NA22]");
 
@@ -143,6 +164,12 @@ namespace NetworkAnarchy
             {
                 return;
             }
+
+            //if (s_LogGetInfo != "")
+            //{
+            //    Log.Debug($"GetInfo [{s_LogGetInfoCount++}]:{s_LogGetInfo}");
+            //}
+            //s_LogGetInfo = "";
 
             try
             {
@@ -286,8 +313,8 @@ namespace NetworkAnarchy
         {
             if (!IsBuildingIntersection()) return false;
             int elevation = (int)m_buildingElevationField.GetValue(m_buildingTool);
-            if (elevation == 0) return false;
-            return true;
+            if (elevation == 0) return true;
+            return false;
         }
 
         private void DisableDefaultKeys()

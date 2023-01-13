@@ -68,6 +68,7 @@ namespace NetworkAnarchy
             for (uint i = 0; i < PrefabCollection<NetInfo>.PrefabCount(); i++)
             {
                 NetInfo info = PrefabCollection<NetInfo>.GetPrefab(i);
+                if (info == null) continue;
                 if ((info.m_connectGroup & (NetInfo.ConnectGroup.CenterTram | NetInfo.ConnectGroup.NarrowTram | NetInfo.ConnectGroup.SingleTram | NetInfo.ConnectGroup.WideTram)) != NetInfo.ConnectGroup.None)
                 {
                     DefaultMaxAngles.Add(info, info.m_maxTurnAngle);
@@ -159,6 +160,10 @@ namespace NetworkAnarchy
                 {
                     info = editPrefab;
                 }
+            }
+            else if (NetworkAnarchy.instance.IsBuildingIntersection())
+            {
+                // Building intersection, don't alter info
             }
             else if (s_toGroundMap.ContainsKey(info))
             {

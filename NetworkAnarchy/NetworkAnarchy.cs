@@ -27,6 +27,9 @@ namespace NetworkAnarchy
         //internal CollisionFeatureRemovalPanel CollisionRemovalWarning;
         //internal ButtonReminderToastPanel ButtonReminderToast;
 
+        //internal static int s_LogGetInfoCount = 0;
+        //internal static string s_LogGetInfo;
+
         internal bool m_firstRun = true;
 
         private int m_elevation = 0;

@@ -1,9 +1,4 @@
 ﻿using HarmonyLib;
-using QCommonLib;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using UnityEngine;
 
 namespace NetworkAnarchy.Patches
 {
@@ -11,86 +6,120 @@ namespace NetworkAnarchy.Patches
     [HarmonyPatch(typeof(RoadAI), "GetInfo")]
     class RAI_GetInfo
     {
-        public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
+        public static bool Prefix(ref RoadAI __instance, ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
-            NetInfo info = __result;
-            __result = GetInfoUtils.GetResult(__result, ref errors);
-            ModInfo.s_debugPanel?.Text($"AAA {info.name} -> {__result.name}");
+            return !GetInfoUtils.GetEarlyResult(ref __result, __instance.m_info, ref errors);
+        }
+
+        public static void Postfix(ref ToolBase.ToolErrors errors)
+        {
+            GetInfoUtils.GetLateResult(ref errors);
         }
     }
 
     [HarmonyPatch(typeof(PedestrianPathAI), "GetInfo")]
     class PPAI_GetInfo
     {
-        public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
+        public static bool Prefix(ref PedestrianPathAI __instance, ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
-            __result = GetInfoUtils.GetResult(__result, ref errors);
+            return !GetInfoUtils.GetEarlyResult(ref __result, __instance.m_info, ref errors);
+        }
+
+        public static void Postfix(ref ToolBase.ToolErrors errors)
+        {
+            GetInfoUtils.GetLateResult(ref errors);
         }
     }
 
     [HarmonyPatch(typeof(PedestrianWayAI), "GetInfo")]
     class PWAI_GetInfo
     {
-        public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
+        public static bool Prefix(ref PedestrianWayAI __instance, ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
-            __result = GetInfoUtils.GetResult(__result, ref errors);
+            return !GetInfoUtils.GetEarlyResult(ref __result, __instance.m_info, ref errors);
+        }
+
+        public static void Postfix(ref ToolBase.ToolErrors errors)
+        {
+            GetInfoUtils.GetLateResult(ref errors);
         }
     }
 
     [HarmonyPatch(typeof(TrainTrackAI), "GetInfo")]
     class TTAI_GetInfo
     {
-        public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
+        public static bool Prefix(ref TrainTrackAI __instance, ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
-            __result = GetInfoUtils.GetResult(__result, ref errors);
+            return !GetInfoUtils.GetEarlyResult(ref __result, __instance.m_info, ref errors);
+        }
+
+        public static void Postfix(ref ToolBase.ToolErrors errors)
+        {
+            GetInfoUtils.GetLateResult(ref errors);
         }
     }
 
     [HarmonyPatch(typeof(MetroTrackAI), "GetInfo")]
     class MTAI_GetInfo
     {
-        public static void Postfix(ref NetInfo __result, ref ToolBase.ToolErrors errors)
+        public static bool Prefix(ref MetroTrackAI __instance, ref NetInfo __result, ref ToolBase.ToolErrors errors)
         {
-            __result = GetInfoUtils.GetResult(__result, ref errors);
+            return !GetInfoUtils.GetEarlyResult(ref __result, __instance.m_info, ref errors);
+        }
+
+        public static void Postfix(ref ToolBase.ToolErrors errors)
+        {
+            GetInfoUtils.GetLateResult(ref errors);
         }
     }
 
+
+
     internal static class GetInfoUtils
     {
-        internal static NetInfo GetResult(NetInfo result, ref ToolBase.ToolErrors errors)
+        internal static bool GetEarlyResult(ref NetInfo output, NetInfo input, ref ToolBase.ToolErrors errors)
         {
-            if (NetworkAnarchy.instance == null || !NetworkAnarchy.instance.IsActive) { return result; }
-            if (NetworkAnarchy.instance.IsBuildingIntersection()) { return result; }
-            NetTool netTool = NetworkAnarchy.ToolNet;
-            NetAI ai = netTool.m_prefab.m_netAI;
+            output = input;
+            if (NetworkAnarchy.instance == null || !NetworkAnarchy.instance.IsActive) { return false; }
+            if (NetworkAnarchy.instance.IsBuildingIntersection()) { return true; }
+            NetAIWrapper wrapper = new NetAIWrapper(input.m_netAI);
 
             if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
             {
                 errors ^= ToolBase.ToolErrors.HeightTooHigh;
             }
 
-            return Get(ai, result);
-        }
-
-        internal static NetInfo Get(NetAI ai, NetInfo normal)
-        {
-            NetAIWrapper wrapper = new NetAIWrapper(ai);
-
             switch (NetworkAnarchy.instance.mode)
             {
+                case Modes.Normal:
+                    return false;
+
                 case Modes.Ground:
-                    return ai.m_info;
+                    output = wrapper.Info;
+                    return true;
 
                 case Modes.Elevated:
-                    return wrapper.Elevated ?? wrapper.Info;
+                    output = wrapper.Elevated ?? wrapper.Info;
+                    return true;
 
                 case Modes.Bridge:
-                    return wrapper.Bridge ?? wrapper.Info;
+                    output = wrapper.Bridge ?? wrapper.Info;
+                    return true;
 
                 case Modes.Tunnel:
-                    return wrapper.Tunnel ?? wrapper.Info;
+                    output = wrapper.Tunnel ?? wrapper.Info;
+                    return true;
             }
-            return normal;
+
+            return false;
+        }
+
+        internal static void GetLateResult(ref ToolBase.ToolErrors errors)
+        {
+            if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
+            {
+                errors ^= ToolBase.ToolErrors.HeightTooHigh;
+            }
         }
     }
 }
