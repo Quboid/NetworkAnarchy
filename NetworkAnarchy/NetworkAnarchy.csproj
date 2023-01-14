@@ -8,7 +8,6 @@
 	  $(AssemblySearchPaths);
       $(ManagedDLLPath);
       ../../../../Libraries/;
-      ../../../../QCommon/Repo/QCommon/QCommon/bin/Release/;
     </AssemblySearchPaths>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Deterministic>False</Deterministic>
@@ -33,7 +32,49 @@
   <ItemGroup>
     <EmbeddedResource Include="ChirperAtlas\*.png" />
     <EmbeddedResource Include="Icons\*.png" />
-    <Compile Update="Localization\Str.Designer.cs">
+    <None Include="Localization\Str.cs.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.de.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.es.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.fr.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.it.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.ja.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.ko.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.pl.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.pt.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.resx">
+      <Generator>LocalizeGenerator</Generator>
+      <LastGenOutput>Str.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.ru.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.th.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Localization\Str.zh-cn.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Update="Localization\Str.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Str.resx</DependentUpon>
@@ -43,14 +84,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <EmbeddedResource Update="Icons\Collision.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Localization\Str.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Str.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Update="Properties\Settings.settings">
@@ -81,4 +114,5 @@
   </Target>
   <Import Project="..\..\..\..\QCommon\Repo\QCommon\QCommon\Harmony\QCommon Harmony.projitems" Label="Shared" />
   <Import Project="..\..\..\..\QCommon\Repo\QCommon\QCommon\Shared\QCommon Shared.projitems" Label="Shared" />
+  <Import Project="..\..\..\..\LocalizeGenerator-MacSergey\Repo\LocalizeShared\LocalizeManager\LocalizeManager.projitems" Label="Shared" />
 </Project>
