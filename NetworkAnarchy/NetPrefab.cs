@@ -126,6 +126,12 @@ namespace NetworkAnarchy
                 }
                 NetAIWrapper ai = new NetAIWrapper(info.m_netAI);
 
+                if (info.m_flattenTerrain && !info.m_netAI.IsUnderground() && !ai.IsInvisible() &&
+                    info != ai.Elevated && info != ai.Bridge && info != ai.Slope && info != ai.Tunnel)
+                {
+                    info.m_followTerrain = false;
+                }
+
                 if (ai.Tunnel != null) groundOnly.Remove(ai.Tunnel);
                 if (ai.Slope != null) groundOnly.Remove(ai.Slope);
                 if (ai.Elevated != null) groundOnly.Remove(ai.Elevated);
