@@ -1,6 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
-using NetworkAnarchy.Localization;
+using NetworkAnarchy.Lang;
 using QCommonLib;
 using System;
 using UnityEngine;
@@ -18,7 +18,7 @@ namespace NetworkAnarchy
             m_button.textScale = 0.7f;
             m_button.playAudioEvents = true;
             m_button.relativePosition = Vector2.zero;
-
+            
             m_button.tooltip = "Network Anarchy " + QVersion.Version() + "\n\n" + Str.ui_clickForToolOptions;
 
             m_button.textColor = Color.white;

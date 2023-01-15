@@ -1,4 +1,4 @@
-﻿using NetworkAnarchy.Localization;
+﻿using NetworkAnarchy.Lang;
 using QCommonLib.UI;
 using UnityEngine;
 

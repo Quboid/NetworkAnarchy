@@ -1,5 +1,5 @@
 ﻿using ColossalFramework;
-using NetworkAnarchy.Localization;
+using NetworkAnarchy.Lang;
 using QCommonLib;
 using System;
 using System.Collections.Generic;

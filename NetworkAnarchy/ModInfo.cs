@@ -2,7 +2,7 @@
 using ColossalFramework.Globalization;
 using ColossalFramework.UI;
 using ICities;
-using NetworkAnarchy.Localization;
+using NetworkAnarchy.Lang;
 using NetworkAnarchy.Patches;
 using QCommonLib;
 using System;
@@ -44,6 +44,7 @@ namespace NetworkAnarchy
         internal string HarmonyId = "quboid.csl_mods.networkanarchy";
 
         internal static CultureInfo Culture => QCommon.GetCultureInfo();
+        protected QCommonLib.Lang.LocalizeManager LocalizeManager => Str.LocaleManager;
 
         public void OnSettingsUI(UIHelperBase helper)
         {
