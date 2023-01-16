@@ -81,7 +81,7 @@ namespace NetworkAnarchy.Patches
         {
             output = input;
             if (NetworkAnarchy.instance == null || !NetworkAnarchy.instance.IsActive) { return false; }
-            if (NetworkAnarchy.instance.IsBuildingIntersection()) { return true; }
+            if (NetworkAnarchy.instance.IsBuildingGroundIntersection()) { return true; }
             NetAIWrapper wrapper = new NetAIWrapper(input.m_netAI);
 
             if (NetworkAnarchy.Anarchy && (errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)

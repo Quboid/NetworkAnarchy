@@ -169,7 +169,15 @@ namespace NetworkAnarchy
             }
             else if (NetworkAnarchy.instance.IsBuildingIntersection())
             {
-                // Building intersection, don't alter info
+                if (!NetworkAnarchy.instance.IsBuildingGroundIntersection())
+                {
+                    NetAIWrapper ai = new NetAIWrapper(s_toGroundMap.ContainsKey(info) ? s_toGroundMap[info].m_netAI : info.m_netAI);
+                    if (info == ai.Info)
+                    { // Switch ground nodes to elevated
+                        info = ai.Elevated ?? ai.Info;
+                    }
+                }
+                // Building ground intersection, don't alter info
             }
             else if (s_toGroundMap.ContainsKey(info))
             {
