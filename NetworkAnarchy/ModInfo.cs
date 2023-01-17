@@ -5,6 +5,7 @@ using ICities;
 using NetworkAnarchy.Lang;
 using NetworkAnarchy.Patches;
 using QCommonLib;
+using QCommonLib.Lang;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -33,7 +34,8 @@ namespace NetworkAnarchy
             }
         }
 
-        public string Name => "Network Anarchy " + QVersion.Version();
+        private readonly string m_shortName = "Network Anarchy";
+        public string Name => m_shortName + QVersion.Version();
         public string Description => Str.mod_Description;
 
         //internal static GameObject DebugGO;
@@ -44,7 +46,8 @@ namespace NetworkAnarchy
         internal string HarmonyId = "quboid.csl_mods.networkanarchy";
 
         internal static CultureInfo Culture => QCommon.GetCultureInfo();
-        protected QCommonLib.Lang.LocalizeManager LocalizeManager => Str.LocaleManager;
+        protected LocalizeManager LocalizeManager => Str.LocaleManager;
+        protected LocalizeManager QLocalizeManager => QStr.LocaleManager;
 
         public void OnSettingsUI(UIHelperBase helper)
         {
@@ -248,7 +251,7 @@ namespace NetworkAnarchy
                 GameAreaManager.instance.m_areaCount = GameAreaManager.instance.m_maxAreaCount;
             }
 
-            //DebugGO = new GameObject("MIT_DebugPanel");
+            //DebugGO = new GameObject("NA_DebugPanel");
             //DebugGO.AddComponent<DebugPanel>();
             //s_debugPanel = DebugGO.GetComponent<DebugPanel>();
         }
@@ -295,7 +298,7 @@ namespace NetworkAnarchy
                 { 1586027591,   "Tiny Segments - Extra Anarchy" },
             };
 
-            QIncompatible checker = new QIncompatible(incompatbleMods, Log.instance);
+            QIncompatible checker = new QIncompatible(incompatbleMods, Log.instance, m_shortName);
         }
 
         internal static void LocaleChanged()
@@ -310,6 +313,7 @@ namespace NetworkAnarchy
 
             Log.Info($"Network Anarchy Locale changed {Str.Culture?.Name}->{Culture.Name}", "[NA48]");
             Str.Culture = Culture;
+            QStr.Culture = Culture;
         }
 
         internal static string GetString(object o)

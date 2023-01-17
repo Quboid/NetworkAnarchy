@@ -1,6 +1,7 @@
 ﻿using ColossalFramework;
 using NetworkAnarchy.Lang;
 using QCommonLib;
+using QCommonLib.Lang;
 using System;
 using System.Collections.Generic;
 using UnifiedUI.Helpers;
@@ -28,8 +29,6 @@ namespace NetworkAnarchy
 
         protected override void Awake()
         {
-            PressAnyKeyStr = Str.key_pressAnyKey;
-
             Keybindings = new Dictionary<string, SavedInputKey>
             {
                 { Str.key_elevationUp, elevationUp },
