@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
-// Error code max: 67
+// Error code max: 68
 
 namespace NetworkAnarchy
 {
@@ -35,7 +35,7 @@ namespace NetworkAnarchy
         }
 
         private readonly string m_shortName = "Network Anarchy";
-        public string Name => m_shortName + QVersion.Version();
+        public string Name => m_shortName + " " + QVersion.Version();
         public string Description => Str.mod_Description;
 
         //internal static GameObject DebugGO;
@@ -298,7 +298,7 @@ namespace NetworkAnarchy
                 { 1586027591,   "Tiny Segments - Extra Anarchy" },
             };
 
-            QIncompatible checker = new QIncompatible(incompatbleMods, Log.instance, m_shortName);
+            _ = new QIncompatible(incompatbleMods, Log.instance, m_shortName);
         }
 
         internal static void LocaleChanged()

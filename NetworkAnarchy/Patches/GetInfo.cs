@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using QCommonLib;
 
 namespace NetworkAnarchy.Patches
 {
@@ -80,7 +81,10 @@ namespace NetworkAnarchy.Patches
         internal static bool GetEarlyResult(ref NetInfo output, NetInfo input, ref ToolBase.ToolErrors errors)
         {
             output = input;
-            if (NetworkAnarchy.instance == null || !NetworkAnarchy.instance.IsActive) { return false; }
+            if (NetworkAnarchy.instance == null) { return false; }
+            // If in Intersection editor and NA isn't active (i.e. just loaded), force the current prefab
+            if (QCommon.Scene == QCommon.SceneTypes.AssetEditor && !NetworkAnarchy.instance.IsActive && ToolManager.instance.m_properties.m_editPrefabInfo?.GetAI() is IntersectionAI) { return true; }
+            if (!NetworkAnarchy.instance.IsActive) { return false; }
             if (NetworkAnarchy.instance.IsBuildingGroundIntersection()) { return true; }
             NetAIWrapper wrapper = new NetAIWrapper(input.m_netAI);
 
@@ -110,6 +114,7 @@ namespace NetworkAnarchy.Patches
                     output = wrapper.Tunnel ?? wrapper.Info;
                     return true;
             }
+            Log.Debug($"GetInfo result: {input.name} -> {output.name}", "[NA68]");
 
             return false;
         }

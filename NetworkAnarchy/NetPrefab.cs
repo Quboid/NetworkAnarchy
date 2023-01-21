@@ -126,6 +126,7 @@ namespace NetworkAnarchy
                 }
                 NetAIWrapper ai = new NetAIWrapper(info.m_netAI);
 
+                // Stop on-ground segments that aren't at terrain height from being bumpy at nodes
                 if (info.m_flattenTerrain && !info.m_netAI.IsUnderground() && !ai.IsInvisible() &&
                     info != ai.Elevated && info != ai.Bridge && info != ai.Slope && info != ai.Tunnel)
                 {
@@ -159,15 +160,7 @@ namespace NetworkAnarchy
 
         public static NetInfo GetOnGround(NetInfo info)
         {
-            if (QCommon.Scene == QCommon.SceneTypes.AssetEditor && ToolManager.instance.m_properties.m_editPrefabInfo is NetInfo editPrefab)
-            {
-                NetAIWrapper editAI = new NetAIWrapper(editPrefab.m_netAI);
-                if (info == editPrefab || info == editAI.Elevated || info == editAI.Bridge || info == editAI.Tunnel || info == editAI.Slope)
-                {
-                    info = editPrefab;
-                }
-            }
-            else if (NetworkAnarchy.instance.IsBuildingIntersection())
+            if (NetworkAnarchy.instance.IsBuildingIntersection())
             {
                 if (!NetworkAnarchy.instance.IsBuildingGroundIntersection())
                 {
@@ -178,6 +171,14 @@ namespace NetworkAnarchy
                     }
                 }
                 // Building ground intersection, don't alter info
+            }
+            else if (QCommon.Scene == QCommon.SceneTypes.AssetEditor && ToolManager.instance.m_properties.m_editPrefabInfo is NetInfo editPrefab)
+            {
+                NetAIWrapper editAI = new NetAIWrapper(editPrefab.m_netAI);
+                if (info == editPrefab || info == editAI.Elevated || info == editAI.Bridge || info == editAI.Tunnel || info == editAI.Slope)
+                {
+                    info = editPrefab;
+                }
             }
             else if (s_toGroundMap.ContainsKey(info))
             {
