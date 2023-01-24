@@ -109,7 +109,7 @@ namespace NetworkAnarchy
         public static void CreateToGroundMap()
         {
             s_toGroundMap = new Dictionary<NetInfo, NetInfo>();
-            //string msg = $"NetInfo: {PrefabCollection<NetInfo>.PrefabCount()}\n";
+            //string msg = $"NetInfo: {PrefabCollection<NetInfo>.PrefabCount()}, ";
 
             HashSet<NetInfo> allNetInfos = new HashSet<NetInfo>();
             for (uint i = 0; i < PrefabCollection<NetInfo>.PrefabCount(); i++)
@@ -131,6 +131,7 @@ namespace NetworkAnarchy
                     info != ai.Elevated && info != ai.Bridge && info != ai.Slope && info != ai.Tunnel)
                 {
                     info.m_followTerrain = false;
+                    //msg += $"\n    {info.name}";
                 }
 
                 if (ai.Tunnel != null) groundOnly.Remove(ai.Tunnel);
@@ -155,7 +156,7 @@ namespace NetworkAnarchy
                 //if (info.name.Contains("Pedestrian") && !info.name.Contains("Street")) msg += $"  {info.name}\n    T:{ai.Tunnel != null}, S:{ai.Slope != null}, E:{ai.Elevated != null}, B:{ai.Bridge != null} ({ai.Elevated?.name})\n";
             }
 
-            //Log.Debug($"groundOnly: {groundOnly.Count}, " + msg);
+            //Log.Debug($"groundOnly: {groundOnly.Count}, unbumpified:" + msg);
         }
 
         public static NetInfo GetOnGround(NetInfo info)
