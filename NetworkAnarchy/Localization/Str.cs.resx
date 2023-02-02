@@ -157,7 +157,7 @@
     <value>Přepínač přímého sklonu</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>Přepnout přepsání zóny</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Další možnosti nástroje pro silnice a ostatní sítě</value>
@@ -266,6 +266,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>Přepnout přichytávání uzlů</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>Přepsat kolizi zóny</value>
   </data>
 </root>
