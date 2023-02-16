@@ -94,6 +94,8 @@ namespace NetworkAnarchy
                 {
                     m_elevation = Mathf.RoundToInt(Mathf.RoundToInt(m_controlPoints[0].m_elevation / elevationStep) * elevationStep * 256f / 12f);
                     UpdateElevation();
+
+                    Log.Debug($"OnAfterSimulationTick: m_controlPointCountField:{m_controlPointCountField.GetValue(m_netTool)}, m_controlPointCount:{m_controlPointCount}", "[NA71]");
                     m_toolOptionButton?.UpdateButton();
                 }
             }

@@ -1,8 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
-using NetworkAnarchy.UI;
 using QCommonLib;
-using QCommonLib.UI;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -277,6 +275,35 @@ namespace NetworkAnarchy
             IsActive = true;
             m_toolOptionButton.isVisible = true;
             m_toolOptionButton.UpdateButton();
+
+
+
+
+            //string msg = $"FollowTerrain check: {PrefabCollection<NetInfo>.PrefabCount()}, ";
+
+            //HashSet<NetInfo> allNetInfos = new HashSet<NetInfo>();
+            //for (uint i = 0; i < PrefabCollection<NetInfo>.PrefabCount(); i++)
+            //{
+            //    allNetInfos.Add(PrefabCollection<NetInfo>.GetPrefab(i));
+            //}
+            //HashSet<NetInfo> groundOnly = new HashSet<NetInfo>(allNetInfos);
+
+            //foreach (NetInfo info2 in allNetInfos)
+            //{
+            //    if (info2 == null || info2.m_netAI == null)
+            //    {
+            //        groundOnly.Remove(info2);
+            //        continue;
+            //    }
+            //    NetAIWrapper ai = new NetAIWrapper(info2.m_netAI);
+
+            //    // Check on-ground segments that aren't at terrain height from being bumpy at nodes
+            //    if (info2.m_flattenTerrain && !info2.m_netAI.IsUnderground() && !ai.IsInvisible() && info2 != ai.Elevated && info2 != ai.Bridge && info2 != ai.Slope && info2 != ai.Tunnel)
+            //    {
+            //        msg += $"\n    {info2.name}:{info2.m_followTerrain}";
+            //    }
+            //}
+            //Log.Debug($"groundOnly: {groundOnly.Count}, unbumpified:" + msg);
         }
 
         private void Deactivate()
@@ -354,6 +381,8 @@ namespace NetworkAnarchy
             {
                 m_elevation = Mathf.RoundToInt(Mathf.RoundToInt(m_elevation / (256f / 12f)) * (256f / 12f));
             }
+
+            Log.Debug($"UpdateElevation: m_elevationField:{m_elevationField.GetValue(m_netTool)}, m_elevation:{m_elevation}", "[NA69]");
 
             if ((int)m_elevationField.GetValue(m_netTool) != m_elevation)
             {
