@@ -157,7 +157,7 @@
     <value>เปิดโหมดปรับทางลาดตรง</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>เปิดโหมดการซ้อนทับโซน</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>TH: More tool options for roads and other networks</value>
@@ -205,9 +205,9 @@
     <value>เปลี่ยนถนนทุกสายที่มีรางรางให้มีมุมเลี้ยวสูงสุด ตามการตั้งค่าด้านล่าง (หากค่าปัจจุบันสูงกว่า)</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
+    <value>การซ้อนทับได้ถูกรวมเข้าไปอยู่ในโหมดอิสระแล้ว
 
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+ในที่ส่วนนั้น ปุ่มการซ้อนทับโซนจะควบคุมว่าเส้นทาง หรือรั้วจะหยุดการสร้างตารางการแบ่งโซนในบริเวณใกล้เคียงหรือไม่</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
@@ -266,6 +266,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>เปิดโหมดการยึดติด</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>การซ้อนทับโซน</value>
   </data>
 </root>
