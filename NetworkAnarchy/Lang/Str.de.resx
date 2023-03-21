@@ -118,154 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Przełącz tryby w lewo</value>
+    <value>Modi nach links durchschalten</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Przełącz tryby w prawo</value>
+    <value>Modi nach rechts durchschalten</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Zmniejsz poziom wzniesienia</value>
+    <value>Höhe verringern</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Zresetuj poziom wzniesienia</value>
+    <value>Höhe zurücksetzen</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Poziom wzniesienia o krok w dół</value>
+    <value>Höhenschritt nach unten</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Poziom wzniesienia o krok w górę</value>
+    <value>Höhenschritt nach oben</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Zwiększ poziom wzniesienia</value>
+    <value>Höhe erhöhen</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Naciśnij dowolny klawisz</value>
+    <value>Beliebige Taste drücken</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Włącz / Wyłącz anarchię</value>
+    <value>Anarchie ein/aus</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Włącz / Wyłącz zaginanie</value>
+    <value>Biegen ein/aus</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Przełącz siatkę edytora</value>
+    <value>Editor-Raster ein/aus</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Włącz / Wyłącz przyciąganie węzłów</value>
+    <value>Einrasten ein/aus</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Włącz / Wyłącz proste nachylenia</value>
+    <value>Begradigen ein/aus</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Przełącz nadpisywanie stref</value>
+    <value>Zonenüberschreibung umschalten</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>Więcej opcji narzędzia dla dróg i innych sieci</value>
+    <value>Weitere Werkzeugoptionen für Straßen und andere Netzwerke</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Włącz logowanie komunikatów debugowania</value>
+    <value>Protokollieren von Debugmeldungen aktivieren</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>Jeśli zaznaczone, będą rejestrowane dodatkowe komunikaty debugowania.</value>
+    <value>Wenn aktiviert, werden Debug-Meldungen protokolliert.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Maksymalny kąt skrętu</value>
+    <value>Maximaler Kurvenwinkel</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Zmniejszona liczba masztów sieci trakcyjnej</value>
+    <value>Anzahl der Oberleitungsmasten reduzieren</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Zmniejsz liczbę masztów sieci trakcyjnej z 3 do 1 na jeden odcinek.</value>
+    <value>Reduziert die Anzahl der Oberleitungsmasten von Bahnlinien von 3 auf 1 pro Segment.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Resetuj pozycję okna</value>
+    <value>Position des Werkzeugfensters zurücksetzen</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Pokaż suwak stopnia podniesienia</value>
+    <value>Höhenschritt-Schieberegler anzeigen</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Pokaż suwak do zmiany stopnia podniesienia, z 1 m na 12 m.</value>
+    <value>Schieberegler zum Ändern des Höhenschritts zwischen 1m bis 12m anzeigen.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Pokaż etykiety</value>
+    <value>Beschriftung einblenden</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Wyłącz, aby zaoszczędzić trochę miejsca na ekranie</value>
+    <value>Deaktivieren, um etwas Platz zu sparen</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Pokaż suwak maksymalnej długości odcinka</value>
+    <value>Segmentlänge-Schieberegler anzeigen</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Pokaż suwak do zmiany maksymalnej długości segmentu, od 4 m do 256 m (domyślnie 96 m).</value>
+    <value>Schieberegler zum Ändern der Segmentlänge zwischen 4m bis 256m anzeigen (Standardwert ist 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Zmień maksymalny kąt skrętu dla bardziej realistycznych zakrętów torów tramwajowych</value>
+    <value>Ändere den maximalen Kurvenwinkel für realistischere Tramspuren</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Zmień wszystkie drogi z torami tramwajowymi z maksymalnym kątem skrętu o wartość poniżej, jeśli bieżąca wartość jest wyższa.</value>
+    <value>Ändert alle Strassen mit Tramspuren auf den maximalen Kurvenwinkel des unten angegebenen Wertes, wenn der aktuelle Wert höher ist.</value>
+  </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Klicke auf diese Schaltfläche, um Network Anarchy anzuzeigen</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Kolizja została połączona z trybem Anarchii.
+    <value>Kollision wurde mit dem Anarchie-Modus kombiniert.
 
-Przycisk Nadpisz kolizję stref, kontroluje czy ścieżki/ogrodzenia blokują tworzenie pobliskich kafelków strefy.</value>
+An seiner Stelle kontrolliert der Knopf zum Zone Kollision überschreiben, ob Pfade/Zäune die Erstellung von Kacheln in der Nähe verhindern.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Kliknij tutaj, aby wyświetlić opcje narzędzia</value>
+    <value>Hier klicken für Werkzeugoptionen</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} i {1} aby zmienić poziom wzniesienia</value>
+    <value>{0} und {1} um den Höhenschritt zu ändern</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>Stopień ukształtowania terenu:</value>
+    <value>Höhenschritt:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Pokaż siatkę edytora</value>
+    <value>Editier-Raster anzeigen</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Maksymalna długość odcinka:</value>
+    <value>Maximale Segmentlänge:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Most: Wymusza użycie elementów mostowych, jeśli są one dostępne</value>
+    <value>Brücke: Erzwingt die Verwendung von Brückenteilen, falls verfügbar</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} i {1} aby przełączać pomiędzy trybami</value>
+    <value>{0} und {1} um durch die Modi zu schalten</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Podwyższenie: Wymusza użycie elementów podwyższenia, jeśli są one dostępne</value>
+    <value>Erhöht: Erzwingt den Einsatz erhöhter Teile, falls verfügbar</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Podłoże: Wymusza ziemię do podążania za ukształtowaniem drogi</value>
+    <value>Boden: Zwingt den Boden, der Höhe der Straße zu folgen</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normalny: niezmodyfikowane zachowanie umieszczenia drogi</value>
+    <value>Normal: Nicht modifiziertes Platzieren der Straßen</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Tryby:</value>
+    <value>Modi:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunel – wymusza użycie elementów tunelu, jeśli są one dostępne</value>
+    <value>Tunnel: Erzwingt die Verwendung von Tunnelteilen, falls verfügbar</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Włącz / Wyłącz anarchię</value>
+    <value>Anarchie ein/aus</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Włącz / Wyłącz zginanie drogi</value>
+    <value>Straßenbiegung ein/aus</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Włącz / Wyłącz kolizję</value>
+    <value>Kollision ein/aus</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Włącz / Wyłącz proste nachylenie (nie podąża wzdłuż terenu)</value>
+    <value>Geradlinig bauen umschalten (Geländeform nicht folgen)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Włącz / Wyłącz przyciąganie węzłów</value>
+    <value>Einrasten ein/aus</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Nadpisz kolizję stref</value>
+    <value>Zonen-Kollision überschreiben</value>
   </data>
 </root>

@@ -118,153 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>左循环模式</value>
+    <value>Parcourir les modes vers la gauche</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>右循环模式</value>
+    <value>Parcourir les modes vers la droite</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>高度下降</value>
+    <value>Diminuer l'élévation</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>重设高度</value>
+    <value>Réinitialiser l'élévation</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>高度单次下降</value>
+    <value>Diminuer l'incrément d'élévation</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>高度单次提升</value>
+    <value>Augmenter l'incrément d'élévation</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>高度提升</value>
+    <value>Augmenter l'élévation</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>按任意键</value>
+    <value>Appuyez sur n'importe quelle touche</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>切换无碰撞状态</value>
+    <value>Activer/Désactiver l'anarchie</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>切换弯曲</value>
+    <value>Activer/Désactiver la courbure</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>切换编辑器网格</value>
+    <value>Afficher/Masquer la grille de l'éditeur</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>切换捕捉吸附</value>
+    <value>Activer/Désactiver l'ancrage aux nœuds</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>切换平直坡道</value>
+    <value>Activer/Désactiver les pentes constantes</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>切换区域覆盖</value>
+    <value>Activer / Désactiver le zonage forcé</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>更多的道路及其他网络工具选项</value>
+    <value>Plus d'options d'outil pour les routes et les autres réseaux</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>启用调试信息日志记录</value>
+    <value>Activer les messages de débogage</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>如果选中该选项，则将会记录额外的调试信息。</value>
+    <value>Si coché, les messages de débogage supplémentaires seront enregistrés.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>最大转角</value>
+    <value>Angle de virage maximal</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>减少轨道接触网支柱</value>
+    <value>Réduire le nombre de caténaires</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>将每段轨道的接触网支柱数量从3个减少到1个。</value>
+    <value>Réduit le nombre de caténaires des lignes ferroviaires de 3 à 1 par segment.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>重设工具窗口位置</value>
+    <value>Réinitialiser la position de la fenêtre</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>显示一次性调整高度滑条</value>
+    <value>Afficher le curseur d'incréments d'élévation</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>显示将高度单次调整范围更改为1m～12m的滑条。</value>
+    <value>Afficher le curseur pour changer l'incrémentation de l'élévation, de 1 m à 12 m.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>显示标签</value>
+    <value>Afficher les libellés</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>禁用以节省一些屏幕空间</value>
+    <value>Désactiver pour économiser de la place</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>显示最大分段长度滑条</value>
+    <value>Afficher le curseur de longueur de segment maximal</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>显示最大分段长度调整4m～256m（默认值为96m）的滑条。</value>
+    <value>Afficher le curseur pour changer la longueur maximale du segment, de 4m à 256m (par défaut 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>为了更真实的有轨电车与列车转向而更改最大转角</value>
+    <value>Changer l'angle de virage maximal pour des virages de tram plus réalistes</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>如果当前值较高，则将所有有轨电车轨道最大转弯角度的道路更改为以下值。</value>
+    <value>Change toutes les routes avec des voies de tramway avec un angle de rotation maximum par la valeur ci-dessous, si la valeur actuelle est plus élevée.</value>
+  </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Cliquez sur ce bouton pour afficher Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>碰撞功能已经和无碰撞模式相结合。
-在它所在位置，覆盖区域碰撞功能按钮以控制路径/围栏是否会阻止周围的分区地块的生成。</value>
+    <value>Du nouveau : le mode Collision est maintenant combiné au mode Anarchie.
+
+Vous trouverez à sa place le mode Zonage Forcé. Ce nouveau mode permet de forcer le jeu à créer du zonage le long des routes même si des sentiers, clôtures ou autres réseaux s'y trouvent.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>点击此处查看工具选项</value>
+    <value>Cliquez ici pour les options de l'outil</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>按 {0} 以及 {1} 来改变单次调整高度</value>
+    <value>{0} et {1} pour changer l'incrément d'élévation</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>单次调整高度：</value>
+    <value>Incrément d'élévation :</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>显示编辑器网格</value>
+    <value>Afficher la grille de l'éditeur</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>最大路段长度：</value>
+    <value>Longueur max du segment :</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>桥梁：如果开启，道路将强制在任何地形使用桥梁模式。</value>
+    <value>Pont : Force l'utilisation des ponts si possible</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>按 {0} 以及 {1} 来切换模式</value>
+    <value>{0} et {1} pour parcourir les modes</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>高架：如果开启，道路将强制在任何地形使用高架模式</value>
+    <value>Sur-élevé : Force l'utilisation de la sur-élévation si possible</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>地面：如果开启，道路将强制在任何地形使用地面模式</value>
+    <value>Sol : Force le sol à suivre l'élévation de la route</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>正常：即游戏默认的逢山开洞、遇水架桥行为</value>
+    <value>Normal : Comportement des routes du jeu de base</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>模式：</value>
+    <value>Modes :</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>隧道：如果开启，道路将在任何地形强制使用隧道模式</value>
+    <value>Tunnel : Force l'utilisation des tunnels si possible</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>切换无碰撞状态</value>
+    <value>Activer/Désactiver l'anarchie</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>切换道路弯曲</value>
+    <value>Activer/Désactiver la flexion des routes</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>切换碰撞</value>
+    <value>Activer/Désactiver la collision</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>切换平直的斜坡（不跟随地形）</value>
+    <value>Activer/désactiver la pente droite (ne suis pas la forme du terrain)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>切换捕捉吸附</value>
+    <value>Activer/Désactiver l'ancrage aux nœuds</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>覆盖区域碰撞</value>
+    <value>Zonage forcé</value>
   </data>
 </root>

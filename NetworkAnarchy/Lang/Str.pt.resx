@@ -118,154 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>เปลี่ยนโหมดการทำงาน (วนไปทางซ้ายมือ)</value>
+    <value>Alternar modos (Esquerda)</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>เปลี่ยนโหมดการทำงาน (วนไปทางขวามือ)</value>
+    <value>Alternar modos (Direita)</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>ลดการยกระดับ</value>
+    <value>Diminuir elevação</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>คืนค่าความสูง</value>
+    <value>Redefinir elevação</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>ลดระดับขั้นการยกระดับ</value>
+    <value>Reduzir passo de elevação</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>เพิ่มระดับขั้นการยกระดับ</value>
+    <value>Aumentar passo de elevação</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>เพิ่มการยกระดับ</value>
+    <value>Aumentar elevação</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>กดปุ่มใดก็ได้</value>
+    <value>Pressione qualquer tecla</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>เปิดโหมดอิสระ (Anarchy)</value>
+    <value>Alternar anarquia</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>เปิดการดัด</value>
+    <value>Alternar curvatura automática</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>เปิดแสดงเส้นตาราง</value>
+    <value>Alternar grade</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>เปิดโหมดการยึดติด</value>
+    <value>Alternar encaixe</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>เปิดโหมดปรับทางลาดตรง</value>
+    <value>Alternar elevação uniforme</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>เปิดโหมดการซ้อนทับโซน</value>
+    <value>Alternar Substituição de Zona</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>TH: More tool options for roads and other networks</value>
+    <value>Mais opções de ferramentas para estradas e redes de segmentos em geral</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>เปิดใช้งานการบันทึกข้อความข้อบกพร่อง (Debug Logging)</value>
+    <value>Ativar o registro de mensagens the depuração</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>หากเลือกไว้ ข้อความแสดงการทำงาน (Debug) เพิ่มเติมจะถูกบันทึกไว้</value>
+    <value>Se ativado, mensagens the depuração adicionais serão registradas.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>มุมการเลี้ยวสูงสุด</value>
+    <value>Ângulo de curva máximo</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>ลดเสาสายส่งที่อยู่เหนือรางรถไฟ</value>
+    <value>Reduzir pilares das catenárias dos trilhos</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>ลดจำนวนของเสาสายส่งของเส้นทางรถไฟ จาก 3 เป็น 1 ต่อเซกเมนต์</value>
+    <value>Reduz a quantidade de catenárias de 3 para 1 por segmento.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>คืนค่าตำแหน่งหน้าต่างเครื่องมือ</value>
+    <value>Redefinir posição da janela de ferramentas</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>แสดงแถบเลื่อนขั้นของการยกระดับ</value>
+    <value>Exibir controle do passo de elevação</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนจำนวนขั้นของการยกระดับ จาก 1 เมตร ถึง 12 เมตร</value>
+    <value>Exibir controle para definir o passo da elevação entre 1m e 12m.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>แสดงป้ายกำกับแถบเครื่องมือ</value>
+    <value>Exibir Rótulos</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>ปิดเพื่อประหยัดพื้นที่บนหน้าจอบางส่วน</value>
+    <value>Desabilite para economizar espaço na tela</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>แสดงแถบเลื่อนความยาวสูงสุดของเซ็กเมนต์</value>
+    <value>Exibir controle para o tamanho máximo do segmento</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนความยาวสูงสุดของเซ็กเมนต์ จาก 4 เมตร ถึง 256 เมตร (ค่าเริ่มต้นคือ 96 เมตร)</value>
+    <value>Exibir controle deslizante para alterar o comprimento máximo do segmento, entre 4m e 256m. O padrão é 96m.</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>เปลี่ยนค่าสูงสุดของมุมการเลี้ยว เพื่อการเลี้ยวของรถรางที่สมจริงยิ่งขึ้น</value>
+    <value>Forçar ângulo máximo de curvas para deixar os trilhos de bonde mais realistas</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>เปลี่ยนถนนทุกสายที่มีรางรางให้มีมุมเลี้ยวสูงสุด ตามการตั้งค่าด้านล่าง (หากค่าปัจจุบันสูงกว่า)</value>
+    <value>Forçar o ângulo máximo definido em todas as estradas com trilhos de bonde se o valor atual for maior.</value>
+  </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Clique neste botão para mostrar Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>การซ้อนทับได้ถูกรวมเข้าไปอยู่ในโหมดอิสระแล้ว
+    <value>Colisão foi combinada com o modo de Anarquia.
 
-ในที่ส่วนนั้น ปุ่มการซ้อนทับโซนจะควบคุมว่าเส้นทาง หรือรั้วจะหยุดการสร้างตารางการแบ่งโซนในบริเวณใกล้เคียงหรือไม่</value>
+Em seu lugar, o botão Substituir Colisão de Zonas controla se caminhos/cercas impedem que os blocos próximos sejam criados.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
+    <value>Clique aqui para as Opções de Ferramenta</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} และ {1} เพื่อเปลี่ยนจำนวนขั้นของการยกระดับ</value>
+    <value>{0} e {1} para alterar o passo da elevação</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>ขั้นของการยกระดับ</value>
+    <value>Passo de elevação:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>แสดงเส้นตารางในโหมดแก้ไข (Editor)</value>
+    <value>Mostrar Grade</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>ความยาวสูงสุดของเซ็กเมนต์</value>
+    <value>Comprimento máximo do segmento:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>สะพาน: บังคับให้ใช้ชิ้นส่วนสะพาน (ถ้ามี)</value>
+    <value>Pontes: Forçar uso do modelo para ponte se disponível</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} และ {1} เพื่อเปลี่ยนโหมด</value>
+    <value>{0} e {1} para alternar modos</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>ยกระดับ: บังคับให้ใช้ส่วนการยกระดับ (ถ้ามี)</value>
+    <value>Elevados: Forçar uso do modelo elevado se disponível</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>ระดับพื้นดิน: บังคับให้พื้นดินตามระดับความสูงของถนน</value>
+    <value>Térreo: Forçar aterramento para seguir a elevação da estrada</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>โหมดปกติ: ใช้การถนนที่เป็นแบบดั้งเดิมของเกม</value>
+    <value>Normal: Construção de estradas pelas regras padrão do jogo</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>โหมด:</value>
+    <value>Modos:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>บังคับให้เป็นอุโมงค์ (ถ้ามี)</value>
+    <value>Túnel: Forçar uso do modelo para túneis se disponível</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>เปิดโหมดอิสระ (Anarchy)</value>
+    <value>Alternar anarquia</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>เปิดการดัดของถนน</value>
+    <value>Alternar curvatura automática</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>เปิดการป้องกันการซ้อนกัน</value>
+    <value>Alternar colisão</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>เปิดโหมดลาดตรง (ไม่เป็นไปตามลักษณะภูมิประเทศ)</value>
+    <value>Alternar elevação uniforme (não segue o formato do terreno)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>เปิดโหมดการยึดติด</value>
+    <value>Alternar encaixe</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>การซ้อนทับโซน</value>
+    <value>Substituir zona de colisão</value>
   </data>
 </root>

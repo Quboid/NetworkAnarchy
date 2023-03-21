@@ -25,7 +25,7 @@ namespace NetworkAnarchy
         public UICheckBox m_anarchyBtn;
         public UICheckBox m_bendingBtn;
         public UICheckBox m_snappingBtn;
-        public UICheckBox m_zoneOverrideBtn;
+        public UICheckBox m_collisionBtn;
         public UICheckBox m_straightSlopeBtn;
         
         public UICheckBox m_grid;
@@ -83,31 +83,6 @@ namespace NetworkAnarchy
                 return;
             }
 
-            //    StartCoroutine(UpdateButtonProcess());
-            //}
-
-            //private IEnumerator<object> UpdateButtonProcess()
-            //{
-            //    int count = 0;
-            //    while (parent == null)
-            //    {
-            //        count++;
-            //        if (count > 9)
-            //        {
-            //            string caller = new StackTrace()?.GetFrame(1)?.GetMethod()?.Name;
-            //            ModInfo.Log.Info($"Button parent is null (m_parent is {ModInfo.GetString(m_parent)})\n  Called by:{caller}", "[NA59]");
-            //            isVisible = false;
-            //            yield break;
-            //        }
-            //        yield return new WaitForSeconds(0.05f);
-            //    }
-
-            //    if (count > 0)
-            //    {
-            //        string caller = new StackTrace().GetFrame(1)?.GetMethod()?.Name;
-            //        ModInfo.Log.Info($"Button parent was hard to find (m_parent is {ModInfo.GetString(m_parent)}, attempts:{count})\n  Called by:{caller}", "[NA58]");
-            //    }
-
             if (NetworkAnarchy.instance.IsButtonInOptionsBar)
             {
                 relativePosition = new Vector2(36, 0);
@@ -163,6 +138,14 @@ namespace NetworkAnarchy
             try
             {
                 m_maxSegmentLengthLabel.text = NetworkAnarchy.instance.MaxSegmentLength + "m";
+                if (NetworkAnarchy.instance.MaxSegmentLength > 128)
+                {
+                    m_maxSegmentLengthLabel.textColor = new Color32(255, 191, 0, 255);
+                }
+                else
+                {
+                    m_maxSegmentLengthLabel.textColor = Color.white;
+                }
                 m_maxSegmentLengthLabel.tooltip = (Mathf.RoundToInt(NetworkAnarchy.instance.MaxSegmentLength / 8f * 100) / 100f).ToString() + "u";
             }
             catch (StackOverflowException e)

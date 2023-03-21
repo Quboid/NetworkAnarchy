@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -118,154 +118,156 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Cycle Modes Left</value>
+    <value>左循环模式</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Cycle Modes Right</value>
+    <value>右循环模式</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Elevation Down</value>
+    <value>高度下降</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Reset Elevation</value>
+    <value>重设高度</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Elevation Step Down</value>
+    <value>高度单次下降</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Elevation Step Up</value>
+    <value>高度单次提升</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Elevation Up</value>
+    <value>高度提升</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Press any key</value>
+    <value>按任意键</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Toggle Anarchy</value>
+    <value>切换无碰撞状态</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Toggle Bending</value>
+    <value>切换弯曲</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Toggle Editor Grid</value>
+    <value>切换编辑器网格</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Toggle Snapping</value>
+    <value>切换捕捉吸附</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Toggle Straight Slopes</value>
+    <value>切换平直坡道</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>切换区域覆盖</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>More tool options for roads and other networks</value>
+    <value>更多的道路及其他网络工具选项</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Enable debug messages logging</value>
+    <value>启用调试信息日志记录</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>If checked, additional debug messages will be logged.</value>
+    <value>如果选中该选项，则将会记录额外的调试信息。</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Max turn angle</value>
+    <value>最大转角</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Reduce rail catenary masts</value>
+    <value>减少轨道接触网支柱</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Reduce the number of catenary mast of rail lines from 3 to 1 per segment.</value>
+    <value>将每段轨道的接触网支柱数量从3个减少到1个。</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Reset tool window position</value>
+    <value>重设工具窗口位置</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Show elevation step slider</value>
+    <value>显示一次性调整高度滑条</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the elevation step, from 1m to 12m.</value>
+    <value>显示将高度单次调整范围更改为1m～12m的滑条。</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Show Labels</value>
+    <value>显示标签</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Disable to save some screen space</value>
+    <value>禁用以节省一些屏幕空间</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Show max segment length slider</value>
+    <value>显示最大分段长度滑条</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).</value>
+    <value>显示最大分段长度调整4m～256m（默认值为96m）的滑条。</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Change max turn angle for more realistic tram tracks turns</value>
+    <value>为了更真实的有轨电车与列车转向而更改最大转角</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
+    <value>如果当前值较高，则将所有有轨电车轨道最大转弯角度的道路更改为以下值。</value>
+  </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>点击此按钮显示 Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
-
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+    <value>碰撞功能已经和无碰撞模式相结合。
+在它所在位置，覆盖区域碰撞功能按钮以控制路径/围栏是否会阻止周围的分区地块的生成。</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Click here for Tool Options</value>
+    <value>点击此处查看工具选项</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} and {1} to change elevation step</value>
+    <value>按 {0} 以及 {1} 来改变单次调整高度</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>Elevation Step:</value>
+    <value>单次调整高度：</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Show Editor Grid</value>
+    <value>显示编辑器网格</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Max Segment Length:</value>
+    <value>最大路段长度：</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Bridge: Forces the use of bridge pieces if available</value>
+    <value>桥梁：如果开启，道路将强制在任何地形使用桥梁模式。</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} and {1} to cycle modes</value>
+    <value>按 {0} 以及 {1} 来切换模式</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Elevated: Forces the use of elevated pieces if available</value>
+    <value>高架：如果开启，道路将强制在任何地形使用高架模式</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Ground: Forces the ground to follow the elevation of the road</value>
+    <value>地面：如果开启，道路将强制在任何地形使用地面模式</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normal: Unmodded road placement behavior</value>
+    <value>正常：即游戏默认的逢山开洞、遇水架桥行为</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Modes:</value>
+    <value>模式：</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunnel: Forces the use of tunnel pieces if available</value>
+    <value>隧道：如果开启，道路将在任何地形强制使用隧道模式</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Toggle anarchy</value>
+    <value>切换无碰撞状态</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Toggle road bending</value>
+    <value>切换道路弯曲</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Toggle collision</value>
+    <value>切换碰撞</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Toggle straight slope (don't follow terrain shape)</value>
+    <value>切换平直的斜坡（不跟随地形）</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Toggle node snapping</value>
+    <value>切换捕捉吸附</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>覆盖区域碰撞</value>
   </data>
 </root>

@@ -118,154 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>モードを左に移る</value>
+    <value>모드를 왼쪽으로 순환</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>モードを右に移る</value>
+    <value>모드를 오른쪽으로 순환</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>高さを下げる</value>
+    <value>고도 낮춤</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>高さをリセット</value>
+    <value>고도 초기화</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>高さを少し下げる</value>
+    <value>고도 단계 내리기</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>高さを少し上げる</value>
+    <value>고도 단계 올리기</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>高さを上げる</value>
+    <value>고도 올림</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>何かキーを押してください</value>
+    <value>아무 키나 누르세요</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>アナーキーを切替</value>
+    <value>아나키 전환</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>湾曲の切り替え</value>
+    <value>벤딩 전환</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>グリッド表示の切替</value>
+    <value>에디터 그리드 전환</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>スナップの切替</value>
+    <value>스냅핑 전환</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>直線スロープの切替</value>
+    <value>직선 경사 전환</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>ゾーニングの上書きを切り替え</value>
+    <value>구역 무시 전환</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>道路やネットワークのためのより多くのツール</value>
+    <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>デバッグメッセージのログを有効化</value>
+    <value>디버그 메시지 기록 활성화</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>チェック時は追加のデバッグメッセージをログします。</value>
+    <value>선택하면 추가 디버그 메시지가 기록될 것입니다.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>最大回転角度</value>
+    <value>최대 회전 각도</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>架線柱を減らす</value>
+    <value>철로 전차선 마스트 감소</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>架線柱の数を1セグメントにつき3つから1つに減らします。</value>
+    <value>철도선의 전차선 마스트 수를 세그먼트당 3개에서 1개로 줄입니다.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>ウィンドウの位置をリセットする</value>
+    <value>툴 창 위치 초기화</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>高さのスライダーを表示</value>
+    <value>고도 단계 슬라이더 표시</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>高さのステップを1m〜12mに変更するためのスライダーを表示します。</value>
+    <value>1m부터 12m까지 고도 단계를 변경하는 슬라이더를 표시합니다.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>ラベルを表示</value>
+    <value>라벨 표시</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>画面のスペースを節約したい場合は無効化します。</value>
+    <value>화면 공간을 아끼려면 비활성화하세요</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>セグメントの最大長を調整するためのスライダーを表示</value>
+    <value>최대 세그먼트 길이 슬라이더 표시</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>セグメントの最大長を4m〜256mに変更するためのスライダーを表示します(デフォルトは96m)。</value>
+    <value>최대 세그먼트 길이를 4m부터 256m까지 변경하는 슬라이더를 표시합니다 (기본값은 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>トラム線路のカーブをより現実的にするために最大回転角を変更します</value>
+    <value>더 현실적인 트램 트랙 회전을 위해 최대 회전 각도 변경하기</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>現在の最大角のほうが大きい場合、トラム線路のある全ての道路の最大角が変更されます。</value>
+    <value>트램 트랙이 있는 모든 도로 중 사용되는 최대 회전 각도의 값이 밑의 값보다 큰 도로를 밑의 값으로 변경합니다.</value>
+  </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>이 버튼을 클릭해 Network Anarchy 표시</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>衝突判定は、アナーキーモードと統合されました。
+    <value>충돌 모드가 아나키 모드와 합쳐졌습니다.
 
-代わりに「ゾーニングの衝突判定を上書き」ボタンは、パスやフェンスが付近のゾーニング生成の有無を制御します。</value>
+그 자리에 이제부터는 구역 충돌 무시하기 버튼이 있고 경로/펜스 주변으로 구역 타일이 생성되는 것을 막을 지 제어합니다.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>クリックでオプションを表示</value>
+    <value>여기를 클릭해 툴 옵션 보기</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} と {1} で高さのピッチを変更します。</value>
+    <value>{0} 과 {1} 로 고도 단계 바꾸기</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>高さの変更量:</value>
+    <value>고도 단계:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>エディタのグリッドを表示</value>
+    <value>에디터 그리드 보기</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>セグメントの最大長:</value>
+    <value>최대 세그먼트 길이:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>橋梁: 可能であれば橋梁を使用する</value>
+    <value>다리: 사용 가능하다면 다리 부분을 강제로 사용합니다.</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} と {1} でモードを左右に切り替えます。</value>
+    <value>{0} 과 {1} 로 모드 순환</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>高架: 可能であれば高架を使用する</value>
+    <value>고가: 사용 가능하다면 고가 부분을 강제로 사용합니다.</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>地面: 道路の傾斜を地面に沿わせる</value>
+    <value>지상: 땅이 도로의 높이를 따르도록 강제합니다.</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>通常: 非mod状態で道路を配置する</value>
+    <value>일반: 수정되지 않은 도로 배치 동작</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>モード</value>
+    <value>모드:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>トンネル: 可能であればトンネルを使用する</value>
+    <value>터널: 사용 가능하다면 터널 부분을 강제로 사용합니다.</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>アナーキーの切替</value>
+    <value>아나키 전환</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>湾曲の切替</value>
+    <value>도로 벤딩 전환</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>衝突判定の切替</value>
+    <value>충돌 전환</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>直線スロープの切替 (地形に追従しない)</value>
+    <value>직선 경사 전환 (지형 모양을 따르지 않기)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>ノードスナップの切替</value>
+    <value>노드 스냅핑 전환</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>ゾーニングの衝突判定を上書き</value>
+    <value>구역 충돌 무시하기</value>
   </data>
 </root>

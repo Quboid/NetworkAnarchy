@@ -2,14 +2,17 @@
 using ColossalFramework.Globalization;
 using ColossalFramework.UI;
 using ICities;
-using NetworkAnarchy.Localization;
+using NetworkAnarchy.Lang;
 using NetworkAnarchy.Patches;
+using NetworkAnarchy.UI;
 using QCommonLib;
+using QCommonLib.Lang;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
-// Error code max: 65
+// Error code max: 68
 
 namespace NetworkAnarchy
 {
@@ -32,14 +35,20 @@ namespace NetworkAnarchy
             }
         }
 
-        public string Name => "Network Anarchy " + QVersion.Version();
+        private readonly string m_shortName = "Network Anarchy";
+        public string Name => m_shortName + " " + QVersion.Version();
         public string Description => Str.mod_Description;
+
+        //internal static GameObject DebugGO;
+        //internal static DebugPanel s_debugPanel;
 
         //internal static QLogger Log;
         internal static QPatcher Patcher;
         internal string HarmonyId = "quboid.csl_mods.networkanarchy";
 
         internal static CultureInfo Culture => QCommon.GetCultureInfo();
+        protected LocalizeManager LocalizeManager => Str.LocaleManager;
+        protected LocalizeManager QLocalizeManager => QStr.LocaleManager;
 
         public void OnSettingsUI(UIHelperBase helper)
         {
@@ -47,130 +56,36 @@ namespace NetworkAnarchy
             LocaleChanged();
             LocaleManager.eventLocaleChanged += LocaleChanged;
 
-            try
-            {
-                var group = helper.AddGroup(Name) as UIHelper;
-                var panel = group.self as UIPanel;
-
-                var checkBox = (UICheckBox)group.AddCheckbox(Str.options_showLabels, UIToolOptionsButton.showLabels.value, (b) =>
-                {
-                    UIToolOptionsButton.showLabels.value = b;
-                    if (NetworkAnarchy.instance != null)
-                    {
-                        NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
-                    }
-                });
-                checkBox.tooltip = Str.options_showLabelsTooltip;
-
-                checkBox = (UICheckBox)group.AddCheckbox(Str.options_showElevationStepSlider, UIToolOptionsButton.showElevationSlider.value, (b) =>
-                {
-                    UIToolOptionsButton.showElevationSlider.value = b;
-                    if (NetworkAnarchy.instance != null)
-                    {
-                        NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
-                    }
-                });
-                checkBox.tooltip = Str.options_showElevationStepSliderTooltip;
-
-                checkBox = (UICheckBox)group.AddCheckbox(Str.options_showMaxSegmentLengthSlider, UIToolOptionsButton.showMaxSegmentLengthSlider.value, (b) =>
-                {
-                    UIToolOptionsButton.showMaxSegmentLengthSlider.value = b;
-                    if (NetworkAnarchy.instance != null)
-                    {
-                        NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
-                    }
-                });
-                checkBox.tooltip = Str.options_showMaxSegmentLengthSliderTooltip;
-
-                group.AddSpace(10);
-
-                checkBox = (UICheckBox) group.AddCheckbox(Str.options_reduceCatenaries, NetworkAnarchy.reduceCatenary.value, (b) =>
-                 {
-                     NetworkAnarchy.reduceCatenary.value = b;
-                     if (NetworkAnarchy.instance != null)
-                     {
-                         UpdateCatenaries.Apply();
-                     }
-                 });
-                checkBox.tooltip = Str.options_reduceCatenariesTooltip;
-
-                group.AddSpace(10);
-
-                checkBox = (UICheckBox) group.AddCheckbox(Str.options_tramMaxTurnAngle, NetworkAnarchy.changeMaxTurnAngle.value, (b) =>
-                 {
-                     NetworkAnarchy.changeMaxTurnAngle.value = b;
-
-                     if (b)
-                     {
-                         NetPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle);
-                     }
-                     else
-                     {
-                         NetPrefab.ResetMaxTurnAngle();
-                     }
-                 });
-                checkBox.tooltip = Str.options_tramMaxTurnAngleTooltip;
-
-                group.AddTextfield(Str.options_maxTurnAngle + ": ", NetworkAnarchy.maxTurnAngle.ToString(), (f) => { },
-                    (s) =>
-                    {
-                        float.TryParse(s, out var f);
-
-                        NetworkAnarchy.maxTurnAngle.value = Mathf.Clamp(f, 0f, 180f);
-
-                        if (NetworkAnarchy.changeMaxTurnAngle.value)
-                        {
-                            NetPrefab.SetMaxTurnAngle(NetworkAnarchy.maxTurnAngle.value);
-                        }
-                    });
-
-                group.AddSpace(10);
-
-                panel.gameObject.AddComponent<OptionsKeymapping>();
-
-                group.AddSpace(10);
-
-                group.AddButton(Str.options_resetToolWindowPosition, () =>
-                {
-                    UIToolOptionsButton.savedWindowX.Delete();
-                    UIToolOptionsButton.savedWindowY.Delete();
-
-                    if (UIToolOptionsButton.toolOptionsPanel)
-                    {
-                        UIToolOptionsButton.toolOptionsPanel.absolutePosition = new Vector3(-1000, -1000);
-                    }
-                });
-
-                group.AddSpace(10);
-
-                checkBox = (UICheckBox)group.AddCheckbox(Str.options_enableDebugLogging, NetworkAnarchy.showDebugMessages.value, (b) =>
-                {
-                    NetworkAnarchy.showDebugMessages.value = b;
-#if !DEBUG
-                    Log.IsDebug = b;
-#endif
-                });
-                checkBox.tooltip = Str.options_enableDebugLoggingTooltip;
-            }
-            catch (Exception e)
-            {
-                Debug.Log("NetworkAnarchy OnSettingsUI failed [NA20]");
-                Debug.LogException(e);
-            }
+            ModOptions options = new ModOptions(helper, Name);
         }
 
+        /// <summary>
+        /// Executes at main menu
+        /// </summary>
         public void OnEnabled()
         {
 #if DEBUG
-            //Log = new QLogger(true);
             Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert, true);
-#else
-            //Log = new QLogger(true);// NetworkAnarchy.showDebugMessages); // Always log stuff while mod is in beta
-            Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
             Log.IsDebug = true;
+#else
+            //Log = new QLogger(true);// NetworkAnarchy.showDebugMessages); 
+            Patcher = new QPatcher(HarmonyId, EarlyPatches.Deploy, EarlyPatches.Revert);
+            Log.IsDebug = true; // Always log stuff for now
 #endif
 
             AnyRoadOutsideConnection.Initialise();
+
+
+            if (UIView.GetAView() == null)
+            { // Game loaded to main menu
+                LoadingManager.instance.m_introLoaded += CheckIncompatibleMods;
+            }
+            else
+            { // Mod enabled in Content Manager
+                CheckIncompatibleMods();
+            }
+
+            // Hot reload
             if (LoadingManager.exists && LoadingManager.instance.m_loadingComplete)
             {
                 InitializeMod();
@@ -189,11 +104,6 @@ namespace NetworkAnarchy
 
         public override void OnLevelLoaded(LoadMode mode)
         {
-            //if (!(mode == LoadMode.LoadGame || mode == LoadMode.NewGame || mode == LoadMode.NewGameFromScenario))
-            //{
-            //    return;
-            //}
-
             InitializeMod();
         }
 
@@ -219,7 +129,23 @@ namespace NetworkAnarchy
             }
 
             Patcher.PatchAll();
-            Mods.CrossTheLine.Initialise(Patcher);
+            if (QCommon.Scene != QCommon.SceneTypes.AssetEditor)
+            {
+                Mods.CrossTheLine.Initialise(Patcher);
+            }
+            else
+            {
+                GameAreaManager.instance.m_maxAreaCount = GameAreaManager.AREAGRID_RESOLUTION * GameAreaManager.AREAGRID_RESOLUTION;
+                for (int i = 0; i < GameAreaManager.instance.m_maxAreaCount; i++)
+                {
+                    GameAreaManager.instance.m_areaGrid[i] = i + 1;
+                }
+                GameAreaManager.instance.m_areaCount = GameAreaManager.instance.m_maxAreaCount;
+            }
+
+            //DebugGO = new GameObject("NA_DebugPanel");
+            //DebugGO.AddComponent<DebugPanel>();
+            //s_debugPanel = DebugGO.GetComponent<DebugPanel>();
         }
 
         public void DestroyMod()
@@ -228,18 +154,48 @@ namespace NetworkAnarchy
             Patcher.UnpatchAll();
             NetworkAnarchy.instance.RestoreDefaultKeys();
 
+            //if (s_debugPanel != null)
+            //{
+            //    GameObject.Destroy(s_debugPanel);
+            //    s_debugPanel = null;
+            //}
+
             if (NetworkAnarchy.instance != null)
             {
+                GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel.gameObject);
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel);
                 NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel = null;
+                GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.gameObject);
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton);
                 NetworkAnarchy.m_toolOptionButton = null;
                 NetworkAnarchy.instance.enabled = false;
+                GameObject.Destroy(NetworkAnarchy.instance.gameObject);
                 GameObject.Destroy(NetworkAnarchy.instance);
                 NetworkAnarchy.instance = null;
             }
 
             LocaleManager.eventLocaleChanged -= LocaleChanged;
+        }
+
+        public void CheckIncompatibleMods()
+        {
+            Dictionary<ulong, string> incompatbleMods = new Dictionary<ulong, string>
+            {
+                //{ 2862881785,   "Network Anarchy" },
+                //{ 2917150208,   "Network Anarchy (beta)" },
+                { 1844442251,   "Fine Road Tool" },
+                { 1844440354,   "Fine Road Anarchy" },
+                { 2847163882,   "Any Road Outside Connections Revisited" },
+                { 883332136,    "Any Road Outside Connections" },
+                { 2558311605,   "Left-Hand Network Fix" },
+                { 1274199764,   "Network Tiling" },
+                { 2085018096,   "Node Spacer" },
+                { 650436109,    "Quay Anarchy" },
+                { 707759735,    "Ship Path Anarchy" },
+                { 1586027591,   "Tiny Segments - Extra Anarchy" },
+            };
+
+            _ = new QIncompatible(incompatbleMods, Log.instance, m_shortName);
         }
 
         internal static void LocaleChanged()
@@ -252,8 +208,9 @@ namespace NetworkAnarchy
                 }
             }
 
-            Log.Info($"Network Anarchy Locale changed {Str.Culture?.Name}->{ModInfo.Culture.Name}", "[NA48]");
-            Str.Culture = ModInfo.Culture;
+            Log.Info($"Network Anarchy Locale changed {Str.Culture?.Name}->{Culture.Name}", "[NA48]");
+            Str.Culture = Culture;
+            QStr.Culture = Culture;
         }
 
         internal static string GetString(object o)
@@ -263,6 +220,38 @@ namespace NetworkAnarchy
         }
     }
 
-    public class Log : QLoggerStatic { }
+    //internal class DebugPanel : MonoBehaviour
+    //{
+    //    internal UIPanel m_panel;
+    //    internal UILabel m_label;
 
+    //    internal DebugPanel()
+    //    {
+    //        m_panel = UIView.GetAView().AddUIComponent(typeof(UIPanel)) as UIPanel;
+    //        m_panel.name = "NetworkAnarchy_DebugPanel";
+    //        m_panel.atlas = QTextures.GetAtlas("Ingame");
+    //        m_panel.backgroundSprite = "SubcategoriesPanel";
+    //        m_panel.size = new Vector2(400, 200);
+    //        m_panel.absolutePosition = new Vector3(400, 50);
+    //        m_panel.clipChildren = true;
+    //        m_panel.isVisible = true;
+
+    //        m_label = m_panel.AddUIComponent<UILabel>();
+    //        m_label.text = "Debug";
+    //        m_label.relativePosition = new Vector3(5, 5);
+    //        m_label.size = m_panel.size - new Vector2(10, 10);
+    //    }
+
+    //    internal void Text(string text)
+    //    {
+    //        Singleton<SimulationManager>.instance.m_ThreadingWrapper.QueueMainThread(() => {
+    //            if (m_label != null)
+    //            {
+    //                m_label.text = text;
+    //            }
+    //        });
+    //    }
+    //}
+
+    public class Log : QLoggerStatic { }
 }

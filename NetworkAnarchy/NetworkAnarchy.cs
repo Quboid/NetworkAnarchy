@@ -1,6 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
-using QCommonLib;
+using NetworkAnarchy.UI;
 using System.Reflection;
 using UnityEngine;
 
@@ -18,19 +18,38 @@ namespace NetworkAnarchy
         public static SavedBool saved_anarchy = new SavedBool("anarchy", settingsFileName, false, true);
         public static SavedBool saved_bending = new SavedBool("bending", settingsFileName, true, true);
         public static SavedBool saved_nodeSnapping = new SavedBool("nodeSnapping", settingsFileName, true, true);
-        public static SavedBool saved_zoneOverride = new SavedBool("zoneOverride", settingsFileName, true, true);
+        public static SavedBool saved_collision = new SavedBool("collision", settingsFileName, true, true);
         public static SavedInt saved_segmentLength = new SavedInt("saved_segmentLength", settingsFileName, 96, true);
         public static SavedBool showDebugMessages = new SavedBool("showDebugMessages", settingsFileName, false, true);
 
-        public static SavedBool showCollisionRemoval = new SavedBool("showCollisionRemoval", settingsFileName, true, true);
-        internal QCommonLib.UI.QPopup CollisionRemovalWarning;
+        //public static SavedBool showCollisionRemoval = new SavedBool("showCollisionRemoval", settingsFileName, true, true);
+        //public static SavedBool showButtonReminder = new SavedBool("showButtonReminder", settingsFileName, true, true);
+        //internal CollisionFeatureRemovalPanel CollisionRemovalWarning;
+        //internal ButtonReminderToastPanel ButtonReminderToast;
+
+        //internal static int s_LogGetInfoCount = 0;
+        //internal static string s_LogGetInfo;
+
+        internal bool m_firstRun = true;
 
         private int m_elevation = 0;
         private readonly SavedInt m_elevationStep = new SavedInt("elevationStep", settingsFileName, 3, true);
 
-        private NetTool m_netTool;
-        private BulldozeTool m_bulldozeTool;
-        private BuildingTool m_buildingTool;
+        private static NetTool m_netTool;
+        internal static NetTool ToolNet
+        {
+            get => m_netTool;
+        }
+        private static BulldozeTool m_bulldozeTool;
+        internal static BulldozeTool ToolBulldoze
+        {
+            get => m_bulldozeTool;
+        }
+        private static BuildingTool m_buildingTool;
+        internal static BuildingTool ToolBuilding
+        {
+            get => m_buildingTool;
+        }
 
         #region Reflection to private field/methods
         private FieldInfo m_elevationField;
@@ -155,14 +174,6 @@ namespace NetworkAnarchy
                 {
                     m_mode = value;
 
-                    var prefab = NetPrefab.GetPrefab(m_current);
-                    if (prefab == null)
-                    {
-                        return;
-                    }
-
-                    prefab.Mode = m_mode;
-                    prefab.Update();
                     m_toolOptionButton.UpdateButton();
                 }
             }
@@ -188,17 +199,7 @@ namespace NetworkAnarchy
                     Log.Debug($"Setting StraightSlope to {(value ? "enabled" : "disabled")}", "[NA47]");
 
                     _straightSlope = value;
-
                     m_toolOptionButton.UpdateButton();
-
-                    var prefab = NetPrefab.GetPrefab(m_current);
-                    if (prefab == null)
-                    {
-                        return;
-                    }
-
-                    prefab.Update();
-
                     saved_smoothSlope.value = value;
                 }
             }
@@ -270,22 +271,22 @@ namespace NetworkAnarchy
             }
         }
 
-        private static bool _zoneOverride = saved_zoneOverride.value;
-        public static bool ZoneOverride
+        private static bool _collision = saved_collision.value;
+        public static bool Collision
         {
             get
             {
-                return _zoneOverride;
+                return _collision;
             }
 
             set
             {
-                if (value != _zoneOverride)
+                if (value != _collision)
                 {
-                    Log.Debug($"Setting Zone Override to {(value ? "enabled" : "disabled")}", "[NA43]");
+                    Log.Debug($"Setting Collision to {(value ? "enabled" : "disabled")}", "[NA43]");
 
-                    _zoneOverride = value;
-                    saved_zoneOverride.value = value;
+                    _collision = value;
+                    saved_collision.value = value;
                     ChirperManager.UpdateAtlas();
                 }
             }
@@ -327,10 +328,10 @@ namespace NetworkAnarchy
             NodeSnapping = !NodeSnapping;
             UpdateAnarchyButton(m_toolOptionButton.m_snappingBtn, "Snapping", NodeSnapping);
         }
-        public void ToggleZoneOverride()
+        public void ToggleCollision()
         {
-            ZoneOverride = !ZoneOverride;
-            UpdateAnarchyButton(m_toolOptionButton.m_zoneOverrideBtn, "ZoneOverride", ZoneOverride);
+            Collision = !Collision;
+            UpdateAnarchyButton(m_toolOptionButton.m_collisionBtn, "Collision", Collision);
         }
         public void ToggleStraightSlope()
         {

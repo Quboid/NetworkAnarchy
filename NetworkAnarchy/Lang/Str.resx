@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -118,154 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>모드를 왼쪽으로 순환</value>
+    <value>Cycle Modes Left</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>모드를 오른쪽으로 순환</value>
+    <value>Cycle Modes Right</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>고도 낮춤</value>
+    <value>Elevation Down</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>고도 초기화</value>
+    <value>Reset Elevation</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>고도 단계 내리기</value>
+    <value>Elevation Step Down</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>고도 단계 올리기</value>
+    <value>Elevation Step Up</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>고도 올림</value>
+    <value>Elevation Up</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>아무 키나 누르세요</value>
+    <value>Press any key</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>아나키 전환</value>
+    <value>Toggle Anarchy</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>벤딩 전환</value>
+    <value>Toggle Bending</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>에디터 그리드 전환</value>
+    <value>Toggle Editor Grid</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>스냅핑 전환</value>
+    <value>Toggle Snapping</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>직선 경사 전환</value>
+    <value>Toggle Straight Slopes</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>구역 무시 전환</value>
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
+    <value>More tool options for roads and other networks</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>디버그 메시지 기록 활성화</value>
+    <value>Enable debug messages logging</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>선택하면 추가 디버그 메시지가 기록될 것입니다.</value>
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>최대 회전 각도</value>
+    <value>Max turn angle</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>철로 전차선 마스트 감소</value>
+    <value>Reduce rail catenary masts</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>철도선의 전차선 마스트 수를 세그먼트당 3개에서 1개로 줄입니다.</value>
+    <value>Reduce the number of catenary mast of rail lines from 3 to 1 per segment.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>툴 창 위치 초기화</value>
+    <value>Reset tool window position</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>고도 단계 슬라이더 표시</value>
+    <value>Show elevation step slider</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>1m부터 12m까지 고도 단계를 변경하는 슬라이더를 표시합니다.</value>
+    <value>Show slider for changing the elevation step, from 1m to 12m.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>라벨 표시</value>
+    <value>Show Labels</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>화면 공간을 아끼려면 비활성화하세요</value>
+    <value>Disable to save some screen space</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>최대 세그먼트 길이 슬라이더 표시</value>
+    <value>Show max segment length slider</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>최대 세그먼트 길이를 4m부터 256m까지 변경하는 슬라이더를 표시합니다 (기본값은 96m).</value>
+    <value>Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>더 현실적인 트램 트랙 회전을 위해 최대 회전 각도 변경하기</value>
+    <value>Change max turn angle for more realistic tram tracks turns</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>트램 트랙이 있는 모든 도로 중 사용되는 최대 회전 각도의 값이 밑의 값보다 큰 도로를 밑의 값으로 변경합니다.</value>
+    <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
+  </data>
+  <data name="popup_buttonReminder" xml:space="preserve">
+    <value>Click this button to show Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>충돌 모드가 아나키 모드와 합쳐졌습니다.
+    <value>Collision has been combined with Anarchy mode.
 
-그 자리에 이제부터는 구역 충돌 무시하기 버튼이 있고 경로/펜스 주변으로 구역 타일이 생성되는 것을 막을 지 제어합니다.</value>
+In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>여기를 클릭해 툴 옵션 보기</value>
+    <value>Click here for Tool Options</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} 과 {1} 로 고도 단계 바꾸기</value>
+    <value>{0} and {1} to change elevation step</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>고도 단계:</value>
+    <value>Elevation Step:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>에디터 그리드 보기</value>
+    <value>Show Editor Grid</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>최대 세그먼트 길이:</value>
+    <value>Max Segment Length:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>다리: 사용 가능하다면 다리 부분을 강제로 사용합니다.</value>
+    <value>Bridge: Forces the use of bridge pieces if available</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} 과 {1} 로 모드 순환</value>
+    <value>{0} and {1} to cycle modes</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>고가: 사용 가능하다면 고가 부분을 강제로 사용합니다.</value>
+    <value>Elevated: Forces the use of elevated pieces if available</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>지상: 땅이 도로의 높이를 따르도록 강제합니다.</value>
+    <value>Ground: Forces the ground to follow the elevation of the road</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>일반: 수정되지 않은 도로 배치 동작</value>
+    <value>Normal: Unmodded road placement behavior</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>모드:</value>
+    <value>Modes:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>터널: 사용 가능하다면 터널 부분을 강제로 사용합니다.</value>
+    <value>Tunnel: Forces the use of tunnel pieces if available</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>아나키 전환</value>
+    <value>Toggle anarchy</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>도로 벤딩 전환</value>
+    <value>Toggle road bending</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>충돌 전환</value>
+    <value>Toggle collision</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>직선 경사 전환 (지형 모양을 따르지 않기)</value>
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>노드 스냅핑 전환</value>
+    <value>Toggle node snapping</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>구역 충돌 무시하기</value>
+    <value>Override zone collision</value>
   </data>
 </root>

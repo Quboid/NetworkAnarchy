@@ -31,7 +31,7 @@ namespace NetworkAnarchy
             }
 
             // Removes HeightTooHigh & TooShort errors
-            if (IsBuildingToolEnabled())
+            if (Anarchy && IsBuildingToolEnabled())
             {
                 var errors = (ToolBase.ToolErrors)m_placementErrorsField.GetValue(m_buildingTool);
                 if ((errors & ToolBase.ToolErrors.HeightTooHigh) == ToolBase.ToolErrors.HeightTooHigh)
@@ -54,22 +54,13 @@ namespace NetworkAnarchy
             }
 
             // Resume fixes
-            if (m_fixNodesCount != 0 || m_fixTunnelsCount != 0)
+            if (m_fixTunnelsCount != 0)
             {
-                var prefab = NetPrefab.GetPrefab(m_current);
-                prefab?.Restore();
-
-                if (m_fixTunnelsCount != 0)
-                {
-                    FixTunnels();
-                }
-
-                if (m_fixNodesCount != 0)
-                {
-                    FixNodes();
-                }
-
-                prefab?.Update();
+                FixTunnels();
+            }
+            if (m_fixNodesCount != 0)
+            {
+                FixNodes();
             }
 
             // Stop here if neither active nor bulldozer tool enabled
@@ -83,16 +74,11 @@ namespace NetworkAnarchy
             {
                 m_segmentCount = NetManager.instance.m_segmentCount;
 
-                var prefab = NetPrefab.GetPrefab(m_current);
-                prefab?.Restore();
-
                 m_fixTunnelsCount = 0;
                 m_fixNodesCount = 0;
 
                 FixTunnels();
                 FixNodes();
-
-                prefab?.Update();
             }
 
             if (!IsActive)
@@ -108,10 +94,9 @@ namespace NetworkAnarchy
                 {
                     m_elevation = Mathf.RoundToInt(Mathf.RoundToInt(m_controlPoints[0].m_elevation / elevationStep) * elevationStep * 256f / 12f);
                     UpdateElevation();
-                    if (m_toolOptionButton != null)
-                    {
-                        m_toolOptionButton.UpdateButton();
-                    }
+
+                    Log.Debug($"OnAfterSimulationTick: m_controlPointCountField:{m_controlPointCountField.GetValue(m_netTool)}, m_controlPointCount:{m_controlPointCount}", "[NA71]");
+                    m_toolOptionButton?.UpdateButton();
                 }
             }
             // Fix last control point elevation

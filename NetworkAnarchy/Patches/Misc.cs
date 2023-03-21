@@ -2,6 +2,8 @@
 using HarmonyLib;
 using QCommonLib;
 using System;
+using System.Diagnostics;
+using System.Reflection;
 using UnityEngine;
 
 namespace NetworkAnarchy.Patches
@@ -68,7 +70,7 @@ namespace NetworkAnarchy.Patches
             }
             catch (NullReferenceException e)
             {
-                Debug.Log($"Failed to enable placing transport paths outside purchased tiles\n{e}");
+                UnityEngine.Debug.Log($"Failed to enable placing transport paths outside purchased tiles\n{e}");
             }
             return true;
         }
@@ -87,9 +89,6 @@ namespace NetworkAnarchy.Patches
             if (!inst.IsActive || !inst.IsNetToolEnabled()) return;
             if (mode != InfoManager.InfoMode.Underground) return;
             if (inst.mode == Modes.Tunnel) return;
-
-            var prefab = NetPrefab.GetPrefab(inst.m_current);
-            if (prefab == null) return;
 
             if (inst.mode == Modes.Ground)
             {
