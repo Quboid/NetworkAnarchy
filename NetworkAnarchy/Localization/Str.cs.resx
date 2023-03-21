@@ -157,7 +157,7 @@
     <value>Přepínač přímého sklonu</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Toggle Zone Override</value>
+    <value>Přepnout přepsání zóny</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
     <value>Další možnosti nástroje pro silnice a ostatní sítě</value>
@@ -205,9 +205,9 @@
     <value>Změňte maximální úhel zatočení všech silnic s tramvajovými kolejemi o níže uvedenou hodnotu, pokud je současná hodnota vyšší.</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Collision has been combined with Anarchy mode.
+    <value>Režim kolize byl kombinován s režimem Anarchie.
 
-In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
+Místo něj je zde tlačítko Přepsat kolizi zóny, které řídí, zda cesty/ploty zastaví vytváření blízkých zón.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
     <value>Klikněte zde pro možnosti nástrojů</value>
@@ -266,6 +266,6 @@ In its place, the Override Zone Collision button controls whether paths/fences s
     <value>Přepnout přichytávání uzlů</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Override zone collision</value>
+    <value>Přepsat kolizi zóny</value>
   </data>
 </root>
