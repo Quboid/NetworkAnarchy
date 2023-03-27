@@ -118,155 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Предыдущий режим</value>
+    <value>Przełącz tryby w lewo</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Следующий режим</value>
+    <value>Przełącz tryby w prawo</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Уменьшить подъем</value>
+    <value>Zmniejsz poziom wzniesienia</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Сбросить подъем</value>
+    <value>Zresetuj poziom wzniesienia</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Уменьшить шаг подъема</value>
+    <value>Poziom wzniesienia o krok w dół</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Увеличить шаг подъема</value>
+    <value>Poziom wzniesienia o krok w górę</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Увеличить подъем</value>
+    <value>Zwiększ poziom wzniesienia</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Нажмите любую клавишу</value>
+    <value>Naciśnij dowolny klawisz</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Вкл/Выкл анархию</value>
+    <value>Włącz / Wyłącz anarchię</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Вкл/Выкл изгиб</value>
+    <value>Włącz / Wyłącz zaginanie</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Вкл/Выкл сетку</value>
+    <value>Przełącz siatkę edytora</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Вкл/Выкл привязку</value>
+    <value>Włącz / Wyłącz przyciąganie węzłów</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Вкл/Выкл прямой склон</value>
+    <value>Włącz / Wyłącz proste nachylenia</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Переключить переопределение зон</value>
+    <value>Przełącz nadpisywanie stref</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>Больше возможностей для дорог и других сетевых объектов</value>
+    <value>Więcej opcji narzędzia dla dróg i innych sieci</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Включить отладочные сообщения</value>
+    <value>Włącz logowanie komunikatów debugowania</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>Если выбрано, сообщения отладки будут писаться в лог.</value>
+    <value>Jeśli zaznaczone, będą rejestrowane dodatkowe komunikaty debugowania.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Макс. угол поворота</value>
+    <value>Maksymalny kąt skrętu</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Уменьшить число опор проводов</value>
+    <value>Zmniejszona liczba masztów sieci trakcyjnej</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Уменьшить число опор проводов с 3 до 1 для каждого сегмента.</value>
+    <value>Zmniejsz liczbę masztów sieci trakcyjnej z 3 do 1 na jeden odcinek.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Сбросить позиции окон</value>
+    <value>Resetuj pozycję okna</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Показать слайдер шага подъема</value>
+    <value>Pokaż suwak stopnia podniesienia</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Показать слайдер для изменения шага подъема от 1м до 12м.</value>
+    <value>Pokaż suwak do zmiany stopnia podniesienia, z 1 m na 12 m.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Показывать названия функций</value>
+    <value>Pokaż etykiety</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Отключите для сохранения пространства на экране</value>
+    <value>Wyłącz, aby zaoszczędzić trochę miejsca na ekranie</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Показать слайдер максимальной длины сегмента</value>
+    <value>Pokaż suwak maksymalnej długości odcinka</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Показать слайдер для изменения максимальной длины сегмента от 4м до 256м (96м по умолчанию).</value>
+    <value>Pokaż suwak do zmiany maksymalnej długości segmentu, od 4 m do 256 m (domyślnie 96 m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Изменить максимальный угол поворота для более реалистичных поворотов трамвая</value>
+    <value>Zmień maksymalny kąt skrętu dla bardziej realistycznych zakrętów torów tramwajowych</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Изменить максимальный угол поворота для всех дорог с трамвайными рельсами, если их значение меньше указанного.</value>
+    <value>Zmień wszystkie drogi z torami tramwajowymi z maksymalnym kątem skrętu o wartość poniżej, jeśli bieżąca wartość jest wyższa.</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Нажмите эту кнопку, чтобы показать Network Anarchy</value>
+    <value>Kliknij ten przycisk, aby pokazać Anarchię Sieci</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>При включенной "Переопределить коллизию зон", пешеходные дорожки и заборы не будут препятствовать созданию зон.</value>
+    <value>Kolizja została połączona z trybem Anarchii.
+
+Przycisk Nadpisz kolizję stref, kontroluje czy ścieżki/ogrodzenia blokują tworzenie pobliskich kafelków strefy.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Нажмите здесь для открытия опций</value>
+    <value>Kliknij tutaj, aby wyświetlić opcje narzędzia</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} и {1} для изменения шага подъёма</value>
+    <value>{0} i {1} aby zmienić poziom wzniesienia</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>Шаг подъема:</value>
+    <value>Stopień ukształtowania terenu:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Показать сетку редактора</value>
+    <value>Pokaż siatkę edytora</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Макс длина сегмента:</value>
+    <value>Maksymalna długość odcinka:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Мост: использовать мост, при наличии</value>
+    <value>Most: Wymusza użycie elementów mostowych, jeśli są one dostępne</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} и {1} для смены режимов</value>
+    <value>{0} i {1} aby przełączać pomiędzy trybami</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Эстакада: использовать эстакаду, при наличии</value>
+    <value>Podwyższenie: Wymusza użycie elementów podwyższenia, jeśli są one dostępne</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Наземный: поверхность следует за высотой дороги</value>
+    <value>Podłoże: Wymusza ziemię do podążania za ukształtowaniem drogi</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Обычный: выбор типа дороги по умолчанию</value>
+    <value>Normalny: niezmodyfikowane zachowanie umieszczenia drogi</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Режимы:</value>
+    <value>Tryby:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Туннель: использовать туннель, при наличии</value>
+    <value>Tunel – wymusza użycie elementów tunelu, jeśli są one dostępne</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Вкл/Выкл анархию</value>
+    <value>Włącz / Wyłącz anarchię</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Вкл/Выкл изгиб</value>
+    <value>Włącz / Wyłącz zginanie drogi</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Вкл/Выкл коллизию</value>
+    <value>Włącz / Wyłącz kolizję</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Вкл/выкл Прямой уклон (соответствие ландшафту)</value>
+    <value>Włącz / Wyłącz proste nachylenie (nie podąża wzdłuż terenu)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Вкл/Выкл привязку</value>
+    <value>Włącz / Wyłącz przyciąganie węzłów</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Переопределить коллизию зон</value>
+    <value>Nadpisz kolizję stref</value>
   </data>
 </root>
