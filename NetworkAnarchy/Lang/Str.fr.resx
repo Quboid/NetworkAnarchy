@@ -118,157 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Alternar modos (Esquerda)</value>
+    <value>Cycle Modes Left</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Alternar modos (Direita)</value>
+    <value>Cycle Modes Right</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Diminuir elevação</value>
+    <value>Elevation Down</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Redefinir elevação</value>
+    <value>Reset Elevation</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Reduzir passo de elevação</value>
+    <value>Elevation Step Down</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Aumentar passo de elevação</value>
+    <value>Elevation Step Up</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Aumentar elevação</value>
+    <value>Elevation Up</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Pressione qualquer tecla</value>
+    <value>Press any key</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Alternar anarquia</value>
+    <value>Toggle Anarchy</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Alternar curvatura automática</value>
+    <value>Toggle Bending</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Alternar grade</value>
+    <value>Toggle Editor Grid</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Alternar encaixe</value>
+    <value>Toggle Snapping</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Alternar elevação uniforme</value>
+    <value>Toggle Straight Slopes</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Alternar Substituição de Zona</value>
+    <value>Toggle Zone Override</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>Mais opções de ferramentas para estradas e redes de segmentos em geral</value>
+    <value>More tool options for roads and other networks</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Ativar o registro de mensagens the depuração</value>
+    <value>Enable debug messages logging</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>Se ativado, mensagens the depuração adicionais serão registradas.</value>
+    <value>If checked, additional debug messages will be logged.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Ângulo de curva máximo</value>
+    <value>Max turn angle</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Reduzir pilares das catenárias dos trilhos</value>
+    <value>Reduce rail catenary masts</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Reduz a quantidade de catenárias de 3 para 1 por segmento.</value>
+    <value>Reduce the number of catenary mast of rail lines from 3 to 1 per segment.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Redefinir posição da janela de ferramentas</value>
+    <value>Reset tool window position</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Exibir controle do passo de elevação</value>
+    <value>Show elevation step slider</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Exibir controle para definir o passo da elevação entre 1m e 12m.</value>
+    <value>Show slider for changing the elevation step, from 1m to 12m.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Exibir Rótulos</value>
+    <value>Show Labels</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Desabilite para economizar espaço na tela</value>
+    <value>Disable to save some screen space</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Exibir controle para o tamanho máximo do segmento</value>
+    <value>Show max segment length slider</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Exibir controle deslizante para alterar o comprimento máximo do segmento, entre 4m e 256m. O padrão é 96m.</value>
+    <value>Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Forçar ângulo máximo de curvas para deixar os trilhos de bonde mais realistas</value>
+    <value>Change max turn angle for more realistic tram tracks turns</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Forçar o ângulo máximo definido em todas as estradas com trilhos de bonde se o valor atual for maior.</value>
+    <value>Change all roads with tram tracks max turn angle by the value below if current value is higher.</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Clique neste botão para mostrar Network Anarchy</value>
+    <value>Click this button to show Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Colisão foi combinada com o modo de Anarquia.
+    <value>Collision has been combined with Anarchy mode.
 
-Em seu lugar, o botão Substituir Colisão de Zonas controla se caminhos/cercas impedem que os blocos próximos sejam criados.</value>
+In its place, the Override Zone Collision button controls whether paths/fences stop nearby zoning tiles from being created.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Clique aqui para as Opções de Ferramenta</value>
+    <value>Click here for Tool Options</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} e {1} para alterar o passo da elevação</value>
+    <value>{0} and {1} to change elevation step</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>Passo de elevação:</value>
+    <value>Elevation Step:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Mostrar Grade</value>
+    <value>Show Editor Grid</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Comprimento máximo do segmento:</value>
+    <value>Max Segment Length:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Pontes: Forçar uso do modelo para ponte se disponível</value>
+    <value>Bridge: Forces the use of bridge pieces if available</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} e {1} para alternar modos</value>
+    <value>{0} and {1} to cycle modes</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Elevados: Forçar uso do modelo elevado se disponível</value>
+    <value>Elevated: Forces the use of elevated pieces if available</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Térreo: Forçar aterramento para seguir a elevação da estrada</value>
+    <value>Ground: Forces the ground to follow the elevation of the road</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normal: Construção de estradas pelas regras padrão do jogo</value>
+    <value>Normal: Unmodded road placement behavior</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Modos:</value>
+    <value>Modes:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Túnel: Forçar uso do modelo para túneis se disponível</value>
+    <value>Tunnel: Forces the use of tunnel pieces if available</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Alternar anarquia</value>
+    <value>Toggle anarchy</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Alternar curvatura automática</value>
+    <value>Toggle road bending</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Alternar colisão</value>
+    <value>Toggle collision</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Alternar elevação uniforme (não segue o formato do terreno)</value>
+    <value>Toggle straight slope (don't follow terrain shape)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Alternar encaixe</value>
+    <value>Toggle node snapping</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Substituir zona de colisão</value>
+    <value>Override zone collision</value>
   </data>
 </root>
