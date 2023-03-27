@@ -138,9 +138,6 @@
   <data name="key_elevationUp" xml:space="preserve">
     <value>เพิ่มการยกระดับ</value>
   </data>
-  <data name="key_pressAnyKey" xml:space="preserve">
-    <value>กดปุ่มใดก็ได้</value>
-  </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
     <value>เปิดโหมดอิสระ (Anarchy)</value>
   </data>
