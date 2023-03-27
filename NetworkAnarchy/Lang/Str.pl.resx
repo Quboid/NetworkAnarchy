@@ -138,9 +138,6 @@
   <data name="key_elevationUp" xml:space="preserve">
     <value>Zwiększ poziom wzniesienia</value>
   </data>
-  <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Naciśnij dowolny klawisz</value>
-  </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
     <value>Włącz / Wyłącz anarchię</value>
   </data>
