@@ -118,157 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>모드를 왼쪽으로 순환</value>
+    <value>Przełącz tryby w lewo</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>모드를 오른쪽으로 순환</value>
+    <value>Przełącz tryby w prawo</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>고도 낮춤</value>
+    <value>Zmniejsz poziom wzniesienia</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>고도 초기화</value>
+    <value>Zresetuj poziom wzniesienia</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>고도 단계 내리기</value>
+    <value>Poziom wzniesienia o krok w dół</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>고도 단계 올리기</value>
+    <value>Poziom wzniesienia o krok w górę</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>고도 올림</value>
+    <value>Zwiększ poziom wzniesienia</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>아무 키나 누르세요</value>
+    <value>Naciśnij dowolny klawisz</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>아나키 전환</value>
+    <value>Włącz / Wyłącz anarchię</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>벤딩 전환</value>
+    <value>Włącz / Wyłącz zaginanie</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>에디터 그리드 전환</value>
+    <value>Przełącz siatkę edytora</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>스냅핑 전환</value>
+    <value>Włącz / Wyłącz przyciąganie węzłów</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>직선 경사 전환</value>
+    <value>Włącz / Wyłącz proste nachylenia</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>구역 무시 전환</value>
+    <value>Przełącz nadpisywanie stref</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
+    <value>Więcej opcji narzędzia dla dróg i innych sieci</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>디버그 메시지 기록 활성화</value>
+    <value>Włącz logowanie komunikatów debugowania</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>선택하면 추가 디버그 메시지가 기록될 것입니다.</value>
+    <value>Jeśli zaznaczone, będą rejestrowane dodatkowe komunikaty debugowania.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>최대 회전 각도</value>
+    <value>Maksymalny kąt skrętu</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>철로 전차선 마스트 감소</value>
+    <value>Zmniejszona liczba masztów sieci trakcyjnej</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>철도선의 전차선 마스트 수를 세그먼트당 3개에서 1개로 줄입니다.</value>
+    <value>Zmniejsz liczbę masztów sieci trakcyjnej z 3 do 1 na jeden odcinek.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>툴 창 위치 초기화</value>
+    <value>Resetuj pozycję okna</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>고도 단계 슬라이더 표시</value>
+    <value>Pokaż suwak stopnia podniesienia</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>1m부터 12m까지 고도 단계를 변경하는 슬라이더를 표시합니다.</value>
+    <value>Pokaż suwak do zmiany stopnia podniesienia, z 1 m na 12 m.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>라벨 표시</value>
+    <value>Pokaż etykiety</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>화면 공간을 아끼려면 비활성화하세요</value>
+    <value>Wyłącz, aby zaoszczędzić trochę miejsca na ekranie</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>최대 세그먼트 길이 슬라이더 표시</value>
+    <value>Pokaż suwak maksymalnej długości odcinka</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>최대 세그먼트 길이를 4m부터 256m까지 변경하는 슬라이더를 표시합니다 (기본값은 96m).</value>
+    <value>Pokaż suwak do zmiany maksymalnej długości segmentu, od 4 m do 256 m (domyślnie 96 m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>더 현실적인 트램 트랙 회전을 위해 최대 회전 각도 변경하기</value>
+    <value>Zmień maksymalny kąt skrętu dla bardziej realistycznych zakrętów torów tramwajowych</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>트램 트랙이 있는 모든 도로 중 사용되는 최대 회전 각도의 값이 밑의 값보다 큰 도로를 밑의 값으로 변경합니다.</value>
+    <value>Zmień wszystkie drogi z torami tramwajowymi z maksymalnym kątem skrętu o wartość poniżej, jeśli bieżąca wartość jest wyższa.</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>이 버튼을 클릭해 Network Anarchy 표시</value>
+    <value>Kliknij ten przycisk, aby pokazać Anarchię Sieci</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>충돌 모드가 아나키 모드와 합쳐졌습니다.
+    <value>Kolizja została połączona z trybem Anarchii.
 
-그 자리에 이제부터는 구역 충돌 무시하기 버튼이 있고 경로/펜스 주변으로 구역 타일이 생성되는 것을 막을 지 제어합니다.</value>
+Przycisk Nadpisz kolizję stref, kontroluje czy ścieżki/ogrodzenia blokują tworzenie pobliskich kafelków strefy.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>여기를 클릭해 툴 옵션 보기</value>
+    <value>Kliknij tutaj, aby wyświetlić opcje narzędzia</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} 과 {1} 로 고도 단계 바꾸기</value>
+    <value>{0} i {1} aby zmienić poziom wzniesienia</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>고도 단계:</value>
+    <value>Stopień ukształtowania terenu:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>에디터 그리드 보기</value>
+    <value>Pokaż siatkę edytora</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>최대 세그먼트 길이:</value>
+    <value>Maksymalna długość odcinka:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>다리: 사용 가능하다면 다리 부분을 강제로 사용합니다.</value>
+    <value>Most: Wymusza użycie elementów mostowych, jeśli są one dostępne</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} 과 {1} 로 모드 순환</value>
+    <value>{0} i {1} aby przełączać pomiędzy trybami</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>고가: 사용 가능하다면 고가 부분을 강제로 사용합니다.</value>
+    <value>Podwyższenie: Wymusza użycie elementów podwyższenia, jeśli są one dostępne</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>지상: 땅이 도로의 높이를 따르도록 강제합니다.</value>
+    <value>Podłoże: Wymusza ziemię do podążania za ukształtowaniem drogi</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>일반: 수정되지 않은 도로 배치 동작</value>
+    <value>Normalny: niezmodyfikowane zachowanie umieszczenia drogi</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>모드:</value>
+    <value>Tryby:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>터널: 사용 가능하다면 터널 부분을 강제로 사용합니다.</value>
+    <value>Tunel – wymusza użycie elementów tunelu, jeśli są one dostępne</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>아나키 전환</value>
+    <value>Włącz / Wyłącz anarchię</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>도로 벤딩 전환</value>
+    <value>Włącz / Wyłącz zginanie drogi</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>충돌 전환</value>
+    <value>Włącz / Wyłącz kolizję</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>직선 경사 전환 (지형 모양을 따르지 않기)</value>
+    <value>Włącz / Wyłącz proste nachylenie (nie podąża wzdłuż terenu)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>노드 스냅핑 전환</value>
+    <value>Włącz / Wyłącz przyciąganie węzłów</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>구역 충돌 무시하기</value>
+    <value>Nadpisz kolizję stref</value>
   </data>
 </root>
