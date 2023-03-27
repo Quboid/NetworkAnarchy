@@ -118,157 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>เปลี่ยนโหมดการทำงาน (วนไปทางซ้ายมือ)</value>
+    <value>모드를 왼쪽으로 순환</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>เปลี่ยนโหมดการทำงาน (วนไปทางขวามือ)</value>
+    <value>모드를 오른쪽으로 순환</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>ลดการยกระดับ</value>
+    <value>고도 낮춤</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>คืนค่าความสูง</value>
+    <value>고도 초기화</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>ลดระดับขั้นการยกระดับ</value>
+    <value>고도 단계 내리기</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>เพิ่มระดับขั้นการยกระดับ</value>
+    <value>고도 단계 올리기</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>เพิ่มการยกระดับ</value>
+    <value>고도 올림</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>กดปุ่มใดก็ได้</value>
+    <value>아무 키나 누르세요</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>เปิดโหมดอิสระ (Anarchy)</value>
+    <value>아나키 전환</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>เปิดการดัด</value>
+    <value>벤딩 전환</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>เปิดแสดงเส้นตาราง</value>
+    <value>에디터 그리드 전환</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>เปิดโหมดการยึดติด</value>
+    <value>스냅핑 전환</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>เปิดโหมดปรับทางลาดตรง</value>
+    <value>직선 경사 전환</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>เปิดโหมดการซ้อนทับโซน</value>
+    <value>구역 무시 전환</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>TH: More tool options for roads and other networks</value>
+    <value>도로 및 기타 네트워크를 위한 더 많은 툴 옵션</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>เปิดใช้งานการบันทึกข้อความข้อบกพร่อง (Debug Logging)</value>
+    <value>디버그 메시지 기록 활성화</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>หากเลือกไว้ ข้อความแสดงการทำงาน (Debug) เพิ่มเติมจะถูกบันทึกไว้</value>
+    <value>선택하면 추가 디버그 메시지가 기록될 것입니다.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>มุมการเลี้ยวสูงสุด</value>
+    <value>최대 회전 각도</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>ลดเสาสายส่งที่อยู่เหนือรางรถไฟ</value>
+    <value>철로 전차선 마스트 감소</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>ลดจำนวนของเสาสายส่งของเส้นทางรถไฟ จาก 3 เป็น 1 ต่อเซกเมนต์</value>
+    <value>철도선의 전차선 마스트 수를 세그먼트당 3개에서 1개로 줄입니다.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>คืนค่าตำแหน่งหน้าต่างเครื่องมือ</value>
+    <value>툴 창 위치 초기화</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>แสดงแถบเลื่อนขั้นของการยกระดับ</value>
+    <value>고도 단계 슬라이더 표시</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนจำนวนขั้นของการยกระดับ จาก 1 เมตร ถึง 12 เมตร</value>
+    <value>1m부터 12m까지 고도 단계를 변경하는 슬라이더를 표시합니다.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>แสดงป้ายกำกับแถบเครื่องมือ</value>
+    <value>라벨 표시</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>ปิดเพื่อประหยัดพื้นที่บนหน้าจอบางส่วน</value>
+    <value>화면 공간을 아끼려면 비활성화하세요</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>แสดงแถบเลื่อนความยาวสูงสุดของเซ็กเมนต์</value>
+    <value>최대 세그먼트 길이 슬라이더 표시</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนความยาวสูงสุดของเซ็กเมนต์ จาก 4 เมตร ถึง 256 เมตร (ค่าเริ่มต้นคือ 96 เมตร)</value>
+    <value>최대 세그먼트 길이를 4m부터 256m까지 변경하는 슬라이더를 표시합니다 (기본값은 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>เปลี่ยนค่าสูงสุดของมุมการเลี้ยว เพื่อการเลี้ยวของรถรางที่สมจริงยิ่งขึ้น</value>
+    <value>더 현실적인 트램 트랙 회전을 위해 최대 회전 각도 변경하기</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>เปลี่ยนถนนทุกสายที่มีรางรางให้มีมุมเลี้ยวสูงสุด ตามการตั้งค่าด้านล่าง (หากค่าปัจจุบันสูงกว่า)</value>
+    <value>트램 트랙이 있는 모든 도로 중 사용되는 최대 회전 각도의 값이 밑의 값보다 큰 도로를 밑의 값으로 변경합니다.</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>คลิกที่ปุ่มนี้เพื่อแสดง Network Anarchy</value>
+    <value>이 버튼을 클릭해 Network Anarchy 표시</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>การซ้อนทับได้ถูกรวมเข้าไปอยู่ในโหมดอิสระแล้ว
+    <value>충돌 모드가 아나키 모드와 합쳐졌습니다.
 
-ในที่ส่วนนั้น ปุ่มการซ้อนทับโซนจะควบคุมว่าเส้นทาง หรือรั้วจะหยุดการสร้างตารางการแบ่งโซนในบริเวณใกล้เคียงหรือไม่</value>
+그 자리에 이제부터는 구역 충돌 무시하기 버튼이 있고 경로/펜스 주변으로 구역 타일이 생성되는 것을 막을 지 제어합니다.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
+    <value>여기를 클릭해 툴 옵션 보기</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} และ {1} เพื่อเปลี่ยนจำนวนขั้นของการยกระดับ</value>
+    <value>{0} 과 {1} 로 고도 단계 바꾸기</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>ขั้นของการยกระดับ</value>
+    <value>고도 단계:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>แสดงเส้นตารางในโหมดแก้ไข (Editor)</value>
+    <value>에디터 그리드 보기</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>ความยาวสูงสุดของเซ็กเมนต์</value>
+    <value>최대 세그먼트 길이:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>สะพาน: บังคับให้ใช้ชิ้นส่วนสะพาน (ถ้ามี)</value>
+    <value>다리: 사용 가능하다면 다리 부분을 강제로 사용합니다.</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} และ {1} เพื่อเปลี่ยนโหมด</value>
+    <value>{0} 과 {1} 로 모드 순환</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>ยกระดับ: บังคับให้ใช้ส่วนการยกระดับ (ถ้ามี)</value>
+    <value>고가: 사용 가능하다면 고가 부분을 강제로 사용합니다.</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>ระดับพื้นดิน: บังคับให้พื้นดินตามระดับความสูงของถนน</value>
+    <value>지상: 땅이 도로의 높이를 따르도록 강제합니다.</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>โหมดปกติ: ใช้การถนนที่เป็นแบบดั้งเดิมของเกม</value>
+    <value>일반: 수정되지 않은 도로 배치 동작</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>โหมด:</value>
+    <value>모드:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>บังคับให้เป็นอุโมงค์ (ถ้ามี)</value>
+    <value>터널: 사용 가능하다면 터널 부분을 강제로 사용합니다.</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>เปิดโหมดอิสระ (Anarchy)</value>
+    <value>아나키 전환</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>เปิดการดัดของถนน</value>
+    <value>도로 벤딩 전환</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>เปิดการป้องกันการซ้อนกัน</value>
+    <value>충돌 전환</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>เปิดโหมดลาดตรง (ไม่เป็นไปตามลักษณะภูมิประเทศ)</value>
+    <value>직선 경사 전환 (지형 모양을 따르지 않기)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>เปิดโหมดการยึดติด</value>
+    <value>노드 스냅핑 전환</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>การซ้อนทับโซน</value>
+    <value>구역 충돌 무시하기</value>
   </data>
 </root>
