@@ -118,157 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Parcourir les modes vers la gauche</value>
+    <value>Cambiare modalità verso sinistra</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Parcourir les modes vers la droite</value>
+    <value>Cambiare modalità verso destra</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Diminuer l'élévation</value>
+    <value>Diminuire l'elevazione</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Réinitialiser l'élévation</value>
+    <value>Ripristinare l'elevazione</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Diminuer l'incrément d'élévation</value>
+    <value>Diminuire l'incremento dell'elevazione</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Augmenter l'incrément d'élévation</value>
+    <value>Aumentare l'incremento dell'elevazione</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Augmenter l'élévation</value>
+    <value>Aumentare l'elevazione</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Appuyez sur n'importe quelle touche</value>
+    <value>Premi qualsiasi tasto</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Activer/Désactiver l'anarchie</value>
+    <value>Attivare/Disattivare l'anarchia</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Activer/Désactiver la courbure</value>
+    <value>Attivare/Disattivare la curvatura</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Afficher/Masquer la grille de l'éditeur</value>
+    <value>Attivare/Disattivare la griglia dell'editor</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Activer/Désactiver l'ancrage aux nœuds</value>
+    <value>Attivare/Disattivare l'aggancio dei nodi</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Activer/Désactiver les pentes constantes</value>
+    <value>Attivare/Disattivare le pendenze rettilinee</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Activer / Désactiver le zonage forcé</value>
+    <value>Attiva/Disattiva Sovrascrivi Zona</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>Plus d'options d'outil pour les routes et les autres réseaux</value>
+    <value>Più opzioni di strumenti per strade e altre reti</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Activer les messages de débogage</value>
+    <value>Abilita registrazione messaggi di debug</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>Si coché, les messages de débogage supplémentaires seront enregistrés.</value>
+    <value>Se selezionato, verranno registrati messaggi di debug aggiuntivi.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Angle de virage maximal</value>
+    <value>Angolo di rotazione massimo</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Réduire le nombre de caténaires</value>
+    <value>Ridurre il numero di catenarie ferroviarie</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Réduit le nombre de caténaires des lignes ferroviaires de 3 à 1 par segment.</value>
+    <value>Ridurre il numero di catenarie di linee ferroviarie da 3 a 1 per segmento.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Réinitialiser la position de la fenêtre</value>
+    <value>Ripristinare la posizione della finestra degli strumenti</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Afficher le curseur d'incréments d'élévation</value>
+    <value>Mostrare il cursore dell'incremento di elevazione</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Afficher le curseur pour changer l'incrémentation de l'élévation, de 1 m à 12 m.</value>
+    <value>Mostrare il cursore per cambiare l'incremento dell'elevazione, da 1m a 12m.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Afficher les libellés</value>
+    <value>Mostra descrizioni</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Désactiver pour économiser de la place</value>
+    <value>Disabilita per risparmiare spazio sullo schermo</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Afficher le curseur de longueur de segment maximal</value>
+    <value>Mostrare il cursore della lunghezza massima del segmento</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Afficher le curseur pour changer la longueur maximale du segment, de 4m à 256m (par défaut 96m).</value>
+    <value>Mostrare il cursore per cambiare la lunghezza massima del segmento, da 4m a 256m (predefinito 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Changer l'angle de virage maximal pour des virages de tram plus réalistes</value>
+    <value>Cambiare l'angolo massimo di rotazione per curve dei tram più realistiche</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Change toutes les routes avec des voies de tramway avec un angle de rotation maximum par la valeur ci-dessous, si la valeur actuelle est plus élevée.</value>
+    <value>Cambia tutte le strade con binari del tram con angolo di rotazione massimo con il valore sottostante se quello attuale è maggiore.</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Cliquez sur ce bouton pour afficher Network Anarchy</value>
+    <value>Clicca il pulsante per mostrare Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Du nouveau : le mode Collision est maintenant combiné au mode Anarchie.
+    <value>La collisione è stata combinata con la modalità Anarchia.
 
-Vous trouverez à sa place le mode Zonage Forcé. Ce nouveau mode permet de forcer le jeu à créer du zonage le long des routes même si des sentiers, clôtures ou autres réseaux s'y trouvent.</value>
+Al suo posto, il pulsante Sovrascrivi Collisione Zona controlla se i sentieri/recinti impediscono la zonatura.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Cliquez ici pour les options de l'outil</value>
+    <value>Fare clic qui per le opzioni degli strumenti</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} et {1} pour changer l'incrément d'élévation</value>
+    <value>{0} e {1} per cambiare l'incremento di elevazione</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>Incrément d'élévation :</value>
+    <value>Incremento dell'elevazione:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Afficher la grille de l'éditeur</value>
+    <value>Mostra Griglia Editor</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Longueur max du segment :</value>
+    <value>Lunghezza massima del segmento:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Pont : Force l'utilisation des ponts si possible</value>
+    <value>Ponte: se possibile, forza l'utilizzo di ponti</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} et {1} pour parcourir les modes</value>
+    <value>{0} e {1} per cambiare modalità</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Sur-élevé : Force l'utilisation de la sur-élévation si possible</value>
+    <value>Strada sopraelevata: se possibile, forza l'utilizzo di strade sopraelevate</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Sol : Force le sol à suivre l'élévation de la route</value>
+    <value>Terreno: forza il terreno a seguire l'elevazione della strada</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normal : Comportement des routes du jeu de base</value>
+    <value>Normale: le strade vengono costruite normalmente (senza mod)</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Modes :</value>
+    <value>Modalità:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunnel : Force l'utilisation des tunnels si possible</value>
+    <value>Galleria: se possibile forza l'uso di gallerie</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Activer/Désactiver l'anarchie</value>
+    <value>Attivare/Disattivare l'anarchia</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Activer/Désactiver la flexion des routes</value>
+    <value>Attivare/Disattivare la curvatura delle strade</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Activer/Désactiver la collision</value>
+    <value>Attivare/Disattivare la collisione</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Activer/désactiver la pente droite (ne suis pas la forme du terrain)</value>
+    <value>Attiva/Disattiva pendenza diretta (non segue la forma del terreno)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Activer/Désactiver l'ancrage aux nœuds</value>
+    <value>Attivare/Disattivare l'aggancio ai nodi</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Zonage forcé</value>
+    <value>Sovrascrivi collisione zona</value>
   </data>
 </root>
