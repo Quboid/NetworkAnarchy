@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
-// Error code max: 68
+// Error code max: 74
 
 namespace NetworkAnarchy
 {
@@ -182,7 +182,7 @@ namespace NetworkAnarchy
             Dictionary<ulong, string> incompatbleMods = new Dictionary<ulong, string>
             {
                 //{ 2862881785,   "Network Anarchy" },
-                //{ 2917150208,   "Network Anarchy (beta)" },
+                { 2917150208,   "Network Anarchy (beta)" },
                 { 1844442251,   "Fine Road Tool" },
                 { 1844440354,   "Fine Road Anarchy" },
                 { 2847163882,   "Any Road Outside Connections Revisited" },

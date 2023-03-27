@@ -382,7 +382,7 @@ namespace NetworkAnarchy
                 m_elevation = Mathf.RoundToInt(Mathf.RoundToInt(m_elevation / (256f / 12f)) * (256f / 12f));
             }
 
-            Log.Debug($"UpdateElevation: m_elevationField:{m_elevationField.GetValue(m_netTool)}, m_elevation:{m_elevation}", "[NA69]");
+            //Log.Debug($"UpdateElevation: m_elevationField:{m_elevationField.GetValue(m_netTool)}, m_elevation:{m_elevation}", "[NA74]");
 
             if ((int)m_elevationField.GetValue(m_netTool) != m_elevation)
             {

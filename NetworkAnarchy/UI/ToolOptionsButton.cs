@@ -56,6 +56,7 @@ namespace NetworkAnarchy
 
         public new void Update() 
         {
+            if (parent != null || m_parent != null) Log.Debug($"parent:{(parent == null ? "<null>" : parent.ToString())} m_parent:{(m_parent == null ? "<null>" : m_parent.ToString())}");
             if (parent != m_parent && parent != null)
             {
                 string caller = new StackTrace()?.GetFrame(1)?.GetMethod()?.Name;
