@@ -118,157 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Cyklovat režimy v levo</value>
+    <value>Modi nach links durchschalten</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Cyklovat režimy v pravo</value>
+    <value>Modi nach rechts durchschalten</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Ubrat vyvýšení</value>
+    <value>Höhe verringern</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Resetovat vyvýšení</value>
+    <value>Höhe zurücksetzen</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Ubrat krok vyvýšení</value>
+    <value>Höhenschritt nach unten</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Přidat krok vyvýšení</value>
+    <value>Höhenschritt nach oben</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Přidat vyvýšení</value>
+    <value>Höhe erhöhen</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Stiskněte libovolnou klávesu</value>
+    <value>Beliebige Taste drücken</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Přepnout Anarchii</value>
+    <value>Anarchie ein/aus</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Přepnout ohyb</value>
+    <value>Biegen ein/aus</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Přepnout editor mřížky</value>
+    <value>Editor-Raster ein/aus</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Přepnout přichytávání</value>
+    <value>Einrasten ein/aus</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Přepínač přímého sklonu</value>
+    <value>Begradigen ein/aus</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Přepnout přepsání zóny</value>
+    <value>Zonenüberschreibung umschalten</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>Další možnosti nástroje pro silnice a ostatní sítě</value>
+    <value>Weitere Werkzeugoptionen für Straßen und andere Netzwerke</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Povolit protokolování ladících zpráv</value>
+    <value>Protokollieren von Debugmeldungen aktivieren</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>Je-li zaškrtnuto, dalšś zprávy ladění nebudou zaznamenány.</value>
+    <value>Wenn aktiviert, werden Debug-Meldungen protokolliert.</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Maximální úhel zatočení</value>
+    <value>Maximaler Kurvenwinkel</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Snížení počtu stožárů trakčního vedení</value>
+    <value>Anzahl der Oberleitungsmasten reduzieren</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Snížit počet trolejového vedení železniční tratě ze 3 na 1 za segment.</value>
+    <value>Reduziert die Anzahl der Oberleitungsmasten von Bahnlinien von 3 auf 1 pro Segment.</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Obnovit pozici okna nástroje</value>
+    <value>Position des Werkzeugfensters zurücksetzen</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Zobrazit posuvník kroku vyvýšení</value>
+    <value>Höhenschritt-Schieberegler anzeigen</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Zobrazit posuvník pro změnu kroku vyvýšení od 1m do 12m.</value>
+    <value>Schieberegler zum Ändern des Höhenschritts zwischen 1m bis 12m anzeigen.</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Zobrazit popisky</value>
+    <value>Beschriftung einblenden</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Zakázat pro uspoření nějakého místa na obrazovce</value>
+    <value>Deaktivieren, um etwas Platz zu sparen</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Zobrazit posuvník maximální délky segmentu</value>
+    <value>Segmentlänge-Schieberegler anzeigen</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Zobrazit posuvník pro změnu maximální délky segmentu, od 4m do 256m (výchozí je 96m).</value>
+    <value>Schieberegler zum Ändern der Segmentlänge zwischen 4m bis 256m anzeigen (Standardwert ist 96m).</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Změňte maximální úhel zatáčení pro realističtější zatáčky kolejí</value>
+    <value>Ändere den maximalen Kurvenwinkel für realistischere Tramspuren</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Změňte maximální úhel zatočení všech silnic s tramvajovými kolejemi o níže uvedenou hodnotu, pokud je současná hodnota vyšší.</value>
+    <value>Ändert alle Strassen mit Tramspuren auf den maximalen Kurvenwinkel des unten angegebenen Wertes, wenn der aktuelle Wert höher ist.</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Click this button to show Network Anarchy</value>
+    <value>Klicke auf diese Schaltfläche, um Network Anarchy anzuzeigen</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Režim kolize byl kombinován s režimem Anarchie.
+    <value>Kollision wurde mit dem Anarchie-Modus kombiniert.
 
-Místo něj je zde tlačítko Přepsat kolizi zóny, které řídí, zda cesty/ploty zastaví vytváření blízkých zón.</value>
+An seiner Stelle kontrolliert der Knopf zum Zone Kollision überschreiben, ob Pfade/Zäune die Erstellung von Kacheln in der Nähe verhindern.</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Klikněte zde pro možnosti nástrojů</value>
+    <value>Hier klicken für Werkzeugoptionen</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} a {1} pro změnu kroku vyvýšení</value>
+    <value>{0} und {1} um den Höhenschritt zu ändern</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>Krok vyvýšení:</value>
+    <value>Höhenschritt:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Zobrazit editor mřížky</value>
+    <value>Editier-Raster anzeigen</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Maximální délka segmentu:</value>
+    <value>Maximale Segmentlänge:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Most: Vynucuje použití mostních segmentů, jsou-li k dispozici</value>
+    <value>Brücke: Erzwingt die Verwendung von Brückenteilen, falls verfügbar</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} a {1} k cyklickému přepínání režimů</value>
+    <value>{0} und {1} um durch die Modi zu schalten</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Vyvýšené: Vynutí použití vyvýšených segmentů, pokud jsou k dispozici</value>
+    <value>Erhöht: Erzwingt den Einsatz erhöhter Teile, falls verfügbar</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Země: Vynucuje sledování terénu po zemi</value>
+    <value>Boden: Zwingt den Boden, der Höhe der Straße zu folgen</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normální: chování při používání nemodované silnice</value>
+    <value>Normal: Nicht modifiziertes Platzieren der Straßen</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Režimy:</value>
+    <value>Modi:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunel: Vynucuje použití tunelu, pokud je k dispozici</value>
+    <value>Tunnel: Erzwingt die Verwendung von Tunnelteilen, falls verfügbar</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Přepnout anarchii</value>
+    <value>Anarchie ein/aus</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Přepnout ohýbání silnice</value>
+    <value>Straßenbiegung ein/aus</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Přepnout kolize</value>
+    <value>Kollision ein/aus</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Přepínač přímého sklonu (nesledujte tvar terénu)</value>
+    <value>Geradlinig bauen umschalten (Geländeform nicht folgen)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Přepnout přichytávání uzlů</value>
+    <value>Einrasten ein/aus</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Přepsat kolizi zóny</value>
+    <value>Zonen-Kollision überschreiben</value>
   </data>
 </root>
