@@ -118,155 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Предыдущий режим</value>
+    <value>เปลี่ยนโหมดการทำงาน (วนไปทางซ้ายมือ)</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Следующий режим</value>
+    <value>เปลี่ยนโหมดการทำงาน (วนไปทางขวามือ)</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>Уменьшить подъем</value>
+    <value>ลดการยกระดับ</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>Сбросить подъем</value>
+    <value>คืนค่าความสูง</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Уменьшить шаг подъема</value>
+    <value>ลดระดับขั้นการยกระดับ</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Увеличить шаг подъема</value>
+    <value>เพิ่มระดับขั้นการยกระดับ</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>Увеличить подъем</value>
+    <value>เพิ่มการยกระดับ</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Нажмите любую клавишу</value>
+    <value>กดปุ่มใดก็ได้</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Вкл/Выкл анархию</value>
+    <value>เปิดโหมดอิสระ (Anarchy)</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>Вкл/Выкл изгиб</value>
+    <value>เปิดการดัด</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>Вкл/Выкл сетку</value>
+    <value>เปิดแสดงเส้นตาราง</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Вкл/Выкл привязку</value>
+    <value>เปิดโหมดการยึดติด</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Вкл/Выкл прямой склон</value>
+    <value>เปิดโหมดปรับทางลาดตรง</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Переключить переопределение зон</value>
+    <value>เปิดโหมดการซ้อนทับโซน</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>Больше возможностей для дорог и других сетевых объектов</value>
+    <value>TH: More tool options for roads and other networks</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Включить отладочные сообщения</value>
+    <value>เปิดใช้งานการบันทึกข้อความข้อบกพร่อง (Debug Logging)</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>Если выбрано, сообщения отладки будут писаться в лог.</value>
+    <value>หากเลือกไว้ ข้อความแสดงการทำงาน (Debug) เพิ่มเติมจะถูกบันทึกไว้</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Макс. угол поворота</value>
+    <value>มุมการเลี้ยวสูงสุด</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Уменьшить число опор проводов</value>
+    <value>ลดเสาสายส่งที่อยู่เหนือรางรถไฟ</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Уменьшить число опор проводов с 3 до 1 для каждого сегмента.</value>
+    <value>ลดจำนวนของเสาสายส่งของเส้นทางรถไฟ จาก 3 เป็น 1 ต่อเซกเมนต์</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Сбросить позиции окон</value>
+    <value>คืนค่าตำแหน่งหน้าต่างเครื่องมือ</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Показать слайдер шага подъема</value>
+    <value>แสดงแถบเลื่อนขั้นของการยกระดับ</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Показать слайдер для изменения шага подъема от 1м до 12м.</value>
+    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนจำนวนขั้นของการยกระดับ จาก 1 เมตร ถึง 12 เมตร</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>Показывать названия функций</value>
+    <value>แสดงป้ายกำกับแถบเครื่องมือ</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Отключите для сохранения пространства на экране</value>
+    <value>ปิดเพื่อประหยัดพื้นที่บนหน้าจอบางส่วน</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Показать слайдер максимальной длины сегмента</value>
+    <value>แสดงแถบเลื่อนความยาวสูงสุดของเซ็กเมนต์</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Показать слайдер для изменения максимальной длины сегмента от 4м до 256м (96м по умолчанию).</value>
+    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนความยาวสูงสุดของเซ็กเมนต์ จาก 4 เมตร ถึง 256 เมตร (ค่าเริ่มต้นคือ 96 เมตร)</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Изменить максимальный угол поворота для более реалистичных поворотов трамвая</value>
+    <value>เปลี่ยนค่าสูงสุดของมุมการเลี้ยว เพื่อการเลี้ยวของรถรางที่สมจริงยิ่งขึ้น</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Изменить максимальный угол поворота для всех дорог с трамвайными рельсами, если их значение меньше указанного.</value>
+    <value>เปลี่ยนถนนทุกสายที่มีรางรางให้มีมุมเลี้ยวสูงสุด ตามการตั้งค่าด้านล่าง (หากค่าปัจจุบันสูงกว่า)</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Нажмите эту кнопку, чтобы показать Network Anarchy</value>
+    <value>คลิกที่ปุ่มนี้เพื่อแสดง Network Anarchy</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>При включенной "Переопределить коллизию зон", пешеходные дорожки и заборы не будут препятствовать созданию зон.</value>
+    <value>การซ้อนทับได้ถูกรวมเข้าไปอยู่ในโหมดอิสระแล้ว
+
+ในที่ส่วนนั้น ปุ่มการซ้อนทับโซนจะควบคุมว่าเส้นทาง หรือรั้วจะหยุดการสร้างตารางการแบ่งโซนในบริเวณใกล้เคียงหรือไม่</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Нажмите здесь для открытия опций</value>
+    <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} и {1} для изменения шага подъёма</value>
+    <value>{0} และ {1} เพื่อเปลี่ยนจำนวนขั้นของการยกระดับ</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>Шаг подъема:</value>
+    <value>ขั้นของการยกระดับ</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>Показать сетку редактора</value>
+    <value>แสดงเส้นตารางในโหมดแก้ไข (Editor)</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Макс длина сегмента:</value>
+    <value>ความยาวสูงสุดของเซ็กเมนต์</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>Мост: использовать мост, при наличии</value>
+    <value>สะพาน: บังคับให้ใช้ชิ้นส่วนสะพาน (ถ้ามี)</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} и {1} для смены режимов</value>
+    <value>{0} และ {1} เพื่อเปลี่ยนโหมด</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>Эстакада: использовать эстакаду, при наличии</value>
+    <value>ยกระดับ: บังคับให้ใช้ส่วนการยกระดับ (ถ้ามี)</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>Наземный: поверхность следует за высотой дороги</value>
+    <value>ระดับพื้นดิน: บังคับให้พื้นดินตามระดับความสูงของถนน</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>Обычный: выбор типа дороги по умолчанию</value>
+    <value>โหมดปกติ: ใช้การถนนที่เป็นแบบดั้งเดิมของเกม</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>Режимы:</value>
+    <value>โหมด:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Туннель: использовать туннель, при наличии</value>
+    <value>บังคับให้เป็นอุโมงค์ (ถ้ามี)</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Вкл/Выкл анархию</value>
+    <value>เปิดโหมดอิสระ (Anarchy)</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>Вкл/Выкл изгиб</value>
+    <value>เปิดการดัดของถนน</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Вкл/Выкл коллизию</value>
+    <value>เปิดการป้องกันการซ้อนกัน</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Вкл/выкл Прямой уклон (соответствие ландшафту)</value>
+    <value>เปิดโหมดลาดตรง (ไม่เป็นไปตามลักษณะภูมิประเทศ)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Вкл/Выкл привязку</value>
+    <value>เปิดโหมดการยึดติด</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Переопределить коллизию зон</value>
+    <value>การซ้อนทับโซน</value>
   </data>
 </root>
