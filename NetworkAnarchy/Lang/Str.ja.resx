@@ -118,157 +118,157 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>เปลี่ยนโหมดการทำงาน (วนไปทางซ้ายมือ)</value>
+    <value>モードを左に移る</value>
   </data>
   <data name="key_cycleModesRight" xml:space="preserve">
-    <value>เปลี่ยนโหมดการทำงาน (วนไปทางขวามือ)</value>
+    <value>モードを右に移る</value>
   </data>
   <data name="key_elevationDown" xml:space="preserve">
-    <value>ลดการยกระดับ</value>
+    <value>高さを下げる</value>
   </data>
   <data name="key_elevationReset" xml:space="preserve">
-    <value>คืนค่าความสูง</value>
+    <value>高さをリセット</value>
   </data>
   <data name="key_elevationStepDown" xml:space="preserve">
-    <value>ลดระดับขั้นการยกระดับ</value>
+    <value>高さを少し下げる</value>
   </data>
   <data name="key_elevationStepUp" xml:space="preserve">
-    <value>เพิ่มระดับขั้นการยกระดับ</value>
+    <value>高さを少し上げる</value>
   </data>
   <data name="key_elevationUp" xml:space="preserve">
-    <value>เพิ่มการยกระดับ</value>
+    <value>高さを上げる</value>
   </data>
   <data name="key_pressAnyKey" xml:space="preserve">
-    <value>กดปุ่มใดก็ได้</value>
+    <value>何かキーを押してください</value>
   </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>เปิดโหมดอิสระ (Anarchy)</value>
+    <value>アナーキーを切替</value>
   </data>
   <data name="key_toggleBending" xml:space="preserve">
-    <value>เปิดการดัด</value>
+    <value>湾曲の切り替え</value>
   </data>
   <data name="key_toggleGrid" xml:space="preserve">
-    <value>เปิดแสดงเส้นตาราง</value>
+    <value>グリッド表示の切替</value>
   </data>
   <data name="key_toggleSnapping" xml:space="preserve">
-    <value>เปิดโหมดการยึดติด</value>
+    <value>スナップの切替</value>
   </data>
   <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>เปิดโหมดปรับทางลาดตรง</value>
+    <value>直線スロープの切替</value>
   </data>
   <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>เปิดโหมดการซ้อนทับโซน</value>
+    <value>ゾーニングの上書きを切り替え</value>
   </data>
   <data name="mod_Description" xml:space="preserve">
-    <value>TH: More tool options for roads and other networks</value>
+    <value>道路やネットワークのためのより多くのツール</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>เปิดใช้งานการบันทึกข้อความข้อบกพร่อง (Debug Logging)</value>
+    <value>デバッグメッセージのログを有効化</value>
   </data>
   <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>หากเลือกไว้ ข้อความแสดงการทำงาน (Debug) เพิ่มเติมจะถูกบันทึกไว้</value>
+    <value>チェック時は追加のデバッグメッセージをログします。</value>
   </data>
   <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>มุมการเลี้ยวสูงสุด</value>
+    <value>最大回転角度</value>
   </data>
   <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>ลดเสาสายส่งที่อยู่เหนือรางรถไฟ</value>
+    <value>架線柱を減らす</value>
   </data>
   <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>ลดจำนวนของเสาสายส่งของเส้นทางรถไฟ จาก 3 เป็น 1 ต่อเซกเมนต์</value>
+    <value>架線柱の数を1セグメントにつき3つから1つに減らします。</value>
   </data>
   <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>คืนค่าตำแหน่งหน้าต่างเครื่องมือ</value>
+    <value>ウィンドウの位置をリセットする</value>
   </data>
   <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>แสดงแถบเลื่อนขั้นของการยกระดับ</value>
+    <value>高さのスライダーを表示</value>
   </data>
   <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนจำนวนขั้นของการยกระดับ จาก 1 เมตร ถึง 12 เมตร</value>
+    <value>高さのステップを1m〜12mに変更するためのスライダーを表示します。</value>
   </data>
   <data name="options_showLabels" xml:space="preserve">
-    <value>แสดงป้ายกำกับแถบเครื่องมือ</value>
+    <value>ラベルを表示</value>
   </data>
   <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>ปิดเพื่อประหยัดพื้นที่บนหน้าจอบางส่วน</value>
+    <value>画面のスペースを節約したい場合は無効化します。</value>
   </data>
   <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>แสดงแถบเลื่อนความยาวสูงสุดของเซ็กเมนต์</value>
+    <value>セグメントの最大長を調整するためのスライダーを表示</value>
   </data>
   <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>แสดงแถบเลื่อนสำหรับการเปลี่ยนความยาวสูงสุดของเซ็กเมนต์ จาก 4 เมตร ถึง 256 เมตร (ค่าเริ่มต้นคือ 96 เมตร)</value>
+    <value>セグメントの最大長を4m〜256mに変更するためのスライダーを表示します(デフォルトは96m)。</value>
   </data>
   <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>เปลี่ยนค่าสูงสุดของมุมการเลี้ยว เพื่อการเลี้ยวของรถรางที่สมจริงยิ่งขึ้น</value>
+    <value>トラム線路のカーブをより現実的にするために最大回転角を変更します</value>
   </data>
   <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>เปลี่ยนถนนทุกสายที่มีรางรางให้มีมุมเลี้ยวสูงสุด ตามการตั้งค่าด้านล่าง (หากค่าปัจจุบันสูงกว่า)</value>
+    <value>現在の最大角のほうが大きい場合、トラム線路のある全ての道路の最大角が変更されます。</value>
   </data>
   <data name="popup_buttonReminder" xml:space="preserve">
-    <value>คลิกที่ปุ่มนี้เพื่อแสดง Network Anarchy</value>
+    <value>Network Anarchyを表示するには、ボタンをクリックして下さい。</value>
   </data>
   <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>การซ้อนทับได้ถูกรวมเข้าไปอยู่ในโหมดอิสระแล้ว
+    <value>衝突判定は、アナーキーモードと統合されました。
 
-ในที่ส่วนนั้น ปุ่มการซ้อนทับโซนจะควบคุมว่าเส้นทาง หรือรั้วจะหยุดการสร้างตารางการแบ่งโซนในบริเวณใกล้เคียงหรือไม่</value>
+代わりに「ゾーニングの衝突判定を上書き」ボタンは、パスやフェンスが付近のゾーニング生成の有無を制御します。</value>
   </data>
   <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>คลิกที่นี่สำหรับตัวเลือกเครื่องมือ</value>
+    <value>クリックでオプションを表示</value>
   </data>
   <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} และ {1} เพื่อเปลี่ยนจำนวนขั้นของการยกระดับ</value>
+    <value>{0} と {1} で高さのピッチを変更します。</value>
     <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
   </data>
   <data name="ui_elevationStep" xml:space="preserve">
-    <value>ขั้นของการยกระดับ</value>
+    <value>高さの変更量:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_grid" xml:space="preserve">
-    <value>แสดงเส้นตารางในโหมดแก้ไข (Editor)</value>
+    <value>エディタのグリッドを表示</value>
   </data>
   <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>ความยาวสูงสุดของเซ็กเมนต์</value>
+    <value>セグメントの最大長:</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeBridge" xml:space="preserve">
-    <value>สะพาน: บังคับให้ใช้ชิ้นส่วนสะพาน (ถ้ามี)</value>
+    <value>橋梁: 可能であれば橋梁を使用する</value>
   </data>
   <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} และ {1} เพื่อเปลี่ยนโหมด</value>
+    <value>{0} と {1} でモードを左右に切り替えます。</value>
     <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
   </data>
   <data name="ui_modeElevated" xml:space="preserve">
-    <value>ยกระดับ: บังคับให้ใช้ส่วนการยกระดับ (ถ้ามี)</value>
+    <value>高架: 可能であれば高架を使用する</value>
   </data>
   <data name="ui_modeGround" xml:space="preserve">
-    <value>ระดับพื้นดิน: บังคับให้พื้นดินตามระดับความสูงของถนน</value>
+    <value>地面: 道路の傾斜を地面に沿わせる</value>
   </data>
   <data name="ui_modeNormal" xml:space="preserve">
-    <value>โหมดปกติ: ใช้การถนนที่เป็นแบบดั้งเดิมของเกม</value>
+    <value>通常: 非mod状態で道路を配置する</value>
   </data>
   <data name="ui_modes" xml:space="preserve">
-    <value>โหมด:</value>
+    <value>モード</value>
     <comment>Keep the ":" if used in your language</comment>
   </data>
   <data name="ui_modeTunnel" xml:space="preserve">
-    <value>บังคับให้เป็นอุโมงค์ (ถ้ามี)</value>
+    <value>トンネル: 可能であればトンネルを使用する</value>
   </data>
   <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>เปิดโหมดอิสระ (Anarchy)</value>
+    <value>アナーキーの切替</value>
   </data>
   <data name="ui_toggleBending" xml:space="preserve">
-    <value>เปิดการดัดของถนน</value>
+    <value>湾曲の切替</value>
   </data>
   <data name="ui_toggleCollision" xml:space="preserve">
-    <value>เปิดการป้องกันการซ้อนกัน</value>
+    <value>衝突判定の切替</value>
   </data>
   <data name="ui_toggleSlope" xml:space="preserve">
-    <value>เปิดโหมดลาดตรง (ไม่เป็นไปตามลักษณะภูมิประเทศ)</value>
+    <value>直線スロープの切替 (地形に追従しない)</value>
   </data>
   <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>เปิดโหมดการยึดติด</value>
+    <value>ノードスナップの切替</value>
   </data>
   <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>การซ้อนทับโซน</value>
+    <value>ゾーニングの衝突判定を上書き</value>
   </data>
 </root>
