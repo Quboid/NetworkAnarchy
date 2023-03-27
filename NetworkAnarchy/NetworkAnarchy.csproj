@@ -2,18 +2,17 @@
   <PropertyGroup>
     <TargetFramework>net35</TargetFramework>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-    <Version>3.0.12</Version>
+    <Version>3.2.1</Version>
     <ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed/</ManagedDLLPath>
     <AssemblySearchPaths>
 	  $(AssemblySearchPaths);
       $(ManagedDLLPath);
       ../../../../Libraries/;
-      ../../../../QCommon/Repo/QCommon/QCommon/bin/Release/;
     </AssemblySearchPaths>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Deterministic>False</Deterministic>
-	  <AssemblyVersion>3.0.11.*</AssemblyVersion>
-    <FileVersion>3.0.11.0</FileVersion>
+	  <AssemblyVersion>3.2.1.*</AssemblyVersion>
+    <FileVersion>3.2.1.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CitiesHarmony.API" Version="2.1.0" />
@@ -33,7 +32,62 @@
   <ItemGroup>
     <EmbeddedResource Include="ChirperAtlas\*.png" />
     <EmbeddedResource Include="Icons\*.png" />
-    <Compile Update="Localization\Str.Designer.cs">
+    <EmbeddedResource Remove="Lang\Str.cs.resx" />
+    <EmbeddedResource Remove="Lang\Str.de.resx" />
+    <EmbeddedResource Remove="Lang\Str.es.resx" />
+    <EmbeddedResource Remove="Lang\Str.fr.resx" />
+    <EmbeddedResource Remove="Lang\Str.it.resx" />
+    <EmbeddedResource Remove="Lang\Str.ja.resx" />
+    <EmbeddedResource Remove="Lang\Str.ko.resx" />
+    <EmbeddedResource Remove="Lang\Str.pl.resx" />
+    <EmbeddedResource Remove="Lang\Str.pt.resx" />
+    <EmbeddedResource Remove="Lang\Str.resx" />
+    <EmbeddedResource Remove="Lang\Str.ru.resx" />
+    <EmbeddedResource Remove="Lang\Str.th.resx" />
+    <EmbeddedResource Remove="Lang\Str.zh-cn.resx" />
+    <None Include="Lang\Str.cs.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.de.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.es.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.fr.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.it.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.ja.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.ko.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.pl.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.pt.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.resx">
+      <Generator>LocalizeGenerator</Generator>
+      <LastGenOutput>Str.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.ru.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.th.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\Str.zh-cn.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Update="Lang\Str.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Str.resx</DependentUpon>
@@ -43,11 +97,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <EmbeddedResource Update="Localization\Str.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Str.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Update="Properties\Settings.settings">
@@ -78,4 +127,14 @@
   </Target>
   <Import Project="..\..\..\..\QCommon\Repo\QCommon\QCommon\Harmony\QCommon Harmony.projitems" Label="Shared" />
   <Import Project="..\..\..\..\QCommon\Repo\QCommon\QCommon\Shared\QCommon Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <EmbeddedResource Update="E:\CSLMods\QCommon\Repo\QCommon\QCommon\Shared\Lang\Common\QStr.resx">
+      <LastGenOutput>QStr.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="E:\CSLMods\QCommon\Repo\QCommon\QCommon\Shared\Lang\Common\QStr.resx">
+      <LastGenOutput>QStr.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
 </Project>

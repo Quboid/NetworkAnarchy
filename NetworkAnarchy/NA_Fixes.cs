@@ -7,29 +7,31 @@ namespace NetworkAnarchy
 {
     public partial class NetworkAnarchy : MonoBehaviour
     {
+        //private int m_fixExecutions = 0;
+
         private void FixNodes()
         {
+            uint max = NetManager.instance.m_nodes.m_size;
+            if (m_fixNodesCount == max) return;
+
+            //if (m_fixNodesCount == 0) Log.Debug($"Starting FixNodes cycle");
+
             QTimer timer = new QTimer();
 
             NetNode[] nodes = NetManager.instance.m_nodes.m_buffer;
+            NetNode.Flags fNUnder = NetNode.Flags.Underground;
+            NetNode.Flags fNUntouch = NetNode.Flags.Untouchable;
+            Vehicle.Flags fVUnder = Vehicle.Flags.Underground;
             //string msg = "";
 
             bool singleMode = NetPrefab.SingleMode;
             NetPrefab.SingleMode = false;
 
-            uint max = NetManager.instance.m_nodes.m_size;
             for (int i = m_fixNodesCount; i < max; i++)
             {
-                if (nodes[i].m_flags == NetNode.Flags.None || (nodes[i].m_flags & NetNode.Flags.Untouchable) == NetNode.Flags.Untouchable)
+                if (nodes[i].m_flags == NetNode.Flags.None)
                 {
                     continue;
-                }
-
-                if (timer.MS >= 1 && i > m_fixNodesCount + 16)
-                {
-                    m_fixNodesCount = i;
-                    NetPrefab.SingleMode = singleMode;
-                    return;
                 }
 
                 NetInfo info = nodes[i].Info;
@@ -38,24 +40,53 @@ namespace NetworkAnarchy
                     continue;
                 }
 
-                var prefab = NetPrefab.GetPrefab(info);
+                // Fix for underground metro stations
+                if ((nodes[i].m_flags & fNUnder) != fNUnder && (info.m_setVehicleFlags & fVUnder) == fVUnder && info.m_netAI.IsUnderground() && (nodes[i].m_flags & fNUntouch) == fNUntouch)
+                {
+                    nodes[i].m_flags |= fNUnder;
+                    nodes[i].m_flags &= ~NetNode.Flags.OnGround;
+                    Log.Debug($"Fixed bugged node #{i} {info.name}:{nodes[i].m_flags}", "[NA66]");
+                }
+
+                if ((nodes[i].m_flags & fNUntouch) == fNUntouch)
+                {
+                    continue;
+                }
+
+                if (timer.MS >= 1 && i > m_fixNodesCount + 16)
+                {
+                    m_fixNodesCount = i;
+                    NetPrefab.SingleMode = singleMode;
+                    //if (msg == "")
+                    //{
+                    //    m_fixExecutions++;
+                    //}
+                    //else
+                    //{
+                    //    Log.Debug($"Empty executions:{m_fixExecutions}, fixNodesCount:{m_fixNodesCount}{msg}", "[NA55.1]");
+                    //    m_fixExecutions = 0;
+                    //}
+                    return;
+                }
+
+                NetPrefab prefab = NetPrefab.Factory(info);
                 if (prefab == null)
                 {
                     continue;
                 }
 
-                if ((nodes[i].m_flags & NetNode.Flags.Underground) == NetNode.Flags.Underground)
+                if ((nodes[i].m_flags & fNUnder) == fNUnder)
                 {
-                    if ((info.m_setVehicleFlags & Vehicle.Flags.Underground) == 0 && info != prefab.NetAI.Tunnel && info != prefab.NetAI.Slope && !info.m_netAI.IsUnderground())
+                    if ((info.m_setVehicleFlags & fVUnder) == 0 && info != prefab.NetAI.Tunnel && info != prefab.NetAI.Slope && !info.m_netAI.IsUnderground())
                     {
                         // Fix by Algernon
                         int tempI = i;
                         var tempPrefab = prefab;
                         Singleton<SimulationManager>.instance.AddAction(() =>
                         {
-                            Log.Debug($"Fixing node {tempI} {info.m_setVehicleFlags} (underground:{(info.m_setVehicleFlags & Vehicle.Flags.Underground) != 0}, elevation:{nodes[tempI].m_elevation}, flags:{nodes[tempI].m_flags}", "[NA54]");
+                            Log.Debug($"Fixing node {tempI} {info.m_setVehicleFlags} (underground:{(info.m_setVehicleFlags & fVUnder) != 0}, elevation:{nodes[tempI].m_elevation}, flags:{nodes[tempI].m_flags}", "[NA54]");
                             nodes[tempI].m_elevation = 0;
-                            nodes[tempI].m_flags = nodes[tempI].m_flags & ~NetNode.Flags.Underground;
+                            nodes[tempI].m_flags = nodes[tempI].m_flags & ~fNUnder;
 
                             if (info != prefab.NetAI.Elevated && info != tempPrefab.NetAI.Bridge)
                             {
@@ -69,25 +100,41 @@ namespace NetworkAnarchy
                             catch { }
                         });
                     }
-                    //msg += $"\n  Node {i} is underground (info:{info}){nodes[i].m_flags}";
+                    //msg += $"\n  Node {i} is underground (info:{info}, {nodes[i].m_flags})";
                 }
-                else if ((info != prefab.NetAI.Elevated && info != prefab.NetAI.Bridge) || ((nodes[i].m_flags & (NetNode.Flags.Transition | NetNode.Flags.End)) != 0 && nodes[i].m_elevation == 0))
+                else if (info != prefab.NetAI.Elevated && info != prefab.NetAI.Bridge)
                 {
                     if ((nodes[i].m_flags & NetNode.Flags.OnGround) == 0)
                     {
-                        //msg += $"\n  Node {i} is ground (info:{info}) {nodes[i].m_flags}";
+                        //msg += $"\n  [1] Node {i} is ground (info:{info}, prefab:{prefab}, {nodes[i].m_flags})\n" +
+                        //    $"      G: {prefab.NetAI.Info.name}\n      E: {prefab.NetAI.Elevated.name}\n      B: {prefab.NetAI.Bridge.name}";
+                        nodes[i].m_flags = nodes[i].m_flags | NetNode.Flags.OnGround;
+                    }
+                }
+                else if ((nodes[i].m_flags & (NetNode.Flags.Transition | NetNode.Flags.End)) != 0 && nodes[i].m_elevation == 0)
+                {
+                    if ((nodes[i].m_flags & NetNode.Flags.OnGround) == 0)
+                    {
+                        //msg += $"\n  [2] Node {i} is ground (info:{info}, prefab:{prefab}, {nodes[i].m_flags})\n" +
+                        //    $"      G: {prefab.NetAI.Info.name}\n      E: {prefab.NetAI.Elevated.name}\n      B: {prefab.NetAI.Bridge.name}";
                         nodes[i].m_flags = nodes[i].m_flags | NetNode.Flags.OnGround;
                     }
                 }
                 else if ((nodes[i].m_flags & NetNode.Flags.OnGround) != 0)
                 {
-                    //msg += $"\n  Node {i} is not ground (info:{info}) {nodes[i].m_flags}";
+                    //msg += $"\n  Node {i} is not ground (info:{info}, {nodes[i].m_flags})";
                     nodes[i].m_flags = nodes[i].m_flags & ~NetNode.Flags.OnGround;
                 }
             }
-            //if (msg != "")
+
+            //if (msg == "")
             //{
-            //    Log.Debug(msg, "[NA55]");
+            //    m_fixExecutions++;
+            //}
+            //else
+            //{
+            //    Log.Debug($"Empty executions:{m_fixExecutions}, fixNodesCount:{m_fixNodesCount}{msg}", "[NA55.2]");
+            //    m_fixExecutions = 0;
             //}
 
             NetPrefab.SingleMode = singleMode;
@@ -124,7 +171,7 @@ namespace NetworkAnarchy
                 ushort startNode = segments[i].m_startNode;
                 ushort endNode = segments[i].m_endNode;
 
-                var prefab = NetPrefab.GetPrefab(info);
+                NetPrefab prefab = NetPrefab.Factory(info);
                 if (prefab == null)
                 {
                     continue;
@@ -225,7 +272,6 @@ namespace NetworkAnarchy
                         segments[i].m_endNode = startNode;
 
                         Vector3 dir = segments[i].m_startDirection;
-
                         segments[i].m_startDirection = segments[i].m_endDirection;
                         segments[i].m_endDirection = dir;
 
@@ -304,7 +350,7 @@ namespace NetworkAnarchy
 
                 NetInfo info = NetManager.instance.m_segments.m_buffer[segment].Info;
 
-                var prefab = NetPrefab.GetPrefab(info);
+                var prefab = NetPrefab.Factory(info);
                 if (prefab == null)
                 {
                     return true;

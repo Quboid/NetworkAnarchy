@@ -41,11 +41,6 @@ namespace NetworkAnarchy.Lang
 		public static string key_elevationUp => LocaleManager.GetString("key_elevationUp", Culture);
 
 		/// <summary>
-		/// Press any key
-		/// </summary>
-		public static string key_pressAnyKey => LocaleManager.GetString("key_pressAnyKey", Culture);
-
-		/// <summary>
 		/// Toggle Anarchy
 		/// </summary>
 		public static string key_toggleAnarchy => LocaleManager.GetString("key_toggleAnarchy", Culture);

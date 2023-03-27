@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkAnarchy", "NetworkAnarchy\NetworkAnarchy.csproj", "{291D9EA9-6945-4EA3-8756-37464D40FF00}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "QCommon Shared", "..\..\..\QCommon\Repo\QCommon\QCommon\Shared\QCommon Shared.shproj", "{233B2695-91AD-4B85-A778-1FFF467FAE35}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "QCommon Harmony", "..\..\..\QCommon\Repo\QCommon\QCommon\Harmony\QCommon Harmony.shproj", "{9D9EC2D2-3CEE-42E2-8296-FA667D0B73E6}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "QCommon Shared", "..\..\..\QCommon\Repo\QCommon\QCommon\Shared\QCommon Shared.shproj", "{233B2695-91AD-4B85-A778-1FFF467FAE35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,11 +24,11 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_NeutralResourcesLanguage = en-GB
-		SolutionGuid = {52D8687F-6BFB-4D01-9E1E-AC85E69AB925}
-		RESX_Rules = {"EnabledRules":["StringFormat","WhiteSpaceLead","WhiteSpaceTail","PunctuationLead"]}
-		RESX_SaveFilesImmediatelyUponChange = True
 		RESX_ShowErrorsInErrorList = False
+		RESX_SaveFilesImmediatelyUponChange = True
+		RESX_Rules = {"EnabledRules":["StringFormat","WhiteSpaceLead","WhiteSpaceTail","PunctuationLead"]}
+		SolutionGuid = {52D8687F-6BFB-4D01-9E1E-AC85E69AB925}
+		RESX_NeutralResourcesLanguage = en-GB
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\..\..\QCommon\Repo\QCommon\QCommon\Shared\QCommon Shared.projitems*{233b2695-91ad-4b85-a778-1fff467fae35}*SharedItemsImports = 13

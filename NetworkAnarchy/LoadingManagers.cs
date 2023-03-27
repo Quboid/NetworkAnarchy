@@ -1,7 +1,6 @@
-﻿using System;
+﻿using QCommonLib;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace NetworkAnarchy
@@ -36,7 +35,7 @@ namespace NetworkAnarchy
         /// <param name="info">The network to check and, if needed, attached outside connection</param>
         internal static void Apply(NetInfo info)
         {
-            if (info == null) 
+            if (info == null || QCommon.Scene != QCommon.SceneTypes.Game) 
             {
                 return;
             }
