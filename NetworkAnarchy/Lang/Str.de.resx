@@ -138,9 +138,6 @@
   <data name="key_elevationUp" xml:space="preserve">
     <value>Höhe erhöhen</value>
   </data>
-  <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Beliebige Taste drücken</value>
-  </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
     <value>Anarchie ein/aus</value>
   </data>

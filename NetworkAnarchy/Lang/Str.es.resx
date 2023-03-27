@@ -138,9 +138,6 @@
   <data name="key_elevationUp" xml:space="preserve">
     <value>Ascender</value>
   </data>
-  <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Pulsa cualquier tecla</value>
-  </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
     <value>Activar Anarquía</value>
   </data>

@@ -138,9 +138,6 @@
   <data name="key_elevationUp" xml:space="preserve">
     <value>고도 올림</value>
   </data>
-  <data name="key_pressAnyKey" xml:space="preserve">
-    <value>아무 키나 누르세요</value>
-  </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
     <value>아나키 전환</value>
   </data>

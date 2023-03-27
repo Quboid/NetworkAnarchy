@@ -138,9 +138,6 @@
   <data name="key_elevationUp" xml:space="preserve">
     <value>高度提升</value>
   </data>
-  <data name="key_pressAnyKey" xml:space="preserve">
-    <value>按任意键</value>
-  </data>
   <data name="key_toggleAnarchy" xml:space="preserve">
     <value>切换无碰撞状态</value>
   </data>
