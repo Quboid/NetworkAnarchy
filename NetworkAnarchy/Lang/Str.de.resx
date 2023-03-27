@@ -1,274 +1,253 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
+namespace NetworkAnarchy.Lang
+{
+	public class Str
+	{
+		public static System.Globalization.CultureInfo Culture {get; set;}
+		public static QCommonLib.Lang.LocalizeManager LocaleManager {get;} = new QCommonLib.Lang.LocalizeManager("Str", typeof(Str).Assembly);
 
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="key_cycleModesLeft" xml:space="preserve">
-    <value>Modi nach links durchschalten</value>
-  </data>
-  <data name="key_cycleModesRight" xml:space="preserve">
-    <value>Modi nach rechts durchschalten</value>
-  </data>
-  <data name="key_elevationDown" xml:space="preserve">
-    <value>Höhe verringern</value>
-  </data>
-  <data name="key_elevationReset" xml:space="preserve">
-    <value>Höhe zurücksetzen</value>
-  </data>
-  <data name="key_elevationStepDown" xml:space="preserve">
-    <value>Höhenschritt nach unten</value>
-  </data>
-  <data name="key_elevationStepUp" xml:space="preserve">
-    <value>Höhenschritt nach oben</value>
-  </data>
-  <data name="key_elevationUp" xml:space="preserve">
-    <value>Höhe erhöhen</value>
-  </data>
-  <data name="key_pressAnyKey" xml:space="preserve">
-    <value>Beliebige Taste drücken</value>
-  </data>
-  <data name="key_toggleAnarchy" xml:space="preserve">
-    <value>Anarchie ein/aus</value>
-  </data>
-  <data name="key_toggleBending" xml:space="preserve">
-    <value>Biegen ein/aus</value>
-  </data>
-  <data name="key_toggleGrid" xml:space="preserve">
-    <value>Editor-Raster ein/aus</value>
-  </data>
-  <data name="key_toggleSnapping" xml:space="preserve">
-    <value>Einrasten ein/aus</value>
-  </data>
-  <data name="key_toggleStraightSlopes" xml:space="preserve">
-    <value>Begradigen ein/aus</value>
-  </data>
-  <data name="key_toggleZoneOverride" xml:space="preserve">
-    <value>Zonenüberschreibung umschalten</value>
-  </data>
-  <data name="mod_Description" xml:space="preserve">
-    <value>Weitere Werkzeugoptionen für Straßen und andere Netzwerke</value>
-  </data>
-  <data name="options_enableDebugLogging" xml:space="preserve">
-    <value>Protokollieren von Debugmeldungen aktivieren</value>
-  </data>
-  <data name="options_enableDebugLoggingTooltip" xml:space="preserve">
-    <value>Wenn aktiviert, werden Debug-Meldungen protokolliert.</value>
-  </data>
-  <data name="options_maxTurnAngle" xml:space="preserve">
-    <value>Maximaler Kurvenwinkel</value>
-  </data>
-  <data name="options_reduceCatenaries" xml:space="preserve">
-    <value>Anzahl der Oberleitungsmasten reduzieren</value>
-  </data>
-  <data name="options_reduceCatenariesTooltip" xml:space="preserve">
-    <value>Reduziert die Anzahl der Oberleitungsmasten von Bahnlinien von 3 auf 1 pro Segment.</value>
-  </data>
-  <data name="options_resetToolWindowPosition" xml:space="preserve">
-    <value>Position des Werkzeugfensters zurücksetzen</value>
-  </data>
-  <data name="options_showElevationStepSlider" xml:space="preserve">
-    <value>Höhenschritt-Schieberegler anzeigen</value>
-  </data>
-  <data name="options_showElevationStepSliderTooltip" xml:space="preserve">
-    <value>Schieberegler zum Ändern des Höhenschritts zwischen 1m bis 12m anzeigen.</value>
-  </data>
-  <data name="options_showLabels" xml:space="preserve">
-    <value>Beschriftung einblenden</value>
-  </data>
-  <data name="options_showLabelsTooltip" xml:space="preserve">
-    <value>Deaktivieren, um etwas Platz zu sparen</value>
-  </data>
-  <data name="options_showMaxSegmentLengthSlider" xml:space="preserve">
-    <value>Segmentlänge-Schieberegler anzeigen</value>
-  </data>
-  <data name="options_showMaxSegmentLengthSliderTooltip" xml:space="preserve">
-    <value>Schieberegler zum Ändern der Segmentlänge zwischen 4m bis 256m anzeigen (Standardwert ist 96m).</value>
-  </data>
-  <data name="options_tramMaxTurnAngle" xml:space="preserve">
-    <value>Ändere den maximalen Kurvenwinkel für realistischere Tramspuren</value>
-  </data>
-  <data name="options_tramMaxTurnAngleTooltip" xml:space="preserve">
-    <value>Ändert alle Strassen mit Tramspuren auf den maximalen Kurvenwinkel des unten angegebenen Wertes, wenn der aktuelle Wert höher ist.</value>
-  </data>
-  <data name="popup_buttonReminder" xml:space="preserve">
-    <value>Klicke auf diese Schaltfläche, um Network Anarchy anzuzeigen</value>
-  </data>
-  <data name="popup_collisionRemoved" xml:space="preserve">
-    <value>Kollision wurde mit dem Anarchie-Modus kombiniert.
+		/// <summary>
+		/// Cycle Modes Left
+		/// </summary>
+		public static string key_cycleModesLeft => LocaleManager.GetString("key_cycleModesLeft", Culture);
 
-An seiner Stelle kontrolliert der Knopf zum Zone Kollision überschreiben, ob Pfade/Zäune die Erstellung von Kacheln in der Nähe verhindern.</value>
-  </data>
-  <data name="ui_clickForToolOptions" xml:space="preserve">
-    <value>Hier klicken für Werkzeugoptionen</value>
-  </data>
-  <data name="ui_elevationSliderKeyTip" xml:space="preserve">
-    <value>{0} und {1} um den Höhenschritt zu ändern</value>
-    <comment>{0} and {1} will be replaced by the keybindings for elevation steps</comment>
-  </data>
-  <data name="ui_elevationStep" xml:space="preserve">
-    <value>Höhenschritt:</value>
-    <comment>Keep the ":" if used in your language</comment>
-  </data>
-  <data name="ui_grid" xml:space="preserve">
-    <value>Editier-Raster anzeigen</value>
-  </data>
-  <data name="ui_maxSegmentLength" xml:space="preserve">
-    <value>Maximale Segmentlänge:</value>
-    <comment>Keep the ":" if used in your language</comment>
-  </data>
-  <data name="ui_modeBridge" xml:space="preserve">
-    <value>Brücke: Erzwingt die Verwendung von Brückenteilen, falls verfügbar</value>
-  </data>
-  <data name="ui_modeCycleKeyTip" xml:space="preserve">
-    <value>{0} und {1} um durch die Modi zu schalten</value>
-    <comment>{0} and {1} will be replaced by the keybindings for cycling modes</comment>
-  </data>
-  <data name="ui_modeElevated" xml:space="preserve">
-    <value>Erhöht: Erzwingt den Einsatz erhöhter Teile, falls verfügbar</value>
-  </data>
-  <data name="ui_modeGround" xml:space="preserve">
-    <value>Boden: Zwingt den Boden, der Höhe der Straße zu folgen</value>
-  </data>
-  <data name="ui_modeNormal" xml:space="preserve">
-    <value>Normal: Nicht modifiziertes Platzieren der Straßen</value>
-  </data>
-  <data name="ui_modes" xml:space="preserve">
-    <value>Modi:</value>
-    <comment>Keep the ":" if used in your language</comment>
-  </data>
-  <data name="ui_modeTunnel" xml:space="preserve">
-    <value>Tunnel: Erzwingt die Verwendung von Tunnelteilen, falls verfügbar</value>
-  </data>
-  <data name="ui_toggleAnarchy" xml:space="preserve">
-    <value>Anarchie ein/aus</value>
-  </data>
-  <data name="ui_toggleBending" xml:space="preserve">
-    <value>Straßenbiegung ein/aus</value>
-  </data>
-  <data name="ui_toggleCollision" xml:space="preserve">
-    <value>Kollision ein/aus</value>
-  </data>
-  <data name="ui_toggleSlope" xml:space="preserve">
-    <value>Geradlinig bauen umschalten (Geländeform nicht folgen)</value>
-  </data>
-  <data name="ui_toggleSnapping" xml:space="preserve">
-    <value>Einrasten ein/aus</value>
-  </data>
-  <data name="ui_toggleZoneOverride" xml:space="preserve">
-    <value>Zonen-Kollision überschreiben</value>
-  </data>
-</root>
+		/// <summary>
+		/// Cycle Modes Right
+		/// </summary>
+		public static string key_cycleModesRight => LocaleManager.GetString("key_cycleModesRight", Culture);
+
+		/// <summary>
+		/// Elevation Down
+		/// </summary>
+		public static string key_elevationDown => LocaleManager.GetString("key_elevationDown", Culture);
+
+		/// <summary>
+		/// Reset Elevation
+		/// </summary>
+		public static string key_elevationReset => LocaleManager.GetString("key_elevationReset", Culture);
+
+		/// <summary>
+		/// Elevation Step Down
+		/// </summary>
+		public static string key_elevationStepDown => LocaleManager.GetString("key_elevationStepDown", Culture);
+
+		/// <summary>
+		/// Elevation Step Up
+		/// </summary>
+		public static string key_elevationStepUp => LocaleManager.GetString("key_elevationStepUp", Culture);
+
+		/// <summary>
+		/// Elevation Up
+		/// </summary>
+		public static string key_elevationUp => LocaleManager.GetString("key_elevationUp", Culture);
+
+		/// <summary>
+		/// Press any key
+		/// </summary>
+		public static string key_pressAnyKey => LocaleManager.GetString("key_pressAnyKey", Culture);
+
+		/// <summary>
+		/// Toggle Anarchy
+		/// </summary>
+		public static string key_toggleAnarchy => LocaleManager.GetString("key_toggleAnarchy", Culture);
+
+		/// <summary>
+		/// Toggle Bending
+		/// </summary>
+		public static string key_toggleBending => LocaleManager.GetString("key_toggleBending", Culture);
+
+		/// <summary>
+		/// Toggle Editor Grid
+		/// </summary>
+		public static string key_toggleGrid => LocaleManager.GetString("key_toggleGrid", Culture);
+
+		/// <summary>
+		/// Toggle Snapping
+		/// </summary>
+		public static string key_toggleSnapping => LocaleManager.GetString("key_toggleSnapping", Culture);
+
+		/// <summary>
+		/// Toggle Straight Slopes
+		/// </summary>
+		public static string key_toggleStraightSlopes => LocaleManager.GetString("key_toggleStraightSlopes", Culture);
+
+		/// <summary>
+		/// Toggle Zone Override
+		/// </summary>
+		public static string key_toggleZoneOverride => LocaleManager.GetString("key_toggleZoneOverride", Culture);
+
+		/// <summary>
+		/// More tool options for roads and other networks
+		/// </summary>
+		public static string mod_Description => LocaleManager.GetString("mod_Description", Culture);
+
+		/// <summary>
+		/// Enable debug messages logging
+		/// </summary>
+		public static string options_enableDebugLogging => LocaleManager.GetString("options_enableDebugLogging", Culture);
+
+		/// <summary>
+		/// If checked, additional debug messages will be logged.
+		/// </summary>
+		public static string options_enableDebugLoggingTooltip => LocaleManager.GetString("options_enableDebugLoggingTooltip", Culture);
+
+		/// <summary>
+		/// Max turn angle
+		/// </summary>
+		public static string options_maxTurnAngle => LocaleManager.GetString("options_maxTurnAngle", Culture);
+
+		/// <summary>
+		/// Reduce rail catenary masts
+		/// </summary>
+		public static string options_reduceCatenaries => LocaleManager.GetString("options_reduceCatenaries", Culture);
+
+		/// <summary>
+		/// Reduce the number of catenary mast of rail lines from 3 to 1 per segment.
+		/// </summary>
+		public static string options_reduceCatenariesTooltip => LocaleManager.GetString("options_reduceCatenariesTooltip", Culture);
+
+		/// <summary>
+		/// Reset tool window position
+		/// </summary>
+		public static string options_resetToolWindowPosition => LocaleManager.GetString("options_resetToolWindowPosition", Culture);
+
+		/// <summary>
+		/// Show elevation step slider
+		/// </summary>
+		public static string options_showElevationStepSlider => LocaleManager.GetString("options_showElevationStepSlider", Culture);
+
+		/// <summary>
+		/// Show slider for changing the elevation step, from 1m to 12m.
+		/// </summary>
+		public static string options_showElevationStepSliderTooltip => LocaleManager.GetString("options_showElevationStepSliderTooltip", Culture);
+
+		/// <summary>
+		/// Show Labels
+		/// </summary>
+		public static string options_showLabels => LocaleManager.GetString("options_showLabels", Culture);
+
+		/// <summary>
+		/// Disable to save some screen space
+		/// </summary>
+		public static string options_showLabelsTooltip => LocaleManager.GetString("options_showLabelsTooltip", Culture);
+
+		/// <summary>
+		/// Show max segment length slider
+		/// </summary>
+		public static string options_showMaxSegmentLengthSlider => LocaleManager.GetString("options_showMaxSegmentLengthSlider", Culture);
+
+		/// <summary>
+		/// Show slider for changing the maximum segment length, from 4m to 256m (default is 96m).
+		/// </summary>
+		public static string options_showMaxSegmentLengthSliderTooltip => LocaleManager.GetString("options_showMaxSegmentLengthSliderTooltip", Culture);
+
+		/// <summary>
+		/// Change max turn angle for more realistic tram tracks turns
+		/// </summary>
+		public static string options_tramMaxTurnAngle => LocaleManager.GetString("options_tramMaxTurnAngle", Culture);
+
+		/// <summary>
+		/// Change all roads with tram tracks max turn angle by the value below if current value is higher.
+		/// </summary>
+		public static string options_tramMaxTurnAngleTooltip => LocaleManager.GetString("options_tramMaxTurnAngleTooltip", Culture);
+
+		/// <summary>
+		/// Click this button to show Network Anarchy
+		/// </summary>
+		public static string popup_buttonReminder => LocaleManager.GetString("popup_buttonReminder", Culture);
+
+		/// <summary>
+		/// Collision has been combined with Anarchy mode.
+		/// </summary>
+		public static string popup_collisionRemoved => LocaleManager.GetString("popup_collisionRemoved", Culture);
+
+		/// <summary>
+		/// Click here for Tool Options
+		/// </summary>
+		public static string ui_clickForToolOptions => LocaleManager.GetString("ui_clickForToolOptions", Culture);
+
+		/// <summary>
+		/// {0} and {1} to change elevation step
+		/// </summary>
+		public static string ui_elevationSliderKeyTip => LocaleManager.GetString("ui_elevationSliderKeyTip", Culture);
+
+		/// <summary>
+		/// Elevation Step:
+		/// </summary>
+		public static string ui_elevationStep => LocaleManager.GetString("ui_elevationStep", Culture);
+
+		/// <summary>
+		/// Show Editor Grid
+		/// </summary>
+		public static string ui_grid => LocaleManager.GetString("ui_grid", Culture);
+
+		/// <summary>
+		/// Max Segment Length:
+		/// </summary>
+		public static string ui_maxSegmentLength => LocaleManager.GetString("ui_maxSegmentLength", Culture);
+
+		/// <summary>
+		/// Bridge: Forces the use of bridge pieces if available
+		/// </summary>
+		public static string ui_modeBridge => LocaleManager.GetString("ui_modeBridge", Culture);
+
+		/// <summary>
+		/// {0} and {1} to cycle modes
+		/// </summary>
+		public static string ui_modeCycleKeyTip => LocaleManager.GetString("ui_modeCycleKeyTip", Culture);
+
+		/// <summary>
+		/// Elevated: Forces the use of elevated pieces if available
+		/// </summary>
+		public static string ui_modeElevated => LocaleManager.GetString("ui_modeElevated", Culture);
+
+		/// <summary>
+		/// Ground: Forces the ground to follow the elevation of the road
+		/// </summary>
+		public static string ui_modeGround => LocaleManager.GetString("ui_modeGround", Culture);
+
+		/// <summary>
+		/// Normal: Unmodded road placement behavior
+		/// </summary>
+		public static string ui_modeNormal => LocaleManager.GetString("ui_modeNormal", Culture);
+
+		/// <summary>
+		/// Modes:
+		/// </summary>
+		public static string ui_modes => LocaleManager.GetString("ui_modes", Culture);
+
+		/// <summary>
+		/// Tunnel: Forces the use of tunnel pieces if available
+		/// </summary>
+		public static string ui_modeTunnel => LocaleManager.GetString("ui_modeTunnel", Culture);
+
+		/// <summary>
+		/// Toggle anarchy
+		/// </summary>
+		public static string ui_toggleAnarchy => LocaleManager.GetString("ui_toggleAnarchy", Culture);
+
+		/// <summary>
+		/// Toggle road bending
+		/// </summary>
+		public static string ui_toggleBending => LocaleManager.GetString("ui_toggleBending", Culture);
+
+		/// <summary>
+		/// Toggle collision
+		/// </summary>
+		public static string ui_toggleCollision => LocaleManager.GetString("ui_toggleCollision", Culture);
+
+		/// <summary>
+		/// Toggle straight slope (don't follow terrain shape)
+		/// </summary>
+		public static string ui_toggleSlope => LocaleManager.GetString("ui_toggleSlope", Culture);
+
+		/// <summary>
+		/// Toggle node snapping
+		/// </summary>
+		public static string ui_toggleSnapping => LocaleManager.GetString("ui_toggleSnapping", Culture);
+
+		/// <summary>
+		/// Override zone collision
+		/// </summary>
+		public static string ui_toggleZoneOverride => LocaleManager.GetString("ui_toggleZoneOverride", Culture);
+	}
+}
