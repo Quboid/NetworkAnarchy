@@ -41,6 +41,7 @@ namespace NetworkAnarchy
         public static readonly SavedBool showElevationSlider = new SavedBool("showElevationSlider", NetworkAnarchy.settingsFileName, true, true);
         public static readonly SavedBool showMaxSegmentLengthSlider = new SavedBool("showNodeSpacer", NetworkAnarchy.settingsFileName, false, true);
         public static readonly SavedBool showLabels = new SavedBool("showLabels", NetworkAnarchy.settingsFileName, true, true);
+        public static readonly SavedBool alwaysShowPanel = new SavedBool("alwaysShowPanel", NetworkAnarchy.settingsFileName, false, true);
 
         public static UIPanel toolOptionsPanel = null;
 
@@ -68,7 +69,19 @@ namespace NetworkAnarchy
 
             if (m_toolOptionsPanel != null)
             {
-                m_toolOptionsPanel.isVisible = isVisible && isChecked;
+                SetPanelVisible(isVisible && isChecked);
+            }
+        }
+
+        public void SetPanelVisible(bool visible)
+        {
+            if (alwaysShowPanel)
+            {
+                m_toolOptionsPanel.isVisible = true;
+            }
+            else
+            {
+                m_toolOptionsPanel.isVisible = visible;
             }
         }
 

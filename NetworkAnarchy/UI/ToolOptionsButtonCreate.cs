@@ -85,7 +85,7 @@ namespace NetworkAnarchy
             m_toolOptionsPanel.absolutePosition = new Vector3(savedWindowX.value, savedWindowY.value);
             m_toolOptionsPanel.clipChildren = true;
 
-            m_toolOptionsPanel.isVisible = windowVisible;
+            SetPanelVisible(windowVisible);
 
             m_toolOptionsPanel.eventPositionChanged += (c, p) =>
             {

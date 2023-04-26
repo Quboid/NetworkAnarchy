@@ -76,6 +76,11 @@ namespace NetworkAnarchy.Lang
 		public static string mod_Description => LocaleManager.GetString("mod_Description", Culture);
 
 		/// <summary>
+		/// Always show the Network Anarchy panel
+		/// </summary>
+		public static string options_alwaysVisible => LocaleManager.GetString("options_alwaysVisible", Culture);
+
+		/// <summary>
 		/// Enable debug messages logging
 		/// </summary>
 		public static string options_enableDebugLogging => LocaleManager.GetString("options_enableDebugLogging", Culture);
