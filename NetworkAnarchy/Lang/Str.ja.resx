@@ -160,7 +160,7 @@
     <value>道路やネットワークのためのより多くのツール</value>
   </data>
   <data name="options_alwaysVisible" xml:space="preserve">
-    <value>Always show the Network Anarchy panel</value>
+    <value>Network Anarchyのパネルを常に表示</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
     <value>デバッグメッセージのログを有効化</value>
