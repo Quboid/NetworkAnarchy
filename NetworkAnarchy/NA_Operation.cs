@@ -253,14 +253,13 @@ namespace NetworkAnarchy
             }
 
             m_current = info;
-            NetPrefab prefab = NetPrefab.Factory(info);
-            AttachToolOptionsButton(prefab);
+            //NetPrefab prefab = NetPrefab.Factory(info);
+            //AttachToolOptionsButton(prefab);
 
             //if ((m_bulldozeTool.enabled || (min == 0 && max == 0)) && !m_buttonExists)
-            if (IsBulldozeToolEnabled() && !DoesVanillaElevationButtonExist)
+            if (IsBulldozeToolEnabled())
             {
-                Log.Debug($"Deactivating because bulldozing non-network issue.\n" +
-                    $"bulldoze:{IsBulldozeToolEnabled()}, DoesVanillaElevationButtonExist:{DoesVanillaElevationButtonExist}", "[NA65]");
+                Log.Debug($"Deactivating because bulldozing (bulldoze:{IsBulldozeToolEnabled()})", "[NA65]");
                 Deactivate();
                 m_current = info;
                 return;

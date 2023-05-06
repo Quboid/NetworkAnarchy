@@ -162,6 +162,7 @@ namespace NetworkAnarchy
 
             if (NetworkAnarchy.instance != null)
             {
+                UIView.Find<UIPanel>("OptionsBar")?.RemoveUIComponent(NetworkAnarchy.m_toolOptionButton);
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel.gameObject);
                 GameObject.Destroy(NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel);
                 NetworkAnarchy.m_toolOptionButton.m_toolOptionsPanel = null;

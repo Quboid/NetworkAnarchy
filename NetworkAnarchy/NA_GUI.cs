@@ -230,18 +230,76 @@ namespace NetworkAnarchy
 
             try
             {
-                m_toolOptionButton = UIView.GetAView().AddUIComponent(typeof(UIToolOptionsButton)) as UIToolOptionsButton;
+                UIPanel optionBar = UIView.Find<UIPanel>("OptionsBar");
 
-                if (m_toolOptionButton == null)
+                if (optionBar == null)
                 {
-                    Log.Warning("Couldn't create label", "[NA31]");
+                    Log.Warning("OptionBar not found!", "[NA31.1]");
                     return;
                 }
 
+                optionBar.autoLayout = true;
+
+                // Save existing optionsBar components, clear list
+                IList<UIComponent> components = new List<UIComponent>();
+                foreach (UIComponent comp in optionBar.components)
+                {
+                    components.Add(comp);
+                }
+                optionBar.components.Clear();
+
+                // Add NA button to empty list
+                m_toolOptionButton = optionBar.AddUIComponent(typeof(UIToolOptionsButton)) as UIToolOptionsButton;
+
+                // Re-add components after NA button
+                foreach (UIComponent comp in components)
+                {
+                    optionBar.components.Add(comp);
+                }
+
+                if (m_toolOptionButton == null)
+                {
+                    Log.Warning("Couldn't create label", "[NA31.2]");
+                    return;
+                }
+
+                // Configure NA button
                 m_toolOptionButton.autoSize = false;
                 m_toolOptionButton.size = new Vector2(36, 36);
                 m_toolOptionButton.position = Vector2.zero;
                 m_toolOptionButton.isVisible = false;
+
+                // Iterate networks' option panels
+                RoadsOptionPanel[] panels = optionBar.GetComponentsInChildren<RoadsOptionPanel>();
+                foreach (RoadsOptionPanel panel in panels)
+                {
+                    // Remove vanilla elevation button
+                    ((UIPanel)panel.component).autoLayout = true;
+                    UIComponent button = panel.component.Find<UIComponent>("ElevationStep");
+                    if (button == null)
+                    {
+                        continue;
+                    }
+                    button.size = Vector2.zero;
+                    button.isVisible = false;
+                    button.enabled = false;
+
+                    //// Add Upgrade button if needed (e.g. powerlines)
+                    //var list = new List<NetTool.Mode>(panel.m_Modes);
+                    //if (m_upgradeButtonTemplate != null && !list.Contains(NetTool.Mode.Upgrade))
+                    //{
+                    //    UITabstrip toolMode = panel.component.Find<UITabstrip>("ToolMode");
+                    //    if (toolMode != null)
+                    //    {
+                    //        list.Add(NetTool.Mode.Upgrade);
+                    //        panel.m_Modes = list.ToArray();
+
+                    //        toolMode.AddTab("Upgrade", m_upgradeButtonTemplate, false);
+
+                    //        Log.Debug($"Upgrade button added for {panel.name}.", "[NA17]");
+                    //    }
+                    //}
+                }
             }
             catch (Exception e)
             {
@@ -269,70 +327,73 @@ namespace NetworkAnarchy
         //    }
         //}
 
-        private void AttachToolOptionsButton(NetPrefab prefab)
-        {
-            DoesVanillaElevationButtonExist = false;
+        //private void AttachToolOptionsButton(NetPrefab prefab)
+        //{
+        //    return;
+        //    DoesVanillaElevationButtonExist = false;
 
-            RoadsOptionPanel[] panels = GameObject.FindObjectsOfType<RoadsOptionPanel>();
+        //    RoadsOptionPanel[] panels = GameObject.FindObjectsOfType<RoadsOptionPanel>();
 
-            foreach (RoadsOptionPanel panel in panels)
-            {
-                // Find the visible RoadsOptionPanel
-                if (panel.component.isVisible)
-                {
-                    UIComponent button = panel.component.Find<UIComponent>("ElevationStep");
-                    if (button == null)
-                    {
-                        continue;
-                    }
+        //    foreach (RoadsOptionPanel panel in panels)
+        //    {
+        //        // Find the visible RoadsOptionPanel
+        //        if (panel.component.isVisible)
+        //        {
+        //            UIComponent button = panel.component.Find<UIComponent>("ElevationStep");
+        //            if (button == null)
+        //            {
+        //                continue;
+        //            }
 
-                    // Put the main button in ElevationStep
-                    m_toolOptionButton.transform.SetParent(button.transform);
+        //            button.isVisible = false;
 
-                    IsButtonInOptionsBar = false;
-                    button.tooltip = null;
-                    DoesVanillaElevationButtonExist = true;
+        //            // Put the main button in ElevationStep
+        //            //m_toolOptionButton.transform.SetParent(button.transform);
 
-                    // Add Upgrade button if needed (e.g. powerlines)
-                    var list = new List<NetTool.Mode>(panel.m_Modes);
-                    if (!list.Contains(NetTool.Mode.Upgrade))
-                    {
-                        Log.Debug($"Adding upgrade button for {ModInfo.GetString(prefab)}", "[NA51]");
-                    }
-                    if (m_upgradeButtonTemplate != null && prefab != null && prefab.HasVariation && !list.Contains(NetTool.Mode.Upgrade))
-                    {
-                        UITabstrip toolMode = panel.component.Find<UITabstrip>("ToolMode");
-                        if (toolMode != null)
-                        {
-                            list.Add(NetTool.Mode.Upgrade);
-                            panel.m_Modes = list.ToArray();
+        //            //IsButtonInOptionsBar = false;
+        //            //button.tooltip = null;
+        //            //DoesVanillaElevationButtonExist = true;
 
-                            toolMode.AddTab("Upgrade", m_upgradeButtonTemplate, false);
+        //            //// Add Upgrade button if needed (e.g. powerlines)
+        //            //var list = new List<NetTool.Mode>(panel.m_Modes);
+        //            //if (!list.Contains(NetTool.Mode.Upgrade))
+        //            //{
+        //            //    Log.Debug($"Adding upgrade button for {ModInfo.GetString(prefab)}", "[NA51]");
+        //            //}
+        //            //if (m_upgradeButtonTemplate != null && prefab != null && prefab.HasVariation && !list.Contains(NetTool.Mode.Upgrade))
+        //            //{
+        //            //    UITabstrip toolMode = panel.component.Find<UITabstrip>("ToolMode");
+        //            //    if (toolMode != null)
+        //            //    {
+        //            //        list.Add(NetTool.Mode.Upgrade);
+        //            //        panel.m_Modes = list.ToArray();
 
-                            Log.Debug("Upgrade button added.", "[NA17]");
-                        }
-                    }
+        //            //        toolMode.AddTab("Upgrade", m_upgradeButtonTemplate, false);
 
-                    Log.Debug($"ELEVATION STEP - Button placed on elevation button\n" +
-                        $"      button:{ModInfo.GetString(button)}\n" +
-                        $"      parent:{ModInfo.GetString(m_toolOptionButton.parent)}\n" +
-                        $" tfrm.parent:{ModInfo.GetString(m_toolOptionButton.transform.parent)})", "[NA49]");
-                    return;
-                }
-            }
+        //            //        Log.Debug("Upgrade button added.", "[NA17]");
+        //            //    }
+        //            //}
 
-            // No visible RoadsOptionPanel found. Put the main button in OptionsBar instead
-            UIPanel optionBar = UIView.Find<UIPanel>("OptionsBar");
+        //            //Log.Debug($"ELEVATION STEP - Button placed on elevation button\n" +
+        //            //    $"      button:{ModInfo.GetString(button)}\n" +
+        //            //    $"      parent:{ModInfo.GetString(m_toolOptionButton.parent)}\n" +
+        //            //    $" tfrm.parent:{ModInfo.GetString(m_toolOptionButton.transform.parent)})", "[NA49]");
+        //            //return;
+        //        }
+        //    }
 
-            if (optionBar == null)
-            {
-                Log.Warning("OptionBar not found!", "[NA18]");
-                return;
-            }
-            m_toolOptionButton.transform.SetParent(optionBar.transform);
-            Log.Debug($"MAIN OPTIONS\nButton placed on main options bar ({m_toolOptionButton.parent})", "[NA50]");
-            IsButtonInOptionsBar = true;
-        }
+        //    // No visible RoadsOptionPanel found. Put the main button in OptionsBar instead
+        //    //UIPanel optionBar = UIView.Find<UIPanel>("OptionsBar");
+
+        //    //if (optionBar == null)
+        //    //{
+        //    //    Log.Warning("OptionBar not found!", "[NA18]");
+        //    //    return;
+        //    //}
+        //    //m_toolOptionButton.transform.SetParent(optionBar.transform);
+        //    //Log.Debug($"MAIN OPTIONS\nButton placed on main options bar ({m_toolOptionButton.parent})", "[NA50]");
+        //    IsButtonInOptionsBar = true;
+        //}
 
         public static UITextureAtlas GetAtlas(string name)
         {
