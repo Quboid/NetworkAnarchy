@@ -85,11 +85,11 @@ namespace NetworkAnarchy
             ChirperManager.Initialise();
 
             // Getting Upgrade button template
-            try
-            {
-                m_upgradeButtonTemplate = GameObject.Find("RoadsSmallPanel").GetComponent<GeneratedScrollPanel>().m_OptionsBar.Find<UIButton>("Upgrade");
-            }
-            catch { Log.Info("Upgrade button template not found", "[NA24]"); }
+            //try
+            //{
+            //    m_upgradeButtonTemplate = GameObject.Find("RoadsSmallPanel").GetComponent<GeneratedScrollPanel>().m_OptionsBar.Find<UIButton>("Upgrade");
+            //}
+            //catch { Log.Info("Upgrade button template not found", "[NA24]"); }
 
             // Creating UI
             try
@@ -182,7 +182,7 @@ namespace NetworkAnarchy
                 {
                     Log.Debug($"Updating tool activation: RelevantTool:{isRelevantToolActive}\n" +
                         $"  netTool:{IsNetToolEnabled()}, bulldoze:{IsBulldozeToolEnabled()}, NMT:{Mods.NetworkMultitool.IsToolActive()}, ZA:{Mods.ZoningAdjuster.IsToolActive()}, Intersection:{IsBuildingIntersection()}\n" +
-                        $"  prefab:{ModInfo.GetString(prefab)} (was:{ModInfo.GetString(m_current)} [{prefab == m_current}]) Tool:{toolBase?.GetType()} (was:{m_wasToolBase?.GetType()})");
+                        $"  prefab:{ModInfo.GetString(prefab)} (was:{ModInfo.GetString(m_current)} [{prefab == m_current}]) Tool:{toolBase?.GetType()} (was:{m_wasToolBase?.GetType()})", "[NA51]");
 
                     if (prefab == null)
                     {
@@ -324,7 +324,7 @@ namespace NetworkAnarchy
             IsActive = false;
             m_toolOptionButton.isVisible = false;
 
-            Log.Debug($"Deactivated\n", "[NA53.2]");
+            //Log.Debug($"Deactivated\n", "[NA53.2]");
         }
 
         internal bool IsBuildingIntersection()

@@ -239,6 +239,7 @@ namespace NetworkAnarchy
                 }
 
                 optionBar.autoLayout = true;
+                optionBar.autoLayoutDirection = LayoutDirection.Horizontal;
 
                 // Save existing optionsBar components, clear list
                 IList<UIComponent> components = new List<UIComponent>();
@@ -283,6 +284,17 @@ namespace NetworkAnarchy
                     button.size = Vector2.zero;
                     button.isVisible = false;
                     button.enabled = false;
+
+                    // Some networks' panels have the Snapping button menu after the ToolMode panel for some reason
+                    if (panel.component.components.Count > 1)
+                    {
+                        if (panel.component.components[0].name == "ToolMode" && panel.component.components[1].name == "SnappingToggle")
+                        {
+                            UIComponent buffer = panel.component.components[0];
+                            panel.component.components[0] = panel.component.components[1];
+                            panel.component.components[1] = buffer;
+                        }
+                    }
 
                     //// Add Upgrade button if needed (e.g. powerlines)
                     //var list = new List<NetTool.Mode>(panel.m_Modes);
