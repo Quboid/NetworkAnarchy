@@ -15,18 +15,18 @@ namespace NetworkAnarchy.UI
                 var group = helper.AddGroup(name) as UIHelper;
                 var panel = group.self as UIPanel;
 
-                //checkBox = (UICheckBox)group.AddCheckbox(Str.options_alwaysVisible, UIToolOptionsButton.alwaysShowPanel.value, (b) =>
-                //{
-                //    UIToolOptionsButton.alwaysShowPanel.value = b;
-                //    if (NetworkAnarchy.instance != null)
-                //    {
-                //        NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
-                //    }
-                //});
+                var checkBox = (UICheckBox)group.AddCheckbox(Str.options_alwaysVisible, UIToolOptionsButton.alwaysShowPanel.value, (b) =>
+                {
+                    UIToolOptionsButton.alwaysShowPanel.value = b;
+                    if (NetworkAnarchy.instance != null)
+                    {
+                        NetworkAnarchy.m_toolOptionButton.CreateOptionPanel(true);
+                    }
+                });
 
-                //group.AddSpace(10);
+                group.AddSpace(10);
 
-                var checkBox = (UICheckBox)group.AddCheckbox(Str.options_showLabels, UIToolOptionsButton.showLabels.value, (b) =>
+                checkBox = (UICheckBox)group.AddCheckbox(Str.options_showLabels, UIToolOptionsButton.showLabels.value, (b) =>
                 {
                     UIToolOptionsButton.showLabels.value = b;
                     if (NetworkAnarchy.instance != null)
