@@ -159,6 +159,9 @@
   <data name="mod_Description" xml:space="preserve">
     <value>Más opciones de herramientas para carreteras y otras redes</value>
   </data>
+  <data name="options_alwaysVisible" xml:space="preserve">
+    <value>Always show the Network Anarchy panel</value>
+  </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
     <value>Activar el registro de mensajes de depuración</value>
   </data>

@@ -159,6 +159,9 @@
   <data name="mod_Description" xml:space="preserve">
     <value>更多的道路及其他网络工具选项</value>
   </data>
+  <data name="options_alwaysVisible" xml:space="preserve">
+    <value>始终显示 Network Anarchy 的控制面板</value>
+  </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
     <value>启用调试信息日志记录</value>
   </data>
