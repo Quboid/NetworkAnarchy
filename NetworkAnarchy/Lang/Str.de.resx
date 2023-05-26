@@ -160,7 +160,7 @@
     <value>Weitere Werkzeugoptionen für Straßen und andere Netzwerke</value>
   </data>
   <data name="options_alwaysVisible" xml:space="preserve">
-    <value>Always show the Network Anarchy panel</value>
+    <value>Netzwerkanarchie-Panel immer anzeigen</value>
   </data>
   <data name="options_enableDebugLogging" xml:space="preserve">
     <value>Protokollieren von Debugmeldungen aktivieren</value>
