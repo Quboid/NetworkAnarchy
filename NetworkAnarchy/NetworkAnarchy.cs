@@ -142,7 +142,7 @@ namespace NetworkAnarchy
         public static NetworkAnarchy instance;
 
         internal static UIToolOptionsButton m_toolOptionButton;
-        private static UIButton m_upgradeButtonTemplate;
+        //private static UIButton m_upgradeButtonTemplate;
 
         public static FastList<NetInfo> bendingPrefabs = new FastList<NetInfo>();
 

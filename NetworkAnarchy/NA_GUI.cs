@@ -31,8 +31,7 @@ namespace NetworkAnarchy
                 //    $"pressed:{OptionsKeymapping.toggleAnarchy.IsPressed()}, pressedE:{OptionsKeymapping.toggleAnarchy.IsPressed(e)}, pressedEv:{OptionsKeymapping.toggleAnarchy.IsPressed(e)}");
 
                 // Allow Anarchy and Collision shortcuts even if the panel isn't visible (not handled by UUI)
-                if (OptionsKeymapping.toggleAnarchy.IsPressed(e))
-                {
+                if (OptionsKeymapping.toggleAnarchy.IsPressed(e)) {
                     var was = Anarchy;
                     ToggleAnarchy();
                     Log.Debug($"Hotkey: toggleAnarchy {Anarchy} (was:{was})");
@@ -102,108 +101,79 @@ namespace NetworkAnarchy
                 }
 
                 // Checking key presses
-                if (OptionsKeymapping.elevationUp.IsPressed(e))
-                {
+                if (OptionsKeymapping.elevationUp.IsPressed(e)) {
                     var was = m_elevation;
                     m_elevation += Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
                     //Log.Debug($"Hotkey: elevationUp {m_elevation} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.elevationDown.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.elevationDown.IsPressed(e)) {
                     var was = m_elevation;
                     m_elevation -= Mathf.RoundToInt(256f * elevationStep / 12f);
                     UpdateElevation();
                     //Log.Debug($"Hotkey: elevationDown {m_elevation} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.elevationStepUp.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.elevationStepUp.IsPressed(e)) {
                     var was = elevationStep;
-                    if (elevationStep < 12)
-                    {
+                    if (elevationStep < 12) {
                         elevationStep++;
                         m_toolOptionButton.UpdateButton();
                     }
                     //Log.Debug($"Hotkey: elevationStepUp {elevationStep} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.elevationStepDown.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.elevationStepDown.IsPressed(e)) {
                     var was = elevationStep;
-                    if (elevationStep > 1)
-                    {
+                    if (elevationStep > 1) {
                         elevationStep--;
                         m_toolOptionButton.UpdateButton();
                     }
                     //Log.Debug($"Hotkey: elevationStepDown {elevationStep} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.modesCycleRight.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.modesCycleRight.IsPressed(e)) {
                     var was = m_mode;
-                    if (m_mode < Modes.Tunnel)
-                    {
+                    if (m_mode < Modes.Tunnel) {
                         mode++;
-                    }
-                    else
-                    {
+                    } else {
                         mode = Modes.Normal;
                     }
 
                     m_toolOptionButton.UpdateButton();
                     //Log.Debug($"Hotkey: modesCycleRight {m_mode} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.modesCycleLeft.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.modesCycleLeft.IsPressed(e)) {
                     var was = m_mode;
-                    if (m_mode > Modes.Normal)
-                    {
+                    if (m_mode > Modes.Normal) {
                         mode--;
-                    }
-                    else
-                    {
+                    } else {
                         mode = Modes.Tunnel;
                     }
 
                     m_toolOptionButton.UpdateButton();
                     //Log.Debug($"Hotkey: modesCycleLeft {m_mode} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.elevationReset.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.elevationReset.IsPressed(e)) {
                     var was = m_elevation;
                     m_elevation = 0;
                     UpdateElevation();
                     m_toolOptionButton.UpdateButton();
                     //Log.Debug($"Hotkey: elevationReset {m_elevation} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.toggleBending.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.toggleBending.IsPressed(e)) {
                     var was = Bending;
                     ToggleBending();
                     //Log.Debug($"Hotkey: toggleBending {Bending} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.toggleSnapping.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.toggleSnapping.IsPressed(e)) {
                     var was = NodeSnapping;
                     ToggleSnapping();
                     //Log.Debug($"Hotkey: toggleSnapping {NodeSnapping} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.toggleStraightSlope.IsPressed(e)) {
                     var was = StraightSlope;
                     ToggleStraightSlope();
                     //Log.Debug($"Hotkey: toggleStraightSlope {StraightSlope} (was:{was})");
                     e.Use();
-                }
-                else if (OptionsKeymapping.toggleGrid.IsPressed(e))
-                {
+                } else if (OptionsKeymapping.toggleGrid.IsPressed(e)) {
                     var was = Grid;
                     ToggleGrid();
                     //Log.Debug($"Hotkey: toggleGrid {Grid} (was:{was})");
@@ -260,18 +230,88 @@ namespace NetworkAnarchy
 
             try
             {
-                m_toolOptionButton = UIView.GetAView().AddUIComponent(typeof(UIToolOptionsButton)) as UIToolOptionsButton;
+                UIPanel optionBar = UIView.Find<UIPanel>("OptionsBar");
 
-                if (m_toolOptionButton == null)
+                if (optionBar == null)
                 {
-                    Log.Warning("Couldn't create label", "[NA31]");
+                    Log.Warning("OptionBar not found!", "[NA31.1]");
                     return;
                 }
 
+                optionBar.autoLayout = true;
+                optionBar.autoLayoutDirection = LayoutDirection.Horizontal;
+
+                // Save existing optionsBar components, clear list
+                IList<UIComponent> components = new List<UIComponent>();
+                foreach (UIComponent comp in optionBar.components)
+                {
+                    components.Add(comp);
+                }
+                optionBar.components.Clear();
+
+                // Add NA button to empty list
+                m_toolOptionButton = optionBar.AddUIComponent(typeof(UIToolOptionsButton)) as UIToolOptionsButton;
+
+                // Re-add components after NA button
+                foreach (UIComponent comp in components)
+                {
+                    optionBar.components.Add(comp);
+                }
+
+                if (m_toolOptionButton == null)
+                {
+                    Log.Warning("Couldn't create label", "[NA31.2]");
+                    return;
+                }
+
+                // Configure NA button
                 m_toolOptionButton.autoSize = false;
                 m_toolOptionButton.size = new Vector2(36, 36);
                 m_toolOptionButton.position = Vector2.zero;
                 m_toolOptionButton.isVisible = false;
+
+                // Iterate networks' option panels
+                RoadsOptionPanel[] panels = optionBar.GetComponentsInChildren<RoadsOptionPanel>();
+                foreach (RoadsOptionPanel panel in panels)
+                {
+                    // Remove vanilla elevation button
+                    ((UIPanel)panel.component).autoLayout = true;
+                    UIComponent button = panel.component.Find<UIComponent>("ElevationStep");
+                    if (button == null)
+                    {
+                        continue;
+                    }
+                    button.size = Vector2.zero;
+                    button.isVisible = false;
+                    button.enabled = false;
+
+                    // Some networks' panels have the Snapping button menu after the ToolMode panel for some reason
+                    if (panel.component.components.Count > 1)
+                    {
+                        if (panel.component.components[0].name == "ToolMode" && panel.component.components[1].name == "SnappingToggle")
+                        {
+                            UIComponent buffer = panel.component.components[0];
+                            panel.component.components[0] = panel.component.components[1];
+                            panel.component.components[1] = buffer;
+                        }
+                    }
+
+                    //// Add Upgrade button if needed (e.g. powerlines)
+                    //var list = new List<NetTool.Mode>(panel.m_Modes);
+                    //if (m_upgradeButtonTemplate != null && !list.Contains(NetTool.Mode.Upgrade))
+                    //{
+                    //    UITabstrip toolMode = panel.component.Find<UITabstrip>("ToolMode");
+                    //    if (toolMode != null)
+                    //    {
+                    //        list.Add(NetTool.Mode.Upgrade);
+                    //        panel.m_Modes = list.ToArray();
+
+                    //        toolMode.AddTab("Upgrade", m_upgradeButtonTemplate, false);
+
+                    //        Log.Debug($"Upgrade button added for {panel.name}.", "[NA17]");
+                    //    }
+                    //}
+                }
             }
             catch (Exception e)
             {
@@ -299,70 +339,73 @@ namespace NetworkAnarchy
         //    }
         //}
 
-        private void AttachToolOptionsButton(NetPrefab prefab)
-        {
-            DoesVanillaElevationButtonExist = false;
+        //private void AttachToolOptionsButton(NetPrefab prefab)
+        //{
+        //    return;
+        //    DoesVanillaElevationButtonExist = false;
 
-            RoadsOptionPanel[] panels = GameObject.FindObjectsOfType<RoadsOptionPanel>();
+        //    RoadsOptionPanel[] panels = GameObject.FindObjectsOfType<RoadsOptionPanel>();
 
-            foreach (RoadsOptionPanel panel in panels)
-            {
-                // Find the visible RoadsOptionPanel
-                if (panel.component.isVisible)
-                {
-                    UIComponent button = panel.component.Find<UIComponent>("ElevationStep");
-                    if (button == null)
-                    {
-                        continue;
-                    }
+        //    foreach (RoadsOptionPanel panel in panels)
+        //    {
+        //        // Find the visible RoadsOptionPanel
+        //        if (panel.component.isVisible)
+        //        {
+        //            UIComponent button = panel.component.Find<UIComponent>("ElevationStep");
+        //            if (button == null)
+        //            {
+        //                continue;
+        //            }
 
-                    // Put the main button in ElevationStep
-                    m_toolOptionButton.transform.SetParent(button.transform);
+        //            button.isVisible = false;
 
-                    IsButtonInOptionsBar = false;
-                    button.tooltip = null;
-                    DoesVanillaElevationButtonExist = true;
+        //            // Put the main button in ElevationStep
+        //            //m_toolOptionButton.transform.SetParent(button.transform);
 
-                    // Add Upgrade button if needed (e.g. powerlines)
-                    var list = new List<NetTool.Mode>(panel.m_Modes);
-                    if (!list.Contains(NetTool.Mode.Upgrade))
-                    {
-                        Log.Debug($"Adding upgrade button for {ModInfo.GetString(prefab)}", "[NA51]");
-                    }
-                    if (m_upgradeButtonTemplate != null && prefab != null && prefab.HasVariation && !list.Contains(NetTool.Mode.Upgrade))
-                    {
-                        UITabstrip toolMode = panel.component.Find<UITabstrip>("ToolMode");
-                        if (toolMode != null)
-                        {
-                            list.Add(NetTool.Mode.Upgrade);
-                            panel.m_Modes = list.ToArray();
+        //            //IsButtonInOptionsBar = false;
+        //            //button.tooltip = null;
+        //            //DoesVanillaElevationButtonExist = true;
 
-                            toolMode.AddTab("Upgrade", m_upgradeButtonTemplate, false);
+        //            //// Add Upgrade button if needed (e.g. powerlines)
+        //            //var list = new List<NetTool.Mode>(panel.m_Modes);
+        //            //if (!list.Contains(NetTool.Mode.Upgrade))
+        //            //{
+        //            //    Log.Debug($"Adding upgrade button for {ModInfo.GetString(prefab)}", "[NA51]");
+        //            //}
+        //            //if (m_upgradeButtonTemplate != null && prefab != null && prefab.HasVariation && !list.Contains(NetTool.Mode.Upgrade))
+        //            //{
+        //            //    UITabstrip toolMode = panel.component.Find<UITabstrip>("ToolMode");
+        //            //    if (toolMode != null)
+        //            //    {
+        //            //        list.Add(NetTool.Mode.Upgrade);
+        //            //        panel.m_Modes = list.ToArray();
 
-                            Log.Debug("Upgrade button added.", "[NA17]");
-                        }
-                    }
+        //            //        toolMode.AddTab("Upgrade", m_upgradeButtonTemplate, false);
 
-                    Log.Debug($"ELEVATION STEP - Button placed on elevation button\n" +
-                        $"      button:{ModInfo.GetString(button)}\n" +
-                        $"      parent:{ModInfo.GetString(m_toolOptionButton.parent)}\n" +
-                        $" tfrm.parent:{ModInfo.GetString(m_toolOptionButton.transform.parent)})", "[NA49]");
-                    return;
-                }
-            }
+        //            //        Log.Debug("Upgrade button added.", "[NA17]");
+        //            //    }
+        //            //}
 
-            // No visible RoadsOptionPanel found. Put the main button in OptionsBar instead
-            UIPanel optionBar = UIView.Find<UIPanel>("OptionsBar");
+        //            //Log.Debug($"ELEVATION STEP - Button placed on elevation button\n" +
+        //            //    $"      button:{ModInfo.GetString(button)}\n" +
+        //            //    $"      parent:{ModInfo.GetString(m_toolOptionButton.parent)}\n" +
+        //            //    $" tfrm.parent:{ModInfo.GetString(m_toolOptionButton.transform.parent)})", "[NA49]");
+        //            //return;
+        //        }
+        //    }
 
-            if (optionBar == null)
-            {
-                Log.Warning("OptionBar not found!", "[NA18]");
-                return;
-            }
-            m_toolOptionButton.transform.SetParent(optionBar.transform);
-            Log.Debug($"MAIN OPTIONS\nButton placed on main options bar ({m_toolOptionButton.parent})", "[NA50]");
-            IsButtonInOptionsBar = true;
-        }
+        //    // No visible RoadsOptionPanel found. Put the main button in OptionsBar instead
+        //    //UIPanel optionBar = UIView.Find<UIPanel>("OptionsBar");
+
+        //    //if (optionBar == null)
+        //    //{
+        //    //    Log.Warning("OptionBar not found!", "[NA18]");
+        //    //    return;
+        //    //}
+        //    //m_toolOptionButton.transform.SetParent(optionBar.transform);
+        //    //Log.Debug($"MAIN OPTIONS\nButton placed on main options bar ({m_toolOptionButton.parent})", "[NA50]");
+        //    IsButtonInOptionsBar = true;
+        //}
 
         public static UITextureAtlas GetAtlas(string name)
         {

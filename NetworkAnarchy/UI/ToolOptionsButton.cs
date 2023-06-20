@@ -27,7 +27,7 @@ namespace NetworkAnarchy
         public UICheckBox m_snappingBtn;
         public UICheckBox m_collisionBtn;
         public UICheckBox m_straightSlopeBtn;
-
+        
         public UICheckBox m_grid;
 
         private UITextureAtlas m_atlas;
@@ -55,9 +55,9 @@ namespace NetworkAnarchy
             isChecked = windowVisible;
         }
 
-        public new void Update()
+        public new void Update() 
         {
-            if (parent != null || m_parent != null) Log.Debug($"parent:{(parent == null ? "<null>" : parent.ToString())} m_parent:{(m_parent == null ? "<null>" : m_parent.ToString())}");
+            //if (parent != null || m_parent != null) Log.Debug($"parent:{(parent == null ? "<null>" : parent.ToString())} m_parent:{(m_parent == null ? "<null>" : m_parent.ToString())}");
             if (parent != m_parent && parent != null)
             {
                 string caller = new StackTrace()?.GetFrame(1)?.GetMethod()?.Name;
@@ -69,20 +69,22 @@ namespace NetworkAnarchy
 
             if (m_toolOptionsPanel != null)
             {
-                m_toolOptionsPanel.isVisible = isVisible && isChecked;
+                SetPanelVisible(isVisible && isChecked);
             }
         }
 
         public void SetPanelVisible(bool visible)
         {
-            if (alwaysShowPanel)
-            {
-                m_toolOptionsPanel.isVisible = true;
-            }
-            else
-            {
-                m_toolOptionsPanel.isVisible = visible;
-            }
+            m_toolOptionsPanel.isVisible = visible;
+
+            //if (alwaysShowPanel)
+            //{
+            //    m_toolOptionsPanel.isVisible = true;
+            //}
+            //else
+            //{
+            //    m_toolOptionsPanel.isVisible = visible;
+            //}
         }
 
         public void UpdateButton()
@@ -97,15 +99,15 @@ namespace NetworkAnarchy
                 return;
             }
 
-            if (NetworkAnarchy.instance.IsButtonInOptionsBar)
-            {
-                relativePosition = new Vector2(36, 0);
-            }
-            else
-            {
-                relativePosition = Vector2.zero;
-                parent.BringToFront();
-            }
+            //if (NetworkAnarchy.instance.IsButtonInOptionsBar)
+            //{
+            //    relativePosition = new Vector2(36, 0);
+            //}
+            //else
+            //{
+            //    relativePosition = Vector2.zero;
+            //    parent.BringToFront();
+            //}
 
             m_button.text = NetworkAnarchy.instance.elevationStep + "m\n";
             if (m_elevationStepSlider != null)
