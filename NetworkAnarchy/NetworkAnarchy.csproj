@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net35</TargetFramework>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-    <Version>3.2.2</Version>
+    <Version>3.2.3</Version>
     <ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed/</ManagedDLLPath>
     <AssemblySearchPaths>
 	  $(AssemblySearchPaths);
@@ -11,8 +11,8 @@
     </AssemblySearchPaths>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Deterministic>False</Deterministic>
-	  <AssemblyVersion>3.2.2.*</AssemblyVersion>
-    <FileVersion>3.2.2.0</FileVersion>
+	  <AssemblyVersion>3.2.3.*</AssemblyVersion>
+    <FileVersion>3.2.3.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CitiesHarmony.API" Version="2.1.0" />

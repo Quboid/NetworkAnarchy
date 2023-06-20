@@ -1,6 +1,7 @@
 ﻿using ColossalFramework.UI;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -230,32 +231,43 @@ namespace NetworkAnarchy
 
             try
             {
-                UIPanel optionBar = UIView.Find<UIPanel>("OptionsBar");
+                String[] ignoreComponents = { "WaterPanel", "BrushPanel", "UndoTerrainPanel", "LevelHeightPanel" };
+                UIPanel optionsBar = UIView.Find<UIPanel>("OptionsBar");
 
-                if (optionBar == null)
+                if (optionsBar == null)
                 {
-                    Log.Warning("OptionBar not found!", "[NA31.1]");
+                    Log.Warning("OptionsBar not found!", "[NA31.1]");
                     return;
                 }
 
-                optionBar.autoLayout = true;
-                optionBar.autoLayoutDirection = LayoutDirection.Horizontal;
+                //optionsBar.autoLayout = true;
+                optionsBar.autoLayoutDirection = LayoutDirection.Horizontal;
 
                 // Save existing optionsBar components, clear list
                 IList<UIComponent> components = new List<UIComponent>();
-                foreach (UIComponent comp in optionBar.components)
+                foreach (UIComponent comp in optionsBar.components)
                 {
-                    components.Add(comp);
+                    if (!ignoreComponents.Contains(comp.name))
+                    {
+                        components.Add(comp);
+                    }
                 }
-                optionBar.components.Clear();
+                foreach (UIComponent comp in components)
+                {
+                    optionsBar.components.Remove(comp);
+                }
 
                 // Add NA button to empty list
-                m_toolOptionButton = optionBar.AddUIComponent(typeof(UIToolOptionsButton)) as UIToolOptionsButton;
+                m_toolOptionButton = optionsBar.AddUIComponent(typeof(UIToolOptionsButton)) as UIToolOptionsButton;
 
                 // Re-add components after NA button
                 foreach (UIComponent comp in components)
                 {
-                    optionBar.components.Add(comp);
+                    optionsBar.components.Add(comp);
+                    if (comp.name == "RoadsOptionPanel")
+                    {
+                        comp.relativePosition += new Vector3(36, 0, 0);
+                    }
                 }
 
                 if (m_toolOptionButton == null)
@@ -267,11 +279,11 @@ namespace NetworkAnarchy
                 // Configure NA button
                 m_toolOptionButton.autoSize = false;
                 m_toolOptionButton.size = new Vector2(36, 36);
-                m_toolOptionButton.position = Vector2.zero;
+                m_toolOptionButton.relativePosition = new Vector2(-47, 0);
                 m_toolOptionButton.isVisible = false;
 
                 // Iterate networks' option panels
-                RoadsOptionPanel[] panels = optionBar.GetComponentsInChildren<RoadsOptionPanel>();
+                RoadsOptionPanel[] panels = optionsBar.GetComponentsInChildren<RoadsOptionPanel>();
                 foreach (RoadsOptionPanel panel in panels)
                 {
                     // Remove vanilla elevation button
