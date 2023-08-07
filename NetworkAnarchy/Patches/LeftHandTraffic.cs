@@ -21,6 +21,12 @@ namespace NetworkAnarchy.Patches
                 return;
             }
 
+            // Don't flip Sully's Water Park station networks
+            if (info.m_netAI is TrainTrackBridgeAI && info.name.Contains("Water Slide FT - ST"))
+            {
+                return;
+            }
+
             Vector3 buffer;
 
             buffer = endPosition;
